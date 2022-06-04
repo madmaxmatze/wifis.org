@@ -39,7 +39,8 @@ i18n.configure({
     cookie: 'locale',
     defaultLocale: 'en',
     directory: "./locales",
-    queryParameter: 'lang'
+    queryParameter: 'lang',
+    objectNotation: true,
 });
 
 // init i18n module

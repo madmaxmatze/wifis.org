@@ -1,3 +1,9 @@
 {
-	"phrase1": "Hello world"
+	"phrase1": "Hello world",
+    "level1" : {
+        "level2" : {
+            "level3" : "level123"
+        }
+    },
+    "level1.level2.level33" : "level1233"
 }
