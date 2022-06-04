@@ -15,12 +15,17 @@ hbs.registerHelper('equals', function (lvalue, rvalue) {
     return (lvalue === rvalue);
 });
 
+hbs.registerHelper('concat', function(string1, string2) {
+    return string1 + string2;
+});
 
 
 
+// https://github.com/TryGhost/express-hbs#usage
 app.engine('hbs', hbs.express4({
     // partialsDir: __dirname + '/views/partials'
-    defaultLayout: "./views/layouts/main.hbs"
+    defaultLayout: "./views/layouts/main.hbs",
+    beautify: true
 }));
 app.set('view engine', 'hbs');
 app.set('views', __dirname + '/views');
@@ -103,13 +108,20 @@ async function deleteCollection(db, collectionPath, batchSize) {
 
 
 
-
+/*
 app.use(function (req, res, next) {
     res.getLocale(),
     next();
 });
+*/
 
 
+app.get('(.*)\?lang=(\w{2})', async (req, res) => {
+    
+    console.log (res);
+    res.render('home', data);
+});
+  
 
 app.get('/', async (req, res) => {
     // The handlebars template is stored in global state so this will only once.
@@ -154,9 +166,10 @@ app.get('/', async (req, res) => {
         });
         */
 
-        data.locale = res.locale;
-        data.pagename = "home";
-        res.render('home', data);
+        data.locale = i18n.getLocale();
+        data.pagename = "Homepage";
+        data.viewname = "Homepage";
+        res.render(data.viewname, data);
 
         // const output = template(data);
         // res.status(200).send(output);
@@ -176,11 +189,12 @@ app.get('/p/:pagename', async (req, res) => {
 
 
 app.get('/p/:pagename', async (req, res) => {
-    data.locale = res.locale;
+    data.locale = i18n.getLocale();
     
+    data.viewname = "MorePages";
     data.pagename = req.params.pagename;
-
-    res.render('home', data);
+    
+    res.render(data.viewname, data);
 });
 
 

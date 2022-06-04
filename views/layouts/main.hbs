@@ -94,14 +94,15 @@
 
                     <li id="langDropDown" class="dropdown">
                         <a href="${CONST.URL_PATH_LANGUAGES}?${CONST.URL_PARAM_REFERER}=${uri}"
-                            class="dropdown-toggle"><span class="sprite flag flag_de"></span><b class="caret"></b></a>
+                            class="dropdown-toggle"><span class="sprite flag flag_{{locale}}"></span><b class="caret"></b></a>
 
                         <ul class="dropdown-menu">
 
                             {{#each languages}}
                             <li{{#if (equals ../locale this)}} class="active"{{/if}}>
                             
-                                <a  href="?lang={{this}}"><span class="sprite flag flag_{{this}}"></span>
+                                <a  href="?lang={{this}}"><span class="sprite flag flag_{{this}}"></span> {{../__ (concat "label.lang." this)}}
+
                                 </a>
                             </li>
                             {{/each}}
@@ -177,7 +178,7 @@
 
     <!-- TODO:JSP SOCIAL -->
 
-    <div class="container maincontainer homepage">
+    <div class="container maincontainer {{viewname}}">
         <div class="content contenttop">
 
             {{{body}}}
