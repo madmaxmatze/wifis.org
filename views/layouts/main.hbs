@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="TODO:${lang}" class="no-js web lang_${lang}">
+<html lang="{{locale}}" class="no-js web lang_{{locale}}">
 
 <head>
     <!-- Wifis.org ♥ developers - help us https://www.wifis.org/p/languages -->
@@ -26,6 +26,11 @@
 </head>
 
 <body>
+
+    user: "{{user}}"<br>
+    user.id: "{{user.id}}"<br>
+    user.username: "{{user.username}}"<br>
+
     <div class="navbar navbar-fixed-top" data-dropdown="dropdown">
         <div class="navbar-inner">
             <div class="container">
@@ -124,17 +129,17 @@
 
                     <li class="dropdown">
                         <!-- when NOT logged in -->
-                        <a href="${CONST.URL_PATH_LOGIN}" class="dropdown-toggle">
-                            Login<b class="caret"></b></a>
+                        <a href="/p/login" class="dropdown-toggle">
+                            {{__ "label.signin"}}<b class="caret"></b></a>
                         <ul class="dropdown-menu">
                             <li><a class="googleLogin"
-                                    href="${CONST.URL_PATH_LOGIN}?${CONST.URL_PARAM_PROVIDER}=google&amp;${CONST.URL_PARAM_REDIRECT}=${uri}"
+                                    href="/login/federated/google"
                                     title="Login with google" rel="nofollow"><span>
-                                        Login with google</span></a></li>
+                                        {{__ "login.google.hint"}}</span></a></li>
                             <li><a class="facebookLogin"
                                     href="${CONST.URL_PATH_LOGIN}?${CONST.URL_PARAM_PROVIDER}=facebook&amp;${CONST.URL_PARAM_REDIRECT}=${uri}"
                                     title="Login with Facebook" rel="nofollow"><span>
-                                        Login with Facebook</span></a></li>
+                                        {{__ "login.facebook.hint"}}</span></a></li>
                         </ul>
                         <!-- when logged in
                                 <a href="${CONST.URL_PATH_LOGOUT}" class="dropdown-toggle" id="logout-menu-item"

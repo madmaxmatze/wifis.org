@@ -74,7 +74,9 @@
     "login": {
         "headline": "Anmelden",
         "linklabel": "Anmelden",
-        "text": "<b>wifis.org ermöglicht nur das Einloggen mit deinem Google oder Facebook Account aus folgenden Gründen:<br><\/b> <ol> <li> <b style=\"color: #333\">Komfort:<\/b> Ein langer Registrierungsprozess, der das Ausfüllen eines Formulares und die Bestätigung deiner Email Adresse erfordert, ist nicht nötig. <\/li> <li> <b style=\"color: #333\">Sicherheit und Datenschutz:<\/b> Da wir kein Passwort oder andere persönliche Informationen von dir erfragen oder speichern, können wir zu 100% garantieren, dass wir deine Daten niemals verlieren oder an Dritte weiter geben! Weitere Informationen über diese sichere Art des Logins erfährst du direkt bei den Anbietern {0} und {1}. <\/li> <\/ol>",
+        "text1": "wifis.org ermöglicht nur das Einloggen mit deinem Google oder Facebook Account aus folgenden Gründen:",
+        "text2": "<b style=\"color: #333\">Komfort:<\/b> Ein langer Registrierungsprozess, der das Ausfüllen eines Formulares und die Bestätigung deiner Email Adresse erfordert, ist nicht nötig.",
+        "text3": "<b style=\"color: #333\">Sicherheit und Datenschutz:<\/b> Da wir kein Passwort oder andere persönliche Informationen von dir erfragen oder speichern, können wir zu 100% garantieren, dass wir deine Daten niemals verlieren oder an Dritte weiter geben! Weitere Informationen über diese sichere Art des Logins erfährst du direkt bei den Anbietern: ",
         "buttonPrefix": "Anmelden mit",
         "facebookHelpLinkHintText": "Hier erfährst du mehr über den Facebook Login für anderen Webseiten",
         "googleHelpLinkHintText": "Hier erfährst du mehr über den Google Login für anderen Webseiten",

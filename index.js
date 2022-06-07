@@ -1,13 +1,19 @@
 // const Firestore = require('@google-cloud/firestore');
 // const { readFileSync } = require('fs');
 
+
 var express = require('express');
 const app = express();
 app.use('/assets', express.static('assets'));
 
+
+var LocalStrategy = require('passport-local');
+
+// var router = express.Router();
+
+
+
 var hbs = require('express-hbs');
-
-
 hbs.registerHelper('equals', function (lvalue, rvalue) {
     if (arguments.length < 2) {
         throw new Error("Handlebars Helper equal needs 2 parameters");
@@ -15,7 +21,7 @@ hbs.registerHelper('equals', function (lvalue, rvalue) {
     return (lvalue === rvalue);
 });
 
-hbs.registerHelper('concat', function(string1, string2) {
+hbs.registerHelper('concat', function (string1, string2) {
     return string1 + string2;
 });
 
@@ -31,6 +37,19 @@ app.set('view engine', 'hbs');
 app.set('views', __dirname + '/views');
 
 
+
+
+
+var session = require('express-session');
+// var SQLiteStore = require('connect-sqlite3')(session);
+
+app.use(session({
+    secret: "session_demo",
+    // resave: true,
+    saveUninitialized: false,
+    cookie: { maxAge: 60000 },
+    //     store: new SQLiteStore({ db: 'sessions.db', dir: './var/db' }),
+}));
 
 
 var cookieParser = require('cookie-parser');
@@ -50,6 +69,39 @@ i18n.configure({
 
 // init i18n module
 app.use(i18n.init);
+
+
+
+// http://www.passportjs.org/tutorials/google/redirect/ 
+var passport = require('passport');
+// var GoogleStrategy = require('passport-google-oidc');
+
+
+// app.get('/login/federated/google', passport.authenticate('google'));
+console.log ("test");
+
+passport.use(new LocalStrategy({}, function verify(username, password, doneCallback) {
+    console.log ("username" + username);
+    console.log ("password" + password);
+    
+    doneCallback(null, { id: "123", username: "mathias" });
+}));
+
+passport.serializeUser(function (user, cb) {
+    process.nextTick(function () {
+        cb(null, { id: user.id, username: user.username });
+    });
+});
+
+passport.deserializeUser(function (user, cb) {
+    process.nextTick(function () {
+        return cb(null, user);
+    });
+});
+
+
+
+
 
 
 /*
@@ -116,12 +168,23 @@ app.use(function (req, res, next) {
 */
 
 
-app.get('(.*)\?lang=(\w{2})', async (req, res) => {
-    
-    console.log (res);
-    res.render('home', data);
+// lang middleware
+app.use(function (req, res, next) {
+    data.locale = "en";
+
+    if (req.cookies.locale) {
+        data.locale = req.cookies.locale;
+    }
+
+    if (req.query.lang !== undefined) {
+        data.locale = req.query.lang;
+        res.cookie('locale', req.query.lang);
+    }
+
+    next();
 });
-  
+
+
 
 app.get('/', async (req, res) => {
     // The handlebars template is stored in global state so this will only once.
@@ -166,7 +229,8 @@ app.get('/', async (req, res) => {
         });
         */
 
-        data.locale = i18n.getLocale();
+
+
         data.pagename = "Homepage";
         data.viewname = "Homepage";
         res.render(data.viewname, data);
@@ -186,16 +250,36 @@ app.get('/p/:pagename', async (req, res) => {
 */
 
 
+app.get('/p/login', function (req, res, next) {
+    //console.log(req);
+    //console.log(res);
 
-
-app.get('/p/:pagename', async (req, res) => {
-    data.locale = i18n.getLocale();
-    
-    data.viewname = "MorePages";
-    data.pagename = req.params.pagename;
+    data.pagename = "Homepage";
+    data.viewname = "Login";
+    data.user = req.user;
     
     res.render(data.viewname, data);
 });
+
+
+app.post('/p/login', passport.authenticate('local', {
+    successRedirect: '/',
+    failureRedirect: '/p/login'
+}));
+
+
+app.use(passport.authenticate('session'));
+
+
+app.get('/p/:pagename', async (req, res) => {
+    data.viewname = "MorePages";
+    data.pagename = req.params.pagename;
+
+    res.render(data.viewname, data);
+});
+
+
+// module.exports = router;
 
 
 const PORT = process.env.PORT || 8080;
@@ -204,3 +288,5 @@ app.listen(PORT, () => {
         `Hello from Cloud Run! The container started successfully and is listening for HTTP requests on ${PORT}`
     );
 });
+
+

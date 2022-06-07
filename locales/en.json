@@ -74,7 +74,9 @@
     "login": {
         "headline": "Login",
         "linklabel": "Login",
-        "text": "<b>wifis.org only allows login with your existing Google or Facebook account. The two main reasons are:<br><\/b> <ol> <li> <b style=\"color: #333\">Your comfort:<\/b> You don’t have to fill out any registration forms or confirm your email address. <\/li> <li> <b style=\"color: #333\">Your privacy and security:<\/b> Since we don’t know or store your password or any personal information, we can guarantee that we will never lose your data. Further information about these secure login methods can be found at {0} or {1}. <\/li> <\/ol>",
+        "text1": "wifis.org only allows login with your existing Google or Facebook account. The two main reasons are:",
+        "text2": "<b style=\"color: #333\">Your comfort:<\/b> You don’t have to fill out any registration forms or confirm your email address.",
+        "text3": "<b style=\"color: #333\">Your privacy and security:<\/b> Since we don’t know or store your password or any personal information, we can guarantee that we will never lose your data. Further information about these secure login methods can be found here: ",
         "buttonPrefix": "Login with",
         "facebookHelpLinkHintText": "More information about Facebook 3rd party login",
         "googleHelpLinkHintText": "More information about Google 3rd party login",
