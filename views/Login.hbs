@@ -2,14 +2,15 @@
 
 <div class="login">
     <div class="loginButtons">
-        <b>{{& __ "login.buttonPrefix"}}</b> <a class="btn googleLogin" href="?provider=google"
-            title="{{__ "login.google.hint"}}" rel="nofollow">
-            <span class="sprite googleLoginImage"><b>{{& __ "login.google.hint"}}
-                </b></span>
-        </a><br>
-        <br> <b>{{& __ "login.buttonPrefix"}}</b> <a class="btn facebookLogin" href="?provider=facebook"
-            title="{{__ "login.facebook.hint"}}" rel="nofollow"> <span
-                class="sprite facebookLoginImage"><b>{{& __ "login.faebook.hint"}}</b></span>
+        <b>{{& __ "login.buttonPrefix"}}</b>
+        <a class="btn googleLogin" href="?provider=google" title="{{__ "login.google.hint"}}" rel="nofollow">
+            <span class="sprite googleLoginImage"><b>{{& __ "login.google.hint"}}</b></span>
+        </a>
+        <br>
+        <br>
+        <b>{{& __ "login.buttonPrefix"}}</b>
+        <a class="btn facebookLogin" href="?provider=facebook" title="{{__ "login.facebook.hint"}}" rel="nofollow">
+            <span class="sprite facebookLoginImage"><b>{{& __ "login.faebook.hint"}}</b></span>
         </a>
     </div>
 
@@ -29,9 +30,9 @@
 
     <form action="/p/login" method="post">
         <label>User</label>
-        <input name="username" type="text" value="...">
+        <input name="username" type="text" value="mathias">
         <label>Password</label>
-        <input name="password" type="password" value="...">
+        <input name="password" type="password" value="stefan">
         <button type="submit">Sign in</button>
     </form>
 </div>
