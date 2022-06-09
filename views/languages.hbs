@@ -1,0 +1,20 @@
+<div class="no-js-languageSelector">
+    <h2>Choose your language</h2>
+    <ul>
+        {{#each getLocales}}
+        <li>
+            <a href="{{../query.referer}}?lang={{this}}" class="sprite flag flag_{{this}}"></a>
+            <a href="{{../query.referer}}?lang={{this}}">{{../__ (concat "label.lang." this)}}</a>
+        </li>
+        {{/each}}
+    </ul>
+</div>
+
+<h2>Is your language missing?</h2>
+<img src="/assets/img/languages.png" style="float: right; width: 500px; margin-left: 30px;" />
+<b>You like the idea behind this free and open project, but your
+    language is not supported so far.</b>
+<br>
+<br>
+No problem - we would be very happy to welcome you in our team of people supporting and translating this website. Just
+<a href="/p/about">contact us</a>

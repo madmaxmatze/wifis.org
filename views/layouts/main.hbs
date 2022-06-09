@@ -26,162 +26,7 @@
 </head>
 
 <body>
-    <div class="navbar navbar-fixed-top" data-dropdown="dropdown">
-        <div class="navbar-inner">
-            <div class="container">
-
-                <a class="sprite brand active" href="/"><span>/</span></a>
-                <ul class="nav pull-left">
-                    <!-- ADMIN LINK when logged in
-                    <c:if
-                        test="${isUserWithPermissionADMIN || isUserWithPermissionSTATS || isUserWithPermissionAPI || isUserWithPermissionDATA}">
-                        <li class="dropdown <c:if test=" ${fn:startsWith(uri, CONST.URL_PATH_ADMIN)}">active
-                    </c:if>"><a href="${CONST.URL_PATH_ADMIN}">ADMIN</a>
-                                <ul class="dropdown-menu">
-                                    <c:if test="${isUserWithPermissionADMIN || isDevEnv}">
-                                        <li
-                                            <c:if test='${uri==CONST.URL_PATH_ADMIN}'> class="active"</c:if>><a
-                                            href="${CONST.URL_PATH_ADMIN}">Overview</a></li>
-                                    </c:if>
-                                    <c:if test="${isUserWithPermissionSTATS || isDevEnv}">
-                                        <li
-                                            <c:if test='${uri==CONST.URL_PATH_ADMIN_STATS}'> class="active"</c:if>><a
-                                            href="${CONST.URL_PATH_ADMIN_STATS}">Stats</a></li>
-                                    </c:if>
-                                    <c:if test="${isUserWithPermissionDATA || isDevEnv}">
-                                        <li
-                                            <c:if test='${uri==CONST.URL_PATH_ADMIN_DATA}'> class="active"</c:if>><a
-                                            href="${CONST.URL_PATH_ADMIN_DATA}">Data</a></li>
-                                    </c:if>
-                                    <c:if test="${isUserWithPermissionAPI || isDevEnv}">
-                                        <li
-                                            <c:if test='${uri==CONST.URL_PATH_ADMIN_API}'> class="active"</c:if>><a
-                                            href="${CONST.URL_PATH_ADMIN_API}">Api</a></li>
-                                    </c:if>
-                                </ul>
-                               
-
-                    </li>
-                    </c:if>
-                    -->
-                </ul>
-
-                <ul class="nav pull-right">
-                    <!-- when logged in: Wifis
-                        <li <c:if test='${uri==CONST.URL_PATH_WIFIS}'> class="active"
-                    </c:if>><a href="${CONST.URL_PATH_WIFIS}">
-                        <spring:message code="wifis.linklabel" /></a></li>
-                    </c:if>
-                    -->
-
-                    <li class="dropdown">
-                        <a href="/p/faq" class="dropdown-toggle">
-                            More<b class="caret"></b></a>
-                        <ul class="dropdown-menu">
-                            <li><a href="/p/faq">
-                                    FAQ</a></li>
-                            <li><a href="/p/about">
-                                    About</a></li>
-                            <li><a href="/p/press">
-                                    Press</a></li>
-                            <!--<li<c:if test='${uri==CONST.URL_PATH_TOS}'> class="active"</c:if>><a href="${CONST.URL_PATH_TOS}"><spring:message code="tos.linklabel" /></a></li>
-                             -->
-                            <li><a target="_blank" href="/p/blog"><span class="external sprite">
-                                        Blog</span></a></li>
-                        </ul>
-                    </li>
-
-
-                    <li id="langDropDown" class="dropdown">
-                        <a href="${CONST.URL_PATH_LANGUAGES}?${CONST.URL_PARAM_REFERER}=${uri}"
-                            class="dropdown-toggle"><span class="sprite flag flag_{{getLocale}}"></span><b
-                                class="caret"></b></a>
-
-                        <ul class="dropdown-menu">
-                            {{#each getLocales}}
-                            <li{{#if (equals ../getLocale this)}} class="active" {{/if}}>
-
-                                <a href="?lang={{this}}"><span class="sprite flag flag_{{this}}"></span>
-                                    {{../__ (concat "label.lang." this)}}
-
-                                </a>
-                    </li>
-                    {{/each}}
-
-
-                    <c:if test="${isUserWithPermissionsTRANS}">
-                        <!--
-                                    <c:if test="${lang != CONST.LANG_TR}"> 
-                                        <li><a href="?${URL_PARAM_LANG}=${CONST.LANG_TR}"><div class="sprite flag flag_${CONST.LANG_TR}"></div></a></li>
-                                    </c:if>
-                                    -->
-                    </c:if>
-
-                    <li><a href="${CONST.URL_PATH_LANGUAGES}?${CONST.URL_PARAM_REFERER}=${uri}"
-                            style="text-align: center;"> <b style="color: black;">??</b>
-                        </a></li>
-                </ul>
-                </li>
-
-                <li class="dropdown">
-                    <!-- when NOT logged in -->
-                    {{#if user}}
-                    <a href="#" class="dropdown-toggle" id="logout-menu-item" title="logout">
-                        <span class="loginName" title="logout">{{user.username}}</span>
-                        <span class="sprite loginType icon icon-{{user.provider}}"></span>
-                        <b class="caret"></b>
-                    </a>
-                    <ul class="dropdown-menu">
-                        <li>
-                            <a href="/p/logout?$redirect=/">{{__ "label.logout"}}</a>
-                        </li>
-                    </ul>
-                    {{else}}
-                    <a href="/p/login" class="dropdown-toggle">
-                        {{__ "label.signin"}}<b class="caret"></b></a>
-                    <ul class="dropdown-menu">
-                        <li>
-                            <a class="googleLogin" href="/login/federated/google" title="Login with google"
-                                rel="nofollow"><span>
-                                    {{__ "login.google.hint"}}</span></a>
-                        </li>
-                        <li>
-                            <a class="facebookLogin"
-                                href="${CONST.URL_PATH_LOGIN}?${CONST.URL_PARAM_PROVIDER}=facebook&amp;${CONST.URL_PARAM_REDIRECT}=${uri}"
-                                title="Login with Facebook" rel="nofollow"><span>
-                                    {{__ "login.facebook.hint"}}</span></a>
-                        </li>
-                    </ul>
-                    {{/if}}
-
-
-                </li>
-                </ul>
-
-                <!-- Mobile
-                        <a class="brand" href="${CONST.URL_PATH_HOMEPAGE}"><span>${CONST.URL_DOMAIN_NAKED}</span></a>
-
-                        <ul class="nav">
-                            <li <c:if test='${uri == CONST.URL_PATH_HOMEPAGE}'> class="active"</c:if>><a
-                                    href="${CONST.URL_PATH_HOMEPAGE}">
-                                    <spring:message code="homepage.linklabel" /></a></li>
-                            <li <c:if
-                                test="${uri == CONST.URL_PATH_FAQ || uri == CONST.URL_PATH_ABOUT || uri == CONST.URL_PATH_TOS || uri == CONST.URL_PATH_PRESS}">
-                                class="active"</c:if>>
-                                <a href="${CONST.URL_PATH_FAQ}">
-                                    <spring:message code="label.otherwebsite.title" /></a>
-                            </li>
-                        </ul>
-
-                        <ul class="nav" id="langDropDown">
-                            <li><a href="${CONST.URL_PATH_LANGUAGES}?${CONST.URL_PARAM_REFERER}=${uri}"><span
-                                        class="sprite flag flag_${lang}"></span></a></li>
-                        </ul>
-                    -->
-            </div>
-        </div>
-    </div>
-
+    {{> navi }}
 
     <!-- TODO:JSP SOCIAL -->
 
@@ -189,47 +34,24 @@
         <div class="content contenttop">
 
             {{{body}}}
-
+            
             <div class='clear'></div>
         </div>
     </div>
 
-
-
-
-    <footer>
-        <div class="press">
-            Featured:
-            <br>
-
-            <a href="/p/press" class="logo logo-boingboing" title="www.BoingBoing.net"></a>
-            <a href="/p/press" class="logo logo-tnw" title="www.TheNextWeb.com"></a>
-            <a href="/p/press" class="logo logo-rww" title="www.ReadWriteWeb.com"></a>
-            <a href="/p/press" class="logo logo-hackernews" title="HackerNews"></a>
-        </div>
-
-        revision: {{revision}}<br>
-        service: {{service}}<br>
-        getLocale: "{{getLocale}}"<br>
-        getLocales: "{{getLocales}}"<br>
-     
-
-
-
-        <!-- MOBILE SWITCH
-    <c:if test="${isMobileDevice}">
-        <a class="mobileSwitch" href="${mobileSwitchUrl}"><spring:message
-                code="label.footer.switchToMobile" /></a>
-    </c:if>
-     -->
-    </footer>
-
+    {{> footer }}
 
     <script type='text/javascript' src='https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js'></script>
-
     <script type="text/javascript">
+        /*
+                revision: {{revision}}
+                service: {{service}}
+                getLocale: "{{getLocale}}"
+                getLocales: "{{getLocales}}"      
+        */
+
         var config = {
-            lang: 'en',
+            lang: '{{getLocale}}',      // remove and use HTML lang
             analytics: {
                 enabled: true,
                 account: 'UA-648146-10',
@@ -237,37 +59,10 @@
                 view: '',
                 events: ','
             },
-            translations: {
-                twitterMsg: "With @wifis_org your neighbors can contact you through your Wi-Fi name. Visit",
-                test: "Check",
-                save: "Register",
-                deleteButton: "Delete",
-                wifisError: {
-                    none: "This ID is available.",
-                    noWifiIdDefined: "Please insert a name.",
-                    wifiNotFound: "wifis.org ID not found.",
-                    alreadyYourWifi: "You already registered this ID.",
-                    otherUsersWifi: "This wifis.org ID is already taken by another user.",
-                    wifiIdTooShort: "Your ID has to be at least 3 characters.",
-                    wifiIdTooLong: "We do not support IDs longer than 20 characters.",
-                    wrongWifiIdChars: "The only characters allowed are letters, numbers and hyphens.",
-                    maxWifiCountReached: "You have reached your current limit of wifis.org IDs. Try the \u003Cb\u003Einvite a friend\u003C\/b\u003E link on the right to increase your limit.",
-                    absoluteWifiLimitReached: "We only allow up to 10 different wifis.org IDs at this point. If you really need more IDs please contact us.",
-                    whileWifiDelete: "Oops. There was an error during the deletion process."
-                }
-            }
+
+            translations: {{{ json translations }}}
         };
     </script>
-
-
-    <!-- footer mobile
-            <footer>
-                <spring:message code="label.footer" />
-                | <a class="mobileSwitch" href="${mobileSwitchUrl}">
-                    <spring:message code="label.footer.switchToWeb" /></a>
-            </footer>
-            -->
-
 
     <script type='text/javascript' src='/assets/js/libs/bootstrap-dropdown.js?nocache=${random}'></script>
     <script type='text/javascript' src='/assets/js/libs/jquery.timeout.js?nocache=${random}'></script>
@@ -281,11 +76,9 @@
     <script type='text/javascript' src='/assets/js/jquery.wifis.tips.js?nocache=${random}'></script>
     <script type='text/javascript' src='/assets/js/wifis.controller.js?nocache=${random}'></script>
 
-
     <!--<c:when test="${isDevEnv == 'false' && mode == 'web'}">
             <script type='text/javascript' src='/assets/js/wifis.min.js'></script>
             -->
-
 </body>
 
 </html>

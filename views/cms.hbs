@@ -1,23 +1,118 @@
-<ul class="nav nav-tabs">
-    <li {{#if (equals cms_id "faq")}}class="active" {{/if}}>
-        <a href="/p/faq">{{__ "faq.linklabel"}}</a>
-    </li>
-    <li {{#if (equals cms_id "about")}}class="active" {{/if}}>
-        <a href="/p/about">{{__ "about.linklabel"}}</a>
-    </li>
-    <li {{#if (equals cms_id "press")}}class="active" {{/if}}>
-        <a href="/p/press">{{__ "press.linklabel"}}</a>
-    </li>
-    <li>
-        <a href="${CONST.URL_BLOG}" target="_blank"><span class="external sprite">{{__ "blog.linklabel"}}</span></a>
-    </li>
-    <li {{#if (equals cms_id "tos")}}class="active" {{/if}}>
-        <a href="/p/tos">{{__ "tos.linklabel"}}</a>
-    </li>
-</ul>
+{{!< ./layouts/main}}
+
+{{> cms_navi }}
 
 <h2>
-    {{& __ (concat cms_id ".headline")}}
+    {{{ __ (concat cms_id ".headline")}}}
 </h2>
 
-{{& __ (concat cms_id ".text")}}
+
+{{{__ (concat cms_id ".text")}}}
+
+
+
+
+
+
+
+
+
+
+    	<div class="about">
+			<c:set var="t0">
+				<a href="http://mathiasnitzsche.de" target="_blank">Mathias</a>
+				<span style="color: #BBB">(Founder, Coder),</span>
+				<a href="http://about.me/nacido" target="_blank">Robert</a>
+				<span style="color: #BBB">(Product),</span> 
+				Malena <span style="color: #BBB">(Marketing/User Support),</span>
+				<a href="http://vonverhille.tumblr.com/" target="_blank">James</a>
+				<span style="color: #BBB">(Design)</span>
+			</c:set>
+			<c:set var="t1">
+				Howard <span style="color: #BBB">(ES-Translation),</span>
+
+				<a href="https://www.facebook.com/karenkennes22" target="_blank">Karen</a>
+				<span style="color: #BBB">(NL-Translation),</span>
+
+				<a href="http://www.linkedin.com/in/lorenzotubertini"
+					target="_blank">Lorenzo</a>
+				<span style="color: #BBB">(IT-Translation),</span>
+
+				<a href="http://jobberies.com" target="_blank">Muhaimin</a>
+				<span style="color: #BBB">(MS-Translation),</span>
+				<!-- https://www.facebook.com/zuljalal.li.wal.ikraom -->
+
+				<a href="http://ravenstalker.wordpress.com" target="_blank">ArnO</a>
+				<span style="color: #BBB">&amp;</span>
+				<a href="https://twitter.com/russelomua" target="_blank">Николай</a>
+				<span style="color: #BBB">(RU-Translation)</span>
+			</c:set>
+
+			<c:set var="t2">
+				<br>
+				<br>
+				<div class="sprite icon32 icon32-mail"></div>
+			</c:set>
+			<c:set var="t3">
+				<b>&#105;&#110;&#102;&#111;&#64;&#119;&#105;&#102;&#105;&#115;&#46;&#111;&#114;&#103;</b>
+			</c:set>
+
+			<c:set var="t4">
+				<br>
+				<br>
+				<a href="/contact" class="sprite icon32 icon32-wifi"></a>
+			</c:set>
+			<c:set var="t5">
+				<a href="/contact">wifis.org/contact</a>
+			</c:set>
+
+			<c:set var="t6">
+				<br>
+				<br>
+				<a href="http://twitter.com/wifis_org" target="_blank"
+					class="sprite icon32 icon32-twitter"></a>
+			</c:set>
+			<c:set var="t7">
+				<a href="http://twitter.com/wifis_org" rel="nofollow"
+					target="_blank">Twitter</a>
+			</c:set>
+
+			<c:set var="t8">
+				<br>
+				<br>
+				<a href="http://www.facebook.com/wifis.org" target="_blank"
+					class="sprite icon32 icon32-facebook"></a>
+			</c:set>
+			<c:set var="t9">
+				<a href="http://www.facebook.com/wifis.org" rel="nofollow"
+					target="_blank">Facebook</a>
+			</c:set>
+
+			<c:set var="t10">
+				<br>
+				<br>
+				<a href="http://plus.google.com/117695499761775220519"
+					target="_blank" class="sprite icon32 icon32-google"></a>
+			</c:set>
+			<c:set var="t11">
+				<a href="http://plus.google.com/117695499761775220519"
+					rel="nofollow" target="_blank">Google+</a>
+			</c:set>
+
+			<c:set var="t12">
+				<br>
+				<br>
+				<a href="${CONST.URL_BLOG}"
+					target="_blank" class="sprite icon32 icon32-tumblr"></a>
+			</c:set>
+			<c:set var="t13">
+				<a href="${CONST.URL_BLOG}" rel="nofollow"
+					target="_blank"><spring:message code="blog.linklabel" /></a>
+			</c:set>
+
+			<spring:message code="about.text" argumentSeparator="###"
+				arguments="${t0}###${t1}###${t2}###${t3}###${t4}###${t5}###${t6}###${t7}###${t8}###${t9}###${t10}###${t11}###${t12}###${t13}"
+				htmlEscape="false" />
+			<br>
+		</div>
+	</c:when>

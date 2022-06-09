@@ -43,12 +43,10 @@
     "homepage": {
         "headline": "Home",
         "linklabel": "Home",
-        "text": {
-            "text": [
-                "<h1>Con wifis.org ricevi email tramite la tua rete wifi<\/h1> <blockquote class=\"bubble1\"><p>\"Ciao, ti va di condividere la tua rete wifi in cambio di un rimborso mensile?\" \\\\<\/p><\/blockquote> <blockquote class=\"bubble2\"><p>\"Mi sono appena trasferito qui vicino e ho visto la tua rete wifi. Ti va se ci vediamo per una birra?\"<\/p><\/blockquote> <\/div><div class=\"content\"> <h2>Come funziona?<\/h2>",
-                "<div class=\"how_to_subtext\"> (Scopri di più su questo servizio gratuito e anonimo nelle <a href=\"\/p\/faq\">FAQ<\/a>) <\/div> <\/div><div class=\"content\">"
-            ]
-        },
+        "text": [
+            "<h1>Con wifis.org ricevi email tramite la tua rete wifi<\/h1> <blockquote class=\"bubble1\"><p>\"Ciao, ti va di condividere la tua rete wifi in cambio di un rimborso mensile?\" \\\\<\/p><\/blockquote> <blockquote class=\"bubble2\"><p>\"Mi sono appena trasferito qui vicino e ho visto la tua rete wifi. Ti va se ci vediamo per una birra?\"<\/p><\/blockquote> <\/div><div class=\"content\"> <h2>Come funziona?<\/h2>",
+            "<div class=\"how_to_subtext\"> (Scopri di più su questo servizio gratuito e anonimo nelle <a href=\"\/p\/faq\">FAQ<\/a>) <\/div> <\/div><div class=\"content\">"
+        ],
         "teasers": [
             "<b>TU<\/b> rinomini la tua rete wifi",
             "<b>GLI ALTRI<\/b> vedono il tuo profilo wifis.org",

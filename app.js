@@ -21,14 +21,28 @@ expressHandlebars.registerHelper('equals', function (lvalue, rvalue) {
     if (arguments.length < 2) {
         throw new Error("Handlebars Helper equal needs 2 parameters");
     }
-    return (lvalue === rvalue);
+    if (typeof lvalue == "function") {
+        lvalue = lvalue();
+    }
+    if (typeof rvalue == "function") {
+        rvalue = rvalue();
+    }
+    console.log ("equals: " + lvalue + " " + rvalue);
+    return (lvalue == rvalue);
+});
+expressHandlebars.registerHelper('replace', function(to_replace, replacement, options) {
+    return options.fn(this).replace(to_replace, replacement);
 });
 expressHandlebars.registerHelper('concat', function (val1, val2) {
     return val1 + val2;
 });
+expressHandlebars.registerHelper('json', function(object) {
+    return JSON.stringify(object);
+});
 app.engine('hbs', expressHandlebars.express4({
     // partialsDir: __dirname + '/views/partials'
-    defaultLayout: "./views/layouts/main.hbs",
+    defaultLayout: __dirname + "/views/layouts/main.hbs",
+    partialsDir: __dirname + '/views/partials',
     beautify: true
 }));
 app.set('view engine', 'hbs');

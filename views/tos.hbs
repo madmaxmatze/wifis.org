@@ -1,0 +1,13 @@
+{{!< ./layouts/main}}
+
+{{> cms_navi }}
+
+<h2>
+    {{{__ "tos.headline"}}}
+</h2>
+
+{{#unless (equals getLocale "en")}}
+	<div class="alert alert-block"> {{{__ "tos.introMsg"}}}</div>
+{{/unless}}
+
+{{{__ "tos.text"}}}
