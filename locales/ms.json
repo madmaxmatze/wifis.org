@@ -43,14 +43,17 @@
     "homepage": {
         "headline": "Anjung",
         "linklabel": "Anjung",
-        "text": {
-            "text": "<h1>Kini WiFi anda boleh menerima emel<\/h1> <blockquote class=\"bubble1\"><p>\"Salam, boleh saya guna WiFi awak? Mungkin awak boleh kenakan yuran bulanan?\" <\/p><\/blockquote> <blockquote class=\"bubble2\"><p>\"Saya orang baru disini dan terperasan Wi-Fi anda. Jom kita pergi ngeteh petang ini?\"<\/p><\/blockquote> <\/div><div class=\"content\"> <h2>Bagaimana ia berfungsi?<\/h2> {0} <div class=\"how_to_subtext\"> (Dalami lagi pengetahuan anda mengenai khidmat percuma dan tidak beridentiti ini di  <a href=\"\/p\/faq\">SKD<\/a>) <\/div> <\/div><div class=\"content\"> {1}",
-            "teaser1": "<b>ANDA<\/b> Namakan semula Wi-Fi anda",
-            "teaser2": "<b>ORANG LAIN<\/b> perasan url wifis.org anda",
-            "teaser3": "<b>WIFIS.ORG<\/b> melancarkan perhubungan",
-            "wifichecker": "Pilih ID peribadi wifis.org anda:",
-            "joinButton": "Sertai<br>sekarang"
-        }
+        "text": [
+            "<h1>Kini WiFi anda boleh menerima emel<\/h1> <blockquote class=\"bubble1\"><p>\"Salam, boleh saya guna WiFi awak? Mungkin awak boleh kenakan yuran bulanan?\" <\/p><\/blockquote> <blockquote class=\"bubble2\"><p>\"Saya orang baru disini dan terperasan Wi-Fi anda. Jom kita pergi ngeteh petang ini?\"<\/p><\/blockquote> <\/div><div class=\"content\"> <h2>Bagaimana ia berfungsi?<\/h2>",
+            "<div class=\"how_to_subtext\"> (Dalami lagi pengetahuan anda mengenai khidmat percuma dan tidak beridentiti ini di  <a href=\"\/p\/faq\">SKD<\/a>) <\/div> <\/div><div class=\"content\">"
+        ],
+        "teasers": [
+            "<b>ANDA<\/b> Namakan semula Wi-Fi anda",
+            "<b>ORANG LAIN<\/b> perasan url wifis.org anda",
+            "<b>WIFIS.ORG<\/b> melancarkan perhubungan"
+        ],
+        "wifichecker": "Pilih ID peribadi wifis.org anda:",
+        "joinButton": "Sertai<br>sekarang"
     },
     "404": {
         "headline": "404 Ralat",

@@ -43,14 +43,17 @@
     "homepage": {
         "headline": "домашняя",
         "linklabel": "домашняя",
-        "text": {
-            "text": "<h1>С wifis.org ваш Wi-Fi может получать письма<\/h1> <blockquote class=\"bubble1\"><p>\"Привет, я бы с радостью воспользовался вашим Wi-Fi-ем, договоримся.\" <\/p><\/blockquote> <blockquote class=\"bubble2\"><p>\"Недавно переехал в этот дом, увидел Ваш Wi-Fi Может по пивку?\"<\/p><\/blockquote> <\/div><div class=\"content\"> <h2>Как это работает?<\/h2> {0} <div class=\"how_to_subtext\"> ( Узнайте больше про этот бесплатный и анонимный сервис в <a href=\"\/p\/faq\">ЧаВо<\/a>) <\/div> <\/div><div class=\"content\"> {1}",
-            "teaser1": "<b>ВЫ<\/b> меняете имя вашей Wi-Fi сети",
-            "teaser2": "<b>ДРУГИЕ<\/b> видят ваш wifis.org адрес",
-            "teaser3": "<b>WIFIS.ORG<\/b> - почтовый ящик вашего Wi-Fi",
-            "wifichecker": "Выберите ваш Wi-Fis:",
-            "joinButton": "Я с вами"
-        }
+        "text": [
+            "<h1>С wifis.org ваш Wi-Fi может получать письма<\/h1> <blockquote class=\"bubble1\"><p>\"Привет, я бы с радостью воспользовался вашим Wi-Fi-ем, договоримся.\" <\/p><\/blockquote> <blockquote class=\"bubble2\"><p>\"Недавно переехал в этот дом, увидел Ваш Wi-Fi Может по пивку?\"<\/p><\/blockquote> <\/div><div class=\"content\"> <h2>Как это работает?<\/h2>",
+            "<div class=\"how_to_subtext\"> ( Узнайте больше про этот бесплатный и анонимный сервис в <a href=\"\/p\/faq\">ЧаВо<\/a>) <\/div> <\/div><div class=\"content\">"
+        ],
+        "teasers": [
+            "<b>ВЫ<\/b> меняете имя вашей Wi-Fi сети",
+            "<b>ДРУГИЕ<\/b> видят ваш wifis.org адрес",
+            "<b>WIFIS.ORG<\/b> - почтовый ящик вашего Wi-Fi"
+        ],    
+        "wifichecker": "Выберите ваш Wi-Fis:",
+        "joinButton": "Я с вами"
     },
     "404": {
         "headline": "ошибка 404",

@@ -1,0 +1,116 @@
+<h2>{{& __ "wifi.headlinePrefix"}} wifis.org/{{wifiId}}</h2>
+
+WifiId: {{wifiId}}
+
+
+<!--
+<c:choose>
+	<c:when test="${wifi == null}">
+		<h2>
+			<spring:message code="wifi.headlinePrefix" />
+			wifis.org<c:out value="${uri}" />
+		</h2>
+		<spring:message code="wifi.text.notfound" />
+	</c:when>
+
+	<c:otherwise>
+		<c:if test="${isMyWifi == 'true'}">
+			<div class="alert alert-error yourWifiTopMessage">
+				<spring:message code="wifi.text.mywifi" />
+			</div>
+			<div class="yourWifiOverlay"></div>
+		</c:if>
+
+		<h2>
+			<spring:message code="wifi.headlinePrefix" />
+
+			<c:set var="wifiIdLength" value="${fn:length(wifi.id) + 1}" />
+			<c:set var="subWifiId"
+                        value="${fn:substring(uri, wifiIdLength, 100)}" />
+
+			<a href="/${wifi.label}">wifis.org/${wifi.label}</a><small><c:out
+                            value="${subWifiId}" /></small>
+		</h2>
+
+		<p>
+			<spring:message code="wifi.text" />
+		</p>
+		<br>
+
+		<c:choose>
+			<c:when test="${wasSent == true}">
+				<div class="alert alert-success">
+					<b><spring:message code="wifi.contactform.mailsent" /></b>
+				</div>
+				<br>
+				<br>
+			</c:when>
+
+			<c:when test="${wasSent == false}">
+				<div class="alert alert-error">
+					<b><spring:message code="wifi.contactform.mailNotSent" /></b>
+				</div>
+				<br>
+				<br>
+			</c:when>
+
+			<c:otherwise>
+				<c:set var="error" value="${error}" />
+				<form method="POST" class="contactform form-stacked"
+                            onsubmit="return (grecaptcha.getResponse().length > 0);">
+					<div
+                                class="clearfix <c:if test="${fn:startsWith(error, 'email')==true}">error</c:if>">
+						<label><spring:message code="wifi.contactform.email" /></label>
+						<div class="input">
+							<input name="${CONST.URL_PARAM_EMAIL}"
+                                        value="<c:out value="${email}" />" />
+							<c:if test="${fn:startsWith(error, 'email')==true}">
+								<span class="help-block"><spring:message
+                                                code="wifi.contactform.error.${error}" /></span>
+							</c:if>
+						</div>
+					</div>
+					<div
+                                class="clearfix <c:if test="${fn:startsWith(error, 'text')==true}">error</c:if>">
+						<label><spring:message code="wifi.contactform.message" /></label>
+						<div class="input">
+							<textarea name="${CONST.URL_PARAM_TEXT}"><c:out
+                                            value="${text}" /></textarea>
+							<c:if test="${fn:startsWith(error, 'text')==true}">
+								<span class="help-block"><spring:message
+                                                code="wifi.contactform.error.${error}" /></span>
+							</c:if>
+						</div>
+					</div>
+					
+					<c:if test="${isMyWifi != 'true'}">
+						<div
+                                    class="clearfix <c:if test="${error == 'recaptcha'}">error</c:if>">
+						   
+                            <noscript>Javascript required to show ReCaptcha</noscript>
+                            <script
+                                        src='https://www.google.com/recaptcha/api.js'></script>
+                            <div class="g-recaptcha"
+                                        data-sitekey="6LfaEsoSAAAAAPseA-yAWqbAJliC1-UQ0zIb6vYW"></div>
+                            
+                            <div class="input">
+								<c:if test="${error == 'recaptcha'}">
+									<span class="help-block"><spring:message
+                                                    code="wifi.contactform.error.recaptcha" /></span>
+								</c:if>
+							</div>
+						</div>
+						
+					</c:if>
+
+					<div class="form-actions">
+						<input type="submit" class="btn btn-primary"
+                                    value="<spring:message code="wifi.contactform.send" />"
+                                    class="submitButton" />
+					</div>
+            		</form>
+			</c:otherwise>
+		</c:choose>
+	</c:otherwise>
+</c:choose>
+-->

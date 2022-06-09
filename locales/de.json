@@ -43,15 +43,17 @@
     "homepage": {
         "headline": "Startseite",
         "linklabel": "Startseite",
-        "text": {
-            "text": "<h1>Mit wifis.org kann dein WLAN Emails empfangen<\/h1> <blockquote class=\"bubble1\"><p>„Hi, willst du vielleicht für etwas Geld jeden Monat dein WLAN mit mir teilen?”<\/p><\/blockquote> <blockquote class=\"bubble2\"><p>„Ich bin kürzlich im Haus eingezogen und habe dein WLAN gesehen. Lust auf ein Bierchen?”<\/p><\/blockquote> <\/div><div class=\"content\"> <h2>Wie funktioniert es?<\/h2>",
-            "text1": "<div class=\"how_to_subtext\">(Erfahre mehr über diesen kostenlosen und anonymen Dienst in den <a href=\"\/p\/faq\" title=\"Häufig gestellte Fragen\">FAQs<\/a>)<\/div> <\/div><div class=\"content\">",
-            "teaser1": "<b>DU<\/b> benennst dein WLAN um",
-            "teaser2": "<b>ANDERE<\/b> sehen dein WLAN",
-            "teaser3": "<b>WIFIS.ORG<\/b> ermöglicht es DICH anzuschreiben",
-            "wifichecker": "Prüfe welcher WLAN-Name noch frei ist:",
-            "joinButton": "Anmelden"
-        }
+        "text": [
+            "<h1>Mit wifis.org kann dein WLAN Emails empfangen<\/h1> <blockquote class=\"bubble1\"><p>„Hi, willst du vielleicht für etwas Geld jeden Monat dein WLAN mit mir teilen?”<\/p><\/blockquote> <blockquote class=\"bubble2\"><p>„Ich bin kürzlich im Haus eingezogen und habe dein WLAN gesehen. Lust auf ein Bierchen?”<\/p><\/blockquote> <\/div><div class=\"content\"> <h2>Wie funktioniert es?<\/h2>",
+            "<div class=\"how_to_subtext\">(Erfahre mehr über diesen kostenlosen und anonymen Dienst in den <a href=\"\/p\/faq\" title=\"Häufig gestellte Fragen\">FAQs<\/a>)<\/div> <\/div><div class=\"content\">"
+        ],
+        "wifichecker": "Prüfe welcher WLAN-Name noch frei ist:",
+        "joinButton": "Anmelden",
+        "teasers": [
+            "<b>DU<\/b> benennst dein WLAN um",
+            "<b>ANDERE<\/b> sehen dein WLAN",
+            "<b>WIFIS.ORG<\/b> ermöglicht es DICH anzuschreiben"
+        ]
     },
     "404": {
         "headline": "404 Fehler",

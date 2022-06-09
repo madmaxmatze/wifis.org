@@ -43,14 +43,17 @@
     "homepage": {
         "headline": "page d’accueil",
         "linklabel": "page d’accueil",
-        "text": {
-            "text": "<h1>Votre réseau wifi peut recevoir des emails<\/h1> <blockquote class=\"bubble1\"><p>«Salut, aimerais-tu partager ton wi-fi et la facture? »<\/p><\/blockquote> <blockquote class=\"bubble2\"><p>«Je viens d’emménager dans ce bâtiment et j’ai vu ton réseau wi-fi. As-tu envie de prendre un verre?»<\/p><\/blockquote> <\/div><div class=\"content\"> <h2>Comment ça marche ?<\/h2> {0} <div class=\"how_to_subtext\">(Apprennez plus sur ce service gratuit et anonyme sous <a href=\"\/p\/faq\" title=\"foire aux questions\">FAQs<\/a>)<\/div> <\/div><div class=\"content\"> {1}",
-            "teaser1": "<b>VOUS <\/b> renommez votre réseau wi-fi",
-            "teaser2": "<b>D’AUTRES<\/b> voient votre réseau wi-fi",
-            "teaser3": "<b>WIFIS.ORG<\/b> permet de vous contacter",
-            "wifichecker": "Vérifiez la disponibilité d’un nom",
-            "joinButton": "Connexion"
-        }
+        "text": [
+            "<h1>Votre réseau wifi peut recevoir des emails<\/h1> <blockquote class=\"bubble1\"><p>«Salut, aimerais-tu partager ton wi-fi et la facture? »<\/p><\/blockquote> <blockquote class=\"bubble2\"><p>«Je viens d’emménager dans ce bâtiment et j’ai vu ton réseau wi-fi. As-tu envie de prendre un verre?»<\/p><\/blockquote> <\/div><div class=\"content\"> <h2>Comment ça marche ?<\/h2>",
+            "<div class=\"how_to_subtext\">(Apprennez plus sur ce service gratuit et anonyme sous <a href=\"\/p\/faq\" title=\"foire aux questions\">FAQs<\/a>)<\/div> <\/div><div class=\"content\">"
+        ],
+        "teasers": [
+            "<b>VOUS <\/b> renommez votre réseau wi-fi",
+            "<b>D’AUTRES<\/b> voient votre réseau wi-fi",
+            "<b>WIFIS.ORG<\/b> permet de vous contacter"
+        ],
+        "wifichecker": "Vérifiez la disponibilité d’un nom",
+        "joinButton": "Connexion" 
     },
     "404": {
         "headline": "Erreur 404",

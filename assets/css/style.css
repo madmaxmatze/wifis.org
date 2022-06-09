@@ -5,7 +5,7 @@ html.web {
 .web body {
 	padding-top: 90px;
 }
-.web .MorePages .contenttop, .web .Admin .contenttop {
+.web .cms_page .contenttop, .web .Admin .contenttop {
 	margin-top: 30px;
 }
 .mobile html,
@@ -30,6 +30,10 @@ html.web, .web footer,
 
 /* Background ********************************************************************************* */
 .wifisButton {
+    position: absolute;
+    right: 30px;
+    bottom: 30px;
+    
 	text-decoration: none;
 	border-bottom: 2px dashed #00457C;
 	padding-bottom: 5px;
@@ -73,7 +77,7 @@ h2 small {
 .web .navbar div > ul a
 ,.web .navbar .nav a
 ,blockquote
-/* ,.Homepage .wifichecker .text */
+/* ,.home_page .wifichecker .text */
 {
 	font-family:"Times New Roman", Times, serif;
 }
@@ -137,7 +141,7 @@ a:hover {
 	   -moz-box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
 		    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
 }
-.web .Homepage .content {
+.web .home_page .content {
 	min-height: 0;
 }
 .mobile .content {
@@ -644,10 +648,10 @@ input, textarea, select {
 /*	float: left; */
 	clear: left;	
 }
-.Homepage .wifichecker {
+.home_page .wifichecker {
 	margin-bottom: 10px;
 }
-.Homepage .wifichecker #addWifiForm .newWifiObj {
+.home_page .wifichecker #addWifiForm .newWifiObj {
 	float: none;
 }
 #addWifiForm .wifiObj .wifiName {
@@ -741,10 +745,10 @@ a span.external {
 
 
 /* HOMEPAGE ********************************************************************************* */
-.Homepage {
+.home_page {
 	color: #444;
 }
-.web .Homepage .contenttop {
+.web .home_page .contenttop {
 	overflow: hidden;
 	height: 210px;	
 }
@@ -757,54 +761,54 @@ a span.external {
 	height: 170px;
 	background: url(https://lh4.googleusercontent.com/-yOPDb7yiNO0/T0EQ60lDn9I/AAAAAAAAACY/9k0-0cGzEss/s200/postbox.png) left top no-repeat !important;
 }
-.mobile .Homepage .wifilogo {
+.mobile .home_page .wifilogo {
 	display: none;
 }
-.Homepage h1 {
+.home_page h1 {
 	font-weight: normal;
 	/* color: #3d85c6;  */
 	margin-bottom: 0px;
 	text-shadow: 1px 1px 2px #DDD;
 }
-.web .Homepage h1 {
+.web .home_page h1 {
 	text-align: center !important;
 	font-size: 24pt;
 	text-align: left;
 	margin-bottom: 12px;
 	white-space: nowrap;
 }
-.Homepage h2 {
+.home_page h2 {
 	font-weight: normal;
 	font-size: 16pt;
 	border-bottom: 0px;
 	margin-bottom: 0px;
 }
-.web .Homepage h2 {
+.web .home_page h2 {
 	font-size: 18pt;	
 }
-.Homepage ul {
+.home_page ul {
 	list-style: none;
 	overflow: hidden;
 	margin: 0;
 	padding: 0;
 }
-.web .Homepage ul {
+.web .home_page ul {
 	margin: 5px -10px 20px 0px;	
 }
-.Homepage ul li {
+.home_page ul li {
 	color: #444;
 	float: left;
 	/* height: 280px; */
 	position: relative;
 }
-.web .Homepage ul li {
+.web .home_page ul li {
 	width: 32%;
 }
-.mobile .Homepage ul li {
+.mobile .home_page ul li {
 	padding: 0;
 	margin-bottom: 20px;
 }
-.Homepage ul li .headline {
+.home_page ul li .headline {
 	color: #3D85C6;
 	text-transform: uppercase;
 	font-weight: bold;
@@ -813,27 +817,27 @@ a span.external {
 	left: 45px;
 	font-size: 30px;
 }
-.Homepage ul li .text {
+.home_page ul li .text {
 	color: #3994bb;
 	text-align: left;
 	margin: 5px 0 5px 35px;
 	font-size: 14px;
 }
-.web .Homepage ul li .text {
+.web .home_page ul li .text {
 	white-space: nowrap;
 }
-.Homepage ul li .text b {
+.home_page ul li .text b {
 	/* color: #222; */
 	text-shadow: 0 1px 1px #CCC;
 }
 
-.mobile .Homepage ul li .text {
+.mobile .home_page ul li .text {
 	margin: 5px 0 5px 0px;
 	text-align: center;
 }
 	
 	
-.Homepage .image {
+.home_page .image {
 	margin: 0 auto;
 	/* height: 200px;  */
 	width: 210px;
@@ -845,7 +849,7 @@ a span.external {
 
 	border: 1px solid #DDD;
 }
-.web .Homepage .image {
+.web .home_page .image {
 	-webkit-border-radius: 10px;
 	   -moz-border-radius: 10px;
 	        border-radius: 10px;
@@ -853,7 +857,7 @@ a span.external {
 	   -moz-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075);
 	        box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075);
 }
-.mobile .Homepage .image {
+.mobile .home_page .image {
 	-webkit-border-radius: 10px;
 	   -moz-border-radius: 10px;
 	        border-radius: 10px;
@@ -861,27 +865,27 @@ a span.external {
 	margin: 0 10px;
 }
 
-.Homepage .teaser1 .image a {background: url(https://lh6.googleusercontent.com/-AoEENTeHw0Y/T-8cdPZCOSI/AAAAAAAAAF4/v_u_9HQUS2c/s210/teaser1_active.png);}
+.home_page .teaser1 .image a {background: url(https://lh6.googleusercontent.com/-AoEENTeHw0Y/T-8cdPZCOSI/AAAAAAAAAF4/v_u_9HQUS2c/s210/teaser1_active.png);}
 /* https://lh3.googleusercontent.com/-5ytizrKsBds/T-8cdBrfuUI/AAAAAAAAAGA/QipBzJAklds/s210/teaser2_active.png */
-.Homepage .teaser2 .image a {background: url(https://lh3.googleusercontent.com/-FhsExAD5GVY/UJbHW62RdII/AAAAAAAAAH4/TtT-McZsWSk/s210/teaser2_dark_active.png);}
+.home_page .teaser2 .image a {background: url(https://lh3.googleusercontent.com/-FhsExAD5GVY/UJbHW62RdII/AAAAAAAAAH4/TtT-McZsWSk/s210/teaser2_dark_active.png);}
 /* https://lh6.googleusercontent.com/-L9NMdV0MCOA/T-8oqfRZt2I/AAAAAAAAAGs/Xl692uA1l2Y/s210/teaser3_active.png */
-.Homepage .teaser3 .image a {background: url(https://lh4.googleusercontent.com/-66k1BYXpQJI/UJbHY3x6h-I/AAAAAAAAAH4/VaLRoGlgT2I/s210/teaser3_dark_active.png);}
+.home_page .teaser3 .image a {background: url(https://lh4.googleusercontent.com/-66k1BYXpQJI/UJbHY3x6h-I/AAAAAAAAAH4/VaLRoGlgT2I/s210/teaser3_dark_active.png);}
 
-.Homepage .image a img,
-.Homepage .image a {
+.homhome_pagee .image a img,
+.home_page .image a {
 	display: block;
 	height: 210px;
 	width: 210px;	
 }
-.Homepage .image a:hover img {
+.home_page .image a:hover img {
 	display: none;
 }
 
-.Homepage .how_to_subtext {
+.home_page .how_to_subtext {
 	text-align: right;
 	display: none;
 }
-.Homepage .teasers .number {
+.home_page .teasers .number {
 	position: absolute;
 	border-radius: 15px;
 	background: #004471;
@@ -891,17 +895,17 @@ a span.external {
 	font-size: 20px;
 	text-align: center;
 }
-.Homepage .teasers .number span {
+.home_page .teasers .number span {
 	position: relative;
 	top: 5px;
 }
-.mobile .Homepage .teasers .number {
+.mobile .home_page .teasers .number {
 	display: none;	
 }
-.web .Homepage .wifichecker {
+.web .home_page .wifichecker {
 	/* height: 28px; */
 }
-.Homepage .wifichecker .text {
+.home_page .wifichecker .text {
 	float: left;
 	font-size: 11pt;
 	/* 
@@ -910,31 +914,31 @@ a span.external {
 	margin: 5px 10px 0 120px;
 }
 
-.Homepage .wifichecker form {
+.home_page .wifichecker form {
 	float: left;
 	margin-bottom: 0px;
 }
-/*.Homepage .wifichecker form .input {
+/*.home_page .wifichecker form .input {
 	margin-left: 0px;
 }
-.Homepage #addWifiForm .help-block {
+.home_page #addWifiForm .help-block {
 	clear: both;
 	float: left;
 	display: inline;
 	height: auto;
 }
 */
-.Homepage .join {
+.home_page .join {
 	font-size: 2.4em;	
 }
-.web .Homepage .join {
+.web .hohome_pageme .join {
 	bottom: 20px;
 	right: 30px;
 	position: absolute;
 	line-height: 22pt;	
 	text-align: right;
 }
-.mobile .Homepage .join {
+.mobile .home_page .join {
 	margin: 10px 0 20px 0px;
 }
 
@@ -943,11 +947,11 @@ a span.external {
 /* ============================================================================================================================
 == OVAL SPEECH BUBBLE (more CSS3): http://nicolasgallagher.com/pure-css-speech-bubbles/demo/
  ============================================================================================================================ */
-.Homepage blockquote p {
+.home_page blockquote p {
 	font-style: italic;
 	font-size: 15px;
 }
-.mobile .Homepage blockquote p {
+.mobile .home_page blockquote p {
 	border-left: 2px solid gray;
 	padding-left: 7px;
 }

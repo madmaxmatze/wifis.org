@@ -4,17 +4,16 @@
 
 var express = require('express');
 var passport = require('passport');
-var localeRouter = require('./routes/locale');
-var authRouter = require('./routes/auth');
-var indexRouter = require('./routes/index');
 var expressHandlebars = require('express-hbs');
 var session = require('express-session');
 var cookieParser = require('cookie-parser');
-var SQLiteStore = require('connect-sqlite3')(session);
+// var SQLiteStore = require('connect-sqlite3')(session);
 
 const app = express();
 app.use('/assets', express.static('assets'));
 
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
 
 // template -------------------------------------------------------------------------
 // https://github.com/TryGhost/express-hbs#usage
@@ -24,8 +23,8 @@ expressHandlebars.registerHelper('equals', function (lvalue, rvalue) {
     }
     return (lvalue === rvalue);
 });
-expressHandlebars.registerHelper('concat', function (string1, string2) {
-    return string1 + string2;
+expressHandlebars.registerHelper('concat', function (val1, val2) {
+    return val1 + val2;
 });
 app.engine('hbs', expressHandlebars.express4({
     // partialsDir: __dirname + '/views/partials'
@@ -44,12 +43,16 @@ app.use(session({
     resave: true,
     saveUninitialized: true,   // don't create session until something stored
     cookie: { maxAge: 60000 },
-    store: new SQLiteStore({ db: 'sessions.db', dir: './db' }),
+    // store: new SQLiteStore({ db: 'sessions.db', dir: './db' }),
 }));
-app.use(passport.authenticate('session'));
 
+var localeRouter = require('./routes/locale');
 app.use('/', localeRouter);
+var authRouter = require('./routes/auth');
 app.use('/', authRouter);
+var wifiRouter = require('./routes/wifi');
+app.use('/', wifiRouter);
+var indexRouter = require('./routes/index');
 app.use('/', indexRouter);
 
 

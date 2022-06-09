@@ -43,14 +43,17 @@
     "homepage": {
         "headline": "Página principal",
         "linklabel": "Página principal",
-        "text": {
-            "text": "<h1>Tu red wifi puede recibir correo electrónico<\/h1> <blockquote class=\"bubble1\"><p>«¿Hola, te gustaría compartir tu wifi a cambio de un pago mensual?»<\/p><\/blockquote> <blockquote class=\"bubble2\"><p>«Me acabo de mudar y he visto tu wifi. ¿Tomamos una cerveza?»<\/p><\/blockquote> <\/div><div class=\"content\"> <h2>¿Cómo funciona?<\/h2> {0} <div class=\"how_to_subtext\">(Más información sobre este servicio gratuito y anónimo en<a href=\"\/p\/faq\">preguntas frecuentes<\/a>)<\/div> <\/div><div class=\"content\"> {1}",
-            "teaser1": "<b>TÚ<\/b> renombras tu red wifi",
-            "teaser2": "<b>OTROS<\/b> ven tu URL wifis.org",
-            "teaser3": "<b>WIFIS.ORG<\/b> deja a otros contactarte",
-            "wifichecker": "Elige tu propio nombre de wifi:",
-            "joinButton": "Acceder"
-        }
+        "text": [
+            "<h1>Tu red wifi puede recibir correo electrónico<\/h1> <blockquote class=\"bubble1\"><p>«¿Hola, te gustaría compartir tu wifi a cambio de un pago mensual?»<\/p><\/blockquote> <blockquote class=\"bubble2\"><p>«Me acabo de mudar y he visto tu wifi. ¿Tomamos una cerveza?»<\/p><\/blockquote> <\/div><div class=\"content\"> <h2>¿Cómo funciona?<\/h2>",
+            "<div class=\"how_to_subtext\">(Más información sobre este servicio gratuito y anónimo en<a href=\"\/p\/faq\">preguntas frecuentes<\/a>)<\/div> <\/div><div class=\"content\">"
+        ],
+        "teasers": [
+            "<b>TÚ<\/b> renombras tu red wifi",
+            "<b>OTROS<\/b> ven tu URL wifis.org",
+            "<b>WIFIS.ORG<\/b> deja a otros contactarte"
+        ],
+        "wifichecker": "Elige tu propio nombre de wifi:",
+        "joinButton": "Acceder" 
     },
     "404": {
         "headline": "404 Error",

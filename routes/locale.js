@@ -8,7 +8,6 @@ i18n.configure({
     cookie: 'locale',
     defaultLocale: 'en',
     directory: "./locales",
-    // extension: '.json',
     queryParameter: 'lang',
     objectNotation: true,
 });
@@ -17,22 +16,22 @@ router.use(i18n.init);
 
 // lang middleware
 router.use(function (req, res, next) {
-    if (!res.data) {
-        res.data = {};
-    }
-    res.data.locale = "en";
-    res.data.languages = i18n.getLocales();
+    res.locals.translations = i18n.getCatalog(req);
+   
     if (req.cookies.locale) {
-        res.data.locale = req.cookies.locale;
+        // if (i18n.getLocales.includes(req.cookies.locale)) {
+            res.setLocale(req.cookies.locale);    
+            locale = req.cookies.locale;
+        // }
     }
 
     if (req.query.lang !== undefined) {
-        res.data.locale = req.query.lang;
-        res.cookie('locale', req.query.lang);
+        // if (i18n.getLocales.includes(req.query.lang)) {
+            res.setLocale(req.query.lang);    
+            res.cookie('locale', req.query.lang);
+        // }
     }
-
-    res.setLocale(res.data.locale);
-
+    
     next();
 });
 
