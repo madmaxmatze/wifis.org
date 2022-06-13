@@ -11,8 +11,7 @@
         <div class="text">{{& this}}</div>
         <div class="image">
             <a href="/example" title="...">
-                <img src="/assets/img/teaser{{concat @index 1}}_small.png"
-                    alt="..." width="210" height="210" />
+                <img src="/assets/img/teaser{{concat @index 1}}_small.png" alt="..." width="210" height="210" />
             </a>
         </div>
     </li>
@@ -26,23 +25,5 @@
         {{{__ "homepage.wifichecker"}}}
     </div>
 
-    <form id="addWifiForm" class="form-inline" method="post" autocomplete="off" action="${CONST.URL_PATH_WIFIS}">
-
-        <div class="control-group ">
-            <div class="input-prepend input-append">
-                <span class="add-on">wifis.org/</span> <input class="addWifiInput" type="text" name="wifiid" value=""
-                    placeholder="{{__ "wifis.enternew"}}" title="{{__ "wifis.enternew"}}" />
-                <button class="btn" type="submit" id="addWifiSave">
-                    {{__ "wifis.save"}}
-                </button>
-                <span class="add-on loader">&#160;&#160;&#160;</span>
-            </div>
-            <span class="help-inline">
-                <c:if test="${error != null}">
-                    <spring:message code="wifis.error.${error}" />
-                </c:if>
-            </span>
-        </div>
-    </form>
-
+    {{> wifiForm }}
 </div>

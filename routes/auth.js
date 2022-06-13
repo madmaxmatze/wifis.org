@@ -1,24 +1,138 @@
 var express = require('express');
 
 var router = express.Router();
+var passport = require('passport');
+
+var UsersRepository = require('../models/users');
 
 // var LocalStrategy = require('passport-local');
 var LocalStrategy = require('passport-local').Strategy;
-var passport = require('passport');
-// http://www.passportjs.org/tutorials/google/redirect/ 
-// var GoogleStrategy = require('passport-google-oidc');
 
+// http://www.passportjs.org/tutorials/google/redirect/ : // require('passport-google-oidc');
+var GoogleStrategy = require('passport-google-oauth20').Strategy;
+
+
+var googleCallbackDomain = "https://wifis.mathiasnitzsche.de";
+if (process.env['K_REVISION'] == "local") {
+    googleCallbackDomain = "https://8080-cs-590268403158-default.cs-europe-west4-bhnf.cloudshell.dev";
+}
+
+// GOOGLE ------------------------------------------------------------
+passport.use(new GoogleStrategy({
+    clientID: process.env['GOOGLE_CLIENT_ID'],
+    clientSecret: process.env['GOOGLE_CLIENT_SECRET'],
+    callbackURL: googleCallbackDomain + '/oauth2/redirect/google',
+    proxy: true,
+    passReqToCallback: true,
+    scope: ['profile']
+}, (req, accessToken, refreshToken, object0, profile, done) => {
+    // function verify(issuer, profile, cb) {
+    console.log("verify");
+    console.log("req" + req);
+    console.log("accessToken" + accessToken);
+    console.log("refreshToken" + refreshToken);
+    console.log("object0" + object0);
+    console.log(profile);
+
+    /*
+    var "profile" example from Google = {
+        id: '101308901782656878176',
+        displayName: undefined,
+        emails: [{ value: 'mathiasnitzsche@gmail.com', verified: true }],
+        photos: [
+            {
+                value: 'https://lh3.googleusercontent.com/a-/AOh14Gi8wn3F03PSxo5qFmvdQM_Q8H_I9MZWUuZS0tcKxyU=s96-c'
+            }
+        ],
+        provider: 'google',
+        _raw: '{\n' +
+            '  "sub": "101308901782656878176",\n' +
+            '  "picture": "https://lh3.googleusercontent.com/a-/AOh14Gi8wn3F03PSxo5qFmvdQM_Q8H_I9MZWUuZS0tcKxyU\\u003ds96-c",\n' +
+            '  "email": "mathiasnitzsche@gmail.com",\n' +
+            '  "email_verified": true\n' +
+            '}',
+        _json: {
+            sub: '101308901782656878176',
+            picture: 'https://lh3.googleusercontent.com/a-/AOh14Gi8wn3F03PSxo5qFmvdQM_Q8H_I9MZWUuZS0tcKxyU=s96-c',
+            email: 'mathiasnitzsche@gmail.com',
+            email_verified: true
+        }
+    };
+    */
+
+    // https://www.passportjs.org/reference/normalized-profile/
+    var user = {
+        "provider": profile.provider,
+        "id": profile.id,
+        "email": profile._json.email,
+        "displayName": profile.displayName,
+        "lastLoginDate": new Date(),
+        "signupDate": new Date(),
+    };
+
+    /*
+    maxWifis
+    cc
+    city
+    */
+
+    /*
+        if exists update otherwise create
+    */
+
+    var usersRepository = new UsersRepository(req.db);
+    usersRepository.set(user);
+
+    done(null, user);
+
+    /*
+    db.get('SELECT * FROM federated_credentials WHERE provider = ? AND subject = ?', [
+      issuer,
+      profile.id
+    ], function(err, row) {
+      if (err) { return cb(err); }
+      if (!row) {
+        db.run('INSERT INTO users (name) VALUES (?)', [
+          profile.displayName
+        ], function(err) {
+          if (err) { return cb(err); }
+  
+          var id = this.lastID;
+          db.run('INSERT INTO federated_credentials (user_id, provider, subject) VALUES (?, ?, ?)', [
+            id,
+            issuer,
+            profile.id
+          ], function(err) {
+            if (err) { return cb(err); }
+            var user = {
+              id: id,
+              name: profile.displayName
+            };
+            return cb(null, user);
+          });
+        });
+      } else {
+        db.get('SELECT * FROM users WHERE id = ?', [ row.user_id ], function(err, row) {
+          if (err) { return cb(err); }
+          if (!row) { return cb(null, false); }
+          return cb(null, row);
+        });
+      }
+     
+    });
+    */
+}));
 
 router.use(passport.authenticate('session'));
 
 
-// app.get('/login/federated/google', passport.authenticate('google'));
+
 
 
 // https://github.com/jaredhanson/passport-local
 passport.use(new LocalStrategy(
     function (username, password, done) {
-        var user = {id: "2", username : username, provider : 'delete'};
+        var user = { id: "local", username: username, provider: 'delete' };
         return done(null, user);
     }
 ));
@@ -26,7 +140,9 @@ passport.use(new LocalStrategy(
 
 passport.serializeUser(function (user, cb) {
     process.nextTick(function () {
-        cb(null, { id: user.id, username: user.username, provider: user.provider });
+        console.log ("Express user");
+        console.log (user);
+        cb(null, { id: user.id, username: user.username, provider: user.provider });  // , name: user.name
     });
 });
 
@@ -37,25 +153,43 @@ passport.deserializeUser(function (user, cb) {
 });
 
 
+
 router.use(passport.initialize());
 router.use(passport.session());
+
+
+router.get('/p/login/federated/google', passport.authenticate('google', {
+    scope:
+        ['email']
+}));
+router.get('/oauth2/redirect/google', passport.authenticate('google', {
+    successRedirect: '/',
+    failureRedirect: '/p/login'
+}));
 
 
 router.get('/p/login', function (req, res, next) {
     // console.log("from session: " + req.session.test);
     // req.session.test = "Hallo";
-    
+
     res.locals.viewname = "login";
     res.render(res.locals.viewname);
 });
+router.post('/p/login', passport.authenticate('local', {
+    successRedirect: '/',
+    failureRedirect: '/p/login',
+    // failureMessage: true
+}));
 
 
-/*
+
+
 // DEBUG from https://dmitryrogozhny.com/blog/easy-way-to-debug-passport-authentication-in-express
-router.post('/p/login',
+/*
+router.get('/oauth2/redirect/google',
     function (req, res, next) {
         // call passport authentication passing the "local" strategy name and a callback function
-        passport.authenticate('local', function (error, user, info) {
+        passport.authenticate('google', function (error, user, info) {
             // this will execute in any case, even if a passport strategy will find an error
             // log everything to console
             console.log("request");
@@ -86,11 +220,6 @@ router.post('/p/login',
 */
 
 
-router.post('/p/login', passport.authenticate('local', {
-    successRedirect: '/',
-    failureRedirect: '/p/login',
-    // failureMessage: true
-}));
 
 router.get('/p/logout', function (req, res, next) {
     req.logout(function (err) {
@@ -101,10 +230,11 @@ router.get('/p/logout', function (req, res, next) {
 
 
 router.use(function (req, res, next) {
-    //if (req.isAuthenticated()) {
     res.locals.user = req.user;
-    console.log (req.user);
-    //}
+    if (req.isAuthenticated()) {
+        res.locals.user.maxWifis = 3;
+        console.log("user:" + req.user);
+    }
     next();
 });
 

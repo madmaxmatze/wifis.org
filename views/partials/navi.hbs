@@ -1,12 +1,12 @@
-  <div class="navbar navbar-fixed-top" data-dropdown="dropdown">
-        <div class="navbar-inner">
-            <div class="container">
+<div class="navbar navbar-fixed-top" data-dropdown="dropdown">
+    <div class="navbar-inner">
+        <div class="container">
 
-                <a class="sprite brand active" href="/"><span>/</span></a>
-                
-                
-                <ul class="nav pull-left">
-                    <!-- ADMIN LINK when logged in
+            <a class="sprite brand active" href="/"><span>/</span></a>
+
+
+            <ul class="nav pull-left">
+                {{!-- ADMIN LINK when logged in
                     <c:if
                         test="${isUserWithPermissionADMIN || isUserWithPermissionSTATS || isUserWithPermissionAPI || isUserWithPermissionDATA}">
                         <li class="dropdown <c:if test=" ${fn:startsWith(uri, CONST.URL_PATH_ADMIN)}">active
@@ -37,102 +37,109 @@
 
                     </li>
                     </c:if>
-                    -->
-                </ul>
+                    --}}
+            </ul>
 
-                <ul class="nav pull-right">
-                    <!-- when logged in: Wifis
+            <ul class="nav pull-right">
+                {{#if user}}
+                <li {{#if (equals viewname "wifis")}}class="active" {{/if}}>
+                    <a href="/p/wifis">{{{__ "wifis.linklabel"}}}</a>
+                </li>
+                {{/if}}
+
+                <!-- when logged in: Wifis
                         <li <c:if test='${uri==CONST.URL_PATH_WIFIS}'> class="active"
                     </c:if>><a href="${CONST.URL_PATH_WIFIS}">
                         <spring:message code="wifis.linklabel" /></a></li>
                     </c:if>
                     -->
 
-                    <li class="dropdown">
-                        <a href="/p/faq" class="dropdown-toggle">
-                            More<b class="caret"></b></a>
-                        <ul class="dropdown-menu">
-                            <li><a href="/p/faq">
-                                    FAQ</a></li>
-                            <li><a href="/p/about">
-                                    About</a></li>
-                            <li><a href="/p/press">
-                                    Press</a></li>
-                            <!--<li<c:if test='${uri==CONST.URL_PATH_TOS}'> class="active"</c:if>><a href="${CONST.URL_PATH_TOS}"><spring:message code="tos.linklabel" /></a></li>
+                <li class="dropdown {{#if cms_id}} active{{/if}}">
+                    <a href="/p/faq" class="dropdown-toggle">More<b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                        <li {{#if (equals viewname "faq")}}class="active" {{/if}}><a href="/p/faq">FAQ</a></li>
+                        <li {{#if (equals viewname "about")}}class="active" {{/if}}><a href="/p/about">About</a></li>
+                        <li {{#if (equals viewname "press")}}class="active" {{/if}}><a href="/p/press">Press</a></li>
+                        <!--<li<c:if test='${uri==CONST.URL_PATH_TOS}'> class="active"</c:if>><a href="${CONST.URL_PATH_TOS}"><spring:message code="tos.linklabel" /></a></li>
                              -->
-                            <li><a target="_blank" href="/p/blog"><span class="external sprite">
-                                        Blog</span></a></li>
-                        </ul>
-                    </li>
+                        <li><a target="_blank" href="/p/blog"><span class="external sprite">Blog</span></a></li>
+                    </ul>
+                </li>
 
 
-                    <li id="langDropDown" class="dropdown">
-                        <a href="/p/languages?referer={{url.pathname}}"
-                            class="dropdown-toggle"><span class="sprite flag flag_{{getLocale}}"></span><b
-                                class="caret"></b></a>
+                <li id="langDropDown" class="dropdown{{#if (equals viewname "languages")}} active{{/if}}">
+                    <a href="/p/languages?referer={{url.pathname}}" class="dropdown-toggle"><span
+                            class="sprite flag flag_{{getLocale}}"></span><b class="caret"></b></a>
 
-                        <ul class="dropdown-menu">
-                            {{#each getLocales}}
-                            <li{{#if (equals ../getLocale this)}} class="active" {{/if}}>
+                    <ul class="dropdown-menu">
+                        {{#each getLocales}}
+                        <li{{#if (equals ../getLocale this)}} class="active" {{/if}}>
 
-                                <a href="?lang={{this}}"><span class="sprite flag flag_{{this}}"></span>
-                                    {{../__ (concat "label.lang." this)}}
+                            <a href="?lang={{this}}"><span class="sprite flag flag_{{this}}"></span>
+                                {{../__ (concat "label.lang." this)}}
 
-                                </a>
-                    </li>
-                    {{/each}}
+                            </a>
+                </li>
+                {{/each}}
 
 
-                    <c:if test="${isUserWithPermissionsTRANS}">
-                        <!--
+                <c:if test="${isUserWithPermissionsTRANS}">
+                    <!--
                                     <c:if test="${lang != CONST.LANG_TR}"> 
                                         <li><a href="?${URL_PARAM_LANG}=${CONST.LANG_TR}"><div class="sprite flag flag_${CONST.LANG_TR}"></div></a></li>
                                     </c:if>
                                     -->
-                    </c:if>
+                </c:if>
 
-                    <li><a href="/p/languages?referer={{url.pathname}}"
-                            style="text-align: center;"> <b style="color: black;">??</b>
-                        </a></li>
+                <li><a href="/p/languages?referer={{url.pathname}}" style="text-align: center;"> <b
+                            style="color: black;">??</b>
+                    </a></li>
+            </ul>
+            </li>
+
+            <li class="dropdown{{#if (equals viewname "login")}} active{{/if}}">
+                <!-- when NOT logged in -->
+                {{#if user}}
+                <a href="#" class="dropdown-toggle" id="logout-menu-item" title="logout">
+                    <span class="loginName" title="logout">
+                        {{#if user.username}}
+                        {{user.username}}
+                        {{else}}
+                        {{user.email}}
+                        {{/if}}
+                    </span>
+                    <span class="sprite loginType icon icon-{{user.provider}}"></span>
+                    <b class="caret"></b>
+                </a>
+                <ul class="dropdown-menu">
+                    <li>
+                        <a href="/p/logout?$redirect=/">{{__ "label.logout"}}</a>
+                    </li>
                 </ul>
-                </li>
-
-                <li class="dropdown">
-                    <!-- when NOT logged in -->
-                    {{#if user}}
-                    <a href="#" class="dropdown-toggle" id="logout-menu-item" title="logout">
-                        <span class="loginName" title="logout">{{user.username}}</span>
-                        <span class="sprite loginType icon icon-{{user.provider}}"></span>
-                        <b class="caret"></b>
-                    </a>
-                    <ul class="dropdown-menu">
-                        <li>
-                            <a href="/p/logout?$redirect=/">{{__ "label.logout"}}</a>
-                        </li>
-                    </ul>
-                    {{else}}
-                    <a href="/p/login" class="dropdown-toggle">
-                        {{__ "label.signin"}}<b class="caret"></b></a>
-                    <ul class="dropdown-menu">
-                        <li>
-                            <a class="googleLogin" href="/login/federated/google" title="Login with google"
-                                rel="nofollow"><span>
-                                    {{__ "login.google.hint"}}</span></a>
-                        </li>
-                        <li>
-                            <a class="facebookLogin"
-                                href="${CONST.URL_PATH_LOGIN}?${CONST.URL_PARAM_PROVIDER}=facebook&amp;${CONST.URL_PARAM_REDIRECT}=${uri}"
-                                title="Login with Facebook" rel="nofollow"><span>
-                                    {{__ "login.facebook.hint"}}</span></a>
-                        </li>
-                    </ul>
-                    {{/if}}
-
-
-                </li>
+                {{else}}
+                <a href="/p/login" class="dropdown-toggle">{{__ "label.signin"}}<b class="caret"></b></a>
+                <ul class="dropdown-menu">
+                    <li>
+                        <a class="googleLogin" href="/p/login/federated/google" title="Login with google"
+                            rel="nofollow">
+                            <span>{{__ "login.google.hint"}}</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="facebookLogin"
+                            href="${CONST.URL_PATH_LOGIN}?${CONST.URL_PARAM_PROVIDER}=facebook&amp;${CONST.URL_PARAM_REDIRECT}=${uri}"
+                            title="Login with Facebook" rel="nofollow">
+                            <span>{{__ "login.facebook.hint"}}</span>
+                        </a>
+                    </li>
                 </ul>
+                {{/if}}
 
-                <!-- Mobile
+
+            </li>
+            </ul>
+
+            <!-- Mobile
                         <a class="brand" href="${CONST.URL_PATH_HOMEPAGE}"><span>${CONST.URL_DOMAIN_NAKED}</span></a>
 
                         <ul class="nav">
@@ -152,6 +159,6 @@
                                         class="sprite flag flag_${lang}"></span></a></li>
                         </ul>
                     -->
-            </div>
         </div>
     </div>
+</div>

@@ -1,0 +1,34 @@
+<form id="addWifiForm" class="form-inline" method="post" autocomplete="off" action="${CONST.URL_PATH_WIFIS}">
+    {{#if user.wifis}}
+    {{#each user.wifis}}
+    <div class="control-group wifiObj" id="wifi{{@key}}">
+        <div class="input-prepend input-append">
+            <span class="add-on">wifis.org/</span>
+            <span class="add-on wifiName" style="font-weight: bold; background: white;">
+                <a href="/{{@key}}">{{this.label}}</a>
+            </span>
+            <span class="add-on deleteButton">
+                <a class="sprite icon icon-delete" href="/p/wifis/delete?id={{@key}}"
+                    title='<spring:message code="wifis.deleteButton" />'></a>
+            </span>
+        </div>
+    </div>
+    {{/each}}
+    {{/if}}
+
+    <div class="control-group ">
+        <div class="input-prepend input-append">
+            <span class="add-on">wifis.org/</span> <input class="addWifiInput" type="text" name="wifiid" value=""
+                placeholder="{{__ "wifis.enternew"}}" title="{{__ "wifis.enternew"}}" />
+            <button class="btn" type="submit" id="addWifiSave">
+                {{__ "wifis.save"}}
+            </button>
+            <span class="add-on loader">&#160;&#160;&#160;</span>
+        </div>
+        <span class="help-inline">
+            <c:if test="${error != null}">
+                <spring:message code="wifis.error.${error}" />
+            </c:if>
+        </span>
+    </div>
+</form>

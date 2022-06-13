@@ -107,3 +107,5 @@ dist
 
 .bash_history
 *firestore.json
+
+.env

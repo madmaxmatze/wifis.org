@@ -1,4 +1,7 @@
-    /*
+// const Firestore = require('@google-cloud/firestore');
+// const { readFileSync } = require('fs');
+
+/*
         const db = new Firestore({
             projectId: 'node-test-351811',
             keyFilename: 'node-test-firestore.json',

@@ -8,6 +8,7 @@ router.use(function (req, res, next) {
     res.locals.query = req.query;
     res.locals.service = process.env.K_SERVICE || '???';
     res.locals.revision = process.env.K_REVISION || '???';
+
     next();
 });
 
@@ -22,17 +23,13 @@ router.get('/', async (req, res) => {
     }
 });
 
-/*
-router.get('/p/languages', async (req, res) => {
-    res.locals.viewname = "languages";
-    res.render(res.locals.viewname);
-});
-*/
 
 router.get('/p/:cms_id', async (req, res) => {
     res.locals.viewname = req.params.cms_id;
-    res.locals.cms_id = req.params.cms_id;
-
+    if (["faq", "about", "tos", "press"].includes(req.params.cms_id)) {
+        res.locals.cms_id = req.params.cms_id;
+    }
+    
     res.render(res.locals.viewname);
 });
 
@@ -43,19 +40,16 @@ router.use(function (req, res, next) {
 });
 
 
-/*
 // error handler
 router.use(function (err, req, res, next) {
     // set locals, only providing error in development
     res.locals.message = err.message;
     res.locals.message = err;
-    console.log (err);
     res.locals.error = req.app.get('env') === 'development' ? err : {};
 
     // render the error page
     res.status(err.status || 500);
     res.render('error');
 });
-*/
 
 module.exports = router;

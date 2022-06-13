@@ -1,0 +1,33 @@
+<h2>{{{__ "wifis.headline"}}}</h2>
+
+{{#if user}}
+<div class="tipsContainer" style="display: none">
+    {{!-- <c:set var="inviteLink">${CONST.URL_PROTOCOL}${CONST.URL_DOMAIN_WWW}?${CONST.URL_PARAM_INVITE}=${account.inviteKey}</c:set>
+	--}}
+    {{#replace "{0}"    "INVITE LINK"
+            "{1}" "<ul>
+                    <li><a target='_blank' href='//www.wifis.org/example'>www.wifis.org/example</a></li>
+                    <li><a target='_blank' href='//wifis.org/example'>wifis.org/example</a></li>
+                    <li><a target='_blank' href='//example.wifis.org'>example.wifis.org</a></li>
+                    <li><a target='_blank' href='//wif.is/example'>wif.is/example</a></li>
+                </ul>"
+            "{2}" "<ul>
+                    <li><a href='//wifis.org/example/1'>wifis.org/example/1</a></li>
+                    <li><a href='//wifis.org/example/2'>wifis.org/example/2</a></li>
+                    <li><a href='//wifis.org/example/345/abc!'>wifis.org/example/345/abc!</a></li>
+                </ul>"}}
+    {{{__ "wifis.tips"}}}
+    {{/replace}}
+</div>
+
+<p>
+    {{{__ "wifis.text"}}}
+    {{!-- <c:if test="${account.maxWifis > 1}">  </c:if> --}}
+    <b>(max {{user.maxWifis}})</b>
+</p>
+
+{{> wifiForm }}
+
+{{else}}
+Not autorized. Please login
+{{/if}}
