@@ -98,7 +98,7 @@
 				currentValidates += (currentValidates === -1 ? 2 : 1);
 				var loader = $element.find(".loader");
 				loader.show();
-				$.post("/ajax/validateNewWifiId", {
+				$.post("/ajax/wifis/validate", {
 					"wifiid" : wifiid
 				}, function(data, textStatus, jqXHR) {
 					currentValidates--;
@@ -113,7 +113,7 @@
 		createNewWifi = function(wifiid) {
 			setErrorMsg();
 
-			$.post("/ajax/addWifi", {
+			$.post("/ajax/wifis/add", {
 				"wifiid" : wifiid
 			},
 					function(data, textStatus, jqXHR) {
@@ -164,7 +164,7 @@
 			html += '<a class="sprite icon icon-delete" href="/p/wifis?action=delete&wifiid='
 					+ id
 					+ '" title="'
-					+ config.translations.deleteButton
+					+ config.translations.wifis.deleteButton
 					+ '"></a>';
 			html += '</span>';
 			html += '</div></div>';
@@ -172,8 +172,8 @@
 		};
 
 		getErrorMsgForCode = function(code) {
-			if (config.translations.wifisError[code]) {
-				code = config.translations.wifisError[code];
+			if (config.translations.wifis.error[code]) {
+				code = config.translations.wifis.error[code];
 			}
 			return code;
 		};
@@ -200,11 +200,11 @@
 
 			if (possibleToSubmit) {
 				msg = '<span style="color: green">'
-						+ config.translations.wifisError.none + '</span>';
+						+ config.translations.wifis.error.none + '</span>';
 			}
 
 			$element.find("button:submit").attr("value",
-					config.translations[possibleToSubmit ? "save" : "test"])
+					config.translations.wifis[possibleToSubmit ? "save" : "test"])
 					.attr("disabled", !possibleToSubmit);
 			$element.find(".help-inline").html(msg);
 		};

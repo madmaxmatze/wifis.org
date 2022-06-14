@@ -6,6 +6,7 @@ var expressHandlebars = require('express-hbs');
 var session = require('express-session');
 var cookieParser = require('cookie-parser');
 // var SQLiteStore = require('connect-sqlite3')(session);
+const Firestore = require('@google-cloud/firestore');
 
 var url = require('url')
 
@@ -100,7 +101,6 @@ app.use(session({
 
 
 app.use(function (req, res, next) {
-    const Firestore = require('@google-cloud/firestore');
     // https://googleapis.dev/nodejs/firestore/latest/Firestore.html#Firestore
     var db = new Firestore({
         projectId: 'node-test-351811',

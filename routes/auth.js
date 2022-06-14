@@ -24,7 +24,7 @@ passport.use(new GoogleStrategy({
     callbackURL: googleCallbackDomain + '/oauth2/redirect/google',
     proxy: true,
     passReqToCallback: true,
-    scope: ['profile']
+    scope: ['email'] // not "profile"
 }, (req, accessToken, refreshToken, object0, profile, done) => {
     // function verify(issuer, profile, cb) {
     console.log("verify");
@@ -70,57 +70,20 @@ passport.use(new GoogleStrategy({
         "signupDate": new Date(),
     };
 
-    /*
-    maxWifis
-    cc
-    city
+    /* missing
+        maxWifis
+        cc
+        city
     */
 
-    /*
-        if exists update otherwise create
-    */
-
-    var usersRepository = new UsersRepository(req.db);
-    usersRepository.set(user);
-
-    done(null, user);
-
-    /*
-    db.get('SELECT * FROM federated_credentials WHERE provider = ? AND subject = ?', [
-      issuer,
-      profile.id
-    ], function(err, row) {
-      if (err) { return cb(err); }
-      if (!row) {
-        db.run('INSERT INTO users (name) VALUES (?)', [
-          profile.displayName
-        ], function(err) {
-          if (err) { return cb(err); }
-  
-          var id = this.lastID;
-          db.run('INSERT INTO federated_credentials (user_id, provider, subject) VALUES (?, ?, ?)', [
-            id,
-            issuer,
-            profile.id
-          ], function(err) {
-            if (err) { return cb(err); }
-            var user = {
-              id: id,
-              name: profile.displayName
-            };
-            return cb(null, user);
-          });
-        });
-      } else {
-        db.get('SELECT * FROM users WHERE id = ?', [ row.user_id ], function(err, row) {
-          if (err) { return cb(err); }
-          if (!row) { return cb(null, false); }
-          return cb(null, row);
-        });
-      }
-     
-    });
-    */
+   var usersRepository = new UsersRepository(req.db);
+   
+   usersRepository.upsert(user)
+    .then(function(user) {
+       done(null, user);
+    }).catch(function(error) {
+        console.log("Error inserting/updating user:", error);
+    });    
 }));
 
 router.use(passport.authenticate('session'));
@@ -138,17 +101,15 @@ passport.use(new LocalStrategy(
 ));
 
 
-passport.serializeUser(function (user, cb) {
+passport.serializeUser(function (user, done) {
     process.nextTick(function () {
-        console.log ("Express user");
-        console.log (user);
-        cb(null, { id: user.id, username: user.username, provider: user.provider });  // , name: user.name
+        done(null, user);
     });
 });
 
-passport.deserializeUser(function (user, cb) {
+passport.deserializeUser(function (user, done) {
     process.nextTick(function () {
-        return cb(null, user);
+        return done(null, user);
     });
 });
 
@@ -159,8 +120,7 @@ router.use(passport.session());
 
 
 router.get('/p/login/federated/google', passport.authenticate('google', {
-    scope:
-        ['email']
+    scope: ['email']
 }));
 router.get('/oauth2/redirect/google', passport.authenticate('google', {
     successRedirect: '/',
@@ -169,9 +129,6 @@ router.get('/oauth2/redirect/google', passport.authenticate('google', {
 
 
 router.get('/p/login', function (req, res, next) {
-    // console.log("from session: " + req.session.test);
-    // req.session.test = "Hallo";
-
     res.locals.viewname = "login";
     res.render(res.locals.viewname);
 });
