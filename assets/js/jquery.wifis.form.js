@@ -51,8 +51,8 @@
 		};
 
 		removeWifi = function(wifiid) {
-			$.post("/ajax/deleteWifi", {
-				"wifiid" : wifiid
+			$.post("/api/wifi/delete", {
+				"id" : wifiid
 			}, function(data, textStatus, jqXHR) {
 				if (data.deleted) {
 					window.setTimeout(function() {
@@ -98,8 +98,8 @@
 				currentValidates += (currentValidates === -1 ? 2 : 1);
 				var loader = $element.find(".loader");
 				loader.show();
-				$.post("/ajax/wifis/validate", {
-					"wifiid" : wifiid
+				$.post("/api/wifi/validate", {
+					"id" : wifiid
 				}, function(data, textStatus, jqXHR) {
 					currentValidates--;
 					loader.toggle(currentValidates === 0);
@@ -113,8 +113,8 @@
 		createNewWifi = function(wifiid) {
 			setErrorMsg();
 
-			$.post("/ajax/wifis/add", {
-				"wifiid" : wifiid
+			$.post("/api/wifi/add", {
+				"id" : wifiid
 			},
 					function(data, textStatus, jqXHR) {
 						if (data.newWifi) {

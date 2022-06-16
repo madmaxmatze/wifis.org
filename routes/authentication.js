@@ -5,6 +5,11 @@ var passport = require('passport');
 
 var UsersRepository = require('../models/users');
 
+router.use(function (req, res, next) {
+    req.app.enable('trust proxy');
+    next();
+});
+
 // var LocalStrategy = require('passport-local');
 var LocalStrategy = require('passport-local').Strategy;
 
@@ -62,8 +67,9 @@ passport.use(new GoogleStrategy({
 
     // https://www.passportjs.org/reference/normalized-profile/
     var user = {
+        "id": profile.provider + profile.id,
         "provider": profile.provider,
-        "id": profile.id,
+        "providerId" : profile.id,
         "email": profile._json.email,
         "displayName": profile.displayName,
         "lastLoginDate": new Date(),
@@ -80,9 +86,10 @@ passport.use(new GoogleStrategy({
    
    usersRepository.upsert(user)
     .then(function(user) {
-       done(null, user);
+        done(null, user);
     }).catch(function(error) {
         console.log("Error inserting/updating user:", error);
+        return done(error);
     });    
 }));
 
@@ -95,7 +102,7 @@ router.use(passport.authenticate('session'));
 // https://github.com/jaredhanson/passport-local
 passport.use(new LocalStrategy(
     function (username, password, done) {
-        var user = { id: "local", username: username, provider: 'delete' };
+        var user = { id: "local", displayName: username, email: 'dummy@example.com', provider: 'local' };
         return done(null, user);
     }
 ));
@@ -114,7 +121,6 @@ passport.deserializeUser(function (user, done) {
 });
 
 
-
 router.use(passport.initialize());
 router.use(passport.session());
 
@@ -122,20 +128,23 @@ router.use(passport.session());
 router.get('/p/login/federated/google', passport.authenticate('google', {
     scope: ['email']
 }));
+
 router.get('/oauth2/redirect/google', passport.authenticate('google', {
     successRedirect: '/',
-    failureRedirect: '/p/login'
+    failureRedirect: '/p/login',
+    // failureMessage: true
 }));
 
 
 router.get('/p/login', function (req, res, next) {
     res.locals.viewname = "login";
+    res.locals.errormessage = req.session.messages;
     res.render(res.locals.viewname);
 });
 router.post('/p/login', passport.authenticate('local', {
     successRedirect: '/',
     failureRedirect: '/p/login',
-    // failureMessage: true
+    failureMessage: true
 }));
 
 
@@ -190,7 +199,6 @@ router.use(function (req, res, next) {
     res.locals.user = req.user;
     if (req.isAuthenticated()) {
         res.locals.user.maxWifis = 3;
-        console.log("user:" + req.user);
     }
     next();
 });

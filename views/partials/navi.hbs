@@ -102,8 +102,8 @@
                 {{#if user}}
                 <a href="#" class="dropdown-toggle" id="logout-menu-item" title="logout">
                     <span class="loginName" title="logout">
-                        {{#if user.username}}
-                        {{user.username}}
+                        {{#if user.displayName}}
+                        {{user.displayName}}
                         {{else}}
                         {{user.email}}
                         {{/if}}

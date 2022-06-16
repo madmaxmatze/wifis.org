@@ -28,13 +28,22 @@
 <body>
     {{> navi }}
 
-    <!-- TODO:JSP SOCIAL -->
-
     <div class="container maincontainer {{viewname}}_page">
         <div class="content contenttop">
+            {{{errormessage}}}
+            
+            {{#if error}}
+            <div class="alert alert-error">
+                {{{error.message}}}
+            </div>
+            {{{error.status}}}
+            {{{error.stack}}}
+            {{{error.cause}}}
+            {{{error.name}}}
+            {{/if}}
 
             {{{body}}}
-            
+
             <div class='clear'></div>
         </div>
     </div>
@@ -47,7 +56,8 @@
                 revision: {{revision}}
                 service: {{service}}
                 getLocale: "{{getLocale}}"
-                getLocales: "{{getLocales}}"      
+                getLocales: "{{getLocales}}" 
+                env: "{{env}}"     
         */
 
         var config = {

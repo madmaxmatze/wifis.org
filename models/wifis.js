@@ -5,15 +5,19 @@ class WifisRepository {
 
     // private
     #getDocRef(id) {
-        return this.db.collectionGroup('wifis').doc(id);
+        return this.db.collection('wifis').doc(id);
     }
 
     getAll() {
-        return this.db.collectionGroup('wifis').get();
+        return this.db.collection('wifis').get();
     }
 
-    get(wifi) {
-        return this.#getDocRef(wifi).get();
+    get(id) {
+        return this.#getDocRef(id).get();
+    }
+
+    getAllForUser(userId) {
+        return this.db.collection('wifis').where("user", "==", userId).get();
     }
 
     insert(wifi) {

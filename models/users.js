@@ -5,7 +5,7 @@ class UsersRepository {
 
     // private
     #getDocRef(user) {
-        return this.db.collection('users').doc(user.provider + user.id);
+        return this.db.collection('users').doc(user.id);
     }
 
     /* not needed for now

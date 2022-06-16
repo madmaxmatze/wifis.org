@@ -1,5 +1,4 @@
 <form id="addWifiForm" class="form-inline" method="post" autocomplete="off" action="/p/wifis/add">
-    {{#if user.wifis}}
     {{#each user.wifis}}
     <div class="control-group wifiObj" id="wifi{{@key}}">
         <div class="input-prepend input-append">
@@ -14,7 +13,6 @@
         </div>
     </div>
     {{/each}}
-    {{/if}}
 
     <div class="control-group ">
         <div class="input-prepend input-append">
