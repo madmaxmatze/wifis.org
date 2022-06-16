@@ -98,12 +98,14 @@ router.get('/p/wifis', async (req, res, next) => {
     var wifisRepository = new WifisRepository(req.db);
 
     wifisRepository.getAllForUser(req.user.id).then((querySnapshot) => {
-        var wifis = [];
+        var wifis = {};
         querySnapshot.forEach(doc => {
-            wifis[doc.id] = doc.data();
-        });   
+            wifis[doc.id] = {
+                "label" : doc.data().label
+            };
+        });
         console.log (wifis);
-        res.locals.user.wifis = wifis;
+        res.locals.wifis = wifis;
         res.locals.viewname = "wifis";
         res.render(res.locals.viewname);    
     }).catch(next);
