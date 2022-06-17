@@ -1,16 +1,11 @@
-var express = require('express');
-var router = express.Router();
+var express = require('express')
+    , router = express.Router()
+    , utils = require('./helper/utils')
+    ;
 
-var blockUnauthorized = function (req, res, next) {
-    if (!req.isAuthenticated()) {
-        var err = new Error("Not autorized")
-        err.status = 401;
-        return next(err);
-    }
-    next();
-};
-
-// single Wifi
+/*
+ *  Single Wifi Page
+ */
 router.get(/^\/([\w\-]{3,})(.*)/, async (req, res) => {
     res.locals.viewname = "wifi";
     res.locals.wifiId = req.params['0'];
@@ -31,8 +26,10 @@ router.get(/^\/([\w\-]{3,})(.*)/, async (req, res) => {
 });
 
 
-// all wifis
-router.get('/p/wifis', blockUnauthorized, async (req, res, next) => {
+/*
+ *  All Users Wifis Page
+ */
+router.get('/p/wifis', utils.blockUnauthorized, async (req, res, next) => {
     req.wifiRepository.getAllForUser(req.user.id).then((wifis) => {
         res.locals.viewname = "wifis";
         res.locals.wifis = wifis;
@@ -41,7 +38,9 @@ router.get('/p/wifis', blockUnauthorized, async (req, res, next) => {
 });
 
 
-// API
+/*
+ *  API: Validate wifi id
+ */
 router.post('/api/wifi/validate', async (req, res) => {
     req.wifiRepository.get(req.body.id)
         .then((wifi) => {
@@ -52,7 +51,10 @@ router.post('/api/wifi/validate', async (req, res) => {
         });
 });
 
-router.post('/api/wifi/add', blockUnauthorized, function (req, res) {
+/*
+ *  API: Create new Wifi
+ */
+router.post('/api/wifi/add', utils.blockUnauthorized, function (req, res) {
     var newWifi = {
         "id": req.body.id
         , "label": req.body.id
@@ -69,7 +71,10 @@ router.post('/api/wifi/add', blockUnauthorized, function (req, res) {
         });
 });
 
-router.post('/api/wifi/delete', blockUnauthorized, function (req, res) {
+/*
+ *  API: Delete Wifi
+ */
+router.post('/api/wifi/delete', utils.blockUnauthorized, function (req, res) {
     req.wifiRepository.delete(req.user.id, req.body.id)
         .then((createdWifi) => {
             res.json({ "deleted": true });
@@ -80,8 +85,8 @@ router.post('/api/wifi/delete', blockUnauthorized, function (req, res) {
         });
 });
 
-/*
-router.post('/p/wifis/add', blockUnauthorized, async (req, res, next) => {
+/* to be added later
+router.post('/p/wifis/add', utils.blockUnauthorized, async (req, res, next) => {
     req.wifiRepository.insert({
         "id": "test",
         "label": "TesT"
