@@ -1,115 +1,94 @@
 var express = require('express');
 var router = express.Router();
-var WifisRepository = require('../models/wifis');
 
-router.get('/:wifiId', async (req, res) => {
-    res.locals.viewname = "wifi";
-    res.locals.wifiId = req.params.wifiId;
-
-    res.render(res.locals.viewname);
-});
-
-
-router.all('/api/wifi/validate', async (req, res) => {
-    res.json({ "valid": true });
-});
-
-router.post('/api/wifi/add', function (req, res, next) {
+var blockUnauthorized = function (req, res, next) {
     if (!req.isAuthenticated()) {
         var err = new Error("Not autorized")
         err.status = 401;
         return next(err);
     }
+    next();
+};
 
-    var wifisRepository = new WifisRepository(req.db);
+// single Wifi
+router.get(/^\/([\w\-]{3,})(.*)/, async (req, res) => {
+    res.locals.viewname = "wifi";
+    res.locals.wifiId = req.params['0'];
+    res.locals.wifiIdSuffix = req.params['1'];
+
+    req.wifiRepository.get(res.locals.wifiId)
+        .then((wifi) => {
+            if (wifi && wifi.label != res.locals.wifiId) {
+                res.redirect('/' + wifi.label);
+            }
+            res.locals.wifi = wifi;
+            res.render(res.locals.viewname);
+        })
+        .catch((error) => {
+            res.locals.error = error;
+            res.render(res.locals.viewname);
+        });
+});
+
+
+// all wifis
+router.get('/p/wifis', blockUnauthorized, async (req, res, next) => {
+    req.wifiRepository.getAllForUser(req.user.id).then((wifis) => {
+        res.locals.viewname = "wifis";
+        res.locals.wifis = wifis;
+        res.render(res.locals.viewname);
+    }).catch(next);
+});
+
+
+// API
+router.post('/api/wifi/validate', async (req, res) => {
+    req.wifiRepository.get(req.body.id)
+        .then((wifi) => {
+            res.json({ "valid": true });
+        })
+        .catch((error) => {
+            res.json({ "valid": false, "error": error.message });
+        });
+});
+
+router.post('/api/wifi/add', blockUnauthorized, function (req, res) {
     var newWifi = {
         "id": req.body.id
         , "label": req.body.id
         , "user": req.user.id
     };
 
-    wifisRepository.insert(newWifi)
+    req.wifiRepository.insert(newWifi)
         .then((createdWifi) => {
-            res.json({"newWifi": newWifi});
+            res.json({ "newWifi": newWifi });
         })
         .catch((error) => {
-            next(error);
+            console.error(error);
+            res.json({ "error": error.message });
         });
 });
 
-router.all('/p/wifis/add', async (req, res) => {
-    var wifisRepository = new WifisRepository(req.db);
+router.post('/api/wifi/delete', blockUnauthorized, function (req, res) {
+    req.wifiRepository.delete(req.user.id, req.body.id)
+        .then((createdWifi) => {
+            res.json({ "deleted": true });
+        })
+        .catch((error) => {
+            console.error(error);
+            res.json({ "deleted": false, "error": error.message });
+        });
+});
 
-    wifisRepository.insert({
+/*
+router.post('/p/wifis/add', blockUnauthorized, async (req, res, next) => {
+    req.wifiRepository.insert({
         "id": "test",
         "label": "TesT"
     });
 
     res.redirect(302, '/p/wifis');
 });
-
-
-router.get('/p/wifis', async (req, res, next) => {
-    if (!req.isAuthenticated()) {
-        var err = new Error("Not autorized");
-        err.status = 401;
-        next(err);
-        return;
-    }
-
-    /*
-    
-    var querySnapshot1 = await req.db.collectionGroup('wifis').where('id', '==', 'test').get();
-    querySnapshot1.forEach(queryDocumentSnapshot => {
-
-        console.log(queryDocumentSnapshot.id);
-        console.log(queryDocumentSnapshot.data());
-
-        const documentReference = queryDocumentSnapshot.ref; // DocumentReference
-        const documentParent = documentReference.parent.parent.id;
-
-        console.log(documentParent);
-
-    });
-
-
-    var querySnapshot = await wifisRepository.getAll();
-    // https://codingshower.com/query-and-fetch-documents-from-sub-collections-in-firebase-firestore/
-    querySnapshot.forEach(queryDocumentSnapshot => {
-
-        console.log(queryDocumentSnapshot.id);
-        console.log(queryDocumentSnapshot.data());
-
-        const documentReference = queryDocumentSnapshot.ref; // DocumentReference
-        const documentParent = documentReference.parent.parent.id;
-
-        console.log(documentParent);
-
-    });
-
-    // documentReference.path - Reference path of this (comment) document
-    //
-    // documentParent.id - Parent (comment) collection's ID
-    // documentParent.path - Path of the parent (comment) collection
-    // documentParent.parent (DocumentReference) - Parent (post) document of parent (comment) collection (grand-parent)
-
-
-    */
-    var wifisRepository = new WifisRepository(req.db);
-
-    wifisRepository.getAllForUser(req.user.id).then((querySnapshot) => {
-        var wifis = {};
-        querySnapshot.forEach(doc => {
-            wifis[doc.id] = {
-                "label" : doc.data().label
-            };
-        });
-        console.log (wifis);
-        res.locals.wifis = wifis;
-        res.locals.viewname = "wifis";
-        res.render(res.locals.viewname);    
-    }).catch(next);
-});
-
+*/
 
 module.exports = router;

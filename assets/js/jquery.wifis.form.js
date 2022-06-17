@@ -43,7 +43,7 @@
 		};
 
 		removeWifiClickHandler = function($wifiObj) {
-			$wifiObj.hide(config.animationSpeed);
+            $wifiObj.hide(config.animationSpeed);
 			removeWifi($wifiObj.attr("id").substr(4));
 			setErrorMsg();
 			addWifiInput.focus();
@@ -51,14 +51,16 @@
 		};
 
 		removeWifi = function(wifiid) {
-			$.post("/api/wifi/delete", {
+            $.post("/api/wifi/delete", {
 				"id" : wifiid
 			}, function(data, textStatus, jqXHR) {
-				if (data.deleted) {
+                if (data.deleted) {
 					window.setTimeout(function() {
 						$("#wifi" + wifiid).remove();
-					}, config.animationSpeed);
-				}
+             		}, config.animationSpeed);
+				} else {
+                    $("#wifi" + wifiid).show(config.animationSpeed);
+                }
 			}, "json");
 		};
 

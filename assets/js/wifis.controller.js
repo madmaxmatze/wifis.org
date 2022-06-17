@@ -4,7 +4,7 @@ $(function() {
 	$("#addWifiForm").wifisForm(config);
 	$(".navbar").wifisMenu();
 	$(".content .press").wifisPress();
-	$(".socialArea").wifisSocial(config);
+	// $(".socialArea").wifisSocial(config);
 	if (typeof wifisStatsData !== "undefined") {
 		$("#wifisStats").wifisStats({
 			data : wifisStatsData

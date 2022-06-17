@@ -1,20 +1,16 @@
-<h2>{{& __ "wifi.headlinePrefix"}} wifis.org/{{wifiId}}</h2>
+{{#if wifi}}	
+    <h2>
+        {{& __ "wifi.headlinePrefix"}}
+        <a href="/{{wifi.id}}">wifis.org/{{wifi.label}}</a><small>{{wifiIdSuffix}}</small>
+    </h2>
 
-WifiId: {{wifiId}}
+    <p>
+        {{{__ "wifi.text.text"}}}
+    </p>
+    <br>
 
-
-<!--
-<c:choose>
-	<c:when test="${wifi == null}">
-		<h2>
-			<spring:message code="wifi.headlinePrefix" />
-			wifis.org<c:out value="${uri}" />
-		</h2>
-		<spring:message code="wifi.text.notfound" />
-	</c:when>
-
-	<c:otherwise>
-		<c:if test="${isMyWifi == 'true'}">
+{{!--
+	<c:if test="${isMyWifi == 'true'}">
 			<div class="alert alert-error yourWifiTopMessage">
 				<spring:message code="wifi.text.mywifi" />
 			</div>
@@ -28,15 +24,10 @@ WifiId: {{wifiId}}
 			<c:set var="subWifiId"
                         value="${fn:substring(uri, wifiIdLength, 100)}" />
 
-			<a href="/${wifi.label}">wifis.org/${wifi.label}</a><small><c:out
-                            value="${subWifiId}" /></small>
+			
 		</h2>
 
-		<p>
-			<spring:message code="wifi.text" />
-		</p>
-		<br>
-
+	
 		<c:choose>
 			<c:when test="${wasSent == true}">
 				<div class="alert alert-success">
@@ -111,6 +102,21 @@ WifiId: {{wifiId}}
             		</form>
 			</c:otherwise>
 		</c:choose>
-	</c:otherwise>
-</c:choose>
--->
+    --}}
+    
+
+
+    <br><br>
+    {{json wifi}} 
+    {{json wifiId}} 
+    {{json wifiIdSuffix}} 
+
+
+{{else}}
+
+    <h2>{{& __ "wifi.headlinePrefix"}} wifis.org/{{wifiId}}</h2>
+    {{{__ "wifi.text.notfound"}}}
+    <br><br>
+    WifiId: {{wifiId}}
+
+{{/if}}

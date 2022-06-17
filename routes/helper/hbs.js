@@ -36,12 +36,12 @@ expressHandlebars.registerHelper('json', function (object) {
 module.exports = function (req, res, next) {
     res.app
         .engine('hbs', expressHandlebars.express4({
-            partialsDir: __dirname + '/../views/partials'
-            , defaultLayout: __dirname + "/../views/layouts/main.hbs"
-            , partialsDir: __dirname + '/../views/partials'
+            partialsDir: __dirname + '/../../views/partials'
+            , defaultLayout: __dirname + "/../../views/layouts/main.hbs"
+            , partialsDir: __dirname + '/../../views/partials'
             , beautify: true
         }))
         .set('view engine', 'hbs')
-        .set('views', __dirname + '/../views');
+        .set('views', __dirname + '/../../views');
     next();
 }

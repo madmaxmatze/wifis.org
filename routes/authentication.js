@@ -3,8 +3,9 @@ var express = require('express');
 var router = express.Router();
 var passport = require('passport');
 
-var UsersRepository = require('../models/users');
-
+/**
+ * not sure if needed, doesnt work anyway
+ */
 router.use(function (req, res, next) {
     req.app.enable('trust proxy');
     next();
@@ -19,7 +20,7 @@ var GoogleStrategy = require('passport-google-oauth20').Strategy;
 
 var googleCallbackDomain = "https://wifis.mathiasnitzsche.de";
 if (process.env['K_REVISION'] == "local") {
-    googleCallbackDomain = "https://8080-cs-590268403158-default.cs-europe-west4-bhnf.cloudshell.dev";
+    googleCallbackDomain = "https://8080-cs-590268403158-default.cs-europe-west4-fycr.cloudshell.dev";
 }
 
 // GOOGLE ------------------------------------------------------------
@@ -32,13 +33,15 @@ passport.use(new GoogleStrategy({
     scope: ['email'] // not "profile"
 }, (req, accessToken, refreshToken, object0, profile, done) => {
     // function verify(issuer, profile, cb) {
+    /*
     console.log("verify");
     console.log("req" + req);
     console.log("accessToken" + accessToken);
     console.log("refreshToken" + refreshToken);
     console.log("object0" + object0);
     console.log(profile);
-
+    */
+   
     /*
     var "profile" example from Google = {
         id: '101308901782656878176',
@@ -82,9 +85,7 @@ passport.use(new GoogleStrategy({
         city
     */
 
-   var usersRepository = new UsersRepository(req.db);
-   
-   usersRepository.upsert(user)
+   req.userRepository.upsert(user)
     .then(function(user) {
         done(null, user);
     }).catch(function(error) {

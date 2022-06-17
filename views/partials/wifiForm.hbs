@@ -1,19 +1,19 @@
 <form id="addWifiForm" class="form-inline" method="post" autocomplete="off" action="/p/wifis/add">
     {{#each wifis}}
-    <div class="control-group wifiObj" id="wifi{{@key}}">
+    <div class="control-group wifiObj" id="wifi{{this.id}}">
         <div class="input-prepend input-append">
             <span class="add-on">wifis.org/</span>
             <span class="add-on wifiName" style="font-weight: bold; background: white;">
-                <a href="/{{@key}}">{{this.label}}</a>
+                <a href="/{{this.id}}">{{this.label}}</a>
             </span>
             <span class="add-on deleteButton">
-                <a class="sprite icon icon-delete" href="/p/wifis/delete?id={{@key}}"
-                    title='<spring:message code="wifis.deleteButton" />'></a>
+                <a class="sprite icon icon-delete" href="/p/wifis/delete?id={{this.id}}"
+                    title="{{../__ "wifis.deleteButton"}}"></a>
             </span>
         </div>
     </div>
     {{/each}}
-
+   
     <div class="control-group ">
         <div class="input-prepend input-append">
             <span class="add-on">wifis.org/</span> <input class="addWifiInput" type="text" name="wifiid" value=""
@@ -24,9 +24,9 @@
             <span class="add-on loader">&#160;&#160;&#160;</span>
         </div>
         <span class="help-inline">
-            <c:if test="${error != null}">
-                <spring:message code="wifis.error.${error}" />
-            </c:if>
+            {{#if error}}
+                {{! __ (concat "wifis.error." error)}}
+            {{/if}}
         </span>
     </div>
 </form>
