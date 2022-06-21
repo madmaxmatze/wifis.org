@@ -12,9 +12,9 @@ i18n.configure({
     objectNotation: true,
 });
 
-router
-    .use(i18n.init)
-    .use(function (req, res, next) {
+router.use(
+    i18n.init,
+    function (req, res, next) {
         res.locals.translations = i18n.getCatalog(req);
 
         if (req.cookies && req.cookies.locale) {
@@ -32,6 +32,7 @@ router
         }
 
         next();
-    });
+    }
+);
 
 module.exports = router;

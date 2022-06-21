@@ -14,6 +14,7 @@ express() // = app
         , require('./routes/authentication')
         , require('./routes/wifi')
         , require('./routes/pages')
+        , require('./routes/api')
         , require('./routes/fallback')
     )
     .listen(process.env.PORT || 8080);
