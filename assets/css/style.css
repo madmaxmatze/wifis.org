@@ -691,6 +691,9 @@ input, textarea, select {
 
 
 
+
+
+
 /* Stats ********************************************************************************* */
 .countriesMap {
 	margin: 0 0 10px 20px;
@@ -759,7 +762,7 @@ a span.external {
 	margin-right: 20px;
 	width: 200px;
 	height: 170px;
-	background: url(https://lh4.googleusercontent.com/-yOPDb7yiNO0/T0EQ60lDn9I/AAAAAAAAACY/9k0-0cGzEss/s200/postbox.png) left top no-repeat !important;
+	background: url(/assets/img/postbox.png) left top no-repeat !important;
 }
 .mobile .home_page .wifilogo {
 	display: none;
@@ -865,11 +868,9 @@ a span.external {
 	margin: 0 10px;
 }
 
-.home_page .teaser1 .image a {background: url(https://lh6.googleusercontent.com/-AoEENTeHw0Y/T-8cdPZCOSI/AAAAAAAAAF4/v_u_9HQUS2c/s210/teaser1_active.png);}
-/* https://lh3.googleusercontent.com/-5ytizrKsBds/T-8cdBrfuUI/AAAAAAAAAGA/QipBzJAklds/s210/teaser2_active.png */
-.home_page .teaser2 .image a {background: url(https://lh3.googleusercontent.com/-FhsExAD5GVY/UJbHW62RdII/AAAAAAAAAH4/TtT-McZsWSk/s210/teaser2_dark_active.png);}
-/* https://lh6.googleusercontent.com/-L9NMdV0MCOA/T-8oqfRZt2I/AAAAAAAAAGs/Xl692uA1l2Y/s210/teaser3_active.png */
-.home_page .teaser3 .image a {background: url(https://lh4.googleusercontent.com/-66k1BYXpQJI/UJbHY3x6h-I/AAAAAAAAAH4/VaLRoGlgT2I/s210/teaser3_dark_active.png);}
+.home_page .teaser1 .image a {background: url(/assets/img/teaser1_active.png);}
+.home_page .teaser2 .image a {background: url(/assets/img/teaser2_dark_active.png);}
+.home_page .teaser3 .image a {background: url(/assets/img/teaser3_dark_active.png);}
 
 .homhome_pagee .image a img,
 .home_page .image a {
@@ -1237,7 +1238,9 @@ footer .press {
 	cursor: not-allowed;
 }
 
-
+input[name="g-recaptcha-response"] {
+    display: none;
+}
 
 
 

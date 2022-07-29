@@ -4,15 +4,22 @@ class UserRepository {
     }
 
     // private
-    #getDocRef(user) {
-        return this.db.collection('users').doc(user.id);
+    #getDocRef(userId) {
+        return this.db.collection('users').doc(userId.toLowerCase());
+    }
+
+    async get(userId) {
+        if (!userId) {
+            throw new Error("Invalid userId");
+        }
+        return new Promise((resolve, reject) => {
+            this.#getDocRef(userId).get().then(documentSnapshot => {
+                resolve(documentSnapshot.exists ? documentSnapshot.data() : null);
+            });
+        });
     }
 
     /* not needed for now
-    get(user) {
-        return this.getDocRef(user).get();
-    }
-
     insert(user) {
         return this.getDocRef(user).set(user);
     }
@@ -24,16 +31,16 @@ class UserRepository {
 
     upsert(user) {  // update or insert
         return new Promise((resolve, reject) => {
-            this.#getDocRef(user).get().then((queryDocumentSnapshot) => {
+            this.#getDocRef(user.id).get().then((queryDocumentSnapshot) => {
                if (queryDocumentSnapshot.exists) {
                     // TODO: add other data to merge in
                     var lastLoginDate = new Date();
-                    this.#getDocRef(user).update({ "lastLoginDate": lastLoginDate }).then((writeResult) => {
+                    this.#getDocRef(user.id).update({ "lastLoginDate": lastLoginDate }).then((writeResult) => {
                         user.lastLoginDate = lastLoginDate;
                         resolve(user);
                     }).catch(reject);
                 } else {
-                    this.#getDocRef(user).set(user).then((writeResult) => {
+                    this.#getDocRef(user.id).set(user).then((writeResult) => {
                         resolve(user);
                     }).catch(reject);
                 }

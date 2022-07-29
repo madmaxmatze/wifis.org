@@ -1,19 +1,13 @@
-module.exports = function registerGoogle(passport, router) {
+module.exports = function (passport, router) {
     // http://www.passportjs.org/tutorials/google/redirect/ : // require('passport-google-oidc');
     var GoogleStrategy = require('passport-google-oauth20').Strategy;
 
-    var googleCallbackDomain = "https://wifis.mathiasnitzsche.de";
-    if (process.env['K_REVISION'] == "local") {
-        googleCallbackDomain = "https://8080-cs-590268403158-default.cs-europe-west4-fycr.cloudshell.dev";
-    }
+    var callbackDomain = process.env['DOMAIN_' + (process.env.NODE_ENV || "development").toUpperCase()];
 
-    var googleCallbackUri = '/p/login/google/oauth2_redirect';
-
-    // GOOGLE ------------------------------------------------------------
     passport.use(new GoogleStrategy({
-        clientID: process.env['GOOGLE_CLIENT_ID'],
-        clientSecret: process.env['GOOGLE_CLIENT_SECRET'],
-        callbackURL: googleCallbackDomain + googleCallbackUri,
+        clientID: process.env.GOOGLE_CLIENT_ID,
+        clientSecret: process.env.GOOGLE_CLIENT_SECRET,
+        callbackURL: "https://" + callbackDomain + "/p/login/google/redirect",
         proxy: true,
         passReqToCallback: true,
         scope: ['email'] // not "profile"
@@ -21,11 +15,12 @@ module.exports = function registerGoogle(passport, router) {
         // function verify(issuer, profile, cb) {
         /*
         console.log("verify");
-        console.log("req" + req);
-        console.log("accessToken" + accessToken);
-        console.log("refreshToken" + refreshToken);
-        console.log("object0" + object0);
-        console.log(profile);
+        console.log("req", req);
+        console.log("accessToken", accessToken);
+        console.log("refreshToken", refreshToken);
+        console.log("object0", object0);
+        console.log("profile", profile);
+        console.log("done", done);
         */
 
         /*
@@ -84,7 +79,7 @@ module.exports = function registerGoogle(passport, router) {
         scope: ['email']
     }));
 
-    router.get(googleCallbackUri, passport.authenticate('google', {
+    router.get('/p/login/google/redirect', passport.authenticate('google', {
         successRedirect: '/',
         failureRedirect: '/p/login',
         // failureMessage: true

@@ -1,6 +1,5 @@
 // https://github.com/jaredhanson/passport-local
-
-module.exports = function registerLocal(passport, router) {
+module.exports = function (passport, router) {
     var LocalStrategy = require('passport-local').Strategy;
     passport.use(new LocalStrategy(
         function (username, password, done) {

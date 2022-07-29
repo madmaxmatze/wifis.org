@@ -8,12 +8,14 @@ class WifiRepository {
     }
 
     get(id) {
+        throw new Error("test");
+
         if (!this.isIdValid(id)) {
             throw new Error("Invalid wifiId");
         }
         return new Promise((resolve, reject) => {
             this.db.collection('wifis').doc(id.toLowerCase()).get().then(documentSnapshot => {
-                resolve(documentSnapshot.exists ? foundWifi : null);
+                resolve(documentSnapshot.exists ? documentSnapshot.data() : null);
             });
         });
     }

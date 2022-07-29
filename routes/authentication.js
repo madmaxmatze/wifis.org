@@ -11,6 +11,7 @@ router.use(function (req, res, next) {
 });
 
 require('./authentication_google')(passport, router);
+require('./authentication_facebook')(passport, router);
 require('./authentication_local')(passport, router);
 
 passport.serializeUser(function (user, done) {
