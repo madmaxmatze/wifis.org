@@ -80,7 +80,7 @@ module.exports = function (passport, router) {
     }));
 
     router.get('/p/login/google/redirect', passport.authenticate('google', {
-        successRedirect: '/',
+        successRedirect: '/p/wifis',
         failureRedirect: '/p/login',
         // failureMessage: true
     }));

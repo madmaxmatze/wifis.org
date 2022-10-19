@@ -6,34 +6,41 @@ var express = require('express')
 /*
  *  API: Validate wifi id
  */
-router.post('/api/wifi/validate', async (req, res) => {
+router.post('/api/wifi/exists', async (req, res) => {
     req.wifiRepository.get(req.body.id)
         .then((wifi) => {
-            res.json({ "valid": true });
+            res.json({ "exists": (wifi === null) });
         })
         .catch((error) => {
-            res.json({ "valid": false, "error": error.message });
+            res.json({ "exists": false, "error": error.message });
         });
 });
 
 /*
  *  API: Create new Wifi
  */
-router.post('/api/wifi/add', utils.blockUnauthorized, function (req, res) {
+router.post('/api/wifi/add', utils.blockUnauthorized, async (req, res) => {
     var newWifi = {
         "id": req.body.id
         , "label": req.body.id
         , "user": req.user.id
     };
 
-    req.wifiRepository.insert(newWifi)
-        .then((createdWifi) => {
-            res.json({ "newWifi": newWifi });
-        })
-        .catch((error) => {
-            console.error(error);
-            res.json({ "error": error.message });
-        });
+    var userWifis = await req.wifiRepository.getAllForUser(req.user.id);
+
+    if (userWifis.length >= res.locals.user.maxWifis) {
+        req.wifiRepository.insert(newWifi)
+            .then((createdWifi) => {
+                res.json({ "newWifi": newWifi });
+            })
+            .catch((error) => {
+                console.error(error);
+                res.json({ "error": error.message });
+            });
+    } else {
+        console.error(userWifis);
+        res.json({ "error": "maxWifiCountReached" });
+    }
 });
 
 /*

@@ -3,7 +3,7 @@ html.web {
 	overflow-y: scroll;
 }
 .web body {
-	padding-top: 90px;
+	padding-top: 90px;^
 }
 .web .cms_page .contenttop, .web .Admin .contenttop {
 	margin-top: 30px;
@@ -257,7 +257,7 @@ h3 {
 	background: #555;
 	background: #3d85c6;	
 	*/
-	background: url(../img/bg_top.png) repeat;
+	background: url(/assets/img/bg_top.png) repeat;
 	margin: 0 auto;
 }
 .web .brand {
@@ -677,18 +677,23 @@ input, textarea, select {
 #addWifiForm .loader {
 	background-position: 4px 6px !important;
 	border: none;
-	display: none;
+	display: inline-block;
+    margin-left: 4px;
 	width: 20px;
 	height: 20px;
+    background-color: transparent; 
 }
 
 
 #addWifiForm .loader, .statsChart {
-	background-image: url(../img/ajax-loader.gif);
+	background-image: url(/assets/img/ajax-loader.gif);
 	background-repeat: no-repeat;
 	background-position: center center;
 }
 
+.hide {
+    display: none !important;
+}
 
 
 
@@ -706,7 +711,7 @@ input, textarea, select {
 
 a span.external {
 	padding-left: 16px;
-    background: url(../img/sprites.png) no-repeat -688px -47px;
+    background: url(/assets/img/sprites.png) no-repeat -688px -47px;
 }
 
 
@@ -1247,8 +1252,8 @@ input[name="g-recaptcha-response"] {
 /* SPRITE */
 .icon {width: 16px; height: 16px;}
 .icon32 {width: 32px; height: 32px; display: inline-block;}
-.sprite {background: url("../img/sprites.png") no-repeat -1000px -1000px;}
-.web .logo {background: url("../img/logos.png") no-repeat -1000px -1000px;}
+.sprite {background: url("/assets/img/sprites.png") no-repeat -1000px -1000px;}
+.web .logo {background: url("/assets/img/logos.png") no-repeat -1000px -1000px;}
 
 .flag_en {background-position: -1px -1px;}
 .flag_de {background-position: -19px -1px;}

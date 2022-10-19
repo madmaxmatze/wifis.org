@@ -19,7 +19,7 @@ module.exports = function (passport, router) {
             return next(err);
         }
         , passport.authenticate('local', {
-            successRedirect: '/',
+            successRedirect: '/p/wifis',
             failureRedirect: '/p/login',
             failureMessage: true
         })

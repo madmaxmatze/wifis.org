@@ -1,4 +1,5 @@
 var express = require('express');
+require('express-async-errors');
 
 express() // = app
     .use('/assets', express.static('assets'))
@@ -12,9 +13,9 @@ express() // = app
         , require('./routes/helper/hbs')
         , require('./routes/helper/db')
         , require('./routes/authentication')
+        , require('./routes/api')
         , require('./routes/wifi')
         , require('./routes/pages')
-        , require('./routes/api')
         , require('./routes/fallback')
     )
     .listen(process.env.PORT || 8080);

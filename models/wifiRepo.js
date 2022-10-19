@@ -8,7 +8,7 @@ class WifiRepository {
     }
 
     get(id) {
-        throw new Error("test");
+        // throw new Error("test");
 
         if (!this.isIdValid(id)) {
             throw new Error("Invalid wifiId");

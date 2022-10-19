@@ -1,6 +1,6 @@
 (function($) {
 	var WifisForm = (function($element, config) {
-		var addWifiInput = $element.find(".addWifiInput"), currentValidates = -1, validationUsed = false, defaults = {
+		var addWifiInput = $element.find(".addWifiInput"), currentValidates = 0, validationUsed = false, defaults = {
 			animationSpeed : 250
 		};
 
@@ -97,14 +97,14 @@
 			} else if ($("#wifi" + wifiid.toLowerCase()).length) {
 				setErrorMsg("alreadyYourWifi");
 			} else {
-				currentValidates += (currentValidates === -1 ? 2 : 1);
+				currentValidates++;
 				var loader = $element.find(".loader");
-				loader.show();
-				$.post("/api/wifi/validate", {
+				loader.toggleClass ("hide", currentValidates === 0);
+				$.post("/api/wifi/exists", {
 					"id" : wifiid
 				}, function(data, textStatus, jqXHR) {
 					currentValidates--;
-					loader.toggle(currentValidates === 0);
+                    loader.toggleClass ("hide", currentValidates === 0);
 					if (addWifiInput.val() === wifiid) {
 						setErrorMsg(data.error);
 					}

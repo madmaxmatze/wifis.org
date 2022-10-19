@@ -40,7 +40,7 @@ module.exports = function (passport, router) {
 
     // auth/facebook/callback
     router.get('/p/login/facebook/redirect', passport.authenticate('facebook', {
-        successRedirect: '/',
+        successRedirect: '/p/wifis',
         failureRedirect: '/p/login',
     }));
 };
