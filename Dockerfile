@@ -4,6 +4,8 @@
 
 FROM node:18-alpine As development
 
+ENV GCP_PROJECT_ID 963681635818
+
 # https://btholt.github.io/complete-intro-to-containers/build-a-nodejs-app
 USER node
 
@@ -44,6 +46,7 @@ RUN npm run build
 
 # Set NODE_ENV environment variable
 ENV NODE_ENV production
+ENV GCP_PROJECT_ID 963681635818
 
 RUN npm ci --only=production && npm cache clean --force
 
@@ -53,6 +56,8 @@ RUN npm ci --only=production && npm cache clean --force
 
 # Base image for production
 FROM node:18-alpine As production
+
+ENV GCP_PROJECT_ID 963681635818
 
 # Copy the bundled code to the production image
 COPY --chown=node:node --from=build /usr/src/app/node_modules ./node_modules

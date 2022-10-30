@@ -6,10 +6,14 @@ import * as express from 'express';
 import * as cookieParser from 'cookie-parser';
 import * as session from 'express-session';
 import { HttpExceptionFilter } from './common/filter/http-exception.filter';
+import { loadConfigFromGcpSecretToEnv } from './common/config/config.service';
 
 async function bootstrap() {
     const app = await NestFactory.create<NestExpressApplication>(AppModule);
 
+    await loadConfigFromGcpSecretToEnv(process.env.GCP_PROJECT_ID, "prod");
+    console.log ("Configs loaded", process.env);
+    
     app.use(
         express.static(resolve(__dirname, "./public"))
         , express.json()

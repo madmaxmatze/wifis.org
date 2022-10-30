@@ -13,7 +13,7 @@ export class AppController {
         if (["about", "faq", "press", "tos"].includes(page_id)) {
             res.locals.cms_id = page_id;
         }
-
+ 
         res.locals.viewname = page_id;
         return res.render(page_id);
     }
