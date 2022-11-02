@@ -1,4 +1,4 @@
-import { Get, Controller, Res, Req, Param } from '@nestjs/common';
+import { Get, Controller, Res, Param, Session } from '@nestjs/common';
 import { Response } from 'express';
 import { WifiService } from '../data/wifi.service';
 import { Wifi } from '../data/wifi.model';
@@ -14,49 +14,39 @@ export class WebController {
     }
 
     @Get()
-    homepage(@Res() res: Response) {
-        console.log ("Configs: ", process.env);
-        return this.pages(res, "home");
+    homepage(@Res() response: Response) {
+        // console.log ("Configs: ", process.env);
+        return response.render("home");
     }
 
-    @Get('p/:pageId(about|faq|languages|login|press|tos)')
-    pages(@Res() res: Response, @Param('pageId') pageId: string) {
+    @Get('p/:pageId(about|faq|press|tos|languages|login)')
+    pages(@Res() response: Response, @Param('pageId') pageId: string) {
         if (["about", "faq", "press", "tos"].includes(pageId)) {
-            res.locals.cms_id = pageId;
+            response.locals.page_id = pageId;
         }
 
-        res.locals.viewname = pageId;
-        return res.render(pageId);
+        return response.render(pageId);
     }
 
     @Get('p/wifis')
-    wifis( @Req() req : any, @Res() res: Response) {
-        this.wifiService.getAllForUser(req.session.user.id).then((wifis : any[]) => {
-            res.locals.viewname = "wifis";
-            res.locals.wifis = wifis;
-            res.render(res.locals.viewname);
-        });
+    async wifis(@Res() response: Response, @Session() session: Record<string, any>) {
+        response.locals.wifis = <Wifi[]>await this.wifiService.getAllForUser(session.user.id);
+        return response.render("wifis");
     }
 
     @Get(":wifiId(*)")
-    wifi(@Res() res: Response, @Param('wifiId') wifiId: string) {
-        console.log(wifiId);
-        res.locals.viewname = "wifi";
-        res.locals.wifiId = wifiId;
-        res.locals.wifiIdSuffix = "";
+    async wifi(@Res() response: Response, @Param('wifiId') wifiId: string) {
+        console.log("wifiId", wifiId);
+        
+        var wifi : Wifi = await this.wifiService.get(wifiId);
+        if (wifi && wifi.label != wifiId) {
+            response.redirect('/' + wifi.label);
+        }
 
-        this.wifiService.get(wifiId)
-            .then((wifi: Wifi) => {
-                if (wifi && wifi.label != wifiId) {
-                    res.redirect('/' + wifi.label);
-                }
-                res.locals.wifi = wifi;
-                console.log(wifi);
-                res.render(res.locals.viewname);
-            })
-            .catch((error : Error) => {
-                res.locals.error = error;
-                res.render(res.locals.viewname);
-            });
+        // TODO add split magic for sub-wifis
+        response.locals.wifi = wifi;
+        response.locals.wifiId = wifiId;
+        response.locals.wifiIdSuffix = "";  
+        response.render("wifi");
     }
 }

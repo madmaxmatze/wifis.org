@@ -35,7 +35,7 @@
 <body>
     {{> navi }}
 
-    <div class="container maincontainer {{viewname}}_page">
+    <div class="container maincontainer {{#if viewname}}{{viewname}}_page{{/if}}">
         <div class="content contenttop">
             {{{errormessage}}}
             

@@ -3,24 +3,24 @@ import { Response, NextFunction } from 'express';
 import { resolve } from 'path';
 import * as hbs from 'hbs';
 
-/*
-expressHandlebars.registerHelper('viewname_new', function(options) {  
-    console.log ("", options);
-    return options.data.viewname;
+hbs.registerHelper('assign', function (varName, varValue, options) {
+    if (!options.data.root) {
+        options.data.root = {};
+    }
+    options.data.root[varName] = varValue;
 });
-*/
 
-hbs.registerHelper('equals', function (lvalue: any, rvalue: any) {
+hbs.registerHelper('equals', function (val1: any, val2: any) {
     if (arguments.length < 2) {
         throw new Error("Handlebars Helper equal needs 2 parameters");
     }
-    if (typeof lvalue == "function") {
-        lvalue = lvalue();
+    if (typeof val1 == "function") {
+        val1 = val1();
     }
-    if (typeof rvalue == "function") {
-        rvalue = rvalue();
+    if (typeof val2 == "function") {
+        val2 = val2();
     }
-    return (lvalue == rvalue);
+    return (val1 == val2);
 });
 
 hbs.registerHelper('replace', function (...args: any) {
