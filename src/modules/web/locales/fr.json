@@ -76,7 +76,9 @@
     "login": {
         "headline": "Connexion",
         "linklabel": "Connexion",
-        "text": "<b>wifis.org n’offre que la connexion (login) via votre compte de Google ou Facebook existant pour les 2 raisons suivantes:<br><\/b> <ol> <li> <b style=\"color: #333\">Votre confort:<\/b> Vous n’êtes pas obligé de remplir aucun formulaire de enregistrement ni de confirmer votre adresse email. <\/li> <li> <b style=\"color: #333\">Votre sécurité et votre vie privée:<\/b> Comme on ne connaît ni garde pas votre mot de passe ni aucunes informations privées, on peut vous donner une garantie de 100% qu’on ne perdera jamais vos dates! Vous pouvez acceder directement à plus d’informations sur cette forme de login sécurisé avec {0} ou {1}. <\/li> <\/ol>",
+        "text1": "wifis.org n’offre que la connexion (login) via votre compte de Google ou Facebook existant pour les 2 raisons suivantes:",
+        "text2": "<b style=\"color: #333\">Votre confort:<\/b> Vous n’êtes pas obligé de remplir aucun formulaire de enregistrement ni de confirmer votre adresse email.",
+        "text3": "<b style=\"color: #333\">Votre sécurité et votre vie privée:<\/b> Comme on ne connaît ni garde pas votre mot de passe ni aucunes informations privées, on peut vous donner une garantie de 100% qu’on ne perdera jamais vos dates! Vous pouvez acceder directement à plus d’informations sur cette forme de login sécurisé avec: ",
         "buttonPrefix": "Connexion con",
         "facebookHelpLinkHintText": "Plus d’ information sur login via facebook",
         "googleHelpLinkHintText": "Plus d’information sur login via Google",

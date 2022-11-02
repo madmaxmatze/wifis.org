@@ -7,7 +7,7 @@ i18n.configure({
     locales: ["de", "en", "es", "fr", "it", "ms", "nl", "ru"],
     cookie: 'locale',
     defaultLocale: 'en',
-    directory: resolve(__dirname, "../../locales"),
+    directory: resolve(__dirname, "../locales"),
     queryParameter: 'lang',
     objectNotation: true,
 });

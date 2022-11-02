@@ -3,9 +3,8 @@
     "sourceRoot": "src",
     "compilerOptions": {
         "assets": [
-            "views/**/*",
-            "locales/**/*",
-            "public/**/*"
+            "public/**/*",
+            "modules/**/*"
         ],
         "watchAssets": true
     }

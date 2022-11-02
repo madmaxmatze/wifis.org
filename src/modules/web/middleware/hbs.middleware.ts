@@ -50,14 +50,17 @@ export class HbsMiddleware implements NestMiddleware {
         response.locals.query = request.query;
         response.locals.service = process.env.K_SERVICE || '???';
         response.locals.revision = process.env.K_REVISION || '???';
-        response.locals.env = request.app.get('env');
+        if (!process.env.NODE_ENV) {
+            process.env.NODE_ENV = request.app.get('env');
+        }
+        response.locals.env = process.env.NODE_ENV;
         response.locals.user = request.session.user;
 
-        hbs.registerPartials(resolve(__dirname, "../../views/partials"));
+        hbs.registerPartials(resolve(__dirname, "../views/partials"));
 
         request.app
             .set('view engine', 'hbs')
-            .set('views', resolve(__dirname, "../../views"))
+            .set('views', resolve(__dirname, "../views"))
             .set('view options', { layout: "layouts/main.hbs" });
 
         next();

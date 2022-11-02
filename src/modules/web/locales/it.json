@@ -76,7 +76,9 @@
     "login": {
         "headline": "Login",
         "linklabel": "Login",
-        "text": "<b>wifis.org accetta login solo tramite i tuoi account Google o Facebook. Le due ragioni principali sono:<br><\/b> <ol> <li> <b style=\"color: #333\">La comodità:<\/b> Non è necessario riempire nessun form di registrazione o confermare la tua email. <\/li> <li> <b style=\"color: #333\">La privacy e la sicurezza:<\/b> Dato che non conosciamo nè conserviamo la tua password o altre informazioni personali, possiamo garantirti che non perderemo i tuoi dati. Puoi trovare ulteriori informazioni sulla sicurezza di questi metodi di login su {0} e su {1}. <\/li> <\/ol>",
+        "text1": "wifis.org accetta login solo tramite i tuoi account Google o Facebook. Le due ragioni principali sono:",
+        "text2": "<b style=\"color: #333\">La comodità:<\/b> Non è necessario riempire nessun form di registrazione o confermare la tua email.",
+        "text3": "<b style=\"color: #333\">La privacy e la sicurezza:<\/b> Dato che non conosciamo nè conserviamo la tua password o altre informazioni personali, possiamo garantirti che non perderemo i tuoi dati. Puoi trovare ulteriori informazioni sulla sicurezza di questi metodi di login su: ",
         "buttonPrefix": "Login con",
         "facebookHelpLinkHintText": "Più informazioni sul login con Facebook",
         "googleHelpLinkHintText": "Più informazioni sul login con Google",

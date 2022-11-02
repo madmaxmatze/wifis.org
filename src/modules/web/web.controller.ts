@@ -1,12 +1,12 @@
 import { Get, Controller, Res, Req, Param } from '@nestjs/common';
 import { Response } from 'express';
-import { WifiService } from './modules/data/wifi.service';
-import { Wifi } from './modules/data/wifi.model';
+import { WifiService } from '../data/wifi.service';
+import { Wifi } from '../data/wifi.model';
 
 //const SINGLE_WIFI_PAGE_REGEX = "^\/([\w\-]{3,})(.*)";
 
 @Controller()
-export class AppController {
+export class WebController {
     private wifiService = null;
 
     constructor(wifiService: WifiService) {
@@ -15,6 +15,7 @@ export class AppController {
 
     @Get()
     homepage(@Res() res: Response) {
+        console.log ("Configs: ", process.env);
         return this.pages(res, "home");
     }
 

@@ -1,11 +1,8 @@
-import { Module, MiddlewareConsumer } from '@nestjs/common';
-import { AppController } from './app.controller';
-import { I18nMiddleware } from './common/middleware/i18n.middleware';
-import { HbsMiddleware } from './common/middleware/hbs.middleware';
+import { Module } from '@nestjs/common';
 import { AuthModule } from './modules/auth/auth.module';
-import { AuthController } from './modules/auth/auth.controller';
 import { DataModule } from './modules/data/data.module';
-import { ApiController } from './modules/api/api.controller';
+import { WebModule } from './modules/web/web.module';
+import { ApiModule } from './modules/api/api.module';
 
 // import { ConfigModule } from '@nestjs/config';
 // import configuration from './common/config/configuration';
@@ -13,16 +10,14 @@ import { ApiController } from './modules/api/api.controller';
 @Module({
     imports: [
         // ConfigModule.forRoot({ isGlobal: true, load: [configuration] }),
+        DataModule,
         AuthModule,
-        DataModule
+        ApiModule,
+        WebModule
     ],
-    controllers: [AuthController, ApiController, AppController],
+    controllers: [],
     providers: [],
 })
 
 export class AppModule {
-    configure(consumer: MiddlewareConsumer) {
-        consumer.apply(I18nMiddleware).forRoutes('*');
-        consumer.apply(HbsMiddleware).forRoutes('*');
-    }
 }

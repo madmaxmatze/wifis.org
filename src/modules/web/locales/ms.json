@@ -76,7 +76,9 @@
     "login": {
         "headline": "Daftar masuk",
         "linklabel": "Daftar masuk",
-        "text": "<b>wifis.org hanya membenarkan daftar masuk menggunakan akaun Google atau Facebook. Dua sebab utama itu adalah:<br><\/b> <ol> <li> <b style=\"color: #333\">Keselesaan anda:<\/b> Anda tidak perlu melengkapkan borang pendaftaran untuk mengesahkan alamat emel anda. <\/li> <li> <b style=\"color: #333\">Keselamatan dan privasi anda:<\/b> Sementara kami tidak mengetahui atau menyimpan katalaluan anda atau mana-mana maklumat peribadi anda, kami memberi jaminan yang kami tidak akan kehilangan data anda. Maklumat tambahan mengenai kaedah daftar masuk boleh didapati di {0} atau {1}. <\/li> <\/ol>",
+        "text1": "wifis.org hanya membenarkan daftar masuk menggunakan akaun Google atau Facebook. Dua sebab utama itu adalah:",
+        "text2": "<b style=\"color: #333\">Keselesaan anda:<\/b> Anda tidak perlu melengkapkan borang pendaftaran untuk mengesahkan alamat emel anda.",
+        "text3": "<b style=\"color: #333\">Keselamatan dan privasi anda:<\/b> Sementara kami tidak mengetahui atau menyimpan katalaluan anda atau mana-mana maklumat peribadi anda, kami memberi jaminan yang kami tidak akan kehilangan data anda. Maklumat tambahan mengenai kaedah daftar masuk boleh didapati di: ",
         "buttonPrefix": "Masuk ke",
         "facebookHelpLinkHintText": "Maklumat tambahan tentang kemasukan melalui pihak ketiga Facebook",
         "googleHelpLinkHintText": "Maklumat tambahan tentang kemasukan melalui pihak ketiga Google",

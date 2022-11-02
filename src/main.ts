@@ -5,13 +5,12 @@ import { resolve } from 'path';
 import * as express from 'express';
 import * as cookieParser from 'cookie-parser';
 import * as session from 'express-session';
-import { HttpExceptionFilter } from './common/filter/http-exception.filter';
+import { HttpExceptionFilter } from './modules/web/filter/http-exception.filter';
 import { loadConfigFromGcpSecretToEnv } from './common/config/config.service';
 
 async function bootstrap() {
     await loadConfigFromGcpSecretToEnv(process.env.GCP_PROJECT_ID, "prod");
-    console.log ("Configs loaded", process.env);
-
+    
     const app = await NestFactory.create<NestExpressApplication>(AppModule);
     
     app.use(

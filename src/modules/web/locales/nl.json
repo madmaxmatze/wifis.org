@@ -76,7 +76,9 @@
     "login": {
         "headline": "Login",
         "linklabel": "Login",
-        "text": "<b>wifis.org laat enkel toe je in te loggen via een Google of Facebook account. De twee hoofdredenen hiervoor zijn:<br><\/b> <ol> <li> <b style=\"color: #333\">Jouw voordeel:<\/b> Je moet geen registratieformulier invullen en ook je e-mail adres niet bevestigen. <\/li> <li> <b style=\"color: #333\">Jouw privacy en veiligheid:<\/b> Aangezien je je paswoord of andere persoonlijke informatie niet kennen, noch bewaren, kunnen we je garanderen dat we je gegevens nooit verliezen. Meer informatie over deze beveiligde login methodes kan je terugvinden op {0} of {1}. <\/li> <\/ol>",
+        "text1": "wifis.org laat enkel toe je in te loggen via een Google of Facebook account. De twee hoofdredenen hiervoor zijn:", 
+        "text2": "<b style=\"color: #333\">Jouw voordeel:<\/b> Je moet geen registratieformulier invullen en ook je e-mail adres niet bevestigen.",
+        "text3": "<b style=\"color: #333\">Jouw privacy en veiligheid:<\/b> Aangezien je je paswoord of andere persoonlijke informatie niet kennen, noch bewaren, kunnen we je garanderen dat we je gegevens nooit verliezen. Meer informatie over deze beveiligde login methodes kan je terugvinden op: ",
         "buttonPrefix": "Login met",
         "facebookHelpLinkHintText": "Meer over Facebook 3rd party login",
         "googleHelpLinkHintText": "More over Google 3rd party login",
