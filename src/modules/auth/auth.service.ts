@@ -5,7 +5,7 @@ import { Injectable } from '@nestjs/common';
 export class AuthService {
     constructor(){}  // private usersService: UsersService
 
-    validateUser(username: string, passowrd: string) {
+    validateLocalUser(username: string, _password: string) {
         var user = { id: "local", displayName: username, email: 'dummy@example.com', provider: 'local' };
         return user;
     }

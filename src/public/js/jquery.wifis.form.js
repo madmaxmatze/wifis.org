@@ -106,7 +106,7 @@
 					currentValidates--;
                     loader.toggleClass ("hide", currentValidates === 0);
 					if (addWifiInput.val() === wifiid) {
-						setErrorMsg(data.error);
+                    	setErrorMsg(data.error);
 					}
 				}, "json");
 			}

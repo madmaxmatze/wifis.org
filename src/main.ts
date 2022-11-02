@@ -9,16 +9,17 @@ import { HttpExceptionFilter } from './common/filter/http-exception.filter';
 import { loadConfigFromGcpSecretToEnv } from './common/config/config.service';
 
 async function bootstrap() {
-    const app = await NestFactory.create<NestExpressApplication>(AppModule);
-
     await loadConfigFromGcpSecretToEnv(process.env.GCP_PROJECT_ID, "prod");
     console.log ("Configs loaded", process.env);
+
+    const app = await NestFactory.create<NestExpressApplication>(AppModule);
     
     app.use(
         express.static(resolve(__dirname, "./public"))
         , express.json()
         , express.urlencoded({ extended: false })
         , cookieParser()
+        // https://cloud.google.com/nodejs/getting-started/session-handling-with-firestore
         , session({
             secret: 'session_demo',
             resave: true,
