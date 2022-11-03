@@ -5,6 +5,7 @@ import * as passport from 'passport';
 @Injectable()
 export class AuthMiddleware implements NestMiddleware {
     use(request: Request, response: Response, next: NextFunction) {
+        console.log ("AuthMiddleware");
         // seems needed for dev - to enable session
         request.app.enable('trust proxy');
     

@@ -30,12 +30,8 @@ export class AuthController {
     @Get('p/login/google/redirect')
     @UseGuards(AuthGuard('google'))
     googleAuthRedirect(@Req() request : any, @Res() response: Response): any {
-        response.json({
-            message: 'User information from google',
-            user: request.user
-        });
-
-        return;
+        console.log ("google/redirect request.user:", request.user);
+        console.log ("google/redirect request.session.user", request.session.user);
 
         // TODO: How to remove this workaround? Why is user not saved to session
         if (request.user) {
@@ -54,6 +50,8 @@ export class AuthController {
             if (err) { return next(err); }
         });
         */
+
+        console.log ("redirectUrl", redirectUrl);
  
         return response.redirect(redirectUrl || '/');
     }

@@ -10,6 +10,10 @@ hbs.registerHelper('assign', function (varName, varValue, options) {
     options.data.root[varName] = varValue;
 });
 
+hbs.registerHelper('stripScripts', function(param) {
+    return param.replace(/(<([^>]+)>)/ig, "");
+});
+
 hbs.registerHelper('equals', function (val1: any, val2: any) {
     if (arguments.length < 2) {
         throw new Error("Handlebars Helper equal needs 2 parameters");
@@ -34,8 +38,17 @@ hbs.registerHelper('replace', function (...args: any) {
     return output;
 });
 
-hbs.registerHelper('concat', function (val1: any, val2: any) {
-    return val1 + val2;
+hbs.registerHelper('concat', function (...args: any) {
+    if (args.length < 2) {
+        throw new Error("At least 2 concat values needed");
+    }
+    var output = args[0];
+    // last item is options
+    for (var i = 1; i < args.length - 1; i++) {
+        output += args[i];
+    }
+
+    return output;
 });
 
 hbs.registerHelper('json', function (object: any) {
@@ -45,8 +58,10 @@ hbs.registerHelper('json', function (object: any) {
 @Injectable()
 export class HbsMiddleware implements NestMiddleware {
     use(request: any, response: Response, next: NextFunction) {
+        console.log("HbsMiddleware");
         // pass some variables to templates
-        // res.locals.url = req.
+        response.locals.url = request.url;
+        response.locals.urlPath = request.url.pathname;
         response.locals.query = request.query;
         response.locals.service = process.env.K_SERVICE || '???';
         response.locals.revision = process.env.K_REVISION || '???';

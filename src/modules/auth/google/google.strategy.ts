@@ -3,22 +3,26 @@ import { Strategy, VerifyCallback } from 'passport-google-oauth20';
 import { Injectable } from '@nestjs/common';
 import { User } from '../../data/user.model';
 import { UserService } from '../../data/user.service';
+import { ConfigService } from '../../config/config.service';
 
 @Injectable()
 export class GoogleStrategy extends PassportStrategy(Strategy, 'google') {
     private userService = null;
 
-    constructor(userService: UserService) {
+    constructor(configService : ConfigService, userService: UserService) {
         super({
-            clientID: process.env.OAUTH_GOOGLE_CLIENT_ID,
-            clientSecret: process.env.OAUTH_GOOGLE_CLIENT_SECRET,
-            callbackURL: "https://" +
-                process.env['DOMAIN_' + (process.env.NODE_ENV || "development").toUpperCase()] +
-                "/p/login/google/redirect",
+            clientID: process.env.OAUTH_GOOGLE_CLIENT_ID, // configService.get_OAUTH_GOOGLE_CLIENT_ID(),
+            clientSecret: process.env.OAUTH_GOOGLE_CLIENT_SECRET, // configService.get_OAUTH_GOOGLE_CLIENT_SECRET(),
+            callbackURL: "https://" + 
+            process.env['DOMAIN_' + (process.env.NODE_ENV || "development").toUpperCase()] +
+            //configService.getDomain() + 
+            "/p/login/google/redirect",
             scope: ['email'],
             proxy: true,
             passReqToCallback: true
         });
+
+        // console.log ("GoogleStrategy: ", configService.get_OAUTH_GOOGLE_CLIENT_ID());
 
         this.userService = userService;
     }
@@ -39,6 +43,8 @@ export class GoogleStrategy extends PassportStrategy(Strategy, 'google') {
             "lastLoginDate": new Date(),
             "signupDate": new Date()
         };
+
+        return done(null, user);
 
         this.userService.upsert(user)
             .then(function (user: User) {

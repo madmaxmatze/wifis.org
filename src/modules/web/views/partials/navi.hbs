@@ -42,7 +42,7 @@
 
             <ul class="nav pull-right">
                 {{#if user}}
-                <li {{#if (equals viewname "wifis")}}class="active" {{/if}}>
+                <li {{#if (equals urlPath "/p/wifis")}}class="active" {{/if}}>
                     <a href="/p/wifis">{{{__ "wifis.linklabel"}}}</a>
                 </li>
                 {{/if}}
@@ -57,9 +57,9 @@
                 <li class="dropdown {{#if cms_id}} active{{/if}}">
                     <a href="/p/faq" class="dropdown-toggle">More<b class="caret"></b></a>
                     <ul class="dropdown-menu">
-                        <li {{#if (equals viewname "faq")}}class="active" {{/if}}><a href="/p/faq">FAQ</a></li>
-                        <li {{#if (equals viewname "about")}}class="active" {{/if}}><a href="/p/about">About</a></li>
-                        <li {{#if (equals viewname "press")}}class="active" {{/if}}><a href="/p/press">Press</a></li>
+                        <li {{#if (equals urlPath "/p/faq")}}class="active" {{/if}}><a href="/p/faq">FAQ</a></li>
+                        <li {{#if (equals urlPath "/p/about")}}class="active" {{/if}}><a href="/p/about">About</a></li>
+                        <li {{#if (equals urlPath "/p/press")}}class="active" {{/if}}><a href="/p/press">Press</a></li>
                         <!--<li<c:if test='${uri==CONST.URL_PATH_TOS}'> class="active"</c:if>><a href="${CONST.URL_PATH_TOS}"><spring:message code="tos.linklabel" /></a></li>
                              -->
                         <li><a target="_blank" href="/p/blog"><span class="external sprite">Blog</span></a></li>
@@ -67,8 +67,8 @@
                 </li>
 
 
-                <li id="langDropDown" class="dropdown{{#if (equals viewname "languages")}} active{{/if}}">
-                    <a href="/p/languages?referer={{url.pathname}}" class="dropdown-toggle"><span
+                <li id="langDropDown" class="dropdown{{#if (equals urlPath "/p/languages")}} active{{/if}}">
+                    <a href="/p/languages?referer={{urlPath}}" class="dropdown-toggle"><span
                             class="sprite flag flag_{{getLocale}}"></span><b class="caret"></b></a>
 
                     <ul class="dropdown-menu">
@@ -91,13 +91,13 @@
                                     -->
                 </c:if>
 
-                <li><a href="/p/languages?referer={{url.pathname}}" style="text-align: center;"> <b
+                <li><a href="/p/languages?referer={{urlPath}}" style="text-align: center;"> <b
                             style="color: black;">??</b>
                     </a></li>
             </ul>
             </li>
 
-            <li class="dropdown{{#if (equals viewname "login")}} active{{/if}}">
+            <li class="dropdown{{#if (equals urlPath "/p/login")}} active{{/if}}">
                 <!-- when NOT logged in -->
                 {{#if user}}
                 <a href="#" class="dropdown-toggle" id="logout-menu-item" title="logout">
@@ -113,7 +113,7 @@
                 </a>
                 <ul class="dropdown-menu">
                     <li>
-                        <a href="/p/logout?redirect=/">{{__ "label.logout"}}</a>
+                        <a href="/p/logout?redirect={{url}}">{{__ "label.logout"}}</a>
                     </li>
                 </ul>
                 {{else}}

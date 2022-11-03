@@ -8,7 +8,6 @@ import { AuthMiddleware } from './auth.middleware';
 import { DataModule } from '../data/data.module';
 
 @Module({
-    // UsersModule, 
     imports: [PassportModule.register({ session: true }), DataModule],
     providers: [LocalStrategy, GoogleStrategy, SessionSerializer],
     controllers: [AuthController],

@@ -2,20 +2,22 @@ import { Get, Controller, Res, Param, Session } from '@nestjs/common';
 import { Response } from 'express';
 import { WifiService } from '../data/wifi.service';
 import { Wifi } from '../data/wifi.model';
+import * as i18n from 'i18n';
 
 //const SINGLE_WIFI_PAGE_REGEX = "^\/([\w\-]{3,})(.*)";
 
 @Controller()
 export class WebController {
     private wifiService = null;
-
+   
     constructor(wifiService: WifiService) {
         this.wifiService = wifiService;
     }
 
     @Get()
     homepage(@Res() response: Response) {
-        // console.log ("Configs: ", process.env);
+        console.log("response.locals.translations", response.locals.translations);
+        // response.locals.title = i18n.__("label.title") + " - " +  i18n.__("label.mainTeaser");
         return response.render("home");
     }
 

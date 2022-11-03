@@ -1,8 +1,9 @@
 import { Module } from '@nestjs/common';
-import { AuthModule } from './modules/auth/auth.module';
+import { ConfigModule } from './modules/config/config.module';
 import { DataModule } from './modules/data/data.module';
-import { WebModule } from './modules/web/web.module';
+import { AuthModule } from './modules/auth/auth.module';
 import { ApiModule } from './modules/api/api.module';
+import { WebModule } from './modules/web/web.module';
 
 // import { ConfigModule } from '@nestjs/config';
 // import configuration from './common/config/configuration';
@@ -10,6 +11,7 @@ import { ApiModule } from './modules/api/api.module';
 @Module({
     imports: [
         // ConfigModule.forRoot({ isGlobal: true, load: [configuration] }),
+        ConfigModule,
         DataModule,
         AuthModule,
         ApiModule,
@@ -19,5 +21,4 @@ import { ApiModule } from './modules/api/api.module';
     providers: [],
 })
 
-export class AppModule {
-}
+export class AppModule {}

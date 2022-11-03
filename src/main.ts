@@ -9,7 +9,7 @@ import { HttpExceptionFilter } from './modules/web/filter/http-exception.filter'
 import { loadConfigFromGcpSecretToEnv } from './common/config/config.service';
 
 async function bootstrap() {
-    await loadConfigFromGcpSecretToEnv(process.env.GCP_PROJECT_ID, "prod");
+    await loadConfigFromGcpSecretToEnv(process.env.GCP_PROJECT_ID, "production");
     
     const app = await NestFactory.create<NestExpressApplication>(AppModule);
     
