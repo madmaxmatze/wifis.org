@@ -6,13 +6,22 @@ import * as express from 'express';
 import * as cookieParser from 'cookie-parser';
 import * as session from 'express-session';
 import { HttpExceptionFilter } from './modules/web/filter/http-exception.filter';
+import { ConfigService } from './modules/config/config.service';
 import { loadConfigFromGcpSecretToEnv } from './common/config/config.service';
+import { Logger } from '@nestjs/common';
 
 async function bootstrap() {
     await loadConfigFromGcpSecretToEnv(process.env.GCP_PROJECT_ID, "production");
     
+    NestFactory.create
+
     const app = await NestFactory.create<NestExpressApplication>(AppModule);
     
+    var configService : ConfigService = app.get(ConfigService);
+    await configService.init();
+    Logger.warn("ConfigService", configService);
+    console.warn("test");
+
     app.use(
         express.static(resolve(__dirname, "./public"))
         , express.json()
@@ -33,4 +42,9 @@ async function bootstrap() {
     console.log(`Application is running on: ${await app.getUrl()}`);
 }
 
+
+console.log("bootstrap1");
+
 bootstrap();
+
+console.log("bootstrap2");

@@ -16,8 +16,6 @@ export class WebController {
 
     @Get()
     homepage(@Res() response: Response) {
-        console.log("response.locals.translations", response.locals.translations);
-        // response.locals.title = i18n.__("label.title") + " - " +  i18n.__("label.mainTeaser");
         return response.render("home");
     }
 

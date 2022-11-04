@@ -11,13 +11,14 @@ export class ConfigService {
     }
     
     async init() {
-        console.log("ConfigService constructor");
+        console.log("ConfigService init");
+        console.log("config already loaded: ", (this.config !== null));
         if (this.config === null) {
             console.log("start init");
             this.config = await this.getGcpSecret(process.env.GCP_PROJECT_ID, "production");
-            this.addConfigToEnv(this.config);
+            // this.addConfigToEnv(this.config);
+            // console.log("process.env: ", process.env);
             console.log("config loaded: ", (this.config !== null));
-            console.log("process.env: ", process.env);
             console.log("finish init");
         }
     }

@@ -22,7 +22,7 @@ export class GoogleStrategy extends PassportStrategy(Strategy, 'google') {
             passReqToCallback: true
         });
 
-        // console.log ("GoogleStrategy: ", configService.get_OAUTH_GOOGLE_CLIENT_ID());
+        console.log ("GoogleStrategy: ", configService.get_OAUTH_GOOGLE_CLIENT_ID());
 
         this.userService = userService;
     }
