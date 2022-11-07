@@ -5,9 +5,8 @@ import { UserService } from './user.service';
 
 @Module({
     imports: [DataModule],
-    providers: [ DataService, WifiService, UserService ],
-  // providers: [...datastoreProviders],
-  exports: [ WifiService, UserService ],
+    providers: [DataService, WifiService, UserService],
+    exports: [WifiService, UserService],
 })
 
-export class DataModule {}
+export class DataModule { }

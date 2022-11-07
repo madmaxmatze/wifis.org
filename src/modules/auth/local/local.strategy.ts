@@ -2,11 +2,19 @@ import { Injectable, UnauthorizedException } from "@nestjs/common";
 import { PassportStrategy } from "@nestjs/passport";
 import { Strategy } from 'passport-local';
 import { User } from "../../data/user.model";
+import { ConfigService } from '../../config/config.service';
 
 @Injectable()
 export class LocalStrategy extends PassportStrategy(Strategy) {
+    private configService : ConfigService = null;
+
+    constructor(configService : ConfigService) {
+        super();
+        this.configService = configService;
+    }
+
     async validate(username: string, password: string): Promise<any> {
-        if (username == "dummy_username" && password == "dummy_password" && process.env.NODE_ENV == "development") {
+        if (username == "dummy_username" && password == "dummy_password" &&  this.configService.isDevEnv()) {
             return <User>{
                 id: "local",
                 displayName: username,

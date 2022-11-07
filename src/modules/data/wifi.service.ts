@@ -11,11 +11,11 @@ export class WifiService {
         this.db = dataService.getConnection();
     }
 
-    isIdValid(id : String) {
+    isIdValid(id : String) : boolean {
         return /^[\w\-]{3,20}$/.test(id.toString());
     }
 
-    get(id : String) {
+    get(id : String) : Promise<Wifi> {
         // throw new Error("test");
 
         if (!this.isIdValid(id)) {
@@ -23,17 +23,17 @@ export class WifiService {
         }
         return new Promise((resolve, _reject) => {
             this.db.collection('wifis').doc(id.toLowerCase()).get().then((documentSnapshot : DocumentSnapshot) => {
-                resolve(documentSnapshot.exists ? documentSnapshot.data() : null);
+                resolve(documentSnapshot.exists ? <Wifi>documentSnapshot.data() : null);
             });
         });
     }
 
-    getAllForUser(userId : String) {
+    getAllForUser(userId : String) : Promise<Wifi[]> {
         return new Promise((resolve, _reject) => {
             this.db.collection('wifis')
                 .where("user", "==", userId).get()
                 .then((querySnapshot : QuerySnapshot ) => {
-                    resolve(querySnapshot.docs.map((doc : QueryDocumentSnapshot) => ({
+                    resolve(querySnapshot.docs.map((doc : QueryDocumentSnapshot) => (<Wifi>{
                         "id": doc.id,
                         "label": doc.data().label
                     })));

@@ -10,7 +10,11 @@ hbs.registerHelper('assign', function (varName, varValue, options) {
     options.data.root[varName] = varValue;
 });
 
-hbs.registerHelper('stripScripts', function(param) {
+hbs.registerHelper('or', function (/* any, any, ..., options */) {
+    return [...arguments].slice(0, -1).some((element) => element == true);
+});
+
+hbs.registerHelper('stripScripts', function (param) {
     return param.replace(/(<([^>]+)>)/ig, "");
 });
 
@@ -61,7 +65,7 @@ export class HbsMiddleware implements NestMiddleware {
         console.log("HbsMiddleware");
         // pass some variables to templates
         response.locals.url = request.url;
-        response.locals.urlPath = request.url.pathname;
+        response.locals.urlPath = request.originalUrl;
         response.locals.query = request.query;
         response.locals.service = process.env.K_SERVICE || '???';
         response.locals.revision = process.env.K_REVISION || '???';

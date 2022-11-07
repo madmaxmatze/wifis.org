@@ -1,6 +1,5 @@
-import { Module, MiddlewareConsumer, Global } from '@nestjs/common';
+import { Module, Global } from '@nestjs/common';
 import { ConfigService } from './config.service';
-import { ConfigMiddleware } from './config.middleware';
 
 @Global()
 @Module({
@@ -10,8 +9,4 @@ import { ConfigMiddleware } from './config.middleware';
     exports: [ConfigService]
 })
 
-export class ConfigModule {
-    configure(consumer: MiddlewareConsumer) {
-        consumer.apply(ConfigMiddleware).forRoutes('*');
-    }
-}
+export class ConfigModule {}

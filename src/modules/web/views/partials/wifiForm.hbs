@@ -1,4 +1,4 @@
-<form id="addWifiForm" class="form-inline" method="post" autocomplete="off" action="/p/wifis/add">
+<form id="addWifiForm" class="form-inline" method="post" autocomplete="off" action="/p/wifi/add">
     {{#each wifis}}
     <div class="control-group wifiObj" id="wifi{{this.id}}">
         <div class="input-prepend input-append">
@@ -7,7 +7,7 @@
                 <a href="/{{this.id}}">{{this.label}}</a>
             </span>
             <span class="add-on deleteButton">
-                <a class="sprite icon icon-delete" href="/p/wifis/delete?id={{this.id}}"
+                <a class="sprite icon icon-delete" href="/p/wifi/delete?id={{this.id}}"
                     title="{{../__ "wifis.deleteButton"}}"></a>
             </span>
         </div>
