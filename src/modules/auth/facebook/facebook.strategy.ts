@@ -34,15 +34,8 @@ export class FacebookStrategy extends PassportStrategy(Strategy, 'facebook') {
             "signupDate": new Date(),
         };
 
-        /*
-        this.userService.upsert(user)
-            .then(function (user: User) {
-                done(null, user);
-            }).catch(function (error: Error) {
-                console.log("Error inserting/updating user:", error);
-                return done(error);
-            });
-        */
+        await this.userService.upsert(user);
+
         return done(null, user);
     }
 }

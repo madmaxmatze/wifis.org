@@ -23,12 +23,6 @@ export class GoogleStrategy extends PassportStrategy(Strategy, 'google') {
     }
 
     async validate(_accessToken: string, _refreshToken: string, UNKNOWNONJECT: any, profile: any, done: VerifyCallback): Promise<any> {
-        /*
-        console.log("UNKNOWNONJECT", UNKNOWNONJECT);
-        console.log("profile", profile);
-        console.log("done", done);
-        */
-
         var user: User = {
             "id": profile.provider + profile.id,
             "provider": profile.provider,
@@ -39,14 +33,8 @@ export class GoogleStrategy extends PassportStrategy(Strategy, 'google') {
             "signupDate": new Date()
         };
 
-        return done(null, user);
+        await this.userService.upsert(user);
 
-        this.userService.upsert(user)
-            .then(function (user: User) {
-                done(null, user);
-            }).catch(function (error: Error) {
-                console.log("Error inserting/updating user:", error);
-                return done(error);
-            });
+        return done(null, user);
     }
 }
