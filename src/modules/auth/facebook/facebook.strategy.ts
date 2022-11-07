@@ -1,46 +1,40 @@
 import { PassportStrategy } from '@nestjs/passport';
-import { Strategy, VerifyCallback } from 'passport-google-oauth20';
+import { Strategy } from 'passport-facebook';
 import { Injectable } from '@nestjs/common';
 import { User } from '../../data/user.model';
 import { UserService } from '../../data/user.service';
 import { ConfigService, ConfigKey } from '../../config/config.service';
 
 @Injectable()
-export class GoogleStrategy extends PassportStrategy(Strategy, 'google') {
+export class FacebookStrategy extends PassportStrategy(Strategy, 'facebook') {
     private userService = null;
 
     constructor(configService : ConfigService, userService: UserService) {
         super({
-            clientID: configService.getValue(ConfigKey.OAUTH_GOOGLE_CLIENT_ID),
-            clientSecret: configService.getValue(ConfigKey.OAUTH_GOOGLE_CLIENT_SECRET),
-            callbackURL: "https://" + configService.getDomain() + "/p/login/google/redirect",
-            scope: ['email'],
-            proxy: true,
-            passReqToCallback: true
+            // app see: https://developers.facebook.com/apps/194803573923224/fb-login/settings/
+            clientID: configService.getValue(ConfigKey.OAUTH_FACEBOOK_CLIENT_ID),
+            clientSecret: configService.getValue(ConfigKey.OAUTH_FACEBOOK_CLIENT_SECRET),
+            callbackURL: "https://" + configService.getDomain() + "/p/login/facebook/redirect",
+            profileFields: ['id', 'displayName', 'email'],
+            enableProof: true,
+            passReqToCallback: true,
         });
 
         this.userService = userService;
     }
 
-    async validate(_accessToken: string, _refreshToken: string, UNKNOWNONJECT: any, profile: any, done: VerifyCallback): Promise<any> {
-        /*
-        console.log("UNKNOWNONJECT", UNKNOWNONJECT);
-        console.log("profile", profile);
-        console.log("done", done);
-        */
-       
-        var user: User = {
+    async validate(_accessToken: string, _refreshToken: string, _UNKNOWNOBJECT : any, profile: any, done : any): Promise<any> {
+        var user = {
             "id": profile.provider + profile.id,
             "provider": profile.provider,
             "providerId": profile.id,
             "email": profile._json.email,
             "displayName": profile.displayName,
             "lastLoginDate": new Date(),
-            "signupDate": new Date()
+            "signupDate": new Date(),
         };
 
-        return done(null, user);
-
+        /*
         this.userService.upsert(user)
             .then(function (user: User) {
                 done(null, user);
@@ -48,5 +42,7 @@ export class GoogleStrategy extends PassportStrategy(Strategy, 'google') {
                 console.log("Error inserting/updating user:", error);
                 return done(error);
             });
+        */
+        return done(null, user);
     }
 }

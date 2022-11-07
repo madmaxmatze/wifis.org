@@ -41,6 +41,31 @@ export class AuthController {
         return response.redirect('/p/wifis');
     }
 
+    @UseGuards(AuthGuard('facebook'))
+    @Get('p/login/facebook')
+    facebookLogin(@Req() request : any, @Res() response: Response): any {
+        // TODO: How to remove this workaround? Why is user not saved to session
+        if (request.user) {
+            request.session.user = request.user;
+        }
+
+        return response.redirect('/p/wifis');
+    }
+
+    @Get('p/login/facebook/redirect')
+    @UseGuards(AuthGuard('facebook'))
+    facebookAuthRedirect(@Req() request : any, @Res() response: Response): any {
+        console.log ("facebook/redirect request.user:", request.user);
+        console.log ("facebook/redirect request.session.user", request.session.user);
+
+        // TODO: How to remove this workaround? Why is user not saved to session
+        if (request.user) {
+            request.session.user = request.user;
+        }
+
+        return response.redirect('/p/wifis');
+    }
+
     @Get('p/logout')
     logout(@Req() request : any, @Res() response : Response, @Query('redirect') redirectUrl: string): any {
         request.session.user = null;

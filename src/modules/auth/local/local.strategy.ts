@@ -14,7 +14,7 @@ export class LocalStrategy extends PassportStrategy(Strategy) {
     }
 
     async validate(username: string, password: string): Promise<any> {
-        if (username == "dummy_username" && password == "dummy_password" &&  this.configService.isDevEnv()) {
+        if (username == "dummy_username" && password == "dummy_password" &&  !this.configService.isProdEnv()) {
             return <User>{
                 id: "local",
                 displayName: username,

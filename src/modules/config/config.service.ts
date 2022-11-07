@@ -2,13 +2,20 @@ import { Injectable } from '@nestjs/common';
 import { SecretManagerServiceClient } from '@google-cloud/secret-manager';
 import * as ini from 'ini';
 
+export enum ConfigKey {
+    SESSION_SECRET = "SESSION_SECRET",
+    GCP_FIRESTORE_PROJECT_ID = "GCP_FIRESTORE_PROJECT_ID",
+    GCP_FIRESTORE_CLIENT_EMAIL = "GCP_FIRESTORE_CLIENT_EMAIL",
+    GCP_FIRESTORE_PRIVATE_KEY = "GCP_FIRESTORE_PRIVATE_KEY",
+    OAUTH_GOOGLE_CLIENT_ID = "OAUTH_GOOGLE_CLIENT_ID",
+    OAUTH_GOOGLE_CLIENT_SECRET = "OAUTH_GOOGLE_CLIENT_SECRET",
+    OAUTH_FACEBOOK_CLIENT_ID = "OAUTH_FACEBOOK_CLIENT_ID",
+    OAUTH_FACEBOOK_CLIENT_SECRET = "OAUTH_FACEBOOK_CLIENT_SECRET"
+}
+
 @Injectable()
 export class ConfigService {
     private static config = null;
-
-    constructor() {
-        console.log("ConfigService constructor");
-    }
 
     static async init() {
         console.log("Static ConfigService init");
@@ -50,47 +57,26 @@ export class ConfigService {
     }
     */
 
-    isDevEnv() {
-        return (process.env.NODE_ENV == "development");
-    }
-
-
-    getSessionSecret() {
-        return "sdfsdfdsfjsdfjkl _ TO BE MOVED INTO Manager";
+    isProdEnv() {
+        return (process.env.NODE_ENV == "production");
     }
 
     getDomain() {
-        return this.getConfigValue('DOMAIN_' + (process.env.NODE_ENV || "development").toUpperCase());
+        return this.getConfigValue('DOMAIN_' + (this.isProdEnv() ? "PRODUCTION" : "DEVELOPMENT").toUpperCase());
     }
 
-    get_GCP_FIRESTORE_PROJECT_ID() {
-        return this.getConfigValue("GCP_FIRESTORE_PROJECT_ID");
-    }
-
-    get_GCP_FIRESTORE_CLIENT_EMAIL() {
-        return this.getConfigValue("GCP_FIRESTORE_CLIENT_EMAIL");
-    }
-
-    get_GCP_FIRESTORE_PRIVATE_KEY() {
-        return this.getConfigValue("GCP_FIRESTORE_PRIVATE_KEY");
-    }
-
-    get_OAUTH_GOOGLE_CLIENT_ID() {
-        return this.getConfigValue("OAUTH_GOOGLE_CLIENT_ID");
-    }
-
-    get_OAUTH_GOOGLE_CLIENT_SECRET() {
-        return this.getConfigValue("OAUTH_GOOGLE_CLIENT_SECRET");
+    getValue(key: ConfigKey) {
+        return this.getConfigValue(key.toString());
     }
 
     private getConfigValue(configKey: string) {
         if (!ConfigService.config) {
-            console.log("Config not loaded. Call init function before")
+            console.log("Config not loaded. Call init function before");
             return "";
             // throw Error("Config not loaded. Call init function before");
         }
         if (!ConfigService.config[configKey]) {
-            console.log("Config key '${configKey}' not found")
+            console.log(`Config key '${configKey}' not found`);
             return "";
             // throw Error("Config key '${configKey}' not found");
         }
