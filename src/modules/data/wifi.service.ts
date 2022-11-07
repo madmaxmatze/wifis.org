@@ -11,29 +11,29 @@ export class WifiService {
         this.db = dataService.getConnection();
     }
 
-    isIdValid(id : String) : boolean {
+    isIdValid(id: String): boolean {
         return /^[\w\-]{3,20}$/.test(id.toString());
     }
 
-    get(id : String) : Promise<Wifi> {
+    get(id: String): Promise<Wifi> {
         // throw new Error("test");
 
         if (!this.isIdValid(id)) {
             throw new Error("Invalid wifiId");
         }
         return new Promise((resolve, _reject) => {
-            this.db.collection('wifis').doc(id.toLowerCase()).get().then((documentSnapshot : DocumentSnapshot) => {
+            this.db.collection('wifis').doc(id.toLowerCase()).get().then((documentSnapshot: DocumentSnapshot) => {
                 resolve(documentSnapshot.exists ? <Wifi>documentSnapshot.data() : null);
             });
         });
     }
 
-    getAllForUser(userId : String) : Promise<Wifi[]> {
+    getAllForUser(userId: String): Promise<Wifi[]> {
         return new Promise((resolve, _reject) => {
             this.db.collection('wifis')
                 .where("user", "==", userId).get()
-                .then((querySnapshot : QuerySnapshot ) => {
-                    resolve(querySnapshot.docs.map((doc : QueryDocumentSnapshot) => (<Wifi>{
+                .then((querySnapshot: QuerySnapshot) => {
+                    resolve(querySnapshot.docs.map((doc: QueryDocumentSnapshot) => (<Wifi>{
                         "id": doc.id,
                         "label": doc.data().label
                     })));
@@ -41,7 +41,7 @@ export class WifiService {
         });
     }
 
-    insert(wifi : Wifi) {
+    insert(wifi: Wifi) {
         if (!wifi || !wifi.id || !this.isIdValid(wifi.id)) {
             throw new Error("Invalid wifiId");
         }
@@ -52,13 +52,13 @@ export class WifiService {
         wifi.id = wifi.id.toLowerCase();
         return new Promise((resolve, _reject) => {
             wifi.creationDate = new Date();
-            this.db.collection('wifis').doc(wifi.id).set(wifi).then((_writeResult : any) => {
+            this.db.collection('wifis').doc(wifi.id).set(wifi).then((_writeResult: any) => {
                 resolve(wifi);
             });
         });
     }
 
-    delete(userId : String, wifiId : String) {
+    delete(userId: String, wifiId: String) {
         if (!wifiId) {
             throw new Error("Invalid wifiId '${wifiId}'");
         }
@@ -71,12 +71,12 @@ export class WifiService {
                 .where('id', '==', wifiId.toLowerCase())
                 .where('user', '==', userId)
                 .get()
-                .then((querySnapshot : QuerySnapshot) => {
+                .then((querySnapshot: QuerySnapshot) => {
                     if (querySnapshot.docs.length != 1) {
                         throw new Error(querySnapshot.docs.length + " wifi to delete found. Only 1 expected")
                     }
                     return querySnapshot.docs.pop().ref.delete();
-                }).then((_writeResult : any) => {
+                }).then((_writeResult: any) => {
                     // actually not needed, but want to contain db objects to Repo                    
                     resolve(true);
                 });

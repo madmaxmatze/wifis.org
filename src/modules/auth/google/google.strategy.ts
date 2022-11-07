@@ -9,7 +9,7 @@ import { ConfigService, ConfigKey } from '../../config/config.service';
 export class GoogleStrategy extends PassportStrategy(Strategy, 'google') {
     private userService = null;
 
-    constructor(configService : ConfigService, userService: UserService) {
+    constructor(configService: ConfigService, userService: UserService) {
         super({
             clientID: configService.getValue(ConfigKey.OAUTH_GOOGLE_CLIENT_ID),
             clientSecret: configService.getValue(ConfigKey.OAUTH_GOOGLE_CLIENT_SECRET),
@@ -28,7 +28,7 @@ export class GoogleStrategy extends PassportStrategy(Strategy, 'google') {
         console.log("profile", profile);
         console.log("done", done);
         */
-       
+
         var user: User = {
             "id": profile.provider + profile.id,
             "provider": profile.provider,

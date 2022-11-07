@@ -9,7 +9,7 @@ import { ConfigService, ConfigKey } from '../../config/config.service';
 export class FacebookStrategy extends PassportStrategy(Strategy, 'facebook') {
     private userService = null;
 
-    constructor(configService : ConfigService, userService: UserService) {
+    constructor(configService: ConfigService, userService: UserService) {
         super({
             // app see: https://developers.facebook.com/apps/194803573923224/fb-login/settings/
             clientID: configService.getValue(ConfigKey.OAUTH_FACEBOOK_CLIENT_ID),
@@ -23,7 +23,7 @@ export class FacebookStrategy extends PassportStrategy(Strategy, 'facebook') {
         this.userService = userService;
     }
 
-    async validate(_accessToken: string, _refreshToken: string, _UNKNOWNOBJECT : any, profile: any, done : any): Promise<any> {
+    async validate(_accessToken: string, _refreshToken: string, _UNKNOWNOBJECT: any, profile: any, done: any): Promise<any> {
         var user = {
             "id": profile.provider + profile.id,
             "provider": profile.provider,

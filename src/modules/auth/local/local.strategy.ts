@@ -6,15 +6,15 @@ import { ConfigService } from '../../config/config.service';
 
 @Injectable()
 export class LocalStrategy extends PassportStrategy(Strategy) {
-    private configService : ConfigService = null;
+    private configService: ConfigService = null;
 
-    constructor(configService : ConfigService) {
+    constructor(configService: ConfigService) {
         super();
         this.configService = configService;
     }
 
     async validate(username: string, password: string): Promise<any> {
-        if (username == "dummy_username" && password == "dummy_password" &&  !this.configService.isProdEnv()) {
+        if (username == "dummy_username" && password == "dummy_password" && !this.configService.isProdEnv()) {
             return <User>{
                 id: "local",
                 displayName: username,

@@ -4,8 +4,8 @@ class User {
     providerId?: string;
     email: string;
     displayName: string;
-    lastLoginDate?: Date; 
+    lastLoginDate?: Date;
     signupDate?: Date;
 }
-  
+
 export { User };

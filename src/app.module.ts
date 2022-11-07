@@ -5,12 +5,8 @@ import { AuthModule } from './modules/auth/auth.module';
 import { ApiModule } from './modules/api/api.module';
 import { WebModule } from './modules/web/web.module';
 
-// import { ConfigModule } from '@nestjs/config';
-// import configuration from './common/config/configuration';
-
 @Module({
     imports: [
-        // ConfigModule.forRoot({ isGlobal: true, load: [configuration] }),
         ConfigModule,
         DataModule,
         AuthModule,
@@ -21,4 +17,4 @@ import { WebModule } from './modules/web/web.module';
     providers: [],
 })
 
-export class AppModule {}
+export class AppModule { }

@@ -14,25 +14,25 @@ i18n.configure({
 
 @Injectable()
 export class I18nMiddleware implements NestMiddleware {
-  use(req: Request, res: Response, next: NextFunction) {
-    console.log("i18n Middleware");
-    i18n.init(req, res);
-    res.locals.translations = i18n.getCatalog(req);
+    use(req: Request, res: Response, next: NextFunction) {
+        console.log("i18n Middleware");
+        i18n.init(req, res);
+        res.locals.translations = i18n.getCatalog(req);
 
-    if (req.cookies && req.cookies.locale) {
-        // if (i18n.getLocales.includes(req.cookies.locale)) {
-        res.setLocale(req.cookies.locale);
-        // var locale = req.cookies.locale;
-        // }
+        if (req.cookies && req.cookies.locale) {
+            // if (i18n.getLocales.includes(req.cookies.locale)) {
+            res.setLocale(req.cookies.locale);
+            // var locale = req.cookies.locale;
+            // }
+        }
+
+        if (req.query.lang !== undefined) {
+            // if (i18n.getLocales.includes(req.query.lang)) {
+            res.setLocale(req.query.lang.toString());
+            res.cookie('locale', req.query.lang);
+            // }
+        }
+
+        next();
     }
-
-    if (req.query.lang !== undefined) {
-        // if (i18n.getLocales.includes(req.query.lang)) {
-        res.setLocale(req.query.lang.toString());
-        res.cookie('locale', req.query.lang);
-        // }
-    }
-
-    next();
-  }
 }

@@ -11,11 +11,11 @@ export class UserService {
         this.db = dataService.getConnection();
     }
 
-    private getDocRef(userId : String) {
+    private getDocRef(userId: String) {
         return this.db.collection('users').doc(userId.toLowerCase());
     }
 
-    async get(userId : String) {
+    async get(userId: String) {
         if (!userId) {
             throw new Error("Invalid userId '${userId}'");
         }
@@ -36,10 +36,10 @@ export class UserService {
     }
     */
 
-    upsert(user : User) {  // update or insert
+    upsert(user: User) {  // update or insert
         return new Promise((resolve, reject) => {
-            this.getDocRef(user.id).get().then((queryDocumentSnapshot : QueryDocumentSnapshot) => {
-               if (queryDocumentSnapshot.exists) {
+            this.getDocRef(user.id).get().then((queryDocumentSnapshot: QueryDocumentSnapshot) => {
+                if (queryDocumentSnapshot.exists) {
                     // TODO: add other data to merge in
                     var lastLoginDate = new Date();
                     this.getDocRef(user.id).update({ "lastLoginDate": lastLoginDate }).then(() => {
@@ -67,7 +67,7 @@ export class UserService {
             projectId: 'node-test-351811',
             keyFilename: 'node-test-firestore.json',
         });
-    
+
         var promise = deleteCollection(db, 'users', 500);
 
         promise.finally(() => {
@@ -76,7 +76,7 @@ export class UserService {
             for (var i = 0; i<100; i++) {
                 var rand = Math.random();
                 const docRef = db.collection('users').doc('mathias' + rand);
-            
+
                 docRef.set({
                     first: 'Mathias' + rand,
                     last: 'Nitzsche',

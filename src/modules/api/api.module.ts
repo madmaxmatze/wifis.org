@@ -7,5 +7,5 @@ import { DataModule } from '../data/data.module';
     providers: [],
     controllers: [ApiController],
 })
-export class ApiModule {
-}
+
+export class ApiModule { }

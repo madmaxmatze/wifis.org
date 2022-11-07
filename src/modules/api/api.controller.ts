@@ -3,7 +3,7 @@ import { Response } from 'express';
 import { WifiService } from '../data/wifi.service';
 import { Wifi } from '../data/wifi.model';
 
-@Controller()
+@Controller("api")
 export class ApiController {
     private wifiService = null;
 
@@ -11,7 +11,7 @@ export class ApiController {
         this.wifiService = wifiService;
     }
 
-    @Post('api/wifi/exists')
+    @Post('wifi/exists')
     async isWifiExisting(@Res() response: Response, @Body('id') wifiId: string) {
         this.wifiService.get(wifiId)
             .then((wifi: Wifi) => {
@@ -25,7 +25,7 @@ export class ApiController {
     /*
      *  API: Create new Wifi
      */
-    @Post('api/wifi/add')
+    @Post('wifi/add')
     async addWifi(@Req() request: any, @Res() response: Response, @Body('id') wifiId: string) {
         var userId = request.session.user.id
 
@@ -55,14 +55,14 @@ export class ApiController {
     /*
      *  API: Delete Wifi
      */
-    @Post('api/wifi/delete')
+    @Post('wifi/delete')
     async deleteWifi(@Req() request: any, @Res() response: Response, @Body('id') wifiId: string) {
         var userId = request.session.user.id
         this.wifiService.delete(userId, wifiId)
             .then((isDeleted: boolean) => {
                 response.json({ "deleted": isDeleted });
             })
-            .catch((error : Error) => {
+            .catch((error: Error) => {
                 console.error(error);
                 response.json({ "deleted": false, "error": error.message });
             });
