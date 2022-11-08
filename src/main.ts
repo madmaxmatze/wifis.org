@@ -5,7 +5,6 @@ import { resolve } from 'path';
 import * as express from 'express';
 import * as cookieParser from 'cookie-parser';
 import * as session from 'express-session';
-import { HttpExceptionFilter } from './modules/web/filter/http-exception.filter';
 import { ConfigService, ConfigKey } from './modules/config/config.service';
 
 async function bootstrap() {
@@ -25,8 +24,6 @@ async function bootstrap() {
             saveUninitialized: true,   // don't create session until something stored
             cookie: { maxAge: (24 * 60 * 60 * 1000) },
         }));
-
-    app.useGlobalFilters(new HttpExceptionFilter());
 
     await app.listen(parseInt(process.env.PORT) || 8080);
 

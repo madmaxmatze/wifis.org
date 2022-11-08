@@ -72,13 +72,11 @@ export class ConfigService {
     private getConfigValue(configKey: string) {
         if (!ConfigService.config) {
             console.log("Config not loaded. Call init function before");
-            return "";
-            // throw Error("Config not loaded. Call init function before");
+            return "empty";
         }
         if (!ConfigService.config[configKey]) {
             console.log(`Config key '${configKey}' not found`);
-            return "";
-            // throw Error("Config key '${configKey}' not found");
+            return "empty";
         }
         return ConfigService.config[configKey];
     }

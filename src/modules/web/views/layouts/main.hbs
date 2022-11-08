@@ -37,19 +37,8 @@
     <div class="container maincontainer {{#if viewname}}{{viewname}}_page{{/if}}">
         <div class="content contenttop">
             {{{errormessage}}}
-            
-            {{#if error}}
-            <div class="alert alert-error">
-                {{{error.message}}}
-            </div>
-            {{{error.status}}}
-            {{{error.stack}}}
-            {{{error.cause}}}
-            {{{error.name}}}
-            {{/if}}
 
             {{{body}}}
-
             <div class='clear'></div>
         </div>
     </div>

@@ -1,4 +1,4 @@
-import { Get, Controller, Res, Param, Session } from '@nestjs/common';
+import { Get, Controller, Res, Param, Session, NotFoundException, HttpStatus } from '@nestjs/common';
 import { Response } from 'express';
 import { WifiService } from '../data/wifi.service';
 import { Wifi } from '../data/wifi.model';
@@ -16,15 +16,18 @@ export class WebController {
         return response.render("home");
     }
 
-    @Get('p/:pageId(about|faq|press|tos|languages|login)')
-    getPages(@Res() response: Response, @Param('pageId') pageId: string) {
-        return response.render(pageId);
-    }
-
     @Get('p/wifis')
     async getWifis(@Res() response: Response, @Session() session: Record<string, any>) {
         response.locals.wifis = <Wifi[]>await this.wifiService.getAllForUser(session.user.id);
         return response.render("wifis");
+    }
+
+    @Get('p/:pageId(*)?')
+    getPages(@Res() response: Response, @Param('pageId') pageId: string) {
+        if (!["about", "faq", "press", "tos", "languages", "login"].includes(pageId)) {
+            throw new NotFoundException("Page not found: " + pageId);
+        }
+        return response.render(pageId);
     }
 
     @Get(":wifiId/:wifiIdSuffix(*)?")
@@ -35,6 +38,8 @@ export class WebController {
                 return response.redirect('/' + wifi.label + (wifiIdSuffix ? "/" + wifiIdSuffix : ""));
             }
             response.locals.wifiUserId = wifi.user;
+        } else {
+            response.status(HttpStatus.NOT_FOUND);            
         }
 
         response.locals.wifiId = wifiId;
