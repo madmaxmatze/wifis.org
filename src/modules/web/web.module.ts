@@ -4,7 +4,7 @@ import { DataModule } from '../data/data.module';
 import { I18nMiddleware } from './middleware/i18n.middleware';
 import { HbsMiddleware } from './middleware/hbs.middleware';
 import { WebController } from './web.controller';
-import { HttpExceptionFilter } from './filter/http-exception.filter';
+import { HttpExceptionFilter } from './filter/exception.filter';
 
 @Module({
     imports: [DataModule],
