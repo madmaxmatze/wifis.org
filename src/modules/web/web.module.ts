@@ -4,14 +4,14 @@ import { DataModule } from '../data/data.module';
 import { I18nMiddleware } from './middleware/i18n.middleware';
 import { HbsMiddleware } from './middleware/hbs.middleware';
 import { WebController } from './web.controller';
-import { HttpExceptionFilter } from './filter/exception.filter';
+import { WebExceptionFilter } from './filter/web.exception.filter';
 
 @Module({
     imports: [DataModule],
     providers: [
         {
             provide: APP_FILTER,
-            useClass: HttpExceptionFilter,
+            useClass: WebExceptionFilter,
         }
     ],
     controllers: [WebController],

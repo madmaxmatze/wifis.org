@@ -1,13 +1,13 @@
 import { Injectable } from '@nestjs/common';
-import { Firestore } from '@google-cloud/firestore';
+import { Firestore, CollectionReference } from '@google-cloud/firestore';
 import { ConfigService, ConfigKey } from '../config/config.service';
 
 @Injectable()
 export class DataService {
-    private connection = null;
+    private firestore : Firestore = null;
 
     constructor(configService: ConfigService) {
-        this.connection = new Firestore({
+        this.firestore = new Firestore({
             "projectId": configService.getValue(ConfigKey.GCP_FIRESTORE_PROJECT_ID),
             "credentials": {
                 "client_email": configService.getValue(ConfigKey.GCP_FIRESTORE_CLIENT_EMAIL),
@@ -17,7 +17,7 @@ export class DataService {
         });
     }
 
-    getConnection() {
-        return this.connection;
+    getCollection(collectionName : string) : CollectionReference {
+        return this.firestore.collection(collectionName);
     }
 }

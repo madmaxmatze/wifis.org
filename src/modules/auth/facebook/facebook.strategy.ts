@@ -1,8 +1,8 @@
 import { PassportStrategy } from '@nestjs/passport';
 import { Strategy } from 'passport-facebook';
 import { Injectable } from '@nestjs/common';
-import { User } from '../../data/user.model';
-import { UserService } from '../../data/user.service';
+import { User } from '../../data/user/user.model';
+import { UserService } from '../../data/user/user.service';
 import { ConfigService, ConfigKey } from '../../config/config.service';
 
 @Injectable()

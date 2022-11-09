@@ -54,7 +54,7 @@
             $.post("/api/wifi/delete", {
 				"id" : wifiid
 			}, function(data, textStatus, jqXHR) {
-                if (data.deleted) {
+                if (data.success) {
 					window.setTimeout(function() {
 						$("#wifi" + wifiid).remove();
              		}, config.animationSpeed);
@@ -86,30 +86,33 @@
 				_gaq.push([ '_trackEvent', 'ajax', 'validateWifiId' ]);
 			}
 
-			if (wifiid == null || wifiid == "") {
-				setErrorMsg("noWifiIdDefined");
+			if (!wifiid) {
+				return setErrorMsg("noWifiIdDefined");
 			} else if (wifiid.length < 3) {
-				setErrorMsg("wifiIdTooShort");
+				return setErrorMsg("wifiIdTooShort");
 			} else if (wifiid.length > 20) {
-				setErrorMsg("wifiIdTooLong");
+				return setErrorMsg("wifiIdTooLong");
 			} else if (/.*[^\w\-]+.*/.test(wifiid)) {
-				setErrorMsg("wrongWifiIdChars");
+				return setErrorMsg("wrongWifiIdChars");
 			} else if ($("#wifi" + wifiid.toLowerCase()).length) {
-				setErrorMsg("alreadyYourWifi");
-			} else {
-				currentValidates++;
-				var loader = $element.find(".loader");
-				loader.toggleClass ("hide", currentValidates === 0);
-				$.post("/api/wifi/exists", {
-					"id" : wifiid
-				}, function(data, textStatus, jqXHR) {
-					currentValidates--;
-                    loader.toggleClass ("hide", currentValidates === 0);
-					if (addWifiInput.val() === wifiid) {
-                    	setErrorMsg(data.error);
-					}
-				}, "json");
+				return setErrorMsg("alreadyYourWifi");
 			}
+
+            currentValidates++;
+            var loader = $element.find(".loader");
+            loader.toggleClass ("hide", currentValidates === 0);
+            $.post("/api/wifi/exists", {
+                "id" : wifiid
+            }, function(data, textStatus, jqXHR) {
+                currentValidates--;
+                loader.toggleClass ("hide", currentValidates === 0);
+                if (data.success && !data.error) {
+                    data.error = "otherUsersWifi";
+                }
+                if (addWifiInput.val() === wifiid) {
+                    setErrorMsg(data.error);
+                }
+            }, "json");
 		};
 
 		createNewWifi = function(wifiid) {
@@ -119,9 +122,9 @@
 				"id" : wifiid
 			},
 					function(data, textStatus, jqXHR) {
-						if (data.newWifi) {
-							var div = getNewWifiDiv(data.newWifi.id,
-									data.newWifi.label);
+						if (data.wifi) {
+							var div = getNewWifiDiv(data.wifi.id,
+									data.wifi.label);
 
 							// find correct position
 							var smallerElement = null;

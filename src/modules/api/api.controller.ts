@@ -1,70 +1,54 @@
-import { Controller, Post, Req, Res, UseGuards, Body } from '@nestjs/common';
+import { Controller, Post, Res, Session, UseFilters, Body, UseGuards } from '@nestjs/common';
 import { Response } from 'express';
-import { WifiService } from '../data/wifi.service';
-import { Wifi } from '../data/wifi.model';
+import { WifiService } from '../data/wifi/wifi.service';
+import { Wifi, WifiError } from '../data/wifi/wifi.model';
+import { ApiExceptionFilter } from './api.exception.filter';
+import { AuthGuard } from '../auth/auth.guard';
 
+@UseFilters(new ApiExceptionFilter())
 @Controller("api")
 export class ApiController {
-    private wifiService = null;
+    private wifiService: WifiService = null;
 
     constructor(wifiService: WifiService) {
         this.wifiService = wifiService;
     }
 
     @Post('wifi/exists')
-    async isWifiExisting(@Res() response: Response, @Body('id') wifiId: string) {
+    async existsWifi(@Res() response: Response, @Body('id') wifiId: string) {
         this.wifiService.get(wifiId)
             .then((wifi: Wifi) => {
-                response.json({ "exists": (wifi !== null) });
-            })
-            .catch((error: Error) => {
-                response.json({ "exists": false, "error": error.message });
+                response.json({ "success": (wifi !== null) });
             });
     }
 
-    /*
-     *  API: Create new Wifi
-     */
     @Post('wifi/add')
-    async addWifi(@Req() request: any, @Res() response: Response, @Body('id') wifiId: string) {
-        var userId = request.session.user.id
+    @UseGuards(AuthGuard)
+    async addWifi(@Session() session: Record<string, any>, @Res() response: Response, @Body('id') wifiId: string) {
+        var userWifis: Wifi[] = await this.wifiService.getAllByUserId(session.user.id);
+        if (userWifis.length >= session.user.maxWifis) {
+            throw new Error(WifiError.maxWifiCountReached);
+        }
 
-        var newWifi = {
+        var newWifi: Wifi = {
             "id": wifiId
             , "label": wifiId
-            , "user": userId
+            , "user": session.user.id
+            , "creationDate": new Date()
         };
 
-        var userWifis = await this.wifiService.getAllForUser(userId);
-
-        if (userWifis.length <= 3) { // 3 = res.locals.user.maxWifis
-            this.wifiService.insert(newWifi)
-                .then((createdWifi: Wifi) => {
-                    response.json({ "newWifi": createdWifi });
-                })
-                .catch((error: Error) => {
-                    console.error(error);
-                    response.json({ "error": error.message });
-                });
-        } else {
-            console.error(userWifis);
-            response.json({ "error": "maxWifiCountReached" });
-        }
+        this.wifiService.insert(newWifi)
+            .then((addedWifi: Wifi) => {
+                response.json({ "success": true, "wifi": addedWifi });
+            });
     }
 
-    /*
-     *  API: Delete Wifi
-     */
     @Post('wifi/delete')
-    async deleteWifi(@Req() request: any, @Res() response: Response, @Body('id') wifiId: string) {
-        var userId = request.session.user.id
-        this.wifiService.delete(userId, wifiId)
+    @UseGuards(AuthGuard)
+    async deleteWifi(@Session() session: Record<string, any>, @Res() response: Response, @Body('id') wifiId: string) {
+        this.wifiService.delete(session.user.id, wifiId)
             .then((isDeleted: boolean) => {
-                response.json({ "deleted": isDeleted });
-            })
-            .catch((error: Error) => {
-                console.error(error);
-                response.json({ "deleted": false, "error": error.message });
+                response.json({ "success": isDeleted });
             });
     }
 }

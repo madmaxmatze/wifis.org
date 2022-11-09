@@ -1,4 +1,8 @@
-class User {
+export enum UserError {
+    invalidId = "invalidId"
+}
+
+export class User {
     id: string;
     provider: string;
     providerId?: string;
@@ -6,6 +10,5 @@ class User {
     displayName: string;
     lastLoginDate?: Date;
     signupDate?: Date;
+    maxWifis?: number;
 }
-
-export { User };

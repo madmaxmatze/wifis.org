@@ -1,7 +1,8 @@
-import { Get, Controller, Res, Param, Session, NotFoundException, HttpStatus } from '@nestjs/common';
+import { Get, Controller, Res, Param, Session, NotFoundException, HttpStatus, UseGuards } from '@nestjs/common';
 import { Response } from 'express';
-import { WifiService } from '../data/wifi.service';
-import { Wifi } from '../data/wifi.model';
+import { WifiService } from '../data/wifi/wifi.service';
+import { Wifi } from '../data/wifi/wifi.model';
+import { AuthGuard } from '../auth/auth.guard';
 
 @Controller()
 export class WebController {
@@ -17,8 +18,9 @@ export class WebController {
     }
 
     @Get('p/wifis')
+    @UseGuards(AuthGuard)
     async getWifis(@Res() response: Response, @Session() session: Record<string, any>) {
-        response.locals.wifis = <Wifi[]>await this.wifiService.getAllForUser(session.user.id);
+        response.locals.wifis = <Wifi[]>await this.wifiService.getAllByUserId(session.user.id);
         return response.render("wifis");
     }
 
