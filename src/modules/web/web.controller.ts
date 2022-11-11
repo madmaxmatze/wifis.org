@@ -13,15 +13,11 @@ export class WebController {
     private static WIFI_URL: string = ":wifiId([a-zA_Z\_\-]{3,20})/:wifiIdSuffix(*)?";
     private static HOMEPAGE_URL: string = "";
 
-    private configService: ConfigService;
-    private wifiRepo: WifiRepo;
-    private commsService: CommsService;
-
-    constructor(wifiRepo: WifiRepo, configService: ConfigService, commsService: CommsService) {
-        this.commsService = commsService
-        this.wifiRepo = wifiRepo;
-        this.configService = configService;
-    }
+    constructor(
+        private readonly configService: ConfigService,
+        private readonly wifiRepo: WifiRepo,
+        private readonly commsService: CommsService,
+    ) { }
 
     @Get([WebController.HOMEPAGE_URL, "p/:pageId(about|faq|press|tos|languages|login)"])
     getPages(@Res() response: Response, @Param('pageId') pageId: string = "home") {

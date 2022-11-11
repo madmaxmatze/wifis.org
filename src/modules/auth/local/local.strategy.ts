@@ -6,11 +6,10 @@ import { ConfigService } from '../../config/config.service';
 
 @Injectable()
 export class LocalStrategy extends PassportStrategy(Strategy) {
-    private configService: ConfigService = null;
-
-    constructor(configService: ConfigService) {
+    constructor(
+        private readonly configService: ConfigService
+    ) {
         super();
-        this.configService = configService;
     }
 
     async validate(username: string, password: string): Promise<any> {

@@ -5,23 +5,26 @@ import { MailjetService, MailjetSendResponse } from 'nest-mailjet'
 
 @Injectable()
 export class CommsService {
-    constructor(private readonly messageRepo: MessageRepo, private readonly mailjetService: MailjetService) {}
+    constructor(
+        private readonly messageRepo: MessageRepo,
+        private readonly mailjetService: MailjetService
+    ) { }
 
     async sendMessage(newMessage: Message) {
         // verify message
 
         // send message
         var sendResult = await this.sendMessageWithMailJet(newMessage);
-        console.log (sendResult);
+        console.log(sendResult);
 
         //newMessage.wasSent = sendResult.success;
-        
+
         //if (!sendResult.success) {
-            // newMessage.error = sendResult.error;
+        // newMessage.error = sendResult.error;
         //}
 
         return;
-        
+
         // save message
         // var writeResponse = await this.messageRepo.insert(newMessage);
     }

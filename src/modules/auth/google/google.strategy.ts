@@ -7,9 +7,10 @@ import { ConfigService, ConfigKey } from '../../config/config.service';
 
 @Injectable()
 export class GoogleStrategy extends PassportStrategy(Strategy, 'google') {
-    private userRepo = null;
-
-    constructor(configService: ConfigService, userRepo: UserRepo) {
+    constructor(
+        configService: ConfigService,
+        private readonly userRepo: UserRepo
+    ) {
         super({
             clientID: configService.getValue(ConfigKey.OAUTH_GOOGLE_CLIENT_ID),
             clientSecret: configService.getValue(ConfigKey.OAUTH_GOOGLE_CLIENT_SECRET),

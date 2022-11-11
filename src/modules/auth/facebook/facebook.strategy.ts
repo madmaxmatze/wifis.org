@@ -6,9 +6,10 @@ import { ConfigService, ConfigKey } from '../../config/config.service';
 
 @Injectable()
 export class FacebookStrategy extends PassportStrategy(Strategy, 'facebook') {
-    private userRepo = null;
-
-    constructor(configService: ConfigService, userRepo: UserRepo) {
+    constructor(
+        configService: ConfigService,
+        private readonly userRepo: UserRepo
+    ) {
         super({
             // app see: https://developers.facebook.com/apps/194803573923224/fb-login/settings/
             clientID: configService.getValue(ConfigKey.OAUTH_FACEBOOK_CLIENT_ID),

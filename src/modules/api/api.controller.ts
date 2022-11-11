@@ -8,11 +8,9 @@ import { AuthGuard } from '../auth/auth.guard';
 @UseFilters(new ApiExceptionFilter())
 @Controller("api")
 export class ApiController {
-    private wifiRepo: WifiRepo = null;
-
-    constructor(wifiRepo: WifiRepo) {
-        this.wifiRepo = wifiRepo;
-    }
+    constructor(
+        private readonly wifiRepo: WifiRepo,
+    ) { }
 
     @Post('wifi/exists')
     async existsWifi(@Res() response: Response, @Body('id') wifiId: string) {
