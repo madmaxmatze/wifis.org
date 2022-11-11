@@ -19,7 +19,8 @@ export class LocalStrategy extends PassportStrategy(Strategy) {
                 id: "local",
                 displayName: username,
                 email: 'dummy@example.com',
-                provider: 'local'
+                provider: 'local',
+                maxWifis: 5, 
             };
         } else {
             throw new UnauthorizedException("Dummy login is only available in Dev");

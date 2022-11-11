@@ -45,13 +45,15 @@
 
         {{!-- onsubmit="return (grecaptcha.getResponse().length > 0);"   --}}
 
-        <form method="POST" class="contactform form-stacked">
+        <script src="https://www.google.com/recaptcha/api.js"></script>
+
+        <form method="POST" id='contactform' class="contactform form-stacked">
             <div class="clearfix">
                 {{!-- <c:if test=" ${fn:startsWith(error, 'email' )==true}">error</c:if>
                 --}}
                 <label>{{{__ "wifi.contactform.email"}}}</label>
                 <div class="input">
-                    <input name="email" value="{{email}}" />
+                    <input name="email" value="{{form_field_email}}" />
                     {{!-- <c:if test="${fn:startsWith(error, 'email')==true}">
                         <span class="help-block">
                             <spring:message code="wifi.contactform.error.${error}" /></span>
@@ -64,7 +66,7 @@
                 --}}
                 <label>{{{__ "wifi.contactform.message"}}}</label>
                 <div class="input">
-                    <textarea name="text">{{text}}</textarea>
+                    <textarea name="text">{{form_field_text}}</textarea>
                     {{!--
                     <c:if test="${fn:startsWith(error, 'text')==true}">
                         <span class="help-block">
@@ -81,17 +83,25 @@
             </div>
 
             <div class="form-actions">
-                {{!--
-                <button class="g-recaptcha" data-sitekey="reCAPTCHA_site_key" data-callback='onSubmit'
-                    data-action='submit'>Submit</button>
-                --}}
-
-                <button type="submit" class="btn btn-primary submitButton"
+                <button 
+                class="btn btn-primary submitButton g-recaptcha" 
+                data-sitekey="{{RECAPTCHA_SITE_KEY}}" 
+                data-callback='onSubmit' 
+                data-action='submit'
                     style="margin-left:38px">{{__ "wifi.contactform.send"}}</button>
             </div>
 
-            {{{captcha}}}
+            <button type="submit" style="display: none">hidden send</button>
+
             <script>
+                function onSubmit(token) {
+                    console.log ("onSubmit");
+                    console.log ("token", token);
+                    document.getElementById("contactform").submit();
+                }
+            </script>
+            <script>
+                /*
                 function cb(token) {
                     console.log('token', token)
                     var input = document.createElement('input')
@@ -100,6 +110,7 @@
                     input.setAttribute('value', token)
                     document.getElementsByTagName('form')[0].appendChild(input)
                 }
+                */
             </script>
         </form>
     {{/if}}

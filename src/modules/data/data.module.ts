@@ -1,12 +1,13 @@
 import { Module } from '@nestjs/common';
 import { DataService } from './data.service';
-import { WifiService } from './wifi/wifi.service';
-import { UserService } from './user/user.service';
+import { WifiRepo } from './wifi/wifi.repo';
+import { UserRepo } from './user/user.repo';
+import { MessageRepo } from './message/message.repo';
 
 @Module({
-    imports: [DataModule],
-    providers: [DataService, WifiService, UserService],
-    exports: [WifiService, UserService],
+    imports: [],
+    providers: [DataService, WifiRepo, UserRepo, MessageRepo],
+    exports: [WifiRepo, UserRepo, MessageRepo],
 })
 
 export class DataModule { }

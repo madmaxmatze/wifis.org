@@ -2,14 +2,14 @@ import { PassportStrategy } from '@nestjs/passport';
 import { Strategy, VerifyCallback } from 'passport-google-oauth20';
 import { Injectable } from '@nestjs/common';
 import { User } from '../../data/user/user.model';
-import { UserService } from '../../data/user/user.service';
+import { UserRepo } from '../../data/user/user.repo';
 import { ConfigService, ConfigKey } from '../../config/config.service';
 
 @Injectable()
 export class GoogleStrategy extends PassportStrategy(Strategy, 'google') {
-    private userService = null;
+    private userRepo = null;
 
-    constructor(configService: ConfigService, userService: UserService) {
+    constructor(configService: ConfigService, userRepo: UserRepo) {
         super({
             clientID: configService.getValue(ConfigKey.OAUTH_GOOGLE_CLIENT_ID),
             clientSecret: configService.getValue(ConfigKey.OAUTH_GOOGLE_CLIENT_SECRET),
@@ -19,10 +19,10 @@ export class GoogleStrategy extends PassportStrategy(Strategy, 'google') {
             passReqToCallback: true
         });
 
-        this.userService = userService;
+        this.userRepo = userRepo;
     }
 
-    async validate(_accessToken: string, _refreshToken: string, UNKNOWNONJECT: any, profile: any, done: VerifyCallback): Promise<any> {
+    async validate(_accessToken: string, _refreshToken: string, _UNKNOWNONJECT: any, profile: any, done: VerifyCallback): Promise<any> {
         var user: User = {
             "id": profile.provider + profile.id,
             "provider": profile.provider,
@@ -33,7 +33,7 @@ export class GoogleStrategy extends PassportStrategy(Strategy, 'google') {
             "signupDate": new Date()
         };
 
-        await this.userService.upsert(user);
+        await this.userRepo.upsert(user);
 
         return done(null, user);
     }

@@ -4,7 +4,7 @@ import { ConfigService, ConfigKey } from '../config/config.service';
 
 @Injectable()
 export class DataService {
-    private firestore : Firestore = null;
+    private firestore: Firestore = null;
 
     constructor(configService: ConfigService) {
         this.firestore = new Firestore({
@@ -17,7 +17,15 @@ export class DataService {
         });
     }
 
-    getCollection(collectionName : string) : CollectionReference {
-        return this.firestore.collection(collectionName);
+    getWifisCollection(): CollectionReference {
+        return this.firestore.collection('wifis');
+    }
+
+    getUsersCollection(): CollectionReference {
+        return this.firestore.collection('users');
+    }
+
+    getMessagesCollection(): CollectionReference {
+        return this.firestore.collection('messages');
     }
 }

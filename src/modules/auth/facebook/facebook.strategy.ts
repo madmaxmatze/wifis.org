@@ -1,15 +1,14 @@
 import { PassportStrategy } from '@nestjs/passport';
 import { Strategy } from 'passport-facebook';
 import { Injectable } from '@nestjs/common';
-import { User } from '../../data/user/user.model';
-import { UserService } from '../../data/user/user.service';
+import { UserRepo } from '../../data/user/user.repo';
 import { ConfigService, ConfigKey } from '../../config/config.service';
 
 @Injectable()
 export class FacebookStrategy extends PassportStrategy(Strategy, 'facebook') {
-    private userService = null;
+    private userRepo = null;
 
-    constructor(configService: ConfigService, userService: UserService) {
+    constructor(configService: ConfigService, userRepo: UserRepo) {
         super({
             // app see: https://developers.facebook.com/apps/194803573923224/fb-login/settings/
             clientID: configService.getValue(ConfigKey.OAUTH_FACEBOOK_CLIENT_ID),
@@ -20,7 +19,7 @@ export class FacebookStrategy extends PassportStrategy(Strategy, 'facebook') {
             passReqToCallback: true,
         });
 
-        this.userService = userService;
+        this.userRepo = userRepo;
     }
 
     async validate(_accessToken: string, _refreshToken: string, _UNKNOWNOBJECT: any, profile: any, done: any): Promise<any> {
@@ -34,7 +33,7 @@ export class FacebookStrategy extends PassportStrategy(Strategy, 'facebook') {
             "signupDate": new Date(),
         };
 
-        await this.userService.upsert(user);
+        await this.userRepo.upsert(user);
 
         return done(null, user);
     }

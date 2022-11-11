@@ -4,11 +4,11 @@ import { DocumentSnapshot, QueryDocumentSnapshot, QuerySnapshot, CollectionRefer
 import { Wifi, WifiError } from './wifi.model';
 
 @Injectable()
-export class WifiService {
-    private wifisCollection : CollectionReference = null;
+export class WifiRepo {
+    private wifiCollection : CollectionReference = null;
 
     constructor(dataService: DataService) {
-        this.wifisCollection = dataService.getCollection('wifis');
+        this.wifiCollection = dataService.getWifisCollection();
     }
 
     private verifyValidId(id: string) {
@@ -33,7 +33,7 @@ export class WifiService {
         this.verifyValidId(id);
 
         return new Promise((resolve, _reject) => {
-            this.wifisCollection.doc(id.toLowerCase()).get()
+            this.wifiCollection.doc(id.toLowerCase()).get()
                 .then((documentSnapshot: DocumentSnapshot) => {
                     resolve(documentSnapshot.exists ? <Wifi>documentSnapshot.data() : null);
                 });
@@ -46,7 +46,7 @@ export class WifiService {
         }
         
         return new Promise((resolve, _reject) => {
-            this.wifisCollection
+            this.wifiCollection
                 .where("user", "==", userId).get()
                 .then((querySnapshot: QuerySnapshot) => {
                     resolve(querySnapshot.docs.map((doc: QueryDocumentSnapshot) => (<Wifi>{
@@ -70,7 +70,7 @@ export class WifiService {
         }
 
         return new Promise((resolve, _reject) => {
-            this.wifisCollection.doc(wifi.id).set(wifi, { merge: false }).then((_writeResult: any) => {
+            this.wifiCollection.doc(wifi.id).set(wifi, { merge: false }).then((_writeResult: any) => {
                 resolve(wifi);
             });
         });
@@ -84,7 +84,7 @@ export class WifiService {
         }
 
         return new Promise((resolve, _reject) => {
-            this.wifisCollection
+            this.wifiCollection
                 .where('id', '==', wifiId.toLowerCase())
                 .where('user', '==', userId)
                 .get()

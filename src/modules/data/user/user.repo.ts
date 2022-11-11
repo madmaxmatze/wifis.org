@@ -4,11 +4,11 @@ import { User, UserError } from './user.model';
 import { DocumentSnapshot, QueryDocumentSnapshot, CollectionReference } from '@google-cloud/firestore';
 
 @Injectable()
-export class UserService {
+export class UserRepo {
     private userCollection: CollectionReference = null;
 
     constructor(dataService: DataService) {
-        this.userCollection = dataService.getCollection('users');
+        this.userCollection = dataService.getUsersCollection();
     }
 
     private getDocRef(userId: string) {
