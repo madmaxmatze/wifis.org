@@ -1,14 +1,13 @@
-import { Injectable } from '@nestjs/common';
-import { DataService } from '../data.service';
-import { DocumentSnapshot, QueryDocumentSnapshot, QuerySnapshot, CollectionReference } from '@google-cloud/firestore';
+import { Injectable, Inject } from '@nestjs/common';
+import { Firestore, DocumentSnapshot, QueryDocumentSnapshot, QuerySnapshot, CollectionReference } from '@google-cloud/firestore';
 import { Wifi, WifiError } from './wifi.model';
 
 @Injectable()
 export class WifiRepo {
-    private wifiCollection : CollectionReference = null;
+    private wifiCollection: CollectionReference = null;
 
-    constructor(dataService: DataService) {
-        this.wifiCollection = dataService.getWifisCollection();
+    constructor(@Inject('FIRESTORE') firestore: Firestore) {
+        this.wifiCollection = firestore.collection('wifis');
     }
 
     private verifyValidId(id: string) {
@@ -44,7 +43,7 @@ export class WifiRepo {
         if (!userId) {
             throw new Error("Invalid userId");
         }
-        
+
         return new Promise((resolve, _reject) => {
             this.wifiCollection
                 .where("user", "==", userId).get()

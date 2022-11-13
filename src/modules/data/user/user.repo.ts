@@ -1,14 +1,13 @@
-import { Injectable } from '@nestjs/common';
-import { DataService } from '../data.service';
+import { Injectable, Inject } from '@nestjs/common';
 import { User, UserError } from './user.model';
-import { DocumentSnapshot, QueryDocumentSnapshot, CollectionReference } from '@google-cloud/firestore';
+import { Firestore, DocumentSnapshot, QueryDocumentSnapshot, CollectionReference } from '@google-cloud/firestore';
 
 @Injectable()
 export class UserRepo {
     private userCollection: CollectionReference = null;
 
-    constructor(dataService: DataService) {
-        this.userCollection = dataService.getUsersCollection();
+    constructor(@Inject('FIRESTORE') firestore: Firestore) {
+        this.userCollection = firestore.collection('users');
     }
 
     private getDocRef(userId: string) {
@@ -18,10 +17,10 @@ export class UserRepo {
         return this.userCollection.doc(userId.toLowerCase());
     }
 
-    async get(userId: string) : Promise<User> {
+    async get(userId: string): Promise<User> {
         return new Promise((resolve, _reject) => {
             this.getDocRef(userId).get().then((documentSnapshot: DocumentSnapshot) => {
-                var user : User = documentSnapshot.exists ? <User>documentSnapshot.data() : null;
+                var user: User = documentSnapshot.exists ? <User>documentSnapshot.data() : null;
                 if (user) {
                     if (!user.maxWifis) {
                         user.maxWifis = 3;

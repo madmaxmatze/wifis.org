@@ -14,8 +14,8 @@ import { ConfigModule } from '../config/config.module';
             useFactory: (configService: ConfigService) => ({
                 "apiKey": configService.getValue(ConfigKey.MAILJET_APIKEY),
                 "apiSecret": configService.getValue(ConfigKey.MAILJET_APISECRET)
-            }),
-        }),
+            })
+        })
     ],
     providers: [CommsService],
     exports: [CommsService],

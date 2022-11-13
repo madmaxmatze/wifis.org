@@ -1,17 +1,16 @@
-import { Injectable } from '@nestjs/common';
-import { DataService } from '../data.service';
+import { Injectable, Inject } from '@nestjs/common';
 import { Message } from './message.model';
-import { CollectionReference } from '@google-cloud/firestore';
+import { Firestore, CollectionReference } from '@google-cloud/firestore';
 
 @Injectable()
 export class MessageRepo {
     private messagesCollection: CollectionReference = null;
 
-    constructor(dataService: DataService) {
-        this.messagesCollection = dataService.getMessagesCollection();
+    constructor(@Inject('FIRESTORE') firestore: Firestore) {
+        this.messagesCollection = firestore.collection('messages');
     }
 
-    async insert(message: Message) {  // update or insert
+    async insert(message: Message) {
         return new Promise((resolve, _reject) => {
             this.messagesCollection.add(message).then(() => {
                 resolve(message);

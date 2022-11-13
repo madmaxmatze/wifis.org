@@ -22,14 +22,9 @@ export class ConfigService {
     private static config = null;
 
     static async init() {
-        console.log("Static ConfigService init");
-        console.log("Static config already loaded: ", (ConfigService.config !== null));
         if (ConfigService.config === null) {
-            console.log("Static start init");
             ConfigService.config = await ConfigService.getGcpSecret(process.env.GCP_PROJECT_ID, "production");
             // ConfigService.addConfigToEnv(ConfigService.config);
-            console.log("Static config loaded: ", (ConfigService.config !== null));
-            console.log("Static finish init");
         }
     }
 
