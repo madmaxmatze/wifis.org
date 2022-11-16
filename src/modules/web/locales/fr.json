@@ -76,9 +76,13 @@
     "login": {
         "headline": "Connexion",
         "linklabel": "Connexion",
-        "text1": "wifis.org n’offre que la connexion (login) via votre compte de Google ou Facebook existant pour les 2 raisons suivantes:",
-        "text2": "<b style=\"color: #333\">Votre confort:<\/b> Vous n’êtes pas obligé de remplir aucun formulaire de enregistrement ni de confirmer votre adresse email.",
-        "text3": "<b style=\"color: #333\">Votre sécurité et votre vie privée:<\/b> Comme on ne connaît ni garde pas votre mot de passe ni aucunes informations privées, on peut vous donner une garantie de 100% qu’on ne perdera jamais vos dates! Vous pouvez acceder directement à plus d’informations sur cette forme de login sécurisé avec: ",
+        "text": [
+            "wifis.org n’offre que la connexion (login) via votre compte de Google ou Facebook existant pour les 2 raisons suivantes:",
+            
+            "<b style=\"color: #333\">Votre confort:<\/b> Vous n’êtes pas obligé de remplir aucun formulaire de enregistrement ni de confirmer votre adresse email.",
+        
+            "<b style=\"color: #333\">Votre sécurité et votre vie privée:<\/b> Comme on ne connaît ni garde pas votre mot de passe ni aucunes informations privées, on peut vous donner une garantie de 100% qu’on ne perdera jamais vos dates! Vous pouvez acceder directement à plus d’informations sur cette forme de login sécurisé avec: "
+        ],
         "buttonPrefix": "Connexion con",
         "facebookHelpLinkHintText": "Plus d’ information sur login via facebook",
         "googleHelpLinkHintText": "Plus d’information sur login via Google",
@@ -129,7 +133,13 @@
             "absoluteWifiLimitReached": "Même si vous invitez beaucoup d’amis, le maximum de réseaux wi-fi est 10. Sous “plus de conseils” à droite vous pouvez lire comment utiliser un nom de wifis.org pour plusieurs routers.",
             "whileWifiDelete": "Erreur en effaçant le réseau wi-fi"
         },
-        "tips": "<div class=\"tip\"> <div class=\"headline\">Inviter des amis<\/div> <div class=\"text\">Vous pouvez enregistrer encore un autre réseau wi-fi, pour chaque utilisateur qui entre à wifis.org par <a href=\"{0}\" target=\"_blank\" title=\"Voilà votre lien personnel pour inviter des amis à wifis.org\">votre lien d’invitation personnelle<\/a> <\/div> <\/div> <div class=\"tip\"> <div class=\"headline\">URLs de réseaux wi-fi courtes<\/div> <div class=\"text\">Utilisez l’URL qui vous préférez: {1} <\/div> <\/div> <div class=\"tip\"> <div class=\"headline\">Plus de conseils<\/div> <div class=\"text\"> <b>N’oubliez pas de changer le nom de votre wi-fi<\/b><br> Après avoir enregistré un nom wi-fi, n’oubliez pas de aussi renommer votre réseau wifi par ce nom. En savoir plus sous <a href=\"\/p\/faq\">FAQs<\/a>. <br><br> <b>Un nom wifis.org pour plusieurs routeurs<\/b><br> Vous pouvez ajouter les caractères que vous voulez à votre nom en ajoutant une barre oblique derrière votre nom  wifis.org et ainsi utiliser le nom pour plusieurs routeurs: {2} <b>Majuscule\/minuscule<\/b><br> Des noms de wi-fi peuvent contenir des majuscules. <a href=\"http:\/\/wifis.org\/iphONE\">wifis.org\/iphONE<\/a> devient <a href=\"http:\/\/wifis.org\/iPhone\">wifis.org\/iPhone<\/a> <br><br> <b>Aidez-nous<\/b><br> Soutenez ce service gratuit à l’aide de Flattr ou en parlant de notre service a vos amis.<\/div> <\/div>"
+        "tips": [
+            "<div class=\"headline\">Inviter des amis<\/div> <div class=\"text\">Vous pouvez enregistrer encore un autre réseau wi-fi, pour chaque utilisateur qui entre à wifis.org par <a href=\"{0}\" target=\"_blank\" title=\"Voilà votre lien personnel pour inviter des amis à wifis.org\">votre lien d’invitation personnelle<\/a> <\/div> ",
+                
+            "<div class=\"headline\">URLs de réseaux wi-fi courtes<\/div> <div class=\"text\">Utilisez l’URL qui vous préférez: {1} <\/div>",
+            
+            "<div class=\"headline\">Plus de conseils<\/div> <div class=\"text\"> <b>N’oubliez pas de changer le nom de votre wi-fi<\/b><br> Après avoir enregistré un nom wi-fi, n’oubliez pas de aussi renommer votre réseau wifi par ce nom. En savoir plus sous <a href=\"\/p\/faq\">FAQs<\/a>. <br><br> <b>Un nom wifis.org pour plusieurs routeurs<\/b><br> Vous pouvez ajouter les caractères que vous voulez à votre nom en ajoutant une barre oblique derrière votre nom  wifis.org et ainsi utiliser le nom pour plusieurs routeurs: {2} <b>Majuscule\/minuscule<\/b><br> Des noms de wi-fi peuvent contenir des majuscules. <a href=\"http:\/\/wifis.org\/iphONE\">wifis.org\/iphONE<\/a> devient <a href=\"http:\/\/wifis.org\/iPhone\">wifis.org\/iPhone<\/a> <br><br> <b>Aidez-nous<\/b><br> Soutenez ce service gratuit à l’aide de Flattr ou en parlant de notre service a vos amis.<\/div>"
+        ]
     },
     "wifi": {
         "headlinePrefix": "Écrivez un Émail à:",

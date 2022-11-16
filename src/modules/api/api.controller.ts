@@ -1,7 +1,7 @@
 import { Controller, Post, Res, Session, UseFilters, Body, UseGuards } from '@nestjs/common';
 import { Response } from 'express';
 import { WifiRepo } from '../data/wifi/wifi.repo';
-import { Wifi, WifiError } from '../data/wifi/wifi.model';
+import { Wifi } from '../data/wifi/wifi.model';
 import { ApiExceptionFilter } from './api.exception.filter';
 import { AuthGuard } from '../auth/auth.guard';
 
@@ -9,45 +9,31 @@ import { AuthGuard } from '../auth/auth.guard';
 @Controller("api")
 export class ApiController {
     constructor(
-        private readonly wifiRepo: WifiRepo,
+        private readonly wifiRepo: WifiRepo
     ) { }
 
     @Post('wifi/exists')
     async existsWifi(@Res() response: Response, @Body('id') wifiId: string) {
-        this.wifiRepo.get(wifiId)
-            .then((wifi: Wifi) => {
-                response.json({ "success": (wifi !== null) });
-            });
+        var wifi: Wifi = await this.wifiRepo.get(wifiId);
+        response.json({ "success": (wifi !== null) });
     }
 
     @Post('wifi/add')
     @UseGuards(AuthGuard)
     async addWifi(@Session() session: Record<string, any>, @Res() response: Response, @Body('id') wifiId: string) {
-        var userWifis: Wifi[] = await this.wifiRepo.getAllByUserId(session.user.id);
-        var maxWifis = session.user.maxWifis || 3;
-        if (userWifis.length >= maxWifis) {
-            throw new Error(WifiError.maxWifiCountReached);
-        }
-
-        var newWifi: Wifi = {
-            "id": wifiId
-            , "label": wifiId
-            , "user": session.user.id
-            , "creationDate": new Date()
-        };
-
-        this.wifiRepo.insert(newWifi)
-            .then((addedWifi: Wifi) => {
-                response.json({ "success": true, "wifi": addedWifi });
-            });
+        var isAdded: boolean = await this.wifiRepo.insert(<Wifi>{
+            "id": wifiId,
+            "label": wifiId,
+            "user": session.user.id,
+            "creationDate": new Date()
+        });
+        response.json({ "success": isAdded });
     }
 
     @Post('wifi/delete')
     @UseGuards(AuthGuard)
     async deleteWifi(@Session() session: Record<string, any>, @Res() response: Response, @Body('id') wifiId: string) {
-        this.wifiRepo.delete(session.user.id, wifiId)
-            .then((isDeleted: boolean) => {
-                response.json({ "success": isDeleted });
-            });
+        var isDeleted: boolean = await this.wifiRepo.delete(wifiId, session.user.id);
+        response.json({ "success": isDeleted });
     }
 }

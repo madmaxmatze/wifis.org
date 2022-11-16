@@ -76,9 +76,13 @@
     "login": {
         "headline": "Acceder",
         "linklabel": "Acceder",
-        "text1": "wifis.org sólo ofrece el inicio de sessión (login) via tu cuenta existente de google o facebook por 2 razones:",
-        "text2": "<b style=\"color: #333\">Tu confort:<\/b> No tienes que llenar ningunos formularios de registración ni confirmar ninguna dirección de email.",
-        "text3": "<b style=\"color: #333\">Tu intimidad y seguridad:<\/b> Como no conocemos ni guardamos tu contraseña ni otras informaciones personales, te podemos dar una garantía de 100% que nunca perderemos tus datos! Puedes recibir más informaciones sobre esta manera segura de login con: ",
+        "text": [
+            "wifis.org sólo ofrece el inicio de sessión (login) via tu cuenta existente de google o facebook por 2 razones:",
+            
+            "<b style=\"color: #333\">Tu confort:<\/b> No tienes que llenar ningunos formularios de registración ni confirmar ninguna dirección de email.",
+            
+            "<b style=\"color: #333\">Tu intimidad y seguridad:<\/b> Como no conocemos ni guardamos tu contraseña ni otras informaciones personales, te podemos dar una garantía de 100% que nunca perderemos tus datos! Puedes recibir más informaciones sobre esta manera segura de login con: "
+        ],
         "buttonPrefix": "Acceder con",
         "facebookHelpLinkHintText": "Más información sobre acceso con facebook",
         "googleHelpLinkHintText": "Más información sobre acceso con Google",
@@ -129,7 +133,13 @@
             "absoluteWifiLimitReached": "Invitando amigos, puedes alcanzar el límite absoluto de 10 wifis. Si de verdad necesitas más, ponte en contacto con nosotros o considera usar la función ‘namespace’ elaborada a la derecha.",
             "whileWifiDelete": "Uf, Hubo un error en el proceso de cancelación. Te hemos enviado atrás en el tiempo para intentarlo de nuevo"
         },
-        "tips": "<div class=\"tip\"> <div class=\"headline\">Consige otro nombre de WiFi<\/div> <div class=\"text\"> Cada uno de tus amigos que se active a través de <a href=\"{0}\" target=\"_blank\" title=\"Este es tu enlace personal para invitar a tus amigos a wifis.org\">tu enlace invito personal<\/a>, incrementará tu límite de wifis por uno. <\/div> <\/div> <div class=\"tip\"> <div class=\"headline\">wifis URL corto<\/div> <div class=\"text\">Elige la forma de nombre que más te gusta: {1} <\/div> <\/div> <div class=\"tip\"> <div class=\"headline\">más consejos<\/div> <div class=\"text\"> <b>Cambia el nombre de la red wifi<\/b><br> Después de activar una wifi, no te olvides de cambiar el nombre de la wifi propia. Véase la <a href=\"\/p\/faq\">FAQ<\/a>. <br><br> <b>Muchos wifis con sólo un nombre<\/b><br> Una vez activado un nombre wifis.org, se puede usar con muchos redes wifi: {2} <b>Mayúsculo & Minúsculo<\/b><br> Los nombres wifi no distinguen mayúsculas de minúsculas. <a href=\"http:\/\/wifis.org\/iphONE\">wifis.org\/iphONE<\/a> sale <a href=\"http:\/\/wifis.org\/iPhone\">wifis.org\/iPhone<\/a> <br><br> <b>Corre la voz<\/b><br> Apóyanos usando el botón Flattr o compartelo con tus amigos a través de los enlaces a la izquierda. <\/div> <\/div>"
+        "tips": [
+            "<div class=\"headline\">Consige otro nombre de WiFi<\/div> <div class=\"text\"> Cada uno de tus amigos que se active a través de <a href=\"{0}\" target=\"_blank\" title=\"Este es tu enlace personal para invitar a tus amigos a wifis.org\">tu enlace invito personal<\/a>, incrementará tu límite de wifis por uno. <\/div>",
+            
+            "<div class=\"headline\">wifis URL corto<\/div> <div class=\"text\">Elige la forma de nombre que más te gusta: {1} <\/div>",
+            
+            "<div class=\"headline\">más consejos<\/div> <div class=\"text\"> <b>Cambia el nombre de la red wifi<\/b><br> Después de activar una wifi, no te olvides de cambiar el nombre de la wifi propia. Véase la <a href=\"\/p\/faq\">FAQ<\/a>. <br><br> <b>Muchos wifis con sólo un nombre<\/b><br> Una vez activado un nombre wifis.org, se puede usar con muchos redes wifi: {2} <b>Mayúsculo & Minúsculo<\/b><br> Los nombres wifi no distinguen mayúsculas de minúsculas. <a href=\"http:\/\/wifis.org\/iphONE\">wifis.org\/iphONE<\/a> sale <a href=\"http:\/\/wifis.org\/iPhone\">wifis.org\/iPhone<\/a> <br><br> <b>Corre la voz<\/b><br> Apóyanos usando el botón Flattr o compartelo con tus amigos a través de los enlaces a la izquierda. <\/div>"
+        ]
     },
     "wifi": {
         "headlinePrefix": "Escribir un mensaje a:",

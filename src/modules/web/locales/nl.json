@@ -76,9 +76,13 @@
     "login": {
         "headline": "Login",
         "linklabel": "Login",
-        "text1": "wifis.org laat enkel toe je in te loggen via een Google of Facebook account. De twee hoofdredenen hiervoor zijn:", 
-        "text2": "<b style=\"color: #333\">Jouw voordeel:<\/b> Je moet geen registratieformulier invullen en ook je e-mail adres niet bevestigen.",
-        "text3": "<b style=\"color: #333\">Jouw privacy en veiligheid:<\/b> Aangezien je je paswoord of andere persoonlijke informatie niet kennen, noch bewaren, kunnen we je garanderen dat we je gegevens nooit verliezen. Meer informatie over deze beveiligde login methodes kan je terugvinden op: ",
+        "text": [
+            "wifis.org laat enkel toe je in te loggen via een Google of Facebook account. De twee hoofdredenen hiervoor zijn:", 
+        
+            "<b style=\"color: #333\">Jouw voordeel:<\/b> Je moet geen registratieformulier invullen en ook je e-mail adres niet bevestigen.",
+        
+            "<b style=\"color: #333\">Jouw privacy en veiligheid:<\/b> Aangezien je je paswoord of andere persoonlijke informatie niet kennen, noch bewaren, kunnen we je garanderen dat we je gegevens nooit verliezen. Meer informatie over deze beveiligde login methodes kan je terugvinden op: "
+        ],
         "buttonPrefix": "Login met",
         "facebookHelpLinkHintText": "Meer over Facebook 3rd party login",
         "googleHelpLinkHintText": "More over Google 3rd party login",
@@ -129,7 +133,13 @@
             "absoluteWifiLimitReached": "We staan momenteel 10 verschillende wifis.org ID´s toe. Als je werkelijk meer ID´s nodig hebt, contacteer ons dan.",
             "whileWifiDelete": "Oeps. Er is een fout opgetreden tijdens het annuleringsproces."
         },
-        "tips": "<div class=\"tip\"> <div class=\"headline\">ontvang een ander WiFi ID<\/div> <div class=\"text\">Ieder van je vrienden die wifis.org die toetreedt via <a href=\"{0}\" target=\"_blank\" title=\" Dit is je persoonlijke link om vrienden uit te nodigen op wifis.org\">je persoonlijke uitnodigingslink<\/a>, zal de limiet van je wifis.org ID´s die je kan registreren met 1 verhogen.<\/div> <\/div> <div class=\"tip\"> <div class=\"headline\">verkorte url<\/div> <div class=\"text\">Kies hier je favoriet. Ze werken allemaal op dezelfde manier: {1} <\/div> <\/div> <div class=\"tip\"> <div class=\"headline\">meer tips<\/div> <div class=\"text\"> <b>Herbenoem je Wi-fi netwerk<\/b><br> Vergeet niet om je Wi-fi network te herbenoemen nadat je je wifis.org ID geregistreerd hebt. Kijk op <a href=\"\/p\/faq\">Veelgestelde vragen<\/a>. <br><br> <b>Eén ID voor meerdere routers<\/b><br> Om je wifis.org ID voor meerdere Wi-fi routers te gebruiken, kan je eender welk karakter toevoegen na een slash“\/” achter jouw ID: {2} <b>Case sensitivity<\/b><br> wifis.org IDs zijn niet case sensitive. <a href=\"http:\/\/wifis.org\/iphONE\">wifis.org\/iphONE<\/a> wordt <a href=\"http:\/\/wifis.org\/iPhone\">wifis.org\/iPhone<\/a> <br><br> <b>Vertel het voort!<\/b><br> Steun onze gratis service door de Flattr knop links te gebruiken en door je vrienden te informeren. <\/div> <\/div>"
+        "tips": [
+            "<div class=\"headline\">ontvang een ander WiFi ID<\/div> <div class=\"text\">Ieder van je vrienden die wifis.org die toetreedt via <a href=\"{0}\" target=\"_blank\" title=\" Dit is je persoonlijke link om vrienden uit te nodigen op wifis.org\">je persoonlijke uitnodigingslink<\/a>, zal de limiet van je wifis.org ID´s die je kan registreren met 1 verhogen.<\/div>",
+                
+            "<div class=\"headline\">verkorte url<\/div> <div class=\"text\">Kies hier je favoriet. Ze werken allemaal op dezelfde manier: {1} <\/div>",
+            
+            "<div class=\"headline\">meer tips<\/div> <div class=\"text\"> <b>Herbenoem je Wi-fi netwerk<\/b><br> Vergeet niet om je Wi-fi network te herbenoemen nadat je je wifis.org ID geregistreerd hebt. Kijk op <a href=\"\/p\/faq\">Veelgestelde vragen<\/a>. <br><br> <b>Eén ID voor meerdere routers<\/b><br> Om je wifis.org ID voor meerdere Wi-fi routers te gebruiken, kan je eender welk karakter toevoegen na een slash“\/” achter jouw ID: {2} <b>Case sensitivity<\/b><br> wifis.org IDs zijn niet case sensitive. <a href=\"http:\/\/wifis.org\/iphONE\">wifis.org\/iphONE<\/a> wordt <a href=\"http:\/\/wifis.org\/iPhone\">wifis.org\/iPhone<\/a> <br><br> <b>Vertel het voort!<\/b><br> Steun onze gratis service door de Flattr knop links te gebruiken en door je vrienden te informeren. <\/div>"
+        ]
     },
     "wifi": {
         "headlinePrefix": "Stuur een e-mail naar:",

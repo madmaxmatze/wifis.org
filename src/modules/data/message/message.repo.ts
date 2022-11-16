@@ -11,10 +11,7 @@ export class MessageRepo {
     }
 
     async insert(message: Message) {
-        return new Promise((resolve, _reject) => {
-            this.messagesCollection.add(message).then(() => {
-                resolve(message);
-            });
-        });
+        var docId = message.creationDate.toISOString() + "|" + message.wifiId;
+        return this.messagesCollection.doc(docId).set(message, { merge: false }).then(() => true);
     }
 }

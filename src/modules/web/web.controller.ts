@@ -1,10 +1,10 @@
-import { Get, Post, All, Controller, Res, Param, Session, HttpStatus, UseGuards, Body, Next, Render } from '@nestjs/common';
-import { Response, NextFunction } from 'express';
+import { Get, Post, All, Controller, Res, Req, Param, Session, HttpStatus, RequestMethod, UseGuards, Body, Next, Render } from '@nestjs/common';
+import { Response, Request, NextFunction } from 'express';
 import { ConfigService, ConfigKey } from '../config/config.service';
 import { WifiRepo } from '../data/wifi/wifi.repo';
 import { CommsService } from '../comms/comms.service';
 import { Message } from '../data/message/message.model';
-import { Wifi } from '../data/wifi/wifi.model';
+import { Wifi, WifiError } from '../data/wifi/wifi.model';
 import { AuthGuard } from '../auth/auth.guard';
 import { Recaptcha, RecaptchaResult, RecaptchaVerificationResult } from '@nestlab/google-recaptcha';
 
@@ -34,22 +34,22 @@ export class WebController {
      * Somehow a preperation middleware for GET and POST single Wifi page requests
      */
     @All(WebController.WIFI_URL)
-    async requestWifi(@Res() response: Response, @Next() next: NextFunction,
+    async requestWifi(@Req() request: Request, @Res() response: Response, @Next() next: NextFunction,
         @Param('wifiId') wifiId: string, @Param('wifiIdSuffix') wifiIdSuffix: string) {
-        response.locals.wifi = <Wifi>await this.wifiRepo.get(wifiId);
         response.locals.wifiId = wifiId;
         response.locals.wifiIdSuffix = wifiIdSuffix;
 
+        response.locals.wifi = <Wifi>await this.wifiRepo.get(wifiId);
         if (response.locals.wifi) {
             if (response.locals.wifi.label != wifiId) {
                 return response.redirect('/' + response.locals.wifi.label + (wifiIdSuffix ? "/" + wifiIdSuffix : ""));
             }
-            response.locals.RECAPTCHA_SITE_KEY = this.configService.getValue(ConfigKey.RECAPTCHA_SITE_KEY)
+            response.locals.RECAPTCHA_SITE_KEY = this.configService.getValue(ConfigKey.RECAPTCHA_SITE_KEY);
             response.locals.wifiUserId = response.locals.wifi.user;
         } else {
             response.status(HttpStatus.NOT_FOUND);
         }
-
+        
         return next();
     }
 
@@ -60,44 +60,36 @@ export class WebController {
     @Post(WebController.WIFI_URL)
     @Recaptcha()
     async postWifi(@Res() response: Response,
-        @Body('email') email: string, @Body('text') text: string,
+        @Body('contact') contact: string, @Body('text') text: string,
         @RecaptchaResult() recaptchaResult: RecaptchaVerificationResult) {
-        /*
-        recaptchaResult = {
-            "success": true,
-            "hostname": "...",
-            "action": "submit",
-            "score": 0.9,
-            "errors": [],
-            "nativeResponse": {
-                "success": true,
-                "challenge_ts": "2022-11-10T12:25:19Z",
-                "hostname": "...",
-                "score": 0.9,
-                "action": "submit",
-                "errors": []
-        }}
-        */
 
-       // TODO: validate email and text
-
-        if (recaptchaResult.success) {
-            var newMessage : Message = {
-                wifiId: response.locals.wifi.label,
-                senderContact: email,    
-                text: text,
-                securityScore : recaptchaResult.score
-            };
-            if (response.locals.wifiIdSuffix) {
-                newMessage.wifiIdSuffix = response.locals.wifiIdSuffix;
-            }
-
-            response.locals.wasSent = this.commsService.sendMessage(newMessage);
-        }
-        
-        response.locals.form_field_email = email;
+        // TODO: validate email and text
+        response.locals.form_field_contact = contact;
         response.locals.form_field_text = text;
-            
-        return response.render("wifi");
+
+        /* recaptchaResult = {"success":true, "score":0.9, "errors":[], ...} */
+        // TODO: check behaviour of moving score into config
+        if (!recaptchaResult.success || recaptchaResult.score < 0.5) {
+            // pretending that all is good and the message was send ???
+            return response.render("wifi", { "wasSent": true });
+        }
+
+        var message: Message = {
+            wifiId: response.locals.wifi.id,
+            wifiIdSuffix: response.locals.wifiIdSuffix,
+            wifiOwnerId: response.locals.wifi.user,
+            senderContact: contact,
+            senderText: text,
+            wasSent: false,
+            securityScore: recaptchaResult.score,
+            creationDate: new Date()
+        };
+
+        this.commsService.sendMessage(message).then((wasSent) => {
+            response.locals.wasSent = wasSent;
+            return response.render("wifi");
+        }).catch((error: Error) => {
+            return response.render("wifi", { "wasSent": false, "errormessage": error.message });
+        });
     }
 }

@@ -76,9 +76,13 @@
     "login": {
         "headline": "Login",
         "linklabel": "Login",
-        "text1": "wifis.org only allows login with your existing Google or Facebook account. The two main reasons are:",
-        "text2": "<b style=\"color: #333\">Your comfort:<\/b> You don’t have to fill out any registration forms or confirm your email address.",
-        "text3": "<b style=\"color: #333\">Your privacy and security:<\/b> Since we don’t know or store your password or any personal information, we can guarantee that we will never lose your data. Further information about these secure login methods can be found here: ",
+        "text": [
+            "wifis.org only allows login with your existing Google or Facebook account. The two main reasons are:",
+        
+            "<b style=\"color: #333\">Your comfort:<\/b> You don’t have to fill out any registration forms or confirm your email address.",
+        
+            "<b style=\"color: #333\">Your privacy and security:<\/b> Since we don’t know or store your password or any personal information, we can guarantee that we will never lose your data. Further information about these secure login methods can be found here: "
+        ],
         "buttonPrefix": "Login with",
         "facebookHelpLinkHintText": "More information about Facebook 3rd party login",
         "googleHelpLinkHintText": "More information about Google 3rd party login",
@@ -129,7 +133,13 @@
             "absoluteWifiLimitReached": "We only allow up to 10 different wifis.org IDs at this point. If you really need more IDs please contact us.",
             "whileWifiDelete": "Oops. There was an error during the deletion process."
         },
-        "tips": "<div class=\"tip\"> <div class=\"headline\">get another WiFi ID<\/div> <div class=\"text\">Each of your friends who joins wifis.org through <a href=\"{0}\" target=\"_blank\" title=\"This is your personal link to invite friends to wifis.org\">your personal invite link<\/a>, will increase the limit of wifis.org IDs you can register by one.<\/div> <\/div> <div class=\"tip\"> <div class=\"headline\">url shortening<\/div> <div class=\"text\">Pick your favorite. They all work the same: {1} <\/div> <\/div> <div class=\"tip\"> <div class=\"headline\">more tips<\/div> <div class=\"text\"> <b>Rename your Wi-Fi network<\/b><br> Don’t forget to rename your Wi-Fi network after you registered your wifis.org ID. See <a href=\"\/p\/faq\">FAQ<\/a>. <br><br> <b>One ID for many routers<\/b><br> To use one wifis.org ID for several Wi-Fi routers, you may add any characters you like after a slash “\/” behind your ID: {2} <b>Case sensitivity<\/b><br> wifis.org IDs are not case sensitive. <a href=\"http:\/\/wifis.org\/iphONE\">wifis.org\/iphONE<\/a> will lead to <a href=\"http:\/\/wifis.org\/iPhone\">wifis.org\/iPhone<\/a> <br><br> <b>Spread the word!<\/b><br> Please support our free service by using the Flattr button on the left and by telling your friends. <\/div> <\/div>"
+        "tips": [
+            "<div class=\"headline\">get another WiFi ID<\/div> <div class=\"text\">Each of your friends who joins wifis.org through <a href=\"{0}\" target=\"_blank\" title=\"This is your personal link to invite friends to wifis.org\">your personal invite link<\/a>, will increase the limit of wifis.org IDs you can register by one.<\/div>",
+                
+            "<div class=\"headline\">url shortening<\/div> <div class=\"text\">Pick your favorite. They all work the same: {1} <\/div>",
+            
+            "<div class=\"headline\">more tips<\/div><div class=\"text\"> <b>Rename your Wi-Fi network<\/b><br> Don’t forget to rename your Wi-Fi network after you registered your wifis.org ID. See <a href=\"\/p\/faq\">FAQ<\/a>. <br><br> <b>One ID for many routers<\/b><br> To use one wifis.org ID for several Wi-Fi routers, you may add any characters you like after a slash “\/” behind your ID: {2} <b>Case sensitivity<\/b><br> wifis.org IDs are not case sensitive. <a href=\"http:\/\/wifis.org\/iphONE\">wifis.org\/iphONE<\/a> will lead to <a href=\"http:\/\/wifis.org\/iPhone\">wifis.org\/iPhone<\/a> <br><br> <b>Spread the word!<\/b><br> Please support our free service by using the Flattr button on the left and by telling your friends. <\/div>"
+        ]
     },
     "wifi": {
         "headlinePrefix": "Write an email to:",

@@ -15,7 +15,6 @@ i18n.configure({
 @Injectable()
 export class I18nMiddleware implements NestMiddleware {
     use(req: Request, res: Response, next: NextFunction) {
-        console.log("i18n Middleware");
         i18n.init(req, res);
         res.locals.translations = i18n.getCatalog(req);
 

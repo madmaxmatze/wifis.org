@@ -62,7 +62,6 @@ hbs.registerHelper('json', function (object: any) {
 @Injectable()
 export class HbsMiddleware implements NestMiddleware {
     use(request: any, response: Response, next: NextFunction) {
-        console.log("HbsMiddleware");
         // pass some variables to templates
         response.locals.url = request.url;
         response.locals.urlPath = request.originalUrl;

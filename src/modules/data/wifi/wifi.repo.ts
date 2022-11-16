@@ -1,16 +1,20 @@
 import { Injectable, Inject } from '@nestjs/common';
-import { Firestore, DocumentSnapshot, QueryDocumentSnapshot, QuerySnapshot, CollectionReference } from '@google-cloud/firestore';
+import { Firestore, DocumentSnapshot, QueryDocumentSnapshot, QuerySnapshot, CollectionReference, WriteResult } from '@google-cloud/firestore';
 import { Wifi, WifiError } from './wifi.model';
+import { User, UserError } from '../user/user.model';
+import { UserRepo } from '../user/user.repo';
 
 @Injectable()
 export class WifiRepo {
-    private wifiCollection: CollectionReference = null;
+    private wifiCollection: CollectionReference;
+    private userRepo: UserRepo;
 
-    constructor(@Inject('FIRESTORE') firestore: Firestore) {
+    constructor(@Inject('FIRESTORE') firestore: Firestore, userRepo: UserRepo) {
         this.wifiCollection = firestore.collection('wifis');
+        this.userRepo = userRepo;
     }
 
-    private verifyValidId(id: string) {
+    private verifyWifiId(id: string) {
         if (!id) {
             throw new Error(WifiError.noWifiIdDefined);
         }
@@ -28,76 +32,78 @@ export class WifiRepo {
         }
     }
 
-    get(id: string): Promise<Wifi> {
-        this.verifyValidId(id);
-
-        return new Promise((resolve, _reject) => {
-            this.wifiCollection.doc(id.toLowerCase()).get()
-                .then((documentSnapshot: DocumentSnapshot) => {
-                    resolve(documentSnapshot.exists ? <Wifi>documentSnapshot.data() : null);
-                });
-        });
+    async get(wifiId: string): Promise<Wifi> {
+        return this.getByIdAndUser(wifiId);
     }
 
-    getAllByUserId(userId: string): Promise<Wifi[]> {
-        if (!userId) {
-            throw new Error("Invalid userId");
-        }
-
-        return new Promise((resolve, _reject) => {
-            this.wifiCollection
-                .where("user", "==", userId).get()
-                .then((querySnapshot: QuerySnapshot) => {
-                    resolve(querySnapshot.docs.map((doc: QueryDocumentSnapshot) => (<Wifi>{
-                        "id": doc.id,
-                        "label": doc.data().label
-                    })));
-                });
-        });
+    async getForUser(wifiId: string, userId: string): Promise<Wifi> {
+        this.userRepo.verifyUserId(userId);
+        return this.getByIdAndUser(wifiId, userId);
     }
 
-    insert(wifi: Wifi): Promise<Wifi> {
-        if (!wifi) {
-            throw new Error(WifiError.invalid);
-        }
+    private async getByIdAndUser(wifiId: string, userId: string = ""): Promise<Wifi> {
+        this.verifyWifiId(wifiId);
 
-        this.verifyValidId(wifi.id);
-        wifi.id = wifi.id.toLowerCase();
+        return this.wifiCollection.doc(wifiId.toLowerCase()).get().then(
+            (documentSnapshot: DocumentSnapshot) => {
+                var wifi = documentSnapshot.exists ? <Wifi>documentSnapshot.data() : null;
+                if (wifi && userId && userId !== wifi.user) {
+                    wifi = null;
+                }
+                return wifi;
+            }
+        );
+    }
 
-        if (!wifi.user) {
-            throw new Error(WifiError.userIdMissing);
-        }
+    async getAllByUserId(userId: string): Promise<Wifi[]> {
+        this.userRepo.verifyUserId(userId);
 
-        return new Promise((resolve, _reject) => {
-            this.wifiCollection.doc(wifi.id).set(wifi, { merge: false }).then((_writeResult: any) => {
-                resolve(wifi);
+        return this.wifiCollection
+            .where("user", "==", userId).get()
+            .then((querySnapshot: QuerySnapshot) => {
+                return querySnapshot.docs.map((doc: QueryDocumentSnapshot) => <Wifi>doc.data());
             });
-        });
     }
 
-    delete(userId: string, wifiId: string): Promise<boolean> {
-        this.verifyValidId(wifiId);
+    async insert(wifi: Wifi): Promise<boolean> {
+        if (!wifi) { throw new Error(WifiError.invalid); }
 
-        if (!userId) {
-            throw new Error("No userId provided");
+        var existingWifi: Wifi = await this.get(wifi.id)
+        if (existingWifi) {
+            throw new Error(WifiError.wifiIdReserved);
         }
 
-        return new Promise((resolve, _reject) => {
-            this.wifiCollection
-                .where('id', '==', wifiId.toLowerCase())
-                .where('user', '==', userId)
-                .get()
-                .then((querySnapshot: QuerySnapshot) => {
-                    if (querySnapshot.docs.length != 1) { // probably impossible due to unique ID
-                        throw new Error(querySnapshot.docs.length + " wifis found to delete. Only 1 expected")
-                    }
-                    return querySnapshot.docs.pop().ref.delete();
-                })
-                .then((_writeResult: any) => {
-                    // actually not needed, but want to contain db objects to Repo                    
-                    resolve(true);
-                });
-        });
+        var user: User = await this.userRepo.get(wifi.user);
+        if (!user) {
+            throw new Error(UserError.notFound);
+        }
+        if (!user.email) {
+            throw new Error(UserError.emailMissing);
+        }
+
+        var userWifis: Wifi[] = await this.getAllByUserId(user.id);
+        if (userWifis.length >= user.maxWifis) {
+            throw new Error(WifiError.maxWifiCountReached);
+        }
+
+        wifi.id = wifi.id.toLowerCase();
+        return this.wifiCollection.doc(wifi.id).set(wifi, { merge: false }).then(() => true);
     }
 
+    async delete(wifiId: string, userId: string): Promise<boolean> {
+        this.verifyWifiId(wifiId);
+        this.userRepo.verifyUserId(userId);
+
+        return this.wifiCollection
+            .where('id', '==', wifiId.toLowerCase())
+            .where('user', '==', userId)
+            .get()
+            .then((querySnapshot: QuerySnapshot) => {
+                if (querySnapshot.docs.length != 1) {
+                    throw new Error(WifiError.whileWifiDelete);
+                }
+                return querySnapshot.docs.pop().ref.delete();
+            })
+            .then(() => true);
+    }
 }

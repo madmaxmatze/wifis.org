@@ -32,7 +32,8 @@
 
     {{else if (equals wasSent false)}}
         <div class="alert alert-error">
-            <b>{{{__ "wifi.contactform.mailNotSent"}}}</b>
+            <b>{{{__ "wifi.contactform.mailNotSent"}}}</b><br>
+            {{errormessage}}            
         </div>
         <br>
         <br>
@@ -49,11 +50,9 @@
 
         <form method="POST" id='contactform' class="contactform form-stacked">
             <div class="clearfix">
-                {{!-- <c:if test=" ${fn:startsWith(error, 'email' )==true}">error</c:if>
-                --}}
-                <label>{{{__ "wifi.contactform.email"}}}</label>
+                <label>{{{__ "wifi.contactform.contact"}}}</label>
                 <div class="input">
-                    <input name="email" value="{{form_field_email}}" />
+                    <input name="contact" value="{{form_field_contact}}" />
                     {{!-- <c:if test="${fn:startsWith(error, 'email')==true}">
                         <span class="help-block">
                             <spring:message code="wifi.contactform.error.${error}" /></span>
@@ -62,8 +61,6 @@
                 </div>
             </div>
             <div class="clearfix">
-                {{!-- <c:if test=" ${fn:startsWith(error, 'text' )==true}">error</c:if>
-                --}}
                 <label>{{{__ "wifi.contactform.message"}}}</label>
                 <div class="input">
                     <textarea name="text">{{form_field_text}}</textarea>
@@ -99,18 +96,6 @@
                     console.log ("token", token);
                     document.getElementById("contactform").submit();
                 }
-            </script>
-            <script>
-                /*
-                function cb(token) {
-                    console.log('token', token)
-                    var input = document.createElement('input')
-                    input.setAttribute('type', 'text')
-                    input.setAttribute('name', 'g-recaptcha-response')
-                    input.setAttribute('value', token)
-                    document.getElementsByTagName('form')[0].appendChild(input)
-                }
-                */
             </script>
         </form>
     {{/if}}

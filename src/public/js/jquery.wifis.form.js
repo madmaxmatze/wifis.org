@@ -122,9 +122,9 @@
 				"id" : wifiid
 			},
 					function(data, textStatus, jqXHR) {
-						if (data.wifi) {
-							var div = getNewWifiDiv(data.wifi.id,
-									data.wifi.label);
+						if (data.success) {
+							var div = getNewWifiDiv(wifiid.toLowerCase(),
+                                wifiid);
 
 							// find correct position
 							var smallerElement = null;

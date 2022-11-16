@@ -76,9 +76,13 @@
     "login": {
         "headline": "Login",
         "linklabel": "Login",
-        "text1": "wifis.org accetta login solo tramite i tuoi account Google o Facebook. Le due ragioni principali sono:",
-        "text2": "<b style=\"color: #333\">La comodità:<\/b> Non è necessario riempire nessun form di registrazione o confermare la tua email.",
-        "text3": "<b style=\"color: #333\">La privacy e la sicurezza:<\/b> Dato che non conosciamo nè conserviamo la tua password o altre informazioni personali, possiamo garantirti che non perderemo i tuoi dati. Puoi trovare ulteriori informazioni sulla sicurezza di questi metodi di login su: ",
+        "text": [
+            "wifis.org accetta login solo tramite i tuoi account Google o Facebook. Le due ragioni principali sono:",
+        
+            "<b style=\"color: #333\">La comodità:<\/b> Non è necessario riempire nessun form di registrazione o confermare la tua email.",
+        
+            "<b style=\"color: #333\">La privacy e la sicurezza:<\/b> Dato che non conosciamo nè conserviamo la tua password o altre informazioni personali, possiamo garantirti che non perderemo i tuoi dati. Puoi trovare ulteriori informazioni sulla sicurezza di questi metodi di login su: "
+        ],
         "buttonPrefix": "Login con",
         "facebookHelpLinkHintText": "Più informazioni sul login con Facebook",
         "googleHelpLinkHintText": "Più informazioni sul login con Google",
@@ -129,7 +133,13 @@
             "absoluteWifiLimitReached": "Supportiamo fino a 10 ID wifis.org per il momento. Se realmente necessiti di ulteriori ID wifis.org contattaci.",
             "whileWifiDelete": "Ops. C’è stato un errore nel processo di cancellazione."
         },
-        "tips": "<div class=\"tip\"> <div class=\"headline\">ottieni un altro ID wifi.org<\/div> <div class=\"text\">Per ogni tuo amico che si iscrive a wifis.org tramite <a href=\"{0}\" target=\"_blank\" title=\"Questo è il tuo link personale per invitare gli amici a wifis.org\">l’ invito personale<\/a>, aumenterai di uno il numero di ID wifis.org che puoi creare. <\/div> <\/div> <div class=\"tip\"> <div class=\"headline\">format url del ID wifis.org<\/div> <div class=\"text\">Rinomina la rete wifi con il format url che preferisci. Vanno bene tutti: {1} <\/div> <\/div> <div class=\"tip\"> <div class=\"headline\">qualche consiglio<\/div> <div class=\"text\"> <b>Rinomina la tua rete wifi<\/b><br> Non dimenticare di rinominare la tua rete wifi dopo aver creato il tuo ID wifis.org. Leggi le <a href=\"\/p\/faq\">FAQ<\/a>. <br><br> <b>Una ID per più di un router<\/b><br> Per usare una ID wifis.org per più router wifi, puoi aggiungere tutti i caratteri che preferisci dopo uno slash “\/” dopo il tuo ID: {2} <b>Case sensitivity<\/b><br> Gli ID wifis.org non sono case sensitive. <a href=\"http:\/\/wifis.org\/iphONE\">wifis.org\/iphONE<\/a> equivale a <a href=\"http:\/\/wifis.org\/iPhone\">wifis.org\/iPhone<\/a> <br><br> <b>Spargi la voce!<\/b><br> Supporta il nostro servizio gratuito cliccando sul bottone Flattr sulla sinistra e parlandone ai tuoi amici. <\/div> <\/div>"
+        "tips": [
+            "<div class=\"headline\">ottieni un altro ID wifi.org<\/div> <div class=\"text\">Per ogni tuo amico che si iscrive a wifis.org tramite <a href=\"{0}\" target=\"_blank\" title=\"Questo è il tuo link personale per invitare gli amici a wifis.org\">l’ invito personale<\/a>, aumenterai di uno il numero di ID wifis.org che puoi creare. <\/div>",
+            
+            "<div class=\"headline\">format url del ID wifis.org<\/div> <div class=\"text\">Rinomina la rete wifi con il format url che preferisci. Vanno bene tutti: {1} <\/div>",
+            
+            "<div class=\"headline\">qualche consiglio<\/div> <div class=\"text\"> <b>Rinomina la tua rete wifi<\/b><br> Non dimenticare di rinominare la tua rete wifi dopo aver creato il tuo ID wifis.org. Leggi le <a href=\"\/p\/faq\">FAQ<\/a>. <br><br> <b>Una ID per più di un router<\/b><br> Per usare una ID wifis.org per più router wifi, puoi aggiungere tutti i caratteri che preferisci dopo uno slash “\/” dopo il tuo ID: {2} <b>Case sensitivity<\/b><br> Gli ID wifis.org non sono case sensitive. <a href=\"http:\/\/wifis.org\/iphONE\">wifis.org\/iphONE<\/a> equivale a <a href=\"http:\/\/wifis.org\/iPhone\">wifis.org\/iPhone<\/a> <br><br> <b>Spargi la voce!<\/b><br> Supporta il nostro servizio gratuito cliccando sul bottone Flattr sulla sinistra e parlandone ai tuoi amici. <\/div>"
+        ]
     },
     "wifi": {
         "headlinePrefix": "Scrivi una email a:",

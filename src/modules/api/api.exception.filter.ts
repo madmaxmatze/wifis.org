@@ -18,7 +18,7 @@ export class ApiExceptionFilter implements ExceptionFilter {
         };
 
         if (process.env.NODE_ENV == "development" && exception.hasOwnProperty('stack')) {
-            responseJson.stack = exception.stack;
+            responseJson.stack = exception.stack.split("\n");
         }
 
         response

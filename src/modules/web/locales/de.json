@@ -76,9 +76,13 @@
     "login": {
         "headline": "Anmelden",
         "linklabel": "Anmelden",
-        "text1": "wifis.org ermöglicht nur das Einloggen mit deinem Google oder Facebook Account aus folgenden Gründen:",
-        "text2": "<b style=\"color: #333\">Komfort:<\/b> Ein langer Registrierungsprozess, der das Ausfüllen eines Formulares und die Bestätigung deiner Email Adresse erfordert, ist nicht nötig.",
-        "text3": "<b style=\"color: #333\">Sicherheit und Datenschutz:<\/b> Da wir kein Passwort oder andere persönliche Informationen von dir erfragen oder speichern, können wir zu 100% garantieren, dass wir deine Daten niemals verlieren oder an Dritte weiter geben! Weitere Informationen über diese sichere Art des Logins erfährst du direkt bei den Anbietern: ",
+        "text": [
+            "wifis.org ermöglicht nur das Einloggen mit deinem Google oder Facebook Account aus folgenden Gründen:",
+            
+            "<b style=\"color: #333\">Komfort:<\/b> Ein langer Registrierungsprozess, der das Ausfüllen eines Formulares und die Bestätigung deiner Email Adresse erfordert, ist nicht nötig.",
+            
+            "<b style=\"color: #333\">Sicherheit und Datenschutz:<\/b> Da wir kein Passwort oder andere persönliche Informationen von dir erfragen oder speichern, können wir zu 100% garantieren, dass wir deine Daten niemals verlieren oder an Dritte weiter geben! Weitere Informationen über diese sichere Art des Logins erfährst du direkt bei den Anbietern: "
+        ],
         "buttonPrefix": "Anmelden mit",
         "facebookHelpLinkHintText": "Hier erfährst du mehr über den Facebook Login für anderen Webseiten",
         "googleHelpLinkHintText": "Hier erfährst du mehr über den Google Login für anderen Webseiten",
@@ -129,7 +133,13 @@
             "absoluteWifiLimitReached": "Selbst durch Einladen von sehr vielen Freunden ist das absolute WLAN Limit bei 10. Wenn du noch mehr brauchst, schreibe uns einfach oder versuche es mal mit der Namespace Funktion (beschrieben in der Tipps Box).",
             "whileWifiDelete": "Fehler beim Löschen des WLANs"
         },
-        "tips": "<div class=\"tip\"> <div class=\"headline\">Extra wifis.org-ID sichern!<\/div> <div class=\"text\">Du kannst ein weiteres WLAN erstellen, für jeden Nutzer, der sich bei wifis.org über <a href=\"{0}\" target=\"_blank\" title=\"Dies ist dein persönlicher Link um Freunde zu wifis.org einzuladen\">deinen persönlichen Einladungslink<\/a> anmeldet.<\/div> <\/div> <div class=\"tip\"> <div class=\"headline\">Kurze WLAN-Urls<\/div> <div class=\"text\">Nutze die URL die dir am Besten gefällt: {1} <\/div> <\/div> <div class=\"tip\"> <div class=\"headline\">Weitere Tipps<\/div> <div class=\"text\"> <b>WLAN umbennen nicht vergessen<\/b><br> Nachdem du deinen wifis.org Namen registriert hast, vergiss nicht dein WLAN auch umzubennenen. Mehr in den <a href=\"\/p\/faq\">FAQs<\/a>. <br><br> <b>Ein wifis.org Name für viele Router<\/b><br> An deinen wifis.org Namen kannst du nach einem Schrägstich „\/” beliebige Zeichen anhängen und ihn so für mehrere Router verwenden: {2}  <b>Groß\/Kleinschreibung<\/b><br> WLAN Namen können Großbuchstaben enthalten. <a href=\"http:\/\/wifis.org\/iphONE\">wifis.org\/iphONE<\/a> führt zu <a href=\"http:\/\/wifis.org\/iPhone\">wifis.org\/iPhone<\/a> <br><br> <b>Unterstützer gesucht<\/b><br> Unterstütze diesen kostenlosen Dienst per Flattr Button oder auch indem du deinen Freunden über die sozialen Netzwerke davon erzählst. <\/div> <\/div>"
+        "tips": [
+            "<div class=\"headline\">Extra wifis.org-ID sichern!<\/div> <div class=\"text\">Du kannst ein weiteres WLAN erstellen, für jeden Nutzer, der sich bei wifis.org über <a href=\"{0}\" target=\"_blank\" title=\"Dies ist dein persönlicher Link um Freunde zu wifis.org einzuladen\">deinen persönlichen Einladungslink<\/a> anmeldet.<\/div>",
+            
+            "<div class=\"headline\">Kurze WLAN-Urls<\/div> <div class=\"text\">Nutze die URL die dir am Besten gefällt: {1} <\/div>",
+            
+            "<div class=\"headline\">Weitere Tipps<\/div> <div class=\"text\"> <b>WLAN umbennen nicht vergessen<\/b><br> Nachdem du deinen wifis.org Namen registriert hast, vergiss nicht dein WLAN auch umzubennenen. Mehr in den <a href=\"\/p\/faq\">FAQs<\/a>. <br><br> <b>Ein wifis.org Name für viele Router<\/b><br> An deinen wifis.org Namen kannst du nach einem Schrägstich „\/” beliebige Zeichen anhängen und ihn so für mehrere Router verwenden: {2}  <b>Groß\/Kleinschreibung<\/b><br> WLAN Namen können Großbuchstaben enthalten. <a href=\"http:\/\/wifis.org\/iphONE\">wifis.org\/iphONE<\/a> führt zu <a href=\"http:\/\/wifis.org\/iPhone\">wifis.org\/iPhone<\/a> <br><br> <b>Unterstützer gesucht<\/b><br> Unterstütze diesen kostenlosen Dienst per Flattr Button oder auch indem du deinen Freunden über die sozialen Netzwerke davon erzählst. <\/div>"
+        ]
     },
     "wifi": {
         "headlinePrefix": "Schreibe eine Email an:",

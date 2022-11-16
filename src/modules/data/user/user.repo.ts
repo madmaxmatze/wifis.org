@@ -1,6 +1,6 @@
 import { Injectable, Inject } from '@nestjs/common';
 import { User, UserError } from './user.model';
-import { Firestore, DocumentSnapshot, QueryDocumentSnapshot, CollectionReference } from '@google-cloud/firestore';
+import { Firestore, DocumentSnapshot, DocumentReference, CollectionReference } from '@google-cloud/firestore';
 
 @Injectable()
 export class UserRepo {
@@ -10,43 +10,57 @@ export class UserRepo {
         this.userCollection = firestore.collection('users');
     }
 
-    private getDocRef(userId: string) {
+    verifyUserId(userId: string) {
         if (!userId) {
             throw new Error(UserError.invalidId);
         }
+    }
+
+    private getDocRef(userId: string): DocumentReference {
+        this.verifyUserId(userId);
         return this.userCollection.doc(userId.toLowerCase());
     }
 
     async get(userId: string): Promise<User> {
-        return new Promise((resolve, _reject) => {
-            this.getDocRef(userId).get().then((documentSnapshot: DocumentSnapshot) => {
+        return this.getDocRef(userId).get().then(
+            (documentSnapshot: DocumentSnapshot) => {
                 var user: User = documentSnapshot.exists ? <User>documentSnapshot.data() : null;
-                if (user) {
-                    if (!user.maxWifis) {
-                        user.maxWifis = 3;
-                    }
+                if (user && !user.maxWifis || user.maxWifis < 3) {
+                    user.maxWifis = 3;
                 }
-                resolve(user);
-            });
-        });
+                return user;
+            }
+        );
     }
 
-    upsert(user: User) {  // update or insert
-        return new Promise((resolve, reject) => {
-            this.getDocRef(user.id).get().then((queryDocumentSnapshot: QueryDocumentSnapshot) => {
-                if (queryDocumentSnapshot.exists) {
-                    // TODO: add other data to merge in
-                    var lastLoginDate = new Date();
-                    this.getDocRef(user.id).update({ "lastLoginDate": lastLoginDate }).then(() => {
-                        user.lastLoginDate = lastLoginDate;
-                        resolve(user);
-                    }).catch(reject);
-                } else {
-                    this.getDocRef(user.id).set(user).then(() => {
-                        resolve(user);
-                    }).catch(reject);
-                }
-            }).catch(reject);
-        });
+    /**
+     * update or insert
+     */
+    async upsert(user: User): Promise<User> {
+        var documentSnapshot: DocumentSnapshot = await (this.getDocRef(user.id).get());
+
+        if (documentSnapshot.exists) {
+            var fieldsToUpdate = this.getFieldsToUpdate(user);
+            return this.getDocRef(user.id).update(fieldsToUpdate).then(() => user);
+        } else {
+            return this.getDocRef(user.id).set(user).then(() => user);
+        }
+    }
+
+    /**
+     *  user exists, update some fields
+     */
+    private getFieldsToUpdate(user: User) {
+        user.lastLoginDate = new Date();
+        var fieldsToUpdate: any = {
+            lastLoginDate: user.lastLoginDate
+        };
+        if (user.email) {
+            fieldsToUpdate.email = user.email;
+        }
+        if (user.displayName) {
+            fieldsToUpdate.displayName = user.displayName;
+        }
+        return fieldsToUpdate
     }
 }
