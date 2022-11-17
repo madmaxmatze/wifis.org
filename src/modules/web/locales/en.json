@@ -148,8 +148,8 @@
             "notfound": "The url is not registered yet. Please make sure you have the correct url.<\/p> <p>To register this url, go <a href=\"\/p\/login\/\">here<\/a>.",
             "mywifi": "<b>You're logged in right now.<\/b> <br> This is a preview of what your wifis.org contact page looks like to visitors."
         },
-        "contactform": {
-            "email": "please provide an email or phone number <span style=\"font-weight: normal\">(any way to get in touch with you)<\/span>",
+        "form": {
+            "contact": "please provide an email or phone number <span style=\"font-weight: normal\">(any way to get in touch with you)<\/span>",
             "message": "your message",
             "send": "send message",
             "mailsent": "Your message has been sent.",

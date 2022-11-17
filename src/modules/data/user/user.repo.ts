@@ -6,7 +6,7 @@ import { Firestore, DocumentSnapshot, DocumentReference, CollectionReference } f
 export class UserRepo {
     private userCollection: CollectionReference = null;
 
-    constructor(@Inject('FIRESTORE') firestore: Firestore) {
+    constructor(@Inject("FIRESTORE") firestore: Firestore) {
         this.userCollection = firestore.collection('users');
     }
 

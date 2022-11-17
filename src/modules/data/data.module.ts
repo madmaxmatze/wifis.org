@@ -8,7 +8,7 @@ import { Firestore } from '@google-cloud/firestore';
 @Module({
     providers: [
         {
-            provide: 'FIRESTORE',
+            provide: "FIRESTORE",
             inject: [ConfigService],
             useFactory: (configService: ConfigService) => {
                 return new Firestore({

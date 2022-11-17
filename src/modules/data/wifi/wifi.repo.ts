@@ -9,7 +9,7 @@ export class WifiRepo {
     private wifiCollection: CollectionReference;
     private userRepo: UserRepo;
 
-    constructor(@Inject('FIRESTORE') firestore: Firestore, userRepo: UserRepo) {
+    constructor(@Inject("FIRESTORE") firestore: Firestore, userRepo: UserRepo) {
         this.wifiCollection = firestore.collection('wifis');
         this.userRepo = userRepo;
     }
@@ -24,7 +24,7 @@ export class WifiRepo {
         if (id.length > 20) {
             throw new Error(WifiError.wifiIdTooLong);
         }
-        if (["api", "www", "p"].includes(id)) {
+        if (["api", "www", "p", "mail", "app"].includes(id)) {
             throw new Error(WifiError.wifiIdReserved);
         }
         if (!/^[\w\-]{3,20}$/.test(id.toString())) {

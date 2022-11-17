@@ -20,20 +20,18 @@
     {{/if}}
 
 
-
-    {{#if (equals wasSent true)}}
+    {{#if sendSuccess}}
         <div class="alert alert-success">
-            <b>{{{__ "wifi.contactform.mailsent"}}}</b>
+            <b>{{{__ "wifi.form.mailsent"}}}</b>
         </div>
         <br>
         <br>
 
 
-
-    {{else if (equals wasSent false)}}
+    {{else if (equals sendSuccess false)}}
         <div class="alert alert-error">
-            <b>{{{__ "wifi.contactform.mailNotSent"}}}</b><br>
-            {{errormessage}}            
+            <b>{{{__ "wifi.form.mailNotSent"}}}</b><br>
+            {{errormessage}}
         </div>
         <br>
         <br>
@@ -41,43 +39,44 @@
 
     {{else}}
 
-        {{error}}
-
-
         {{!-- onsubmit="return (grecaptcha.getResponse().length > 0);"   --}}
 
         <script src="https://www.google.com/recaptcha/api.js"></script>
 
         <form method="POST" id='contactform' class="contactform form-stacked">
             <div class="clearfix">
-                <label>{{{__ "wifi.contactform.contact"}}}</label>
+                <label>{{{__ "wifi.form.contact"}}}</label>
                 <div class="input">
                     <input name="contact" value="{{form_field_contact}}" />
                     {{!-- <c:if test="${fn:startsWith(error, 'email')==true}">
                         <span class="help-block">
-                            <spring:message code="wifi.contactform.error.${error}" /></span>
+                            <spring:message code="wifi.form.error.${error}" /></span>
                     </c:if>
                     --}}
                 </div>
             </div>
             <div class="clearfix">
-                <label>{{{__ "wifi.contactform.message"}}}</label>
+                <label>{{{__ "wifi.form.message"}}}</label>
                 <div class="input">
                     <textarea name="text">{{form_field_text}}</textarea>
                     {{!--
                     <c:if test="${fn:startsWith(error, 'text')==true}">
                         <span class="help-block">
-                            <spring:message code="wifi.contactform.error.${error}" /></span>
+                            <spring:message code="wifi.form.error.${error}" /></span>
                     </c:if>
                     --}}
                 </div>
             </div>
-
+            
+            
+            {{!--
             <div class="input">
                 {{#if (equals error "recaptcha")}}
-                <span class="help-block">{{{__ "wifi.contactform.error.recaptcha"}}}</span>
+                <span class="help-block">{{{__ "wifi.form.error.recaptcha"}}}</span>
                 {{/if}}
             </div>
+            --}}
+
 
             <div class="form-actions">
                 <button 
@@ -85,7 +84,7 @@
                 data-sitekey="{{RECAPTCHA_SITE_KEY}}" 
                 data-callback='onSubmit' 
                 data-action='submit'
-                    style="margin-left:38px">{{__ "wifi.contactform.send"}}</button>
+                    style="margin-left:38px">{{__ "wifi.form.send"}}</button>
             </div>
 
             <button type="submit" style="display: none">hidden send</button>

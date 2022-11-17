@@ -148,8 +148,8 @@
             "notfound": "Ein WLAN mit diesem Namen ist nicht registriert. Überprüfe, ob die Web-Adresse korrekt geschrieben ist.<\/p> <p>Um mehr über www.wifis.org zu erfahren, klicke <a href=\"\/\">hier<\/a>.",
             "mywifi": "<b>Du bist gerade angemeldet.<\/b> <br> Deswegen siehst du nur die Vorschau von deiner WLAN Kontaktseite."
         },
-        "contactform": {
-            "email": "Deine Email \/ Telefonnummer <span style=\"font-weight: normal\">(Wie bist du zu erreichen?)<\/span>",
+        "form": {
+            "contact": "Deine Email \/ Telefonnummer <span style=\"font-weight: normal\">(Wie bist du zu erreichen?)<\/span>",
             "message": "Deine Nachricht",
             "send": "Senden",
             "mailsent": "Nachricht wurde <b>erfolgreich<\/b> versandt.",

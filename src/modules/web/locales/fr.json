@@ -148,8 +148,8 @@
             "notfound": "Il n’y a pas de wi-fi enregistré sous ce nom. Vérifiez si vous avez écrit l’adresse correctement.<\/p> <p>Pour savoir plus sur  www.wifis.org, cliquez <a href=\"\/\">ici<\/a>.",
             "mywifi": "<b>Vous êtes connecté<\/b> <br> C’est pour ça que vous voyez seulement l’aperçu du formulaire de contacte de votre wifi."
         },
-        "contactform": {
-            "email": "Votre adresse émail \/ numéro de téléphone <span style=\"font-weight: normal\">(Comment peut-on vous contacter?)<\/span>",
+        "form": {
+            "contact": "Votre adresse émail \/ numéro de téléphone <span style=\"font-weight: normal\">(Comment peut-on vous contacter?)<\/span>",
             "message": "Votre message",
             "send": "Envoyer",
             "mailsent": "Votre message a été <b>envoyé<\/b>",

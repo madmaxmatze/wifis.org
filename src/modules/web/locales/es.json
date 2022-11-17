@@ -148,8 +148,8 @@
             "notfound": "Esta wifi todavía no está activada.  Asegúrate de haber marcado bien el URL.<\/p> <p>Para activar este wifi, véase <a href=\"\/p\/login\/\">aquí<\/a>.",
             "mywifi": "<b>Actualmente estás conectado <b><br> Por eso ves sólo una vista preliminar de tu página de contacto"
         },
-        "contactform": {
-            "email": "Deja tus datos <span style=\"font-weight: normal\">(cualquier modo de ponerse en contacto contigo)<\/span>",
+        "form": {
+            "contact": "Deja tus datos <span style=\"font-weight: normal\">(cualquier modo de ponerse en contacto contigo)<\/span>",
             "message": "Tu mensaje",
             "send": "Envía",
             "mailsent": "Tu mensaje ha sido enviado.",

@@ -148,8 +148,8 @@
             "notfound": "Url ini belum terdaftar lagi. Sila pastikan anda mempunyai url yang sebenar.<\/p> <p>Untuk mendaftar url ini, sila ke <a href=\"\/p\/login\/\">sini<\/a>.",
             "mywifi": "<b>Anda sudahpun masuk sekaran.<\/b> <br> Ini adalah gambaran awal laman perhubungan kamu kelihatan pada pengunjung."
         },
-        "contactform": {
-            "email": "Sila nyatakan emel atau nombor untuk dihubungi <span style=\"font-weight: normal\">(apa-apa cara untuk menghubungi kamu)<\/span>",
+        "form": {
+            "contact": "Sila nyatakan emel atau nombor untuk dihubungi <span style=\"font-weight: normal\">(apa-apa cara untuk menghubungi kamu)<\/span>",
             "message": "pesanan anda",
             "send": "hantar pesanan",
             "mailsent": "Pesanan kamu sudah dikirim.",

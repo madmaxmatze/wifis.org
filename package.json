@@ -41,6 +41,8 @@
     "cookie-parser": "^1.4.6",
     "express-hbs": "^2.4.0",
     "express-session": "^1.17.3",
+    "firebase-admin": "^11.2.1",
+    "firestore-store": "^2.0.2",
     "hbs": "^4.2.0",
     "i18n": "^0.15.1",
     "ini": "^3.0.1",

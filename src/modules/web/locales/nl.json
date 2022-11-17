@@ -148,8 +148,8 @@
             "notfound": "Deze url is nog niet geregistreerd.Zorg ervoor dat je de correcte url gebruikt.<\/p> <p>Om deze url te registreren ga <a href=\"\/p\/login\/\">hierheen<\/a>.",
             "mywifi": "<b>YJe bent nu ingelogd.<\/b> <br> Dit is een preview van hoe jouw wifis.org contact pagina eruit ziet voor bezoekers."
         },
-        "contactform": {
-            "email": "geef een e-mailadres of telefoonnummer in <span style=\"font-weight: normal\">(of iedere manier om met je in contact te komen)<\/span>",
+        "form": {
+            "contact": "geef een e-mailadres of telefoonnummer in <span style=\"font-weight: normal\">(of iedere manier om met je in contact te komen)<\/span>",
             "message": "je boodschap",
             "send": "stuur boodschap",
             "mailsent": "Je boodschap werd verzonden.",

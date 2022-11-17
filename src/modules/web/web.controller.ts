@@ -71,25 +71,25 @@ export class WebController {
         // TODO: check behaviour of moving score into config
         if (!recaptchaResult.success || recaptchaResult.score < 0.5) {
             // pretending that all is good and the message was send ???
-            return response.render("wifi", { "wasSent": true });
+            return response.render("wifi", { "sendSuccess": true });
         }
 
         var message: Message = {
-            wifiId: response.locals.wifi.id,
+            wifiId: response.locals.wifi.label,
             wifiIdSuffix: response.locals.wifiIdSuffix,
             wifiOwnerId: response.locals.wifi.user,
             senderContact: contact,
             senderText: text,
-            wasSent: false,
-            securityScore: recaptchaResult.score,
-            creationDate: new Date()
+            senderSecurityScore: recaptchaResult.score,
+            sendSuccess: false,
+            sendDate: new Date()
         };
 
-        this.commsService.sendMessage(message).then((wasSent) => {
-            response.locals.wasSent = wasSent;
+        this.commsService.sendMessage(message).then((sendSuccess) => {
+            response.locals.sendSuccess = sendSuccess;
             return response.render("wifi");
         }).catch((error: Error) => {
-            return response.render("wifi", { "wasSent": false, "errormessage": error.message });
+            return response.render("wifi", { "sendSuccess": false, "errormessage": error.message });
         });
     }
 }

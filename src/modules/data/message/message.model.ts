@@ -11,10 +11,10 @@ export class Message {
 
     senderContact: string;          // WAS senderEmail     
     senderText: string;             // WAS text  
+    senderSecurityScore?: number;   // NEW
 
-    creationDate: Date;
-    securityScore?: number;         // NEW
-    wasSent: boolean;               // was wasSent
+    sendDate: Date;                 // was creationDate
+    sendSuccess : boolean;          // was wasSent
     sendError?: string;             // NEW
 }
 
