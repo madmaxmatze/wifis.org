@@ -1,10 +1,10 @@
-import { Get, Post, All, Controller, Res, Req, Param, Session, HttpStatus, RequestMethod, UseGuards, Body, Next, Render } from '@nestjs/common';
+import { Get, Post, All, Controller, Res, Req, Param, Session, HttpStatus, UseGuards, Body, Next, Render } from '@nestjs/common';
 import { Response, Request, NextFunction } from 'express';
 import { ConfigService, ConfigKey } from '../config/config.service';
 import { WifiRepo } from '../data/wifi/wifi.repo';
 import { CommsService } from '../comms/comms.service';
 import { Message } from '../data/message/message.model';
-import { Wifi, WifiError } from '../data/wifi/wifi.model';
+import { Wifi } from '../data/wifi/wifi.model';
 import { AuthGuard } from '../auth/auth.guard';
 import { Recaptcha, RecaptchaResult, RecaptchaVerificationResult } from '@nestlab/google-recaptcha';
 
@@ -34,7 +34,7 @@ export class WebController {
      * Somehow a preperation middleware for GET and POST single Wifi page requests
      */
     @All(WebController.WIFI_URL)
-    async requestWifi(@Req() request: Request, @Res() response: Response, @Next() next: NextFunction,
+    async requestWifi(@Res() response: Response, @Next() next: NextFunction,
         @Param('wifiId') wifiId: string, @Param('wifiIdSuffix') wifiIdSuffix: string) {
         response.locals.wifiId = wifiId;
         response.locals.wifiIdSuffix = wifiIdSuffix;
@@ -45,7 +45,7 @@ export class WebController {
                 return response.redirect('/' + response.locals.wifi.label + (wifiIdSuffix ? "/" + wifiIdSuffix : ""));
             }
             response.locals.RECAPTCHA_SITE_KEY = this.configService.getValue(ConfigKey.RECAPTCHA_SITE_KEY);
-            response.locals.wifiUserId = response.locals.wifi.user;
+            response.locals.wifiUserId = response.locals.wifi.userId;
         } else {
             response.status(HttpStatus.NOT_FOUND);
         }
@@ -77,7 +77,7 @@ export class WebController {
         var message: Message = {
             wifiId: response.locals.wifi.label,
             wifiIdSuffix: response.locals.wifiIdSuffix,
-            wifiOwnerId: response.locals.wifi.user,
+            wifiOwnerId: response.locals.wifi.userId,
             senderContact: contact,
             senderText: text,
             senderSecurityScore: recaptchaResult.score,

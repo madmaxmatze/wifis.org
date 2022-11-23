@@ -14,7 +14,7 @@ export class FacebookStrategy extends PassportStrategy(Strategy, 'facebook') {
             // app see: https://developers.facebook.com/apps/194803573923224/fb-login/settings/
             clientID: configService.getValue(ConfigKey.OAUTH_FACEBOOK_CLIENT_ID),
             clientSecret: configService.getValue(ConfigKey.OAUTH_FACEBOOK_CLIENT_SECRET),
-            callbackURL: "https://" + configService.getDomain() + "/p/login/facebook/redirect",
+            callbackURL: "/p/login/facebook/redirect",
             profileFields: ['id', 'displayName', 'email'],
             enableProof: true,
             passReqToCallback: true,
@@ -29,7 +29,7 @@ export class FacebookStrategy extends PassportStrategy(Strategy, 'facebook') {
             "provider": profile.provider,
             "providerId": profile.id,
             "email": profile._json.email,
-            "displayName": profile.displayName,
+            "name": profile.displayName,
             "lastLoginDate": new Date(),
             "signupDate": new Date(),
         };

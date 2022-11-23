@@ -77,7 +77,7 @@ export class HbsMiddleware implements NestMiddleware {
         }
         response.locals.env = process.env.NODE_ENV;
         response.locals.user = request.session.user;
-
+        
         hbs.registerPartials(resolve(__dirname, "../views/partials"));
 
         request.app

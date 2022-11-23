@@ -18,7 +18,7 @@ export class LocalStrategy extends PassportStrategy(Strategy) {
         if (username == "dummy_username" && password == "dummy_password" && !this.configService.isProdEnv()) {
             var user : User = <User>{
                 id: "local",
-                displayName: username,
+                name: username,
                 email: 'madmaxmatze+localTestUser@gmail.com',
                 provider: 'local',
                 maxWifis: 5 

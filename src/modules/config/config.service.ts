@@ -20,9 +20,14 @@ export enum ConfigKey {
 
 @Injectable()
 export class ConfigService {
-    private static config = null;
+    private static developmentHostname : String = "";
+    private static requestHostname : String = "";
 
-    static async init() {
+    private static config : {} = null;
+
+    static async init(developmentHostname: string) {
+        ConfigService.developmentHostname = developmentHostname;
+
         if (ConfigService.config === null) {
             ConfigService.config = await ConfigService.getGcpSecret(process.env.GCP_PROJECT_ID, "production");
             // ConfigService.addConfigToEnv(ConfigService.config);
@@ -57,12 +62,20 @@ export class ConfigService {
     }
     */
 
-    isProdEnv() {
-        return (process.env.NODE_ENV == "production");
+    setRequestHostname(requestHostname: string) {
+        ConfigService.requestHostname = requestHostname;
     }
 
-    getDomain() {
-        return this.getConfigValue('DOMAIN_' + (this.isProdEnv() ? "PRODUCTION" : "DEVELOPMENT").toUpperCase());
+    getHostname() {
+        if (!ConfigService.requestHostname || ConfigService.requestHostname == "127.0.0.1") {
+            return ConfigService.developmentHostname;
+        }
+
+        return ConfigService.requestHostname;
+    }
+
+    isProdEnv() {
+        return (process.env.NODE_ENV == "production");
     }
 
     getValue(key: ConfigKey) {

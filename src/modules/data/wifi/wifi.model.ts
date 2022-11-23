@@ -13,7 +13,7 @@ export enum WifiError {
 
 export class Wifi {
     id: string;
-    label: string;
+    label?: string;
     creationDate: Date;
-    user: string;
+    userId: string;
 }

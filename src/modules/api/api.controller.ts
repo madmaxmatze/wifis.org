@@ -20,13 +20,16 @@ export class ApiController {
 
     @Post('wifi/add')
     @UseGuards(AuthGuard)
-    async addWifi(@Session() session: Record<string, any>, @Res() response: Response, @Body('id') wifiId: string) {
-        var isAdded: boolean = await this.wifiRepo.insert(<Wifi>{
-            "id": wifiId,
-            "label": wifiId,
-            "user": session.user.id,
+    async addWifi(@Session() session: Record<string, any>, @Res() response: Response, @Body('id') wifiLabel: string) {
+        var wifiToAdd = <Wifi>{
+            "id": wifiLabel.toLowerCase(),
+            "userId": session.user.id,
             "creationDate": new Date()
-        });
+        };
+        if (wifiToAdd.id != wifiLabel) {
+            wifiToAdd.label = wifiLabel;
+        }
+        var isAdded: boolean = await this.wifiRepo.insert(wifiToAdd);
         response.json({ "success": isAdded });
     }
 

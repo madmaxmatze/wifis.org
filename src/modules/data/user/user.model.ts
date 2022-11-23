@@ -9,8 +9,10 @@ export class User {
     provider: string;
     providerId: string;
     email: string;
-    displayName: string;
+    name: string;
     lastLoginDate: Date;
     signupDate: Date;
     maxWifis?: number;
+    country?: string;
+    city?: string;
 }

@@ -1,6 +1,6 @@
 import { Injectable, Inject } from '@nestjs/common';
 import { User, UserError } from './user.model';
-import { Firestore, DocumentSnapshot, DocumentReference, CollectionReference } from '@google-cloud/firestore';
+import { Firestore, DocumentSnapshot, DocumentReference, QueryDocumentSnapshot, QuerySnapshot, CollectionReference } from '@google-cloud/firestore';
 
 @Injectable()
 export class UserRepo {
@@ -58,9 +58,24 @@ export class UserRepo {
         if (user.email) {
             fieldsToUpdate.email = user.email;
         }
-        if (user.displayName) {
-            fieldsToUpdate.displayName = user.displayName;
+        if (user.name) {
+            fieldsToUpdate.name = user.name;
+        }
+        if (user.country) { // always set together!
+            fieldsToUpdate.country = user.country;
+            fieldsToUpdate.city = user.city || null;
         }
         return fieldsToUpdate
+    }
+
+    async getAll(count: number = 100, offset: number = 0): Promise<User[]> {
+        return this.userCollection
+            .where("provider", "==", "google")
+            .limit(count)
+            .offset(offset)
+            .get()
+            .then((querySnapshot: QuerySnapshot) => {
+                return querySnapshot.docs.map((doc: QueryDocumentSnapshot) => <User>doc.data());
+            });
     }
 }

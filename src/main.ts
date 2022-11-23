@@ -10,9 +10,11 @@ import { ConfigService, ConfigKey } from './modules/config/config.service';
 import * as FirestoreStoreFactory from 'firestore-store';  // https://www.npmjs.com/package/firestore-store
 
 async function bootstrap() {
-    await ConfigService.init();
+    var developmentDomain = "8080-cs-590268403158-default.cs-europe-west4-fycr.cloudshell.dev";
+    await ConfigService.init(developmentDomain);
+    
     const app = await NestFactory.create<NestExpressApplication>(AppModule);
-
+    
     app.use(
         express.static(resolve(__dirname, "./public"))
         , express.json()
@@ -20,9 +22,10 @@ async function bootstrap() {
         , cookieParser()
         , session({
             store: new (FirestoreStoreFactory(session))({
-                database: app.select(DataModule).get("FIRESTORE")
+                database: app.select(DataModule).get("FIRESTORE"),
+                collection : "__sessions"
             }),
-            name: "__session", // required cookie name for Cloud Run
+            name: "__session", // required cookie name for Cloud Run!
             secret: app.get(ConfigService).getValue(ConfigKey.SESSION_SECRET),
             resave: true,
             saveUninitialized: true, // don't create session until something stored
@@ -30,7 +33,7 @@ async function bootstrap() {
         }));
 
     await app.listen(parseInt(process.env.PORT) || 8080);
-
+    
     console.log(`Application is running on: ${await app.getUrl()}`);
 }
 

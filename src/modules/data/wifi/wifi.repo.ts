@@ -1,5 +1,5 @@
 import { Injectable, Inject } from '@nestjs/common';
-import { Firestore, DocumentSnapshot, QueryDocumentSnapshot, QuerySnapshot, CollectionReference, WriteResult } from '@google-cloud/firestore';
+import { Firestore, DocumentSnapshot, QueryDocumentSnapshot, QuerySnapshot, CollectionReference } from '@google-cloud/firestore';
 import { Wifi, WifiError } from './wifi.model';
 import { User, UserError } from '../user/user.model';
 import { UserRepo } from '../user/user.repo';
@@ -32,6 +32,13 @@ export class WifiRepo {
         }
     }
 
+    private sanatizeWifi(wifi: Wifi) {
+        if (wifi && !wifi.label) {
+            wifi.label = wifi.id;
+        }
+        return wifi;
+    }
+
     async get(wifiId: string): Promise<Wifi> {
         return this.getByIdAndUser(wifiId);
     }
@@ -47,21 +54,21 @@ export class WifiRepo {
         return this.wifiCollection.doc(wifiId.toLowerCase()).get().then(
             (documentSnapshot: DocumentSnapshot) => {
                 var wifi = documentSnapshot.exists ? <Wifi>documentSnapshot.data() : null;
-                if (wifi && userId && userId !== wifi.user) {
+                if (wifi && userId && userId !== wifi.userId) {
                     wifi = null;
                 }
-                return wifi;
+                return this.sanatizeWifi(wifi);
             }
         );
     }
 
     async getAllByUserId(userId: string): Promise<Wifi[]> {
         this.userRepo.verifyUserId(userId);
-
+        console.log ("userId", userId);
         return this.wifiCollection
-            .where("user", "==", userId).get()
+            .where("userId", "==", userId).get()
             .then((querySnapshot: QuerySnapshot) => {
-                return querySnapshot.docs.map((doc: QueryDocumentSnapshot) => <Wifi>doc.data());
+                return querySnapshot.docs.map((doc: QueryDocumentSnapshot) => this.sanatizeWifi(<Wifi>doc.data()));
             });
     }
 
@@ -73,7 +80,7 @@ export class WifiRepo {
             throw new Error(WifiError.wifiIdReserved);
         }
 
-        var user: User = await this.userRepo.get(wifi.user);
+        var user: User = await this.userRepo.get(wifi.userId);
         if (!user) {
             throw new Error(UserError.notFound);
         }

@@ -1,7 +1,6 @@
 import { Injectable, Inject } from '@nestjs/common';
 import { Message } from './message.model';
 import { Firestore, CollectionReference } from '@google-cloud/firestore';
-import { DataModule } from '../data.module';
 
 @Injectable()
 export class MessageRepo {

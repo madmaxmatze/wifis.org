@@ -22,7 +22,7 @@ export class CommsService {
         if (!ownerUser) { throw new Error(UserError.notFound); }
         if (!ownerUser.email) { throw new Error(UserError.emailMissing); }
         message.wifiOwnerMail = ownerUser.email;
-        message.wifiOwnerName = ownerUser.displayName || "";
+        message.wifiOwnerName = ownerUser.name || "";
         if (!message.wifiIdSuffix) {
             delete message.wifiIdSuffix;
         }

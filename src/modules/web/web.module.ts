@@ -9,12 +9,12 @@ import { HbsMiddleware } from './middleware/hbs.middleware';
 import { WebController } from './web.controller';
 import { WebExceptionFilter } from './filter/web.exception.filter';
 import { GoogleRecaptchaModule } from '@nestlab/google-recaptcha';
+import { Request, Response, NextFunction } from 'express';
 
 @Module({
     imports: [
         DataModule,
-        // https://github.com/chvarkov/google-recaptcha
-        GoogleRecaptchaModule.forRootAsync({
+        GoogleRecaptchaModule.forRootAsync({    // https://github.com/chvarkov/google-recaptcha
             imports: [ConfigModule],
             useFactory: (configService: ConfigService) => ({
                 debug: true,
@@ -22,8 +22,7 @@ import { GoogleRecaptchaModule } from '@nestlab/google-recaptcha';
                 response: (req => {return req.body["g-recaptcha-response"]}),
                 score: 0.6
             }),
-            inject: [ConfigService],
-            // network: GoogleRecaptchaNetwork.Recaptcha,
+            inject: [ConfigService]
         }),
         CommsModule
     ],
@@ -37,7 +36,15 @@ import { GoogleRecaptchaModule } from '@nestlab/google-recaptcha';
 })
 
 export class WebModule {
+    constructor(
+        private readonly configService: ConfigService,
+    ) { }
+
     configure(consumer: MiddlewareConsumer) {
+        consumer.apply((req: Request, res: Response, next: NextFunction) => {
+            this.configService.setRequestHostname(req.hostname);
+            next();
+        }).forRoutes('*')
         consumer.apply(I18nMiddleware, HbsMiddleware).forRoutes('*');
     }
 }

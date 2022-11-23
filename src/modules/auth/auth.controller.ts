@@ -1,7 +1,8 @@
-import { Get, Controller, Post, Req, Res, UseGuards, Query } from '@nestjs/common';
-import { Response } from 'express';
+import { Get, Controller, Post, Req, Res, UseGuards, Query, Session } from '@nestjs/common';
+import { Response, Request } from 'express';
 import { LocalAuthGuard } from './local/local.auth.guard';
-import { AuthGuard } from "@nestjs/passport";
+import { GoogleAuthGuard } from './google/google.auth.guard';
+import { FacebookAuthGuard } from './facebook/facebook.auth.guard';
 
 @Controller()
 export class AuthController {
@@ -16,7 +17,7 @@ export class AuthController {
         return response.redirect('/p/wifis');
     }
 
-    @UseGuards(AuthGuard('google'))
+    @UseGuards(GoogleAuthGuard)
     @Get('p/login/google')
     googleLogin(@Req() request: any, @Res() response: Response): any {
         // TODO: How to remove this workaround? Why is user not saved to session
@@ -27,21 +28,21 @@ export class AuthController {
         return response.redirect('/p/wifis');
     }
 
+    @UseGuards(GoogleAuthGuard)
     @Get('p/login/google/redirect')
-    @UseGuards(AuthGuard('google'))
-    googleAuthRedirect(@Req() request: any, @Res() response: Response): any {
+    googleAuthRedirect(@Req() request: Request, @Res() response: Response, @Session() session: Record<string, any>): any {
         console.log("google/redirect request.user:", request.user);
-        console.log("google/redirect request.session.user", request.session.user);
+        console.log("google/redirect request.session.user", session.user);
 
         // TODO: How to remove this workaround? Why is user not saved to session
         if (request.user) {
-            request.session.user = request.user;
+            session.user = request.user;
         }
 
         return response.redirect('/p/wifis');
     }
 
-    @UseGuards(AuthGuard('facebook'))
+    @UseGuards(FacebookAuthGuard)
     @Get('p/login/facebook')
     facebookLogin(@Req() request: any, @Res() response: Response): any {
         // TODO: How to remove this workaround? Why is user not saved to session
@@ -52,8 +53,8 @@ export class AuthController {
         return response.redirect('/p/wifis');
     }
 
+    @UseGuards(FacebookAuthGuard)
     @Get('p/login/facebook/redirect')
-    @UseGuards(AuthGuard('facebook'))
     facebookAuthRedirect(@Req() request: any, @Res() response: Response): any {
         console.log("facebook/redirect request.user:", request.user);
         console.log("facebook/redirect request.session.user", request.session.user);
