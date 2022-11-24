@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="{{getLocale}}" class="no-js web lang_{{getLocale}}">
+
+<head>
+    <!-- Wifis.org ♥ developers - help us https://www.wifis.org/p/languages -->
+    <meta charset="utf-8">
+    <title>{{title}}</title>
+    <meta name="description" content="TODO:label.description" />
+    <meta name="keywords" content="wifi, wifis, wlan, share, email, contact" />
+    <meta name="author" content="wifis.org" />
+    <!-- TODO:only on homepage, when not logged in -->
+    <meta property="fb:page_id" content="220511144683523" />
+    <meta name="google-site-verification" content="AoQ12NdOtudrTmlJKk3udoPXhvFGXHn3J3DfBtd9emk" />
+    <meta name="p:domain_verify" content="fdf3e6814e01600aeebed88f689b5053" />
+    <meta name="msvalidate.01" content="3F774BB26121B84A4DA1801F0A554ED5" />
+
+    <link rel="shortcut icon" type="image/x-icon" href="/img/favicon.ico" />
+    <link rel="icon" type="image/png" href="/img/favicon.ico" />
+    <!--
+    <link rel="apple-touch-icon" href="/img/favicon.png" />
+    -->
+
+    <!-- TODO:GTM HEAD -->
+
+    <script>
+        (function (H) { H.className = H.className.replace(/\bno-js\b/, 'js') })(document.documentElement)
+    </script>
+    <link href="//fonts.googleapis.com/css?family=Bevan" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.2.2/css/bootstrap.min.css" />
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link type="text/css" rel="stylesheet" href="/css/style.css" />
+</head>
+
+<body>
+    {{> navi }}
+
+    <div class="container maincontainer {{#if viewname}}{{viewname}}_page{{/if}}">
+        <div class="content contenttop">
+            {{{body}}}
+            <div class='clear'></div>
+        </div>
+    </div>
+
+    {{> footer }}
+
+    <script type='text/javascript' src='https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js'></script>
+    <script type="text/javascript">
+        /*
+            revision: "{{revision}}"
+            service: "{{service}}"
+            getLocale: "{{getLocale}}"
+            getLocales: "{{getLocales}}" 
+            env: "{{env}}"     
+        */
+
+        var config = {
+            lang: '{{getLocale}}',      // remove and use HTML lang
+            analytics: {
+                enabled: true,
+                account: 'UA-648146-10',
+                domain: 'wifis.org',
+                view: '',
+                events: ','
+            },
+
+            translations: {{{ json translations }}}
+        };
+    </script>
+
+    <script type='text/javascript' src='/js/libs/bootstrap-dropdown.js?{{version}}'></script>
+    <script type='text/javascript' src='/js/libs/jquery.timeout.js?{{version}}'></script>
+    <script type='text/javascript' src='/js/jquery.wifis.analytics.js?{{version}}'></script>
+    <script type='text/javascript' src='/js/jquery.wifis.form.js?{{version}}'></script>
+    <script type='text/javascript' src='/js/jquery.wifis.general.js?{{version}}'></script>
+    <script type='text/javascript' src='/js/jquery.wifis.menu.js?{{version}}'></script>
+    <script type='text/javascript' src='/js/jquery.wifis.press.js?{{version}}'></script>
+    {{!-- 
+    <script type='text/javascript' src='/js/jquery.wifis.social.js?{{version}}'></script>
+    <script type='text/javascript' src='/js/jquery.wifis.stats.js?{{version}}'></script>
+    --}}
+    <script type='text/javascript' src='/js/jquery.wifis.tips.js?{{version}}'></script>
+    <script type='text/javascript' src='/js/wifis.controller.js?{{version}}'></script>
+
+    <!--<c:when test="${isDevEnv == 'false' && mode == 'web'}">
+            <script type='text/javascript' src='/js/wifis.min.js'></script>
+            -->
+</body>
+
+</html>

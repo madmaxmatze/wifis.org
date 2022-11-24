@@ -1,0 +1,45 @@
+{{#if (equals env "development")}}
+    {{assign "title" "ERROR"}}
+    
+    <h2>
+        {{#if error.status}}{{error.status}}{{/if}}
+        ERROR
+    </h2>
+
+    {{#if error}}
+        <div class="alert alert-error">
+            {{{error.message}}}
+        </div>
+        
+        {{#if error.status}}
+            <h3>Status</h3>
+            <pre>{{error.status}}</pre>
+        {{/if}}
+
+        {{#if error.stack}}
+            <h3>Stack</h3>
+            <pre>{{{error.stack}}}</pre>
+        {{/if}}   
+
+        {{#if error.cause}}
+            <h3>Cause</h3>
+            <pre>{{error.cause}}</pre>
+        {{/if}}
+
+        {{#if error.name}}
+            <h3>Name</h3>
+            <pre>{{error.name}}</pre>
+        {{/if}}
+    {{/if}}
+
+{{else}}
+    
+    {{assign "title" (__ "404.headline")}}
+
+    <h2>
+        {{{__ "404.headline"}}}
+    </h2>
+
+    {{{__ "404.text"}}}
+
+{{/if}}

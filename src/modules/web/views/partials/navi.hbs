@@ -1,0 +1,173 @@
+<div class="navbar navbar-fixed-top" data-dropdown="dropdown">
+    <div class="navbar-inner">
+        <div class="container">
+
+            <a class="sprite brand active" href="/"><span>/</span></a>
+
+
+            <ul class="nav pull-left">
+                {{!-- ADMIN LINK when logged in
+                    <c:if
+                        test="${isUserWithPermissionADMIN || isUserWithPermissionSTATS || isUserWithPermissionAPI || isUserWithPermissionDATA}">
+                        <li class="dropdown <c:if test=" ${fn:startsWith(uri, CONST.URL_PATH_ADMIN)}">active
+                    </c:if>"><a href="${CONST.URL_PATH_ADMIN}">ADMIN</a>
+                                <ul class="dropdown-menu">
+                                    <c:if test="${isUserWithPermissionADMIN || isDevEnv}">
+                                        <li
+                                            <c:if test='${uri==CONST.URL_PATH_ADMIN}'> class="active"</c:if>><a
+                                            href="${CONST.URL_PATH_ADMIN}">Overview</a></li>
+                                    </c:if>
+                                    <c:if test="${isUserWithPermissionSTATS || isDevEnv}">
+                                        <li
+                                            <c:if test='${uri==CONST.URL_PATH_ADMIN_STATS}'> class="active"</c:if>><a
+                                            href="${CONST.URL_PATH_ADMIN_STATS}">Stats</a></li>
+                                    </c:if>
+                                    <c:if test="${isUserWithPermissionDATA || isDevEnv}">
+                                        <li
+                                            <c:if test='${uri==CONST.URL_PATH_ADMIN_DATA}'> class="active"</c:if>><a
+                                            href="${CONST.URL_PATH_ADMIN_DATA}">Data</a></li>
+                                    </c:if>
+                                    <c:if test="${isUserWithPermissionAPI || isDevEnv}">
+                                        <li
+                                            <c:if test='${uri==CONST.URL_PATH_ADMIN_API}'> class="active"</c:if>><a
+                                            href="${CONST.URL_PATH_ADMIN_API}">Api</a></li>
+                                    </c:if>
+                                </ul>
+                               
+
+                    </li>
+                    </c:if>
+                    --}}
+            </ul>
+
+            <ul class="nav pull-right">
+                {{#if user}}
+                <li {{#if (equals urlPath "/p/wifis")}}class="active" {{/if}}>
+                    <a href="/p/wifis">{{{__ "wifis.linklabel"}}}</a>
+                </li>
+                {{/if}}
+
+                <!-- when logged in: Wifis
+                        <li <c:if test='${uri==CONST.URL_PATH_WIFIS}'> class="active"
+                    </c:if>><a href="${CONST.URL_PATH_WIFIS}">
+                        <spring:message code="wifis.linklabel" /></a></li>
+                    </c:if>
+                    -->
+
+                <li class="dropdown 
+                    {{#if (or (equals urlPath "/p/about") (equals urlPath "/p/faq") (equals urlPath "/p/press") (equals urlPath "/p/tos"))}}
+                        active
+                    {{/if}}
+                ">
+                    <a href="/p/faq" class="dropdown-toggle">More<b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                        <li {{#if (equals urlPath "/p/faq")}}class="active" {{/if}}><a href="/p/faq">FAQ</a></li>
+                        <li {{#if (equals urlPath "/p/about")}}class="active" {{/if}}><a href="/p/about">About</a></li>
+                        <li {{#if (equals urlPath "/p/press")}}class="active" {{/if}}><a href="/p/press">Press</a></li>
+                        <!--<li<c:if test='${uri==CONST.URL_PATH_TOS}'> class="active"</c:if>><a href="${CONST.URL_PATH_TOS}"><spring:message code="tos.linklabel" /></a></li>
+                             -->
+                        <li><a target="_blank" href="/p/blog"><span class="external sprite">Blog</span></a></li>
+                    </ul>
+                </li>
+
+
+                <li id="langDropDown" class="dropdown{{#if (equals urlPath "/p/languages")}} active{{/if}}">
+                    <a href="/p/languages?referer={{urlPath}}" class="dropdown-toggle"><span
+                            class="sprite flag flag_{{getLocale}}"></span><b class="caret"></b></a>
+
+                    <ul class="dropdown-menu">
+                        {{#each getLocales}}
+                        <li{{#if (equals ../getLocale this)}} class="active" {{/if}}>
+
+                            <a href="?lang={{this}}"><span class="sprite flag flag_{{this}}"></span>
+                                {{../__ (concat "label.lang." this)}}
+
+                            </a>
+                </li>
+                {{/each}}
+
+
+                <c:if test="${isUserWithPermissionsTRANS}">
+                    <!--
+                                    <c:if test="${lang != CONST.LANG_TR}"> 
+                                        <li><a href="?${URL_PARAM_LANG}=${CONST.LANG_TR}"><div class="sprite flag flag_${CONST.LANG_TR}"></div></a></li>
+                                    </c:if>
+                                    -->
+                </c:if>
+
+                <li><a href="/p/languages?referer={{urlPath}}" style="text-align: center;"> <b
+                            style="color: black;">??</b>
+                    </a></li>
+            </ul>
+            </li>
+
+            <li class="dropdown{{#if (equals urlPath "/p/login")}} active{{/if}}">
+                <!-- when NOT logged in -->
+                {{#if user}}
+                <a href="#" class="dropdown-toggle" id="logout-menu-item" title="logout">
+                    <span class="loginName" title="logout">
+                        {{#if user.name}}
+                        {{user.name}}
+                        {{else}}
+                        {{user.email}}
+                        {{/if}}
+                    </span>
+                    <span class="sprite loginType icon icon-{{user.provider}}"></span>
+                    <b class="caret"></b>
+                </a>
+                <ul class="dropdown-menu">
+                    <li>
+                        {{#if (equals urlPath "/p/wifis")}}
+                            {{assign "logout_redirect" "/"}}
+                        {{else}}
+                            {{assign "logout_redirect" urlPath}}
+                        {{/if}}
+                        <a href="/p/logout?redirect={{logout_redirect}}">{{__ "label.logout"}}</a>
+                    </li>
+                </ul>
+                {{else}}
+                <a href="/p/login" class="dropdown-toggle">{{__ "label.signin"}}<b class="caret"></b></a>
+                <ul class="dropdown-menu">
+                    <li>
+                        <a class="googleLogin" href="/p/login/google" title="Login with google"
+                            rel="nofollow">
+                            <span>{{__ "login.google.hint"}}</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="facebookLogin"
+                            href="/p/login/facebook"
+                            title="Login with Facebook" rel="nofollow">
+                            <span>{{__ "login.facebook.hint"}}</span>
+                        </a>
+                    </li>
+                </ul>
+                {{/if}}
+
+
+            </li>
+            </ul>
+
+            <!-- Mobile
+                        <a class="brand" href="${CONST.URL_PATH_HOMEPAGE}"><span>${CONST.URL_DOMAIN_NAKED}</span></a>
+
+                        <ul class="nav">
+                            <li <c:if test='${uri == CONST.URL_PATH_HOMEPAGE}'> class="active"</c:if>><a
+                                    href="${CONST.URL_PATH_HOMEPAGE}">
+                                    <spring:message code="homepage.linklabel" /></a></li>
+                            <li <c:if
+                                test="${uri == CONST.URL_PATH_FAQ || uri == CONST.URL_PATH_ABOUT || uri == CONST.URL_PATH_TOS || uri == CONST.URL_PATH_PRESS}">
+                                class="active"</c:if>>
+                                <a href="${CONST.URL_PATH_FAQ}">
+                                    <spring:message code="label.otherwebsite.title" /></a>
+                            </li>
+                        </ul>
+
+                        <ul class="nav" id="langDropDown">
+                            <li><a href="${CONST.URL_PATH_LANGUAGES}?${CONST.URL_PARAM_REFERER}=${uri}"><span
+                                        class="sprite flag flag_${lang}"></span></a></li>
+                        </ul>
+                    -->
+        </div>
+    </div>
+</div>

@@ -1,0 +1,165 @@
+{
+    "label": {
+        "lang": {
+            "de": "Deutsch",
+            "en": "English",
+            "es": "Español",
+            "fr": "Français",
+            "it": "Italiano",
+            "ms": "Melayu",
+            "nl": "Nederlands",
+            "ru": "Русский",
+            "gr": "ελληνικά",
+            "cn": "中國",
+            "jp": "日本人",
+            "pt": "Português",
+            "tr": "Türkçe"
+        },
+        "title": "wifis.org",
+        "mainTeaser": "Borang Perhubungan buat Rangkaian Wi-Fi anda.",
+        "description": "Borang Perhubungan buat Rangkaian Wi-Fi anda. Mudah, selamat dan anonymous. Mari sertai kami!",
+        "logo": {
+            "hint": "www.wifis.org"
+        },
+        "logout": "Keluar",
+        "signin": "Masuk",
+        "footer": {
+            "text": "&copy; wifis.org",
+            "switchToMobile": "Kembali ke halaman mobil",
+            "switchToWeb": "versi desktop",
+            "featured": {
+                "text": "Seperti tertera di",
+                "hint": "Seperti tertera di {0} - Lihat lebih lagi di laman akhbar kami."
+            }
+        },
+        "otherwebsite": {
+            "title": "Lanjut"
+        }
+    },
+    "twitterMsg": "Dengan @wifis_org jiran-jiran anda dapat menghubungi anda hanya melalui nama Wi-Fi anda. Lawati",
+    "blog": {
+        "linklabel": "blog"
+    },
+    "homepage": {
+        "headline": "Anjung",
+        "linklabel": "Anjung",
+        "text": [
+            "<h1>Kini WiFi anda boleh menerima emel<\/h1> <blockquote class=\"bubble1\"><p>\"Salam, boleh saya guna WiFi awak? Mungkin awak boleh kenakan yuran bulanan?\" <\/p><\/blockquote> <blockquote class=\"bubble2\"><p>\"Saya orang baru disini dan terperasan Wi-Fi anda. Jom kita pergi ngeteh petang ini?\"<\/p><\/blockquote> <\/div><div class=\"content\"> <h2>Bagaimana ia berfungsi?<\/h2>",
+            "<div class=\"how_to_subtext\"> (Dalami lagi pengetahuan anda mengenai khidmat percuma dan tidak beridentiti ini di  <a href=\"\/p\/faq\">SKD<\/a>) <\/div> <\/div><div class=\"content\">"
+        ],
+        "teasers": [
+            "<b>ANDA<\/b> Namakan semula Wi-Fi anda",
+            "<b>ORANG LAIN<\/b> perasan url wifis.org anda",
+            "<b>WIFIS.ORG<\/b> melancarkan perhubungan"
+        ],
+        "wifichecker": "Pilih ID peribadi wifis.org anda:",
+        "joinButton": "Sertai<br>sekarang"
+    },
+    "404": {
+        "headline": "404 Ralat",
+        "linklabel": "404 Ralat",
+        "text": "Halaman gagal ditemui"
+    },
+    "about": {
+        "headline": "Perihal",
+        "linklabel": "Perihal",
+        "text": "<h3>Kami menjadikan dunia rangkaian Wi-Fi bermasyarakat<\/h3> <div class=\"indent\"> Disyarikatkan pada Disember 2011 di Berlin www.wifis.org membantu kejiranan untuk senantiasa bersilaturahim melalui rangkaian Wi-Fi mereka.<br> Ianya mudah, sosial dan percuma. Jom kita cuba dan maklumkan pada kami apa yang anda rasa mengenai aplikasi ini.<\/div> <h3>Perihal Kami<\/h3>  <div class=\"indent\"> <b>Pasukan:<\/b> {0}<br> <b>Pendukung:<\/b> {1} <\/div><h3>Hubungi Kami<\/h3> <div class=\"indent\"> Pandangan dan sokongan anda adalah amat dihargai: {2} Hantar emel pada kami {3} {4} Karang surat pada Wi-Fi: {5} {6} Ikut kami di {7} {8} Sukai Wi-Fi di {9} {10} Keliling kami dan +1 di {11} {12} membaca  {13} kami <\/div>"
+    },
+    "faq": {
+        "headline": "Soalan Kerap Ditanya",
+        "linklabel": "Soalan Kerap Ditanya",
+        "text": "<h3>Kenapa pula saya perlu menukar nama Wi-Fi saya?<\/h3> <div class=\"indent\"> <p> Kamu bukan hanya perlu menukar nama (SSID) rangkaian Wi-Fi anda. Dengan hanya menetapkan url wifis.org anda (like <a href=\"\/contoh\">www.wifis.org\/contoh<\/a>), kamu membuka peluang kepada orang-orang yang berada disekitar rangkaian anda untuk menghubungi anda tanpa perlu mereka untuk tahu identiti anda dan dimana anda tinggal. Kemungkinan besar jiran-jiran anda yang mesra akan menjemput anda untuk bertandang ke rumah mereka untuk majlis tertentu atau meminta kebenaran anda untuk berkongsi akses internet dengan bayaran bulanan <\/p> <p> wifis.org  adalah cara terbaru untuk bersilaturahim dengan orang di sekeliling anda. Jadilah sebahagian dari komuniti anda. <a href=\"\/p\/login\">Sertai kami.<\/a> <\/p> <\/div> <h3>Berapa harga yang dikenakan?<\/h3> <div class=\"indent\"> <p>Percuma semata-mata. wifis.org akan kekal dan selalu percuma kepada sesiapapun.<\/p> <\/div> <h3>Macam mana hendak buat akaun dan daftar url saya?<\/h3> <div class=\"indent\"> <p>Ikut langkah-langkah berikut:<\/p> <ol> <li><a href=\"\/p\/login\">Daftar masuk<\/a>  menggunakan Google atau akaun Facebook anda.<\/li> <li>Pilih url wifis.org anda.<\/li> <li>Pergi ke tetapan wireless router atau modem anda.<\/li> <li>Tukar nama rangkaian wifi anda kepada url wifis.org anda. (Anda dikehendaki menukar SSID di wireless router atau modem anda.)<\/li> <li>Rangkaian wifi anda sepatutnya kelihatan begini: <a href=\"\/example\">wifis.org\/contoh<\/a><\/li> <li>Oh ye, sementara anda membaikinya, pastikan rangkaian anda dapat dilihat dan dilengkapi dengan kata laluan.<\/li> <\/ol> <p>Itu sahaja yang anda perlukan setakat ini. Barangsiapa yang berada dalam naungan rangkaian Wi-Fi anda akan dapat menghubungi anda dengan menggunakan url wifis.org anda di pelayar internet mereka.<\/p> <\/div> <h3>Sesiapa sahaja boleh menggunakan wifis.org?<\/h3> <div class=\"indent\"> <p>Sudah tentu! Apa yang anda perlu lakukan adalah menukar nama (SSID) rangkaian Wi-Fi anda. Jelas sekali, router wayarles atau modem anda perlulah berupaya untuk memanfaatkan karakter seperti ‘\/’ dan ‘.’. Sila <a href=\"\/p\/about\">maklumkan pada kami<\/a>, sekiranya anda menghadapi sebarang masalah.<\/p> <\/div> <h3>Selamatkah wifis.org?<\/h3> <div class=\"indent\"> <p>wifis.org dijamin 100% identiti-selamat dan menyelamatkan!<\/p> <ul> <li>Anda dan rangkaian Wi-Fi anda tidak dapat ditelusuri melalui laman web kami.<\/li> <li>Alamat emel anda, ID wifis.org anda dan segala mesej anda terselamat dari sebarang penyalahgunaan. Sudah tentu, data-data anda tidak akan didedahkan kepada mana-mana pihak ketiga. <\/li> <li>Kami hanya menyokong daftar masuk melalui Facebook (<a href=\"https:\/\/www.facebook.com\/help\/405977429438260\" target=\"_blank\" title=\"Maklumat lanjut mengenai facebook login\">?<\/a>) dan Google (<a href=\"http:\/\/www.google.com\/support\/accounts\/bin\/answer.py?answer=112802\" target=\"_blank\" title=\"Maklumat lanjut mengenai google login\">?<\/a>) buat masa ini.<\/li> <\/ul> <p>Maklumat tambahan boleh didapati pada <a href=\"\/p\/tos\">Terma dan Syarat kami<\/a>.<\/p> <\/div>",
+        "question": {
+            "where": "Where is wifis.org used?"
+        }
+    },
+    "login": {
+        "headline": "Daftar masuk",
+        "linklabel": "Daftar masuk",
+        "text": [
+            "wifis.org hanya membenarkan daftar masuk menggunakan akaun Google atau Facebook. Dua sebab utama itu adalah:",
+        
+            "<b style=\"color: #333\">Keselesaan anda:<\/b> Anda tidak perlu melengkapkan borang pendaftaran untuk mengesahkan alamat emel anda.",
+        
+            "<b style=\"color: #333\">Keselamatan dan privasi anda:<\/b> Sementara kami tidak mengetahui atau menyimpan katalaluan anda atau mana-mana maklumat peribadi anda, kami memberi jaminan yang kami tidak akan kehilangan data anda. Maklumat tambahan mengenai kaedah daftar masuk boleh didapati di: "
+        ],
+        "buttonPrefix": "Masuk ke",
+        "facebookHelpLinkHintText": "Maklumat tambahan tentang kemasukan melalui pihak ketiga Facebook",
+        "googleHelpLinkHintText": "Maklumat tambahan tentang kemasukan melalui pihak ketiga Google",
+        "google": {
+            "hint": "Kemasukan dengan Google"
+        },
+        "facebook": {
+            "hint": "Kemasukan dengan Facebook"
+        },
+        "twitter": {
+            "hint": "Kemasukan dengan Twitter"
+        },
+        "notPossibleOnMobileDevice": "Oops, dukacita anda tak boleh masuk menggunakan wifis.org versi mobil. Silakan ke versi desktop: {0}"
+    },
+    "press": {
+        "headline": "Akhbar",
+        "linklabel": "Akhbar",
+        "text": "Disini anda boleh mendapati koleksi liputan akhbar yang terkini mengenai kami. Anda dibenarkan untuk menggunakan skrin-skrin laman web atau <a href=\"https:\/\/picasaweb.google.com\/110726804868278117649\/WifisOrg\" target=\"_blank\">pustaka imej-imej ini<\/a> untuk artikel anda. Sebarang pertanyaan boleh diajukan <a href=\"\/p\/about\">pada kami<\/a> dan kami dahului dengan ribuan terima kasih untuk sokongan anda!"
+    },
+    "stats": {
+        "headline": "wifis.org stats",
+        "linklabel": "stats"
+    },
+    "tos": {
+        "headline": "Terma Penggunaan",
+        "linklabel": "Terma Penggunaan",
+        "introMsg": "Hanya tersedia dalam bahasa Inggeris sahaja buat masa ini.",
+        "text": "<h3>1. Accepting the Terms<\/h3> <div class=\"indent\"> <ul> <li>In order to use our Services, you must first agree to the Terms. You may not use the Services if you don’t accept the Terms.<\/li> <li>By actually using our Services, you understand and agree that wifis.org will treat your use of the Services as acceptance of the Terms from that point onwards.<\/li> <\/ul> <\/div> <h3>2. Provision of the Services by wifis.org<\/h3> <div class=\"indent\"> <ul> <li>wifis.org is constantly innovating in order to provide the best possible experience for its users. You acknowledge and agree that the form and nature of the Services which wifis.org provides may change from time to time without prior notice to you.<\/li> <li>As part of this continuing innovation, you acknowledge and agree that wifis.org may stop (permanently or temporarily) providing the Services (or any features within the Services) to you or to users generally, without prior notice to you. You may stop using the Services at any time. You do not need to specifically inform wifis.org when you stop using the Services.<\/li> <\/ul> <\/div> <h3>3. Use of the Services by you<\/h3> <div class=\"indent\"> <ul> <li>In order to access certain Services, you may be required to provide information about yourself (such as identification or contact details) as part of the registration process for the Service, or as part of your continued use of the Services. You agree that any registration information you give to wifis.org will always be accurate, correct and up to date.<\/li> <li>You agree to use the Services only for purposes that are permitted by (a) the Terms and (b) any applicable law, regulation or generally accepted practices or guidelines in the relevant jurisdictions.<\/li> <li>You agree that you will not engage in any activity that interferes with or disrupts the Services (or the servers and networks which are connected to the Services).<\/li> <li>You agree that you are solely responsible for (and that wifis.org has no responsibility to you or to any third party for) any breach of your obligations under the Terms and for the consequences of any such breach.<\/li> <\/ul> <\/div> <h3>4. Your passwords and account security<\/h3> <div class=\"indent\"> <ul> <li>You agree and understand that you are responsible for maintaining the confidentiality of passwords associated with any account you use to access the Services.<\/li> <li>Accordingly, you agree that you will be solely responsible to wifis.org for all activities that occur under your account.<\/li> <\/ul> <\/div> <h3>5. Content in the Services<\/h3> <div class=\"indent\"> <ul> <li>You agree that you are solely responsible for (and that wifis.org has no responsibility to you or to any third party for) any Content that you create, transmit or display while using the Services and for the consequences of your actions (including any loss or damage which wifis.org may suffer) by doing so.<\/li> <\/ul> <\/div> <h3>6. Proprietary rights<\/h3> <div class=\"indent\"> <ul> <li>You acknowledge and agree that wifis.org owns all legal rights, title and interest in and to the Services, including any intellectual property rights which subsist in the Services (whether those rights happen to be registered or not, and wherever in the world those rights may exist). You further acknowledge that the Services may contain information which is designated confidential by wifis.org and that you shall not disclose such information without wifis.org’s prior written consent.<\/li> <li>Unless you have agreed otherwise in writing with wifis.org, nothing in the Terms gives you a right to use any of wifis.org’s trade names, trade marks, service marks, logos, domain names, and other distinctive brand features.<\/li> <\/ul> <\/div> <h3>7. Limitation of liability<\/h3> <div class=\"indent\"> <ul> <li>You agree that wifis.org shall not be liable to you for (a) any changes which wifis.org may make to the Services (or any features within the Services) and (b) the deletion of, corruption of, or failure to store, any content and other communications data maintained or transmitted by or through your use of the Services.<\/li> <\/ul> <\/div>"
+    },
+    "wifis": {
+        "headline": "my Wi-Fis",
+        "linklabel": "my Wi-Fis",
+        "text": "Disini anda boleh mendaftar atau memadam ID-ID wifis.org anda:",
+        "deleteButton": "Hapus",
+        "enternew": "Masukkan nama Wi-Fi",
+        "test": "Periksa",
+        "save": "Daftar",
+        "error": {
+            "none": "ID boleh digunapakai.",
+            "noWifiIdDefined": "Sila namakannya.",
+            "wifiNotFound": "ID wifis.org tidak ditemui.",
+            "alreadyYourWifi": "Kamu sudahpun mendaftar ID ini.",
+            "otherUsersWifi": "ID wifis.org ini telah diguna oleh orang lain.",
+            "wifiIdTooShort": "ID anda mesti mempunyai sekurang-kurangnya 3 huruf.",
+            "wifiIdTooLong": "Kami tidak membenarkan penamaan ID melebihi 20 huruf.",
+            "wrongWifiIdChars": "Huruf yang dibenarkan hanyalah abjad, nombor dan hypens.",
+            "maxWifiCountReached": "Kamu sudah melebihi had penggunaan ID. Cuba proses <b>jemput seorang kawan<\/b> pautan disebelah kanan untuk meningkatkan had penggunaan.",
+            "absoluteWifiLimitReached": "Kami hanya membenarkan 10 ID yang berbeza setakat ini. Sekiranya kamu memerlukan ID yang lebih banyak sila hubungi kami.",
+            "whileWifiDelete": "Alamak. Terdapat kesilapan teknikal semasa menghapuskannya."
+        },
+        "tips": [
+            "<div class=\"headline\">dapatkan ID WiFi yang lain<\/div> <div class=\"text\">Setiap dari sahabat kamu yang menyertai wifis.org melalui <a href=\"{0}\" target=\"_blank\" title=\"Ini adalah pautan peribadi anda untuk menyilakan sahabat-sahabat ke wifis.org\">pautan peribadi anda<\/a>, akan meningkatkan had penggunaan ID wifis.org dengan mendaftar satu ID.<\/div>",
+            
+            "<div class=\"headline\">pemendekkan url<\/div> <div class=\"text\">Pilih mana-mana yang anda gemar. Semuanya sama: {1} <\/div>",
+            
+            "<div class=\"headline\">mau tips lagi?<\/div> <div class=\"text\"> <b>Penamaan semula rangkaian WiFi anda<\/b><br> Jangan lupa untuk menamakan semula rangkaian Wi-Fi anda seusai anda mendaftar ID wifis.org anda. Jom ke <a href=\"\/p\/faq\">SKD<\/a>. <br><br> <b>Satu ID untuk banyak routers<\/b><br> Untuk menggunakan ID wifis.org untuk banyak router, kamu boleh menambah apa saja karakter yang anda suka selepas palang “\/” dipangkal ID anda: {2} <b>Karakter sensitif<\/b><br> ID wifis.org tidak sensitif pada huruf kecil maupun besar. <a href=\"http:\/\/wifis.org\/iphONE\">wifis.org\/iphONE<\/a> akan membawa anda ke <a href=\"http:\/\/wifis.org\/iPhone\">wifis.org\/iPhone<\/a> <br><br> <b>Sebarkan berita ini!<\/b><br> Sila sokong khidmat percuma kami dengan klik pada ikon Flattr dikiri sana dan juga pada teman-teman anda. <\/div>"
+        ]
+    },
+    "wifi": {
+        "headlinePrefix": "Hantarkan emel kepada:",
+        "text": {
+            "text": "Tuan milik rangkaian Wi-Fi telah mendaftar dengan wifis.org untuk membuka peluang kepada anda untuk berhubung dengan beliau.  Kamu mungkin sahaja boleh menanya untuk berkongsi akses internet atau hanya mengirim salam padanya. Ataupun sekadar beramah mesra. Jiran anda akan merasa kasihnya anda.",
+            "notfound": "Url ini belum terdaftar lagi. Sila pastikan anda mempunyai url yang sebenar.<\/p> <p>Untuk mendaftar url ini, sila ke <a href=\"\/p\/login\/\">sini<\/a>.",
+            "mywifi": "<b>Anda sudahpun masuk sekaran.<\/b> <br> Ini adalah gambaran awal laman perhubungan kamu kelihatan pada pengunjung."
+        },
+        "form": {
+            "contact": "Sila nyatakan emel atau nombor untuk dihubungi <span style=\"font-weight: normal\">(apa-apa cara untuk menghubungi kamu)<\/span>",
+            "message": "pesanan anda",
+            "send": "hantar pesanan",
+            "mailsent": "Pesanan kamu sudah dikirim.",
+            "mailNotSent": "Kami sedang mengalami masalah ketika mengirim pesanan anda buat masa ini. Maaf. Sila cuba lagi atau hubungi pasukan wifis.org.",
+            "error": {
+                "textTooShort": "Jangan begitu. Tiada apa-apa? Sekurang-kurangnya ucapkan pesanan yang mulia pada mereka.",
+                "textTooLong": "Teks anda panjang sangat. Sila cuba pastikan ianya kurang dari 500 karakter.",
+                "emailTooShort": "Nampaknya kamu terlupa mengenai maklumat kamu",
+                "emailTooLong": "Maklumat kamu melebihi 100 karakter. Benarkah begitu?"
+            }
+        }
+    }
+}

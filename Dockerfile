@@ -1,22 +1,68 @@
-# Use the official lightweight Node.js 12 image.
-# https://hub.docker.com/_/node
-FROM node:17-slim 
+###################
+# BUILD FOR LOCAL DEVELOPMENT
+###################
 
-# Create and change to the app directory.
+FROM node:18-alpine As development
+
+ENV NODE_ENV development
+ENV GCP_PROJECT_ID 963681635818
+
+# https://btholt.github.io/complete-intro-to-containers/build-a-nodejs-app
+USER node
+
+# Create app directory
 WORKDIR /usr/src/app
 
 # Copy application dependency manifests to the container image.
-# A wildcard is used to ensure both package.json AND package-lock.json are copied.
-# Copying this separately prevents re-running npm install on every code change.
-COPY package*.json ./
+# A wildcard is used to ensure copying both package.json AND package-lock.json (when available).
+# Copying this first prevents re-running npm install on every code change.
+COPY --chown=node:node package*.json ./
 
-# Install dependencies.
-# If you add a package-lock.json speed your build by switching to 'npm ci'.
-# RUN npm ci --only=production
-RUN npm install --production
+# Install app dependencies
+RUN npm ci
 
-# Copy local code to the container image.
-COPY . ./
+# Bundle app source
+COPY --chown=node:node . .
 
-# Run the web service on container startup.
-CMD ["node", "app.js"]
+###################
+# BUILD FOR PRODUCTION
+###################
+
+# Base image for production
+FROM node:18-alpine As build
+
+# Set NODE_ENV environment variable
+ENV GCP_PROJECT_ID 963681635818
+
+USER node
+
+# Create app directory
+WORKDIR /usr/src/app
+
+COPY --chown=node:node package*.json ./
+
+COPY --chown=node:node --from=development /usr/src/app/node_modules ./node_modules
+
+# Bundle app source
+COPY --chown=node:node . .
+
+RUN npm run build
+
+RUN npm ci --only=production && npm cache clean --force
+
+###################
+# PRODUCTION
+###################
+
+# Base image for production
+FROM node:18-alpine As production
+
+ENV NODE_ENV production
+ENV GCP_PROJECT_ID 963681635818
+
+# Copy the bundled code to the production image
+COPY --chown=node:node --from=build /usr/src/app/node_modules ./node_modules
+COPY --chown=node:node --from=build /usr/src/app/dist ./dist
+
+# Start the server using the production build
+CMD [ "node", "dist/main.js" ]

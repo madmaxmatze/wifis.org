@@ -1,5 +1,6 @@
+Dockerfile
 .dockerignore
+.github
 node_modules
-.vscode
-.idea
-.readmes
+npm-debug.log
+dist

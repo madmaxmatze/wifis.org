@@ -1,0 +1,32 @@
+{{assign "viewname" "home"}}
+{{assign "title" (concat (__ "label.title") " - " (__ "label.mainTeaser"))}}
+
+<a href="/p/login" class="wifisButton join">{{& __ "homepage.joinButton"}}</a>
+
+<div class="wifilogo sprite"></div>
+
+{{{__ "homepage.text.0"}}}
+
+<ul class="teasers">
+    {{#each translations.homepage.teasers}}
+    <li class="teaser{{concat @index 1}}">
+        <div class="number"><span>{{concat @index 1}}</span></div>
+        <div class="text">{{& this}}</div>
+        <div class="image">
+            <a href="/example" title="...">
+                <img src="/img/teaser{{concat @index 1}}_small.png" alt="..." width="210" height="210" />
+            </a>
+        </div>
+    </li>
+    {{/each}}
+</ul>
+
+{{{__ "homepage.text.1"}}}
+
+<div class="wifichecker">
+    <div class="text">
+        {{{__ "homepage.wifichecker"}}}
+    </div>
+
+    {{> wifiForm }}
+</div>

@@ -1,0 +1,49 @@
+{{assign "title" (__ "about.headline")}}
+
+{{> cms_navi }}
+
+<h2>
+    {{{__ "about.headline"}}}
+</h2>
+
+<div class="about">
+    {{#replace "{0}" "<a href='http://mathiasnitzsche.de' target='_blank'>Mathias</a>
+                    <span style='color: #BBB'>(Founder, Coder),</span>
+                    
+                    <a href='http://about.me/nacido' target='_blank'>Robert</a>
+                    <span style='color: #BBB'>(Product),</span>
+                    
+                    Malena <span style='color: #BBB'>(Marketing/User Support),</span>
+                    
+                    <a href='http://vonverhille.tumblr.com/' target='_blank'>James</a>
+                    <span style='color: #BBB'>(Design)</span>"
+                "{1}" "Howard <span style='color: #BBB'>(ES-Translation),</span>
+                    <a href='https://www.facebook.com/karenkennes22' target='_blank'>Karen</a>
+                    <span style='color: #BBB'>(NL-Translation),</span>
+
+                    <a href='http://www.linkedin.com/in/lorenzotubertini'
+                        target='_blank'>Lorenzo</a>
+                    <span style='color: #BBB'>(IT-Translation),</span>
+
+                    <a href='http://jobberies.com' target='_blank'>Muhaimin</a>
+                    <span style='color: #BBB'>(MS-Translation),</span>
+                    <!-- https://www.facebook.com/zuljalal.li.wal.ikraom -->
+                    <a href='http://ravenstalker.wordpress.com' target='_blank'>ArnO</a>
+                    <span style='color: #BBB'>&amp;</span>
+                    <a href='https://twitter.com/russelomua' target='_blank'>Николай</a>
+                    <span style='color: #BBB'>(RU-Translation)</span>"
+                "{2}" "<br><br><div class='sprite icon32 icon32-mail'></div>"
+                "{3}" "<b>&#105;&#110;&#102;&#111;&#64;&#119;&#105;&#102;&#105;&#115;&#46;&#111;&#114;&#103;</b>"
+                "{4}" "<br><br><a href='/contact' class='sprite icon32 icon32-wifi'></a>"
+                "{5}" "<a href='/contact'>wifis.org/contact</a>"
+                "{6}" "<br><br><a href='http://twitter.com/wifis_org' target='_blank' class='sprite icon32 icon32-twitter'></a>"
+                "{7}" "<a href='http://twitter.com/wifis_org' rel='nofollow' target='_blank'>Twitter</a>"
+                "{8}" "<br><br><a href='http://www.facebook.com/wifis.org' target='_blank' class='sprite icon32 icon32-facebook'></a>"
+                "{9}" "<a href='http://www.facebook.com/wifis.org' rel='nofollow' target='_blank'>Facebook</a>"
+                "{10}" "<br><br><a href='http://plus.google.com/117695499761775220519' target='_blank' class='sprite icon32 icon32-google'></a>"
+                "{11}" "<a href='http://plus.google.com/117695499761775220519' rel='nofollow' target='_blank'>Google+</a>"
+                "{12}" "<br><br><a href='https://blog.wifis.org' target='_blank' class='sprite icon32 icon32-tumblr'></a>"
+                "{13}" "<a href='https://blog.wifis.org' rel='nofollow' target='_blank'>Blog</a>"}}
+    {{{__ "about.text"}}}
+    {{/replace}}
+</div>

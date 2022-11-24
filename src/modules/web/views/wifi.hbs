@@ -1,0 +1,111 @@
+{{assign "title" (concat (__ "wifi.headlinePrefix") " " wifiId)}}
+
+{{#if wifiUserId}}
+    <h2>
+        {{& __ "wifi.headlinePrefix"}}
+        <a href="/{{wifiId}}">wifis.org/{{wifiId}}</a>{{#if wifiIdSuffix}}<small>/{{wifiIdSuffix}}</small>{{/if}}
+    </h2>
+
+    <p>
+        {{{__ "wifi.text.text"}}}
+    </p>
+    <br>
+
+
+    {{#if (equals wifiUserId user.id)}}
+        <div class="alert alert-error yourWifiTopMessage">
+            {{{__ "wifi.text.mywifi"}}}
+        </div>
+        <div class="yourWifiOverlay"></div>
+    {{/if}}
+
+
+    {{#if sendSuccess}}
+        <div class="alert alert-success">
+            <b>{{{__ "wifi.form.mailsent"}}}</b>
+        </div>
+        <br>
+        <br>
+
+
+    {{else if (equals sendSuccess false)}}
+        <div class="alert alert-error">
+            <b>{{{__ "wifi.form.mailNotSent"}}}</b><br>
+            {{errormessage}}
+        </div>
+        <br>
+        <br>
+
+
+    {{else}}
+
+        {{!-- onsubmit="return (grecaptcha.getResponse().length > 0);"   --}}
+
+        <script src="https://www.google.com/recaptcha/api.js"></script>
+
+        <form method="POST" id='contactform' class="contactform form-stacked">
+            <div class="clearfix">
+                <label>{{{__ "wifi.form.contact"}}}</label>
+                <div class="input">
+                    <input name="contact" value="{{form_field_contact}}" />
+                    {{!-- <c:if test="${fn:startsWith(error, 'email')==true}">
+                        <span class="help-block">
+                            <spring:message code="wifi.form.error.${error}" /></span>
+                    </c:if>
+                    --}}
+                </div>
+            </div>
+            <div class="clearfix">
+                <label>{{{__ "wifi.form.message"}}}</label>
+                <div class="input">
+                    <textarea name="text">{{form_field_text}}</textarea>
+                    {{!--
+                    <c:if test="${fn:startsWith(error, 'text')==true}">
+                        <span class="help-block">
+                            <spring:message code="wifi.form.error.${error}" /></span>
+                    </c:if>
+                    --}}
+                </div>
+            </div>
+            
+            
+            {{!--
+            <div class="input">
+                {{#if (equals error "recaptcha")}}
+                <span class="help-block">{{{__ "wifi.form.error.recaptcha"}}}</span>
+                {{/if}}
+            </div>
+            --}}
+
+
+            <div class="form-actions">
+                <button 
+                class="btn btn-primary submitButton g-recaptcha" 
+                data-sitekey="{{RECAPTCHA_SITE_KEY}}" 
+                data-callback='onSubmit' 
+                data-action='submit'
+                    style="margin-left:38px">{{__ "wifi.form.send"}}</button>
+            </div>
+
+            <button type="submit" style="display: none">hidden send</button>
+
+            <script>
+                function onSubmit(token) {
+                    console.log ("onSubmit");
+                    console.log ("token", token);
+                    document.getElementById("contactform").submit();
+                }
+            </script>
+        </form>
+    {{/if}}
+
+{{else}}
+
+    <h2 style="color: #C00">
+        {{& __ "404.headline"}}: wifis.org/{{wifiId}}
+        {{#if wifiIdSuffix}}<small>/{{wifiIdSuffix}}</small>{{/if}}
+    </h2>
+
+    {{{__ "wifi.text.notfound"}}}
+
+{{/if}}
