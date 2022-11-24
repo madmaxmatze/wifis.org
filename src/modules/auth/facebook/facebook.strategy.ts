@@ -1,6 +1,7 @@
 import { PassportStrategy } from '@nestjs/passport';
 import { Strategy } from 'passport-facebook';
 import { Injectable } from '@nestjs/common';
+import { User } from '../../data/user/user.model';
 import { UserRepo } from '../../data/user/user.repo';
 import { ConfigService, ConfigKey } from '../../config/config.service';
 
@@ -23,8 +24,8 @@ export class FacebookStrategy extends PassportStrategy(Strategy, 'facebook') {
         this.userRepo = userRepo;
     }
 
-    async validate(_accessToken: string, _refreshToken: string, _UNKNOWNOBJECT: any, profile: any, done: any): Promise<any> {
-        var user = {
+    async validate(request: Request, _refreshToken: string, _UNKNOWNOBJECT: any, profile: any, done: any): Promise<any> {
+        var user : User = {
             "id": profile.provider + profile.id,
             "provider": profile.provider,
             "providerId": profile.id,
@@ -34,7 +35,12 @@ export class FacebookStrategy extends PassportStrategy(Strategy, 'facebook') {
             "signupDate": new Date(),
         };
 
-        await this.userRepo.upsert(user);
+        if (request.headers["cf-ipcountry"]) {
+            user.country = request.headers["cf-ipcountry"];
+            user.city = request.headers["cf-ipcity"] || null;
+        }
+
+        user = await this.userRepo.upsert(user);
 
         return done(null, user);
     }

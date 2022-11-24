@@ -2,8 +2,10 @@ import { Get, Post, All, Controller, Res, Req, Param, Session, HttpStatus, UseGu
 import { Response, Request, NextFunction } from 'express';
 import { ConfigService, ConfigKey } from '../config/config.service';
 import { WifiRepo } from '../data/wifi/wifi.repo';
+import { UserRepo } from '../data/user/user.repo';
 import { CommsService } from '../comms/comms.service';
 import { Message } from '../data/message/message.model';
+import { User } from '../data/user/user.model';
 import { Wifi } from '../data/wifi/wifi.model';
 import { AuthGuard } from '../auth/auth.guard';
 import { Recaptcha, RecaptchaResult, RecaptchaVerificationResult } from '@nestlab/google-recaptcha';
@@ -16,6 +18,7 @@ export class WebController {
     constructor(
         private readonly configService: ConfigService,
         private readonly wifiRepo: WifiRepo,
+        private readonly userRepo: UserRepo,
         private readonly commsService: CommsService,
     ) { }
 

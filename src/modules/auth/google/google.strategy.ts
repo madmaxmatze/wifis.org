@@ -37,13 +37,12 @@ export class GoogleStrategy extends PassportStrategy(Strategy, 'google') {
         
         if (request.headers["cf-ipcountry"]) {
             user.country = request.headers["cf-ipcountry"];
-        }
-        if (request.headers["cf-ipcity"]) {
-            user.city = request.headers["cf-ipcity"];
+            user.city = request.headers["cf-ipcity"] || null;
         }
 
-        await this.userRepo.upsert(user);
+        user = await this.userRepo.upsert(user);
 
+        console.log (done);
         return done(null, user);
     }
 }

@@ -6,12 +6,12 @@ import { UserRepo } from '../user/user.repo';
 
 @Injectable()
 export class WifiRepo {
-    private wifiCollection: CollectionReference;
-    private userRepo: UserRepo;
+    private wifiCollection: CollectionReference<Wifi>;
 
-    constructor(@Inject("FIRESTORE") firestore: Firestore, userRepo: UserRepo) {
-        this.wifiCollection = firestore.collection('wifis');
-        this.userRepo = userRepo;
+    constructor(
+        private readonly userRepo: UserRepo,
+        @Inject("FIRESTORE") firestore: Firestore) {
+        this.wifiCollection = <CollectionReference<Wifi>>firestore.collection('wifis');
     }
 
     private verifyWifiId(id: string) {
@@ -32,7 +32,7 @@ export class WifiRepo {
         }
     }
 
-    private sanatizeWifi(wifi: Wifi) {
+    private sanatizeWifi(wifi: Wifi): Wifi {
         if (wifi && !wifi.label) {
             wifi.label = wifi.id;
         }
@@ -52,8 +52,8 @@ export class WifiRepo {
         this.verifyWifiId(wifiId);
 
         return this.wifiCollection.doc(wifiId.toLowerCase()).get().then(
-            (documentSnapshot: DocumentSnapshot) => {
-                var wifi = documentSnapshot.exists ? <Wifi>documentSnapshot.data() : null;
+            (documentSnapshot: DocumentSnapshot<Wifi>) => {
+                var wifi = documentSnapshot.exists ? documentSnapshot.data() : null;
                 if (wifi && userId && userId !== wifi.userId) {
                     wifi = null;
                 }
@@ -64,11 +64,10 @@ export class WifiRepo {
 
     async getAllByUserId(userId: string): Promise<Wifi[]> {
         this.userRepo.verifyUserId(userId);
-        console.log ("userId", userId);
         return this.wifiCollection
             .where("userId", "==", userId).get()
-            .then((querySnapshot: QuerySnapshot) => {
-                return querySnapshot.docs.map((doc: QueryDocumentSnapshot) => this.sanatizeWifi(<Wifi>doc.data()));
+            .then((querySnapshot: QuerySnapshot<Wifi>) => {
+                return querySnapshot.docs.map((doc: QueryDocumentSnapshot<Wifi>) => this.sanatizeWifi(doc.data()));
             });
     }
 
@@ -101,16 +100,11 @@ export class WifiRepo {
         this.verifyWifiId(wifiId);
         this.userRepo.verifyUserId(userId);
 
-        return this.wifiCollection
-            .where('id', '==', wifiId.toLowerCase())
-            .where('user', '==', userId)
-            .get()
-            .then((querySnapshot: QuerySnapshot) => {
-                if (querySnapshot.docs.length != 1) {
-                    throw new Error(WifiError.whileWifiDelete);
-                }
-                return querySnapshot.docs.pop().ref.delete();
-            })
-            .then(() => true);
+        return this.get(wifiId).then(wifi => {
+            if (!wifi) { throw new Error(WifiError.invalid); }
+            if (wifi.userId != userId) { throw new Error(WifiError.otherUsersWifi); }
+            this.wifiCollection.doc(wifiId.toLowerCase()).delete();
+            return true;
+        });
     }
 }

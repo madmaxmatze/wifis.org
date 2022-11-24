@@ -4,10 +4,10 @@ import { Firestore, CollectionReference } from '@google-cloud/firestore';
 
 @Injectable()
 export class MessageRepo {
-    private messagesCollection: CollectionReference = null;
+    private messagesCollection: CollectionReference<Message> = null;
 
     constructor(@Inject("FIRESTORE") firestore: Firestore) {
-        this.messagesCollection = firestore.collection('messages');
+        this.messagesCollection = <CollectionReference<Message>>firestore.collection('messages');
     }
 
     async insert(message: Message) {
