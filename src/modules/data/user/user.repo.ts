@@ -77,7 +77,7 @@ export class UserRepo {
             return this.update(existingUser, unsavedUser);
         }
 
-        return await this.insert_InCaseOfFuckingStupidGoogleIdProblem(unsavedUser) || this.insert(unsavedUser);
+        return await this.insert_inCaseEmailForThisProviderAlreadyExists(unsavedUser) || this.insert(unsavedUser);
     }
 
     /**
@@ -120,13 +120,11 @@ export class UserRepo {
     }
 
     /**
-    * Because of not unique UserIDs accross login methods Google Users need some special attention
+    * Because of not unique UserIDs accross login methods Google  AND Facebook Users need some special attention
     * read more https://stackoverflow.com/questions/74524494
     * @param user 
     */
-    private async insert_InCaseOfFuckingStupidGoogleIdProblem(unsavedUser: User): Promise<User> {
-        if (unsavedUser.provider != "google") { return null; }
-
+    private async insert_inCaseEmailForThisProviderAlreadyExists(unsavedUser: User): Promise<User> {
         var existingUserWithSameEmail: User = await this.getByEmailAndProvider(unsavedUser.email, unsavedUser.provider);
         if (existingUserWithSameEmail && existingUserWithSameEmail.id != unsavedUser.id) {
             // at this point it seems that a user with a different UserId, but same Email already exists, so we have to merge
@@ -139,12 +137,12 @@ export class UserRepo {
                 .where("userId", "==", existingUserWithSameEmail.id).get()
                 .then((querySnapshot: QuerySnapshot<Wifi>) => {
                     querySnapshot.docs.forEach((queryDocumentSnapshot: QueryDocumentSnapshot<Wifi>) => {
-                        console.log("Change wifi owner", `owner of wifi '${queryDocumentSnapshot.data().id}' changed to '${unsavedUserWithAllDataFromExistingUser.id}'`);
+                        // console.log("Change wifi owner", `owner of wifi '${queryDocumentSnapshot.data().id}' changed to '${unsavedUserWithAllDataFromExistingUser.id}'`);
                         googleIdMigrationBatch.update(queryDocumentSnapshot.ref, { "userId": unsavedUserWithAllDataFromExistingUser.id });
                     })
                 });
 
-            console.log("delete user", `delete user with ID '${existingUserWithSameEmail.id}'`);
+            // console.log("delete user", `delete user with ID '${existingUserWithSameEmail.id}'`);
             googleIdMigrationBatch.delete(this.getDocRef(existingUserWithSameEmail.id));
 
             return googleIdMigrationBatch.commit()

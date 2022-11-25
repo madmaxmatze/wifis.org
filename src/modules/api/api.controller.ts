@@ -1,4 +1,4 @@
-import { Controller, Post, Res, Session, UseFilters, Body, UseGuards } from '@nestjs/common';
+import { Controller, All, Post, Res, Session, UseFilters, Body, UseGuards, NotFoundException } from '@nestjs/common';
 import { Response } from 'express';
 import { WifiRepo } from '../data/wifi/wifi.repo';
 import { Wifi } from '../data/wifi/wifi.model';
@@ -38,5 +38,10 @@ export class ApiController {
     async deleteWifi(@Session() session: Record<string, any>, @Res() response: Response, @Body('id') wifiId: string) {
         var isDeleted: boolean = await this.wifiRepo.delete(wifiId, session.user.id);
         response.json({ "success": isDeleted });
+    }
+
+    @All(['', '*'])
+    async catchAll() {
+        throw new NotFoundException();
     }
 }

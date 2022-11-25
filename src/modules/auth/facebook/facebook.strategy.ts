@@ -15,8 +15,9 @@ export class FacebookStrategy extends PassportStrategy(Strategy, 'facebook') {
             // app see: https://developers.facebook.com/apps/194803573923224/fb-login/settings/
             clientID: configService.getValue(ConfigKey.OAUTH_FACEBOOK_CLIENT_ID),
             clientSecret: configService.getValue(ConfigKey.OAUTH_FACEBOOK_CLIENT_SECRET),
-            callbackURL: "/p/login/facebook/redirect",
-            profileFields: ['id', 'displayName', 'email'],
+            callbackURL: "__SET_IN_AUTH_GUARD_AT_REQUEST_SCOPE__",
+            profileFields: ['email'],
+            scope: ['email'],
             enableProof: true,
             passReqToCallback: true,
         });
@@ -39,6 +40,9 @@ export class FacebookStrategy extends PassportStrategy(Strategy, 'facebook') {
             user.country = request.headers["cf-ipcountry"];
             user.city = request.headers["cf-ipcity"] || null;
         }
+
+        console.log ("profile", profile);
+        console.log ("user", user);
 
         user = await this.userRepo.upsert(user);
 

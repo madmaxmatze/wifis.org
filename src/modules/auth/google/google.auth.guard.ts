@@ -1,5 +1,4 @@
 import { ExecutionContext, Injectable } from "@nestjs/common";
-import { Request } from 'express';
 import { AuthGuard } from "@nestjs/passport";
 import { ConfigService } from '../../config/config.service';
 

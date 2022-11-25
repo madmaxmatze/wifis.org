@@ -29,17 +29,17 @@ export class ConfigService {
         ConfigService.developmentHostname = developmentHostname;
 
         if (ConfigService.config === null) {
-            ConfigService.config = await ConfigService.getGcpSecret(process.env.GCP_PROJECT_ID, "production");
+            ConfigService.config = await ConfigService.getGcpSecret();
             // ConfigService.addConfigToEnv(ConfigService.config);
         }
     }
 
-    private static async getGcpSecret(gcpProjectId: String, gcpSecretId: String) {
+    private static async getGcpSecret() {
         try {
             var secretManagerServiceClient = new SecretManagerServiceClient();
 
             const [version] = await secretManagerServiceClient.accessSecretVersion({
-                name: `projects/${gcpProjectId}/secrets/${gcpSecretId}/versions/latest`
+                name: `projects/${process.env.K_SERVICE}/secrets/production/versions/latest`
             });
 
             const payload = version.payload.data.toString();

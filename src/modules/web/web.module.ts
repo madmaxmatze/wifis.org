@@ -4,6 +4,7 @@ import { DataModule } from '../data/data.module';
 import { ConfigModule } from '../config/config.module';
 import { CommsModule } from '../comms/comms.module';
 import { ConfigService, ConfigKey } from '../config/config.service';
+import { RedirectMiddleware } from './middleware/redirect.middleware';
 import { I18nMiddleware } from './middleware/i18n.middleware';
 import { HbsMiddleware } from './middleware/hbs.middleware';
 import { WebController } from './web.controller';
@@ -45,6 +46,6 @@ export class WebModule {
             this.configService.setRequestHostname(req.hostname);
             next();
         }).forRoutes('*')
-        consumer.apply(I18nMiddleware, HbsMiddleware).forRoutes('*');
+        consumer.apply(RedirectMiddleware, I18nMiddleware, HbsMiddleware).forRoutes('*');
     }
 }
