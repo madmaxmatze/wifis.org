@@ -25,9 +25,7 @@ export class ConfigService {
 
     private static config : {} = null;
 
-    static async init(developmentHostname: string) {
-        ConfigService.developmentHostname = developmentHostname;
-
+    static async init() {
         if (ConfigService.config === null) {
             ConfigService.config = await ConfigService.getGcpSecret();
             // ConfigService.addConfigToEnv(ConfigService.config);
@@ -68,8 +66,10 @@ export class ConfigService {
 
     getHostname() {
         if (!ConfigService.requestHostname || ConfigService.requestHostname == "127.0.0.1") {
-            return ConfigService.developmentHostname;
+            this.setRequestHostname(process.env.HOSTNAME);
         }
+
+        console.log ("ConfigService.requestHostname", ConfigService.requestHostname);
 
         return ConfigService.requestHostname;
     }

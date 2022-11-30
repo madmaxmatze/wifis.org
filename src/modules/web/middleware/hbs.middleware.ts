@@ -2,6 +2,7 @@ import { Injectable, NestMiddleware } from '@nestjs/common';
 import { Response, NextFunction } from 'express';
 import { resolve } from 'path';
 import * as hbs from 'hbs';
+import * as crypto from 'crypto';
 
 hbs.registerHelper('assign', function (varName, varValue, options) {
     if (!options.data.root) {
@@ -72,13 +73,14 @@ export class HbsMiddleware implements NestMiddleware {
         response.locals.query = request.query;
         response.locals.service = process.env.K_SERVICE || '???';
         response.locals.revision = process.env.K_REVISION || '???';
+        response.locals.version = crypto.createHash('md5').update(response.locals.revision).digest('hex').substr(0, 8);
         if (!process.env.NODE_ENV) {
             process.env.NODE_ENV = request.app.get('env');
         }
         response.locals.env = process.env.NODE_ENV;
         response.locals.user = request.session.user;
         console.log (process.env);
-        
+
         hbs.registerPartials(resolve(__dirname, "../views/partials"));
 
         request.app

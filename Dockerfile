@@ -5,7 +5,7 @@
 FROM node:18-alpine As development
 
 ENV NODE_ENV development
-ENV GCP_PROJECT_ID 963681635818
+ENV HOSTNAME 8080-cs-590268403158-default.cs-europe-west4-fycr.cloudshell.dev
 
 # https://btholt.github.io/complete-intro-to-containers/build-a-nodejs-app
 USER node
@@ -31,9 +31,6 @@ COPY --chown=node:node . .
 # Base image for production
 FROM node:18-alpine As build
 
-# Set NODE_ENV environment variable
-ENV GCP_PROJECT_ID 963681635818
-
 USER node
 
 # Create app directory
@@ -58,7 +55,6 @@ RUN npm ci --only=production && npm cache clean --force
 FROM node:18-alpine As production
 
 ENV NODE_ENV production
-ENV GCP_PROJECT_ID 963681635818
 
 # Copy the bundled code to the production image
 COPY --chown=node:node --from=build /usr/src/app/node_modules ./node_modules

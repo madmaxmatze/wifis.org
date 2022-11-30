@@ -10,8 +10,7 @@ import { ConfigService, ConfigKey } from './modules/config/config.service';
 import * as FirestoreStoreFactory from 'firestore-store';  // https://www.npmjs.com/package/firestore-store
 
 async function bootstrap() {
-    var developmentDomain = "8080-cs-590268403158-default.cs-europe-west4-fycr.cloudshell.dev";
-    await ConfigService.init(developmentDomain);
+    await ConfigService.init();
     
     const app = await NestFactory.create<NestExpressApplication>(AppModule);
     
