@@ -3,14 +3,23 @@ import { Request, Response, NextFunction } from 'express';
 
 @Injectable()
 export class RedirectMiddleware implements NestMiddleware {
-    use(req: Request, res: Response, next: NextFunction) {
-        var domain = req.hostname;
-        var url = req.baseUrl;
+    use(request: Request, response: Response, next: NextFunction) {
+        var domain = request.hostname;
 
-        // fix any redirect to wifis.org/www...
-        if (url == "/www") { return res.redirect("/", 301); }
-        if (url.startsWith("/www/")) { return res.redirect(url.substr(4), 301); }
-
+        if (request.baseUrl) {
+            var url = request.baseUrl
+                .concat("/")                    // add slash for easier regexes (will be fixed at the end)
+                .replace("/m/", "/")            // old mobile subdomain
+                .replace("/www/", "/")          // old www subdomain
+                .replace(/\/+/g, "/")           // replace multiple "/" by one
+                .replace(/(.+?)\/*$/ig, "$1")   // cut of tailing "/" if not homepage
+            
+            if (url != request.baseUrl) {
+                console.log ("url rewriting", `from '${request.baseUrl}' to '${url}'`);
+                return response.redirect(url, 301);
+            }
+        }
+ 
         // dont perform DOMAIN redirects on PROD
         /*
         if (["127.0.0.1", "localhost"].includes(req.hostname)) {

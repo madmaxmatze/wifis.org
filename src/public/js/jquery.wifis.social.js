@@ -2,7 +2,6 @@
 	var WifisSocial = (function($element, config) {
 		init = function() {
 			$element.mouseover(function() {
-				_gaq.push([ '_trackEvent', 'ajax', 'activateSocialArea' ]);
 				$element.unbind("mouseover").addClass("activatedSocialArea");
 				initTwitter($element.find(".socialPageTwitter"));
 				initFacebook($element.find(".socialPageFacebook"));

@@ -83,7 +83,6 @@
 		validate = function(wifiid) {
 			if (!validationUsed) {
 				validationUsed = true;
-				_gaq.push([ '_trackEvent', 'ajax', 'validateWifiId' ]);
 			}
 
 			if (!wifiid) {

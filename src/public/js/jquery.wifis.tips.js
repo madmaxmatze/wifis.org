@@ -13,7 +13,6 @@
 			var headline = $(this);
 			if (headline.hasClass("headline")) {
 				if (!tipWasClicked) {
-					_gaq.push([ '_trackEvent', 'ajax', 'openTips' ]);
 					tipWasClicked = true;
 				}
 				$(this).siblings(".text").slideToggle(200, function() {
