@@ -9,16 +9,6 @@
     <meta name="keywords" content="wifi, wifis, wlan, share, email, contact" />
     <meta name="author" content="wifis.org" />
     
-    {{!-- TODO:only on homepage, when not logged in -->
-    <meta property="fb:page_id" content="220511144683523" />
-    <meta name="google-site-verification" content="AoQ12NdOtudrTmlJKk3udoPXhvFGXHn3J3DfBtd9emk" />
-    <meta name="p:domain_verify" content="fdf3e6814e01600aeebed88f689b5053" />
-    <meta name="msvalidate.01" content="3F774BB26121B84A4DA1801F0A554ED5" />
-    --}}
-    
-    <link rel="shortcut icon" type="image/x-icon" href="/img/favicon.ico" />
-    <link rel="icon" type="image/png" href="/img/favicon.ico" />
-
     <!-- Google Tag Manager -->
     <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
     new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
@@ -52,7 +42,7 @@
             service: "{{service}}"
             getLocale: "{{getLocale}}"
             getLocales: "{{getLocales}}" 
-            env: "{{env}}"     
+            env: "{{env}}"    
         */
 
         var config = {
@@ -74,5 +64,8 @@
     <script type='text/javascript' src='/js/jquery.wifis.tips.js?{{version}}'></script>
     <script type='text/javascript' src='/js/wifis.controller.js?{{version}}'></script>
 </body>
+
+urlPath: "{{urlPath}}"<br>
+urlPathWithoutLang: "{{urlPathWithoutLang}}"<br>
 
 </html>

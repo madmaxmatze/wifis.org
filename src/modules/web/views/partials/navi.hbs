@@ -1,99 +1,108 @@
 <div class="navbar navbar-fixed-top" data-dropdown="dropdown">
     <div class="navbar-inner">
         <div class="container">
-
-            <a class="sprite brand active" href="/"><span>/</span></a>
+            <a class="sprite brand active" href="/{{#unless (equals getLocale "en")}}{{getLocale}}{{/unless}}">
+                <span>wifis.org</span>
+            </a>
 
             <ul class="nav pull-right">
                 {{#if user}}
-                <li {{#if (equals urlPath "/p/wifis")}}class="active" {{/if}}>
-                    <a href="/p/wifis">{{{__ "wifis.linklabel"}}}</a>
-                </li>
+                    <li {{#if (equals urlPath "/p/wifis")}}class="active" {{/if}}>
+                        <a href="/p/wifis">{{{__ "wifis.linklabel"}}}</a>
+                    </li>
                 {{/if}}
 
-                <li class="dropdown 
-                    {{#if (or (equals urlPath "/p/about") (equals urlPath "/p/faq") (equals urlPath "/p/press") (equals urlPath "/p/tos"))}}
-                        active
-                    {{/if}}
-                ">
-                    <a href="/p/faq" class="dropdown-toggle">More<b class="caret"></b></a>
+                <li class="dropdown {{#if (or (equals urlPathWithoutLang "/about") (equals urlPathWithoutLang "/faq") (equals urlPathWithoutLang "/press") (equals urlPathWithoutLang "/tos"))}}active{{/if}}">
+                    <a href="/{{getLocale}}/faq" class="dropdown-toggle">
+                        {{__ "label.otherwebsite.title"}}<b class="caret"></b>
+                    </a>
                     <ul class="dropdown-menu">
-                        <li {{#if (equals urlPath "/p/faq")}}class="active" {{/if}}><a href="/p/faq">FAQ</a></li>
-                        <li {{#if (equals urlPath "/p/about")}}class="active" {{/if}}><a href="/p/about">About</a></li>
-                        <li {{#if (equals urlPath "/p/press")}}class="active" {{/if}}><a href="/p/press">Press</a></li>
-                        <!--<li<c:if test='${uri==CONST.URL_PATH_TOS}'> class="active"</c:if>><a href="${CONST.URL_PATH_TOS}"><spring:message code="tos.linklabel" /></a></li>
-                             -->
-                        <li><a target="_blank" href="https://blog.wifis.org"><span class="external sprite">Blog</span></a></li>
+                        <li {{#if (equals urlPathWithoutLang "/faq")}}class="active" {{/if}}>
+                            <a href="/{{getLocale}}/faq">{{__ "faq.linklabel"}}</a>
+                        </li>
+                        <li {{#if (equals urlPathWithoutLang "/about")}}class="active" {{/if}}>
+                            <a href="/{{getLocale}}/about">{{__ "about.linklabel"}}</a>
+                        </li>
+                        <li {{#if (equals urlPathWithoutLang "/press")}}class="active" {{/if}}>
+                            <a href="/{{getLocale}}/press">{{__ "press.linklabel"}}</a>
+                        </li>
+                        <li>
+                            <a target="_blank" href="https://blog.wifis.org">
+                                <span class="external sprite">{{__ "blog.linklabel"}}</span>
+                            </a>
+                        </li>
                     </ul>
                 </li>
 
-
-                <li id="langDropDown" class="dropdown{{#if (equals urlPath "/p/languages")}} active{{/if}}">
-                    <a href="/p/languages?referer={{urlPath}}" class="dropdown-toggle"><span
-                            class="sprite flag flag_{{getLocale}}"></span><b class="caret"></b></a>
+                <li id="langDropDown" class="dropdown{{#if (equals urlPathWithoutLang "/languages")}} active{{/if}}">
+                    <a href="/{{getLocale}}/languages?referer={{urlPath}}" class="dropdown-toggle">
+                        <span class="sprite flag flag_{{getLocale}}"></span>
+                        <b class="caret"></b>
+                    </a>
 
                     <ul class="dropdown-menu">
                         {{#each getLocales}}
-                        <li{{#if (equals ../getLocale this)}} class="active" {{/if}}>
-
-                            <a href="?lang={{this}}"><span class="sprite flag flag_{{this}}"></span>
-                                {{../__ (concat "label.lang." this)}}
-
+                            <li{{#if (equals ../getLocale this)}} class="active"{{/if}}>
+                                <a href=
+                                    {{#if (equals ../urlPath ../urlPathWithoutLang)}}
+                                        "{{../urlPathWithoutLang}}?lang={{this}}"
+                                    {{else}}
+                                        "/{{this}}{{../urlPathWithoutLang}}"
+                                    {{/if}}
+                                >
+                                    <span class="sprite flag flag_{{this}}"></span>
+                                    {{../__ (concat "label.lang." this)}}
+                                </a>
+                            </li>
+                        {{/each}}
+                        <li>
+                            <a href="/{{getLocale}}/languages?referer={{urlPath}}" style="text-align: center;">
+                                <b style="color: black;">??</b>
                             </a>
+                        </li>
+                    </ul>
                 </li>
-                {{/each}}
 
-                  <li><a href="/p/languages?referer={{urlPath}}" style="text-align: center;"> <b
-                            style="color: black;">??</b>
-                    </a></li>
-            </ul>
-            </li>
-
-            <li class="dropdown{{#if (equals urlPath "/p/login")}} active{{/if}}">
-                <!-- when NOT logged in -->
-                {{#if user}}
-                <a href="#" class="dropdown-toggle" id="logout-menu-item" title="logout">
-                    <span class="loginName" title="logout">
-                        {{#if user.name}}
-                        {{user.name}}
-                        {{else}}
-                        {{user.email}}
-                        {{/if}}
-                    </span>
-                    <span class="sprite loginType icon icon-{{user.provider}}"></span>
-                    <b class="caret"></b>
-                </a>
-                <ul class="dropdown-menu">
-                    <li>
-                        {{#if (equals urlPath "/p/wifis")}}
-                            {{assign "logout_redirect" "/"}}
-                        {{else}}
-                            {{assign "logout_redirect" urlPath}}
-                        {{/if}}
-                        <a href="/p/logout?redirect={{logout_redirect}}">{{__ "label.logout"}}</a>
-                    </li>
-                </ul>
-                {{else}}
-                <a href="/p/login" class="dropdown-toggle">{{__ "label.signin"}}<b class="caret"></b></a>
-                <ul class="dropdown-menu">
-                    <li>
-                        <a class="googleLogin" href="/p/login/google" title="Login with google"
-                            rel="nofollow">
-                            <span>{{__ "login.google.hint"}}</span>
+                <li class="dropdown{{#if (equals urlPath "/p/login")}} active{{/if}}">
+                    <!-- when NOT logged in -->
+                    {{#if user}}
+                        <a href="#" class="dropdown-toggle" id="logout-menu-item" title="logout">
+                            <span class="loginName" title="logout">
+                                {{#if user.name}}
+                                    {{user.name}}
+                                {{else}}
+                                    {{user.email}}
+                                {{/if}}
+                            </span>
+                            <span class="sprite loginType icon icon-{{user.provider}}"></span>
+                            <b class="caret"></b>
                         </a>
-                    </li>
-                    <li>
-                        <a class="facebookLogin"
-                            href="/p/login/facebook"
-                            title="Login with Facebook" rel="nofollow">
-                            <span>{{__ "login.facebook.hint"}}</span>
-                        </a>
-                    </li>
-                </ul>
-                {{/if}}
-
-
-            </li>
+                        <ul class="dropdown-menu">
+                            <li>
+                                {{#if (equals urlPath "/p/wifis")}}
+                                    {{assign "logout_redirect" "/"}}
+                                {{else}}
+                                    {{assign "logout_redirect" urlPath}}
+                                {{/if}}
+                                <a href="/p/logout?redirect={{logout_redirect}}">{{__ "label.logout"}}</a>
+                            </li>
+                        </ul>
+                    {{else}}
+                        <a href="/{{getLocale}}/login" class="dropdown-toggle">{{__ "label.signin"}}<b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a class="googleLogin" href="/p/login/google" title="Login with google" rel="nofollow">
+                                    <span>{{__ "login.google.hint"}}</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a class="facebookLogin" href="/p/login/facebook" title="Login with Facebook" rel="nofollow">
+                                    <span>{{__ "login.facebook.hint"}}</span>
+                                </a>
+                            </li>
+                        </ul>
+                    {{/if}}
+                </li>
             </ul>
         </div>
     </div>

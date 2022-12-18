@@ -46,6 +46,6 @@ export class WebModule {
             this.configService.setRequestHostname(req.hostname);
             next();
         }).forRoutes('*')
-        consumer.apply(RedirectMiddleware, I18nMiddleware, HbsMiddleware).forRoutes('*');
+        consumer.apply(I18nMiddleware, HbsMiddleware, RedirectMiddleware).forRoutes('*');
     }
 }

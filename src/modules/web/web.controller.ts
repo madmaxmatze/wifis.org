@@ -1,8 +1,7 @@
-import { Get, Post, All, Controller, Res, Req, Param, Session, HttpStatus, UseGuards, Body, Next, Render } from '@nestjs/common';
-import { Response, Request, NextFunction } from 'express';
+import { Get, Post, All, Controller, Res, Param, Session, HttpStatus, UseGuards, Body, Next, Render } from '@nestjs/common';
+import { Response, NextFunction } from 'express';
 import { ConfigService, ConfigKey } from '../config/config.service';
 import { WifiRepo } from '../data/wifi/wifi.repo';
-import { UserRepo } from '../data/user/user.repo';
 import { CommsService } from '../comms/comms.service';
 import { Message } from '../data/message/message.model';
 import { Wifi } from '../data/wifi/wifi.model';
@@ -11,7 +10,7 @@ import { Recaptcha, RecaptchaResult, RecaptchaVerificationResult } from '@nestla
 
 @Controller()
 export class WebController {
-    private static WIFI_URL: string = ":wifiId([a-zA_Z\_\-]{3,20})/:wifiIdSuffix(*)?";
+    private static WIFI_URL: string = ":wifiId([a-zA-Z\_\-]{3,20})/:wifiIdSuffix(*)?";
     private static HOMEPAGE_URL: string = "";
 
     constructor(
@@ -20,7 +19,7 @@ export class WebController {
         private readonly commsService: CommsService,
     ) { }
 
-    @Get([WebController.HOMEPAGE_URL, "p/:pageId(about|faq|press|tos|languages|login)"])
+    @Get([WebController.HOMEPAGE_URL, ":lang([a-z]{2})", ":lang([a-z]{2})/:pageId(about|faq|press|tos|languages|login)"])
     getPages(@Res() response: Response, @Param('pageId') pageId: string = "home") {
         return response.render(pageId);
     }
@@ -39,7 +38,7 @@ export class WebController {
         @Param('wifiId') wifiId: string, @Param('wifiIdSuffix') wifiIdSuffix: string) {
         response.locals.wifiId = wifiId;
         response.locals.wifiIdSuffix = wifiIdSuffix;
-
+        
         response.locals.wifi = <Wifi>await this.wifiRepo.get(wifiId);
         if (response.locals.wifi) {
             if (response.locals.wifi.label != wifiId) {

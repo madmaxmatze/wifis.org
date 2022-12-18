@@ -1,18 +1,18 @@
 <ul class="nav nav-tabs">
-    <li {{#if (equals urlPath "/p/faq")}}class="active" {{/if}}>
-        <a href="/p/faq">{{__ "faq.linklabel"}}</a>
+    <li {{#if (equals urlPathWithoutLang "/faq")}}class="active" {{/if}}>
+        <a href="/{{getLocale}}/faq">{{__ "faq.linklabel"}}</a>
     </li>
-    <li {{#if (equals urlPath "/p/about")}}class="active" {{/if}}>
-        <a href="/p/about">{{__ "about.linklabel"}}</a>
+    <li {{#if (equals urlPathWithoutLang "/about")}}class="active" {{/if}}>
+        <a href="/{{getLocale}}/about">{{__ "about.linklabel"}}</a>
     </li>
-    <li {{#if (equals urlPath "/p/press")}}class="active" {{/if}}>
-        <a href="/p/press">{{__ "press.linklabel"}}</a>
+    <li {{#if (equals urlPathWithoutLang "/press")}}class="active" {{/if}}>
+        <a href="/{{getLocale}}/press">{{__ "press.linklabel"}}</a>
     </li>
     <li>
         <a href="https://blog.wifis.org" target="_blank"><span class="external sprite">{{__ "blog.linklabel"}}</span></a>
     </li>
-    <li {{#if (equals urlPath "/p/tos")}}class="active" {{/if}}>
-        <a href="/p/tos">{{__ "tos.linklabel"}}</a>
+    <li {{#if (equals urlPathWithoutLang "/tos")}}class="active" {{/if}}>
+        <a href="/{{getLocale}}/tos">{{__ "tos.linklabel"}}</a>
     </li>
 </ul>
 <style>.contenttop {margin-top: 30px !important;}</style>

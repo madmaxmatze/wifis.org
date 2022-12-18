@@ -11,8 +11,12 @@ hbs.registerHelper('assign', function (varName, varValue, options) {
     options.data.root[varName] = varValue;
 });
 
+hbs.registerHelper('and', function (/* any, any, ..., options */) {
+    return [...arguments].slice(0, -1).every(Boolean);
+});
+
 hbs.registerHelper('or', function (/* any, any, ..., options */) {
-    return [...arguments].slice(0, -1).some((element) => element == true);
+    return [...arguments].slice(0, -1).some(Boolean);
 });
 
 hbs.registerHelper('stripScripts', function (param) {
@@ -68,8 +72,8 @@ hbs.registerHelper('json', function (object: any) {
 export class HbsMiddleware implements NestMiddleware {
     use(request: any, response: Response, next: NextFunction) {
         // pass some variables to templates
-        response.locals.url = request.url;
         response.locals.urlPath = request.originalUrl;
+        response.locals.urlPathWithoutLang = request.originalUrl.replace(/^\/\w{2}$/, "/").replace(/^\/\w{2}\//, "/");
         response.locals.query = request.query;
         response.locals.service = process.env.K_SERVICE || '???';
         response.locals.revision = process.env.K_REVISION || '???';
@@ -79,8 +83,7 @@ export class HbsMiddleware implements NestMiddleware {
         }
         response.locals.env = process.env.NODE_ENV;
         response.locals.user = request.session.user;
-        console.log (process.env);
-
+    
         hbs.registerPartials(resolve(__dirname, "../views/partials"));
 
         request.app

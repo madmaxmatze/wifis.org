@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url>
+    <loc>https://wifis.org</loc>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="de" href="https://wifis.org/de" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://wifis.org/es" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://wifis.org/fr" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://wifis.org/it" />
+    <xhtml:link rel="alternate" hreflang="ms" href="https://wifis.org/ms" />
+    <xhtml:link rel="alternate" hreflang="nl" href="https://wifis.org/nl" />
+    <xhtml:link rel="alternate" hreflang="ru" href="https://wifis.org/ru" />
+    <changefreq>always</changefreq>
+  </url>
+  <url>
+      <loc>https://wifis.org/en/about</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://wifis.org/de/about" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://wifis.org/es/about" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://wifis.org/fr/about" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://wifis.org/it/about" />
+    <xhtml:link rel="alternate" hreflang="ms" href="https://wifis.org/ms/about" />
+    <xhtml:link rel="alternate" hreflang="nl" href="https://wifis.org/nl/about" />
+    <xhtml:link rel="alternate" hreflang="ru" href="https://wifis.org/ru/about" />
+  </url>
+  <url>
+    <loc>https://wifis.org/en/faq</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://wifis.org/de/faq" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://wifis.org/es/faq" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://wifis.org/fr/faq" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://wifis.org/it/faq" />
+    <xhtml:link rel="alternate" hreflang="ms" href="https://wifis.org/ms/faq" />
+    <xhtml:link rel="alternate" hreflang="nl" href="https://wifis.org/nl/faq" />
+    <xhtml:link rel="alternate" hreflang="ru" href="https://wifis.org/ru/faq" />
+  </url>
+  <url>
+    <loc>https://wifis.org/en/press</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://wifis.org/de/press" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://wifis.org/es/press" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://wifis.org/fr/press" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://wifis.org/it/press" />
+    <xhtml:link rel="alternate" hreflang="ms" href="https://wifis.org/ms/press" />
+    <xhtml:link rel="alternate" hreflang="nl" href="https://wifis.org/nl/press" />
+    <xhtml:link rel="alternate" hreflang="ru" href="https://wifis.org/ru/press" />
+  </url>
+  <url>
+    <loc>https://wifis.org/en/tos</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://wifis.org/de/tos" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://wifis.org/es/tos" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://wifis.org/fr/tos" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://wifis.org/it/tos" />
+    <xhtml:link rel="alternate" hreflang="ms" href="https://wifis.org/ms/tos" />
+    <xhtml:link rel="alternate" hreflang="nl" href="https://wifis.org/nl/tos" />
+    <xhtml:link rel="alternate" hreflang="ru" href="https://wifis.org/ru/tos" />
+  </url>
+  <url>
+    <loc>https://wifis.org/en/login</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://wifis.org/de/login" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://wifis.org/es/login" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://wifis.org/fr/login" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://wifis.org/it/login" />
+    <xhtml:link rel="alternate" hreflang="ms" href="https://wifis.org/ms/login" />
+    <xhtml:link rel="alternate" hreflang="nl" href="https://wifis.org/nl/login" />
+    <xhtml:link rel="alternate" hreflang="ru" href="https://wifis.org/ru/login" />
+  </url>
+  <url>
+    <loc>https://wifis.org/en/language</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://wifis.org/de/language" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://wifis.org/es/language" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://wifis.org/fr/language" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://wifis.org/it/language" />
+    <xhtml:link rel="alternate" hreflang="ms" href="https://wifis.org/ms/language" />
+    <xhtml:link rel="alternate" hreflang="nl" href="https://wifis.org/nl/language" />
+    <xhtml:link rel="alternate" hreflang="ru" href="https://wifis.org/ru/language" />
+  </url>
+  <url>
+    <loc>https://wifis.org/example</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://wifis.org/example?lang=de" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://wifis.org/example?lang=es" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://wifis.org/example?lang=fr" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://wifis.org/example?lang=it" />
+    <xhtml:link rel="alternate" hreflang="ms" href="https://wifis.org/example?lang=ms" />
+    <xhtml:link rel="alternate" hreflang="nl" href="https://wifis.org/example?lang=nl" />
+    <xhtml:link rel="alternate" hreflang="ru" href="https://wifis.org/example?lang=ru" />
+  </url>
+  <url>
+    <loc>https://wifis.org/contact</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://wifis.org/contact?lang=de" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://wifis.org/contact?lang=es" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://wifis.org/contact?lang=fr" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://wifis.org/contact?lang=it" />
+    <xhtml:link rel="alternate" hreflang="ms" href="https://wifis.org/contact?lang=ms" />
+    <xhtml:link rel="alternate" hreflang="nl" href="https://wifis.org/contact?lang=nl" />
+    <xhtml:link rel="alternate" hreflang="ru" href="https://wifis.org/contact?lang=ru" />
+  </url>
+</urlset>

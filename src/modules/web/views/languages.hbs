@@ -5,8 +5,8 @@
     <ul>
         {{#each getLocales}}
         <li>
-            <a href="{{../query.referer}}?lang={{this}}" class="sprite flag flag_{{this}}"></a>
-            <a href="{{../query.referer}}?lang={{this}}">{{../__ (concat "label.lang." this)}}</a>
+            <a href="/{{this}}?redirectUrl={{../query.referer}}" class="sprite flag flag_{{this}}"></a>
+            <a href="/{{this}}?redirectUrl={{../query.referer}}">{{../__ (concat "label.lang." this)}}</a>
         </li>
         {{/each}}
     </ul>
@@ -19,4 +19,4 @@
 <br>
 <br>
 No problem - we would be very happy to welcome you in our team of people supporting and translating this website. Just
-<a href="/p/about">contact us</a>
+<a href="/{{getLocale}}/about">contact us</a>
