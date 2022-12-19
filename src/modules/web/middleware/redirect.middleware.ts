@@ -10,7 +10,8 @@ export class RedirectMiddleware implements NestMiddleware {
         return url
             .replace(/\/+/g, "/")           // replace multiple "/" by one
             .replace(/(.+?)\/*$/ig, "$1")   // cut of tailing "/" if not en homepage "/"
-            .replace(/\?+$/ig, "");
+            .replace(/\?+/ig, "?")          // replace multiple "???" with one
+            .replace(/\?+$/ig, "");         // cut of tailing "?"
     }
 
     redirect(request: Request, response: Response, type: string, redirectStatus: number, redirectUrl : string) {
@@ -50,10 +51,10 @@ export class RedirectMiddleware implements NestMiddleware {
         if (request.originalUrl) {
             var redirectUrl = request.originalUrl
                 .concat("/")                    // add slash for easier regexes (will be fixed at the end)
-                .replace("/m/", "/")            // old mobile subdomain
-                .replace("/www/", "/")          // old www subdomain
-                .replace(/\/p\/(about|faq|press|tos|languages|login)$/g, "/en/$1");  // old /p/ url for pages
-            redirectUrl = this.sanatizeUrl(redirectUrl);
+                .replace(/^\/(s|m|api|static|www)\//, "/")            // old mobile subdomain
+                .replace(/\/p\/(about|faq|press|tos|languages|login)\//g, "/" + response.getLocale() + "/$1/");  // old /p/ url for pages
+            
+                redirectUrl = this.sanatizeUrl(redirectUrl);
 
             if (redirectUrl != request.originalUrl) {
                 return this.redirect(request, response, "Lagacy Paths", 301, redirectUrl);
