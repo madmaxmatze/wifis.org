@@ -10,7 +10,13 @@
     <meta name="author" content="wifis.org" />
     {{#if preventIndexing}}
         <meta name="robots" content="noindex">
+    {{else}}
+        {{#if canonicalUrl}}
+            <link rel=“canonical” href=“https://wifis.org{{canonicalUrl}}” />
+        {{/if}}
     {{/if}}
+
+    
     
     <!-- Google Tag Manager -->
     <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
@@ -21,6 +27,7 @@
     <!-- End Google Tag Manager -->
 
     <link href="//fonts.googleapis.com/css?family=Bevan" rel="stylesheet" type="text/css">
+    {{!-- TODO: Update Boostrap to latest version --}}
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.2.2/css/bootstrap.min.css" />
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <link type="text/css" rel="stylesheet" href="/css/style.css" />

@@ -2,9 +2,11 @@
 
 {{#if wifiUserId}}
     {{!-- only contact and example wifi should be indexed by search engines  --}}
-    {{#unless (or (equals wifiId "contact") (equals wifiId "example"))}}
+    {{#if (or (equals wifiId "contact") (equals wifiId "example"))}}
+        {{assign "canonicalUrl" (concat "/" wifiId)}}
+    {{else}}
         {{assign "preventIndexing" true}}
-    {{/unless}}
+    {{/if}}
     
     <h2>
         {{& __ "wifi.headlinePrefix"}}

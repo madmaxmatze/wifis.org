@@ -10,7 +10,7 @@ import { Recaptcha, RecaptchaResult, RecaptchaVerificationResult } from '@nestla
 
 @Controller()
 export class WebController {
-    private static WIFI_URL: string = ":wifiId([a-zA-Z\_\-]{3,20})/:wifiIdSuffix(*)?";
+    private static WIFI_URL: string = ":wifiId([a-zA-Z0-9\_\-]{3,20})/:wifiIdSuffix(*)?";
     private static HOMEPAGE_URL: string = "";
 
     constructor(
@@ -40,15 +40,15 @@ export class WebController {
         response.locals.wifiIdSuffix = wifiIdSuffix;
         
         response.locals.wifi = <Wifi>await this.wifiRepo.get(wifiId);
-        if (response.locals.wifi) {
-            if (response.locals.wifi.label != wifiId) {
-                return response.redirect('/' + response.locals.wifi.label + (wifiIdSuffix ? "/" + wifiIdSuffix : ""));
-            }
-            response.locals.RECAPTCHA_SITE_KEY = this.configService.getValue(ConfigKey.RECAPTCHA_SITE_KEY);
-            response.locals.wifiUserId = response.locals.wifi.userId;
-        } else {
-            response.status(HttpStatus.NOT_FOUND);
+        if (!response.locals.wifi) {
+            return response.status(HttpStatus.NOT_FOUND).render("wifi");
+        }    
+        
+        if (response.locals.wifi.label != wifiId) {
+            return response.redirect('/' + response.locals.wifi.label + (wifiIdSuffix ? "/" + wifiIdSuffix : ""));
         }
+        response.locals.RECAPTCHA_SITE_KEY = this.configService.getValue(ConfigKey.RECAPTCHA_SITE_KEY);
+        response.locals.wifiUserId = response.locals.wifi.userId;
         
         return next();
     }
