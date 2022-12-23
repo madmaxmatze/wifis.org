@@ -1,6 +1,11 @@
 {{assign "title" (concat (__ "wifi.headlinePrefix") " " wifiId)}}
 
 {{#if wifiUserId}}
+    {{!-- only contact and example wifi should be indexed by search engines  --}}
+    {{#unless (or (equals wifiId "contact") (equals wifiId "example"))}}
+        {{assign "preventIndexing" true}}
+    {{/unless}}
+    
     <h2>
         {{& __ "wifi.headlinePrefix"}}
         <a href="/{{wifiId}}">wifis.org/{{wifiId}}</a>{{#if wifiIdSuffix}}<small>/{{wifiIdSuffix}}</small>{{/if}}

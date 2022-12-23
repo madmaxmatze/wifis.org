@@ -4,10 +4,10 @@ import { LocalAuthGuard } from './local/local.auth.guard';
 import { GoogleAuthGuard } from './google/google.auth.guard';
 import { FacebookAuthGuard } from './facebook/facebook.auth.guard';
 
-@Controller()
+@Controller("auth")
 export class AuthController {
     @UseGuards(LocalAuthGuard)
-    @Post('p/login/local')
+    @Post('login/local')
     localLogin(@Req() request: any, @Res() response: Response): any {
         // TODO: How to remove this workaround? Why is user not saved to session
         if (request.user) {
@@ -18,7 +18,7 @@ export class AuthController {
     }
 
     @UseGuards(GoogleAuthGuard)
-    @Get('p/login/google')
+    @Get('login/google')
     googleLogin(@Req() request: any, @Res() response: Response): any {
         // TODO: How to remove this workaround? Why is user not saved to session
         if (request.user) {
@@ -29,7 +29,7 @@ export class AuthController {
     }
 
     @UseGuards(GoogleAuthGuard)
-    @Get('p/login/google/redirect')
+    @Get('login/google/redirect')
     googleAuthRedirect(@Req() request: Request, @Res() response: Response, @Session() session: Record<string, any>): any {
         console.log("google/redirect request.user:", request.user);
         console.log("google/redirect request.session.user", session.user);
@@ -43,7 +43,7 @@ export class AuthController {
     }
 
     @UseGuards(FacebookAuthGuard)
-    @Get('p/login/facebook')
+    @Get('login/facebook')
     facebookLogin(@Req() request: any, @Res() response: Response): any {
         // TODO: How to remove this workaround? Why is user not saved to session
         if (request.user) {
@@ -54,7 +54,7 @@ export class AuthController {
     }
 
     @UseGuards(FacebookAuthGuard)
-    @Get('p/login/facebook/redirect')
+    @Get('login/facebook/redirect')
     facebookAuthRedirect(@Req() request: any, @Res() response: Response): any {
         console.log("facebook/redirect request.user:", request.user);
         console.log("facebook/redirect request.session.user", request.session.user);
@@ -67,7 +67,7 @@ export class AuthController {
         return response.redirect('/p/wifis');
     }
 
-    @Get('p/logout')
+    @Get('logout')
     logout(@Req() request: any, @Res() response: Response, @Query('redirect') redirectUrl: string): any {
         request.session.user = null;
 

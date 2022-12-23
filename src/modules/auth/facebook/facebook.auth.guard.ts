@@ -24,7 +24,7 @@ export class FacebookAuthGuard extends AuthGuard('facebook') {
         return {
             profileFields: ['email'],
             scope: ['email'],
-            "callbackURL": `https://${this.configService.getHostname()}/p/login/facebook/redirect`
+            "callbackURL": `https://${this.configService.getHostname()}/auth/login/facebook/redirect`
         };
     }
 }

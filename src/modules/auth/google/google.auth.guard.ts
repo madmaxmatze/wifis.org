@@ -21,6 +21,6 @@ export class GoogleAuthGuard extends AuthGuard('google') {
      * Extend basic options with request scope specific option
      */
     getAuthenticateOptions(_context: ExecutionContext) {
-        return { "callbackURL": `https://${this.configService.getHostname()}/p/login/google/redirect`};
+        return { "callbackURL": `https://${this.configService.getHostname()}/auth/login/google/redirect`};
     }
 }

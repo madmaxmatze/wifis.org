@@ -2,12 +2,15 @@
 <html lang="{{getLocale}}" class="no-js web lang_{{getLocale}}">
 
 <head>
-    <!-- Wifis.org ♥ developers - help us https://www.wifis.org/p/languages -->
+    <!-- Wifis.org ♥ developers - help us https://www.wifis.org/en/languages -->
     <meta charset="utf-8">
     <title>{{title}}</title>
     <meta name="description" content="{{__ "label.mainTeaser"}}" />
     <meta name="keywords" content="wifi, wifis, wlan, share, email, contact" />
     <meta name="author" content="wifis.org" />
+    {{#if preventIndexing}}
+        <meta name="robots" content="noindex">
+    {{/if}}
     
     <!-- Google Tag Manager -->
     <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
@@ -64,8 +67,4 @@
     <script type='text/javascript' src='/js/jquery.wifis.tips.js?{{version}}'></script>
     <script type='text/javascript' src='/js/wifis.controller.js?{{version}}'></script>
 </body>
-
-urlPath: "{{urlPath}}"<br>
-urlPathWithoutLang: "{{urlPathWithoutLang}}"<br>
-
 </html>

@@ -63,7 +63,7 @@
                     </ul>
                 </li>
 
-                <li class="dropdown{{#if (equals urlPath "/p/login")}} active{{/if}}">
+                <li class="dropdown{{#if (equals urlPathWithoutLang "/login")}} active{{/if}}">
                     <!-- when NOT logged in -->
                     {{#if user}}
                         <a href="#" class="dropdown-toggle" id="logout-menu-item" title="logout">
@@ -84,19 +84,19 @@
                                 {{else}}
                                     {{assign "logout_redirect" urlPath}}
                                 {{/if}}
-                                <a href="/p/logout?redirect={{logout_redirect}}">{{__ "label.logout"}}</a>
+                                <a href="/auth/logout?redirect={{logout_redirect}}">{{__ "label.logout"}}</a>
                             </li>
                         </ul>
                     {{else}}
                         <a href="/{{getLocale}}/login" class="dropdown-toggle">{{__ "label.signin"}}<b class="caret"></b></a>
                         <ul class="dropdown-menu">
                             <li>
-                                <a class="googleLogin" href="/p/login/google" title="Login with google" rel="nofollow">
+                                <a class="googleLogin" href="/auth/login/google" title="Login with google" rel="nofollow">
                                     <span>{{__ "login.google.hint"}}</span>
                                 </a>
                             </li>
                             <li>
-                                <a class="facebookLogin" href="/p/login/facebook" title="Login with Facebook" rel="nofollow">
+                                <a class="facebookLogin" href="/auth/login/facebook" title="Login with Facebook" rel="nofollow">
                                     <span>{{__ "login.facebook.hint"}}</span>
                                 </a>
                             </li>
