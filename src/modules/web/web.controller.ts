@@ -1,6 +1,6 @@
 import { Get, Post, All, Controller, Res, Param, Session, HttpStatus, UseGuards, Body, Next, Render } from '@nestjs/common';
 import { Response, NextFunction } from 'express';
-import { ConfigService, ConfigKey } from '../config/config.service';
+import { ConfigService } from '../config/config.service';
 import { WifiRepo } from '../data/wifi/wifi.repo';
 import { CommsService } from '../comms/comms.service';
 import { Message } from '../data/message/message.model';
@@ -47,7 +47,7 @@ export class WebController {
         if (response.locals.wifi.label != wifiId) {
             return response.redirect('/' + response.locals.wifi.label + (wifiIdSuffix ? "/" + wifiIdSuffix : ""));
         }
-        response.locals.RECAPTCHA_SITE_KEY = this.configService.getValue(ConfigKey.RECAPTCHA_SITE_KEY);
+        response.locals.RECAPTCHA_SITE_KEY = this.configService.getValue(ConfigService.KEYS.RECAPTCHA_SITE_KEY);
         response.locals.wifiUserId = response.locals.wifi.userId;
         
         return next();

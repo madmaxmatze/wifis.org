@@ -4,7 +4,7 @@ import { Message } from '../data/message/message.model';
 import { UserRepo } from '../data/user/user.repo';
 import { User, UserError } from '../data/user/user.model';
 import { MailjetService, MailjetSendResponse } from 'nest-mailjet'
-import { ConfigService, ConfigKey } from '../config/config.service';
+import { ConfigService } from '../config/config.service';
 
 @Injectable()
 export class CommsService {
@@ -54,7 +54,7 @@ export class CommsService {
                     "Email": message.wifiOwnerMail,
                     "Name": message.wifiOwnerName
                 }],
-                "TemplateID": parseInt(this.configService.getValue(ConfigKey.MAILJET_TEMPLATE_ID)),
+                "TemplateID": parseInt(this.configService.getValue(ConfigService.KEYS.MAILJET_TEMPLATE_ID)),
                 "TemplateLanguage": true,
                 "Subject": "Mail from  wifis.org/" + fullWifiId,
                 "Variables": {

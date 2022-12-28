@@ -3,7 +3,7 @@ import { Strategy } from 'passport-facebook';
 import { Injectable } from '@nestjs/common';
 import { User } from '../../data/user/user.model';
 import { UserRepo } from '../../data/user/user.repo';
-import { ConfigService, ConfigKey } from '../../config/config.service';
+import { ConfigService } from '../../config/config.service';
 
 @Injectable()
 export class FacebookStrategy extends PassportStrategy(Strategy, 'facebook') {
@@ -13,8 +13,8 @@ export class FacebookStrategy extends PassportStrategy(Strategy, 'facebook') {
     ) {
         super({
             // app see: https://developers.facebook.com/apps/194803573923224/fb-login/settings/
-            clientID: configService.getValue(ConfigKey.OAUTH_FACEBOOK_CLIENT_ID),
-            clientSecret: configService.getValue(ConfigKey.OAUTH_FACEBOOK_CLIENT_SECRET),
+            clientID: configService.getValue(ConfigService.KEYS.OAUTH_FACEBOOK_CLIENT_ID),
+            clientSecret: configService.getValue(ConfigService.KEYS.OAUTH_FACEBOOK_CLIENT_SECRET),
             callbackURL: "__SET_IN_AUTH_GUARD_AT_REQUEST_SCOPE__",
             profileFields: ['email'],
             scope: ['email'],

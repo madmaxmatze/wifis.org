@@ -1,55 +1,114 @@
 import { Injectable } from '@nestjs/common';
 import { SecretManagerServiceClient } from '@google-cloud/secret-manager';
+import { CloudShellServiceClient } from '@google-cloud/shell';
 import * as ini from 'ini';
 
-export enum ConfigKey {
-    SESSION_SECRET = "SESSION_SECRET",
+enum ConfigKeys {
     GCP_FIRESTORE_PROJECT_ID = "GCP_FIRESTORE_PROJECT_ID",
     GCP_FIRESTORE_CLIENT_EMAIL = "GCP_FIRESTORE_CLIENT_EMAIL",
     GCP_FIRESTORE_PRIVATE_KEY = "GCP_FIRESTORE_PRIVATE_KEY",
+    HOSTNAME_CLOUDSHELL = "HOSTNAME_CLOUDSHELL",
+    HOSTNAME_REQUEST = "HOSTNAME_REQUEST",
+    MAILJET_APIKEY = "MAILJET_APIKEY",
+    MAILJET_APISECRET = "MAILJET_APISECRET",
+    MAILJET_TEMPLATE_ID = "MAILJET_TEMPLATE_ID",
     OAUTH_GOOGLE_CLIENT_ID = "OAUTH_GOOGLE_CLIENT_ID",
     OAUTH_GOOGLE_CLIENT_SECRET = "OAUTH_GOOGLE_CLIENT_SECRET",
     OAUTH_FACEBOOK_CLIENT_ID = "OAUTH_FACEBOOK_CLIENT_ID",
     OAUTH_FACEBOOK_CLIENT_SECRET = "OAUTH_FACEBOOK_CLIENT_SECRET",
     RECAPTCHA_SECRET_KEY = "RECAPTCHA_SECRET_KEY",
     RECAPTCHA_SITE_KEY = "RECAPTCHA_SITE_KEY",
-    MAILJET_APIKEY = "MAILJET_APIKEY",
-    MAILJET_APISECRET = "MAILJET_APISECRET",
-    MAILJET_TEMPLATE_ID = "MAILJET_TEMPLATE_ID"
+    SESSION_SECRET = "SESSION_SECRET",
 }
 
 @Injectable()
 export class ConfigService {
-    private static developmentHostname : String = "";
-    private static requestHostname : String = "";
+    static INJECTION = "CONFIGSERVICE_INJECTION_TOKEN";
+    static KEYS = ConfigKeys;
 
-    private static config : {} = null;
+    private config: {} = null;
 
-    static async init() {
-        if (ConfigService.config === null) {
-            ConfigService.config = await ConfigService.getGcpSecret();
-            // ConfigService.addConfigToEnv(ConfigService.config);
+    async init(): Promise<ConfigService> {
+        this.config = await this.getGcpSecret();
+        console.log(`${Object.keys(this.config).length} Configs loaded`);
+
+        if (!this.isProdEnv()) {
+            this.config[ConfigService.KEYS.HOSTNAME_CLOUDSHELL] = await this.getCloudShellHostname();
         }
+
+        // this.addConfigToEnv(ConfigService.config);
+
+        return this;
     }
 
-    private static async getGcpSecret() {
-        try {
-            var secretManagerServiceClient = new SecretManagerServiceClient();
+    private async getCloudShellHostname(): Promise<string> {
+        /*
+            // TODO: find a way to also fetch current user automatically to avoid config, or replace CloudShell entirely
+        
+            // cli: cloudshell get-web-preview-url -p 8080
+            // curl -s -H "Metadata-Flavor: Google" metadata/computeMetadata/v1/instance/zone
+            // printenv
 
+            // get current user on cli: https://cloud.google.com/sdk/gcloud/reference/auth/list
+            // gcloud auth list --filter=status:ACTIVE --format="value(account)"
+
+            // Creates a client
+            // eslint-disable-next-line no-unused-vars
+            const shellClient = new CloudShellServiceClient();
+            async function initializeClient() {
+                // Run request
+                const response = await shellClient.getEnvironment({ "name": `users/${process.env.AUTH_USER}/environments/default` });
+                console.log("HOST", response);
+            }
+            initializeClient();
+
+
+            // https://cloud.google.com/compute/docs/metadata/default-metadata-values?hl=de
+            async function loadFromMetadataAPI() {
+                //    var result = await fetch("https://metadata.google.internal/computeMetadata/v1/instance").then(response => response.json());
+                //    console.info("result", result);
+            }
+            loadFromMetadataAPI();
+
+            const { exec } = require("child_process");
+            console.log("before");
+            exec(`printenv`, (error, stdout, stderr) => {
+                if (error) {
+                    console.log(`error: ${error.message}`);
+                    return;
+                }
+                if (stderr) {
+                    console.log(`stderr: ${stderr}`);
+                    return;
+                }
+                console.log(`stdout: ${stdout}`);
+            });
+            console.log("after");
+        */
+
+        // https://cloud.google.com/nodejs/docs/reference/shell/latest
+        const shellClient = new CloudShellServiceClient();
+        var [environment] = await shellClient.getEnvironment(
+            { "name": `users/${process.env.AUTH_USER}/environments/default` }
+        );
+        return process.env.PORT + "-" + environment.webHost;
+    }
+
+    private async getGcpSecret() {
+        try {
+            // https://cloud.google.com/python/docs/reference/secretmanager/latest
+            const secretManagerServiceClient = new SecretManagerServiceClient();
             const [version] = await secretManagerServiceClient.accessSecretVersion({
                 name: `projects/${process.env.K_SERVICE}/secrets/production/versions/latest`
             });
-
-            const payload = version.payload.data.toString();
-
-            return ini.parse(payload);
+            return ini.parse(version.payload.data.toString());
         } catch (error) {
             console.error(error);
         }
     }
 
     /*
-    private static addConfigToEnv(configs : object) {
+    private addConfigToEnv(configs : object) {
         try {
             for (const [key, value] of Object.entries(configs)) {
                 process.env[key.toString()] = value.toString();
@@ -60,37 +119,29 @@ export class ConfigService {
     }
     */
 
-    setRequestHostname(requestHostname: string) {
-        ConfigService.requestHostname = requestHostname;
+    saveRequestHostname(requestHostname: string) {
+        this.config[ConfigService.KEYS.HOSTNAME_REQUEST] = requestHostname;
     }
 
     getHostname() {
-        if (!ConfigService.requestHostname || ConfigService.requestHostname == "127.0.0.1") {
-            this.setRequestHostname(process.env.HOSTNAME);
-        }
-
-        console.log ("ConfigService.requestHostname", ConfigService.requestHostname);
-
-        return ConfigService.requestHostname;
+        var hostname = this.getValue(this.isProdEnv() ? ConfigService.KEYS.HOSTNAME_REQUEST : ConfigService.KEYS.HOSTNAME_CLOUDSHELL);
+        console.log("Hostname", hostname);
+        return hostname;
     }
 
     isProdEnv() {
         return (process.env.NODE_ENV == "production");
     }
 
-    getValue(key: ConfigKey) {
-        return this.getConfigValue(key.toString());
-    }
-
-    private getConfigValue(configKey: string) {
-        if (!ConfigService.config) {
+    getValue(configKey: ConfigKeys) {
+        if (!this.config) {
             console.log("Config not loaded. Call init function before");
             return "empty";
         }
-        if (!ConfigService.config[configKey]) {
+        if (!this.config[configKey]) {
             console.log(`Config key '${configKey}' not found`);
             return "empty";
         }
-        return ConfigService.config[configKey];
+        return this.config[configKey];
     }
 }

@@ -6,14 +6,12 @@ import { resolve } from 'path';
 import * as express from 'express';
 import * as cookieParser from 'cookie-parser';
 import * as session from 'express-session';
-import { ConfigService, ConfigKey } from './modules/config/config.service';
+import { ConfigService } from './modules/config/config.service';
 import * as FirestoreStoreFactory from 'firestore-store';  // https://www.npmjs.com/package/firestore-store
 
 async function bootstrap() {
-    await ConfigService.init();
-    
     const app = await NestFactory.create<NestExpressApplication>(AppModule);
-    
+
     app.use(
         express.static(resolve(__dirname, "./public"))
         , express.json()
@@ -22,17 +20,17 @@ async function bootstrap() {
         , session({
             store: new (FirestoreStoreFactory(session))({
                 database: app.select(DataModule).get("FIRESTORE"),
-                collection : "__sessions"
+                collection: "__sessions"
             }),
             name: "__session", // required cookie name for Cloud Run!
-            secret: app.get(ConfigService).getValue(ConfigKey.SESSION_SECRET),
+            secret: app.get(ConfigService).getValue(ConfigService.KEYS.SESSION_SECRET),
             resave: true,
             saveUninitialized: true, // don't create session until something stored
             cookie: { maxAge: (24 * 60 * 60 * 1000) },
         }));
 
     await app.listen(parseInt(process.env.PORT) || 8080);
-    
+
     console.log(`Application is running on: ${await app.getUrl()}`);
 }
 
