@@ -8,8 +8,8 @@ export class UserRepo {
     private userCollection: CollectionReference<User> = null;
 
     constructor(
-        // private readonly wifiRepo: WifiRepo,
-        @Inject("FIRESTORE") private readonly firestore: Firestore) {
+        @Inject("FIRESTORE") private readonly firestore: Firestore
+    ) {
         this.userCollection = <CollectionReference<User>>firestore.collection('users');
     }
 

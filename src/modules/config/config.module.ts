@@ -19,10 +19,8 @@ import { ConfigService } from './config.service';
 })
 
 export class ConfigModule {
-    private configService: ConfigService = null;
-
     constructor(
-        @Inject(ConfigService.INJECTION) configService: ConfigService
+        private readonly configService: ConfigService,
     ) {
         this.configService = configService;
     }

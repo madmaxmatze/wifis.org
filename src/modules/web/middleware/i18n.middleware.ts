@@ -26,12 +26,11 @@ export class I18nMiddleware implements NestMiddleware {
         }
 
         if (request.query.lang !== undefined) {
-            var lang = request.query.lang.toString();
-            if (!i18n.getLocales().includes(lang)) {
-                throw new NotFoundException();
+            var lang = request.query.lang.toString().substr(0, 2);  // handle ?lang=en?lang=de
+            if (i18n.getLocales().includes(lang)) {
+                response.setLocale(lang);
+                response.cookie('locale', lang);
             }
-            response.setLocale(lang);
-            response.cookie('locale', lang);
         }
 
         // any url with a lang path inside

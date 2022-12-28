@@ -32,7 +32,9 @@ export class ConfigService {
         this.config = await this.getGcpSecret();
         console.log(`${Object.keys(this.config).length} Configs loaded`);
 
-        if (!this.isProdEnv()) {
+        console.log("Env", process.env.NODE_ENV);
+
+        if (this.isDevEnv()) {
             this.config[ConfigService.KEYS.HOSTNAME_CLOUDSHELL] = await this.getCloudShellHostname();
         }
 
@@ -96,7 +98,7 @@ export class ConfigService {
 
     private async getGcpSecret() {
         try {
-            // https://cloud.google.com/python/docs/reference/secretmanager/latest
+            // https://cloud.google.com/nodejs/docs/reference/secret-manager/latest
             const secretManagerServiceClient = new SecretManagerServiceClient();
             const [version] = await secretManagerServiceClient.accessSecretVersion({
                 name: `projects/${process.env.K_SERVICE}/secrets/production/versions/latest`
@@ -124,13 +126,13 @@ export class ConfigService {
     }
 
     getHostname() {
-        var hostname = this.getValue(this.isProdEnv() ? ConfigService.KEYS.HOSTNAME_REQUEST : ConfigService.KEYS.HOSTNAME_CLOUDSHELL);
+        var hostname = this.getValue(this.isDevEnv() ? ConfigService.KEYS.HOSTNAME_CLOUDSHELL : ConfigService.KEYS.HOSTNAME_REQUEST);
         console.log("Hostname", hostname);
         return hostname;
     }
 
-    isProdEnv() {
-        return (process.env.NODE_ENV == "production");
+    isDevEnv() {
+        return (process.env.NODE_ENV == "development");
     }
 
     getValue(configKey: ConfigKeys) {

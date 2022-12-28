@@ -10,7 +10,8 @@ export class WifiRepo {
 
     constructor(
         private readonly userRepo: UserRepo,
-        @Inject("FIRESTORE") firestore: Firestore) {
+        @Inject("FIRESTORE") firestore: Firestore
+    ) {
         this.wifiCollection = <CollectionReference<Wifi>>firestore.collection('wifis');
     }
 
