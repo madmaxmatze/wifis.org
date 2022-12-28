@@ -26,7 +26,7 @@ export class RedirectMiddleware implements NestMiddleware {
                 url: options.originalUrl || options.url,
                 originalUrl: options.originalUrl || options.url,
                 status: 301,
-                type: 'general',
+                type: '',
                 count: 0,
             }, ...options
         };
@@ -45,35 +45,41 @@ export class RedirectMiddleware implements NestMiddleware {
 
         // force /cc for all non english language homepages
         if (redirect.url.length <= 1 && redirect.lang != "en") {
-            redirect.type = "/CC-Homepage";
+            redirect.type += " > /CC-Homepage";
             redirect.status = 302;    // 302 because based on session specific language param
             redirect.url = "/" + redirect.lang;
         }
 
         // "/en" is used to change languge to english on homepage, but afterwards redirect back to plain "/"
         if (redirect.url == "/en" && redirect.lang == "en") {
-            redirect.type = "/EN-Homepage";
+            redirect.type += " > /EN-Homepage";
             redirect.status = 302;   // 302 because this redirect is needed to properly change language; caching in client needs to be prevented
             redirect.url = "/";
         }
 
         // in case ?lang was used for wifi page, change redirect to 302
-        if (redirect.url.match(/lang\=/) && !redirect.url.match(/^\/[a-z]{2}\//) && !redirect.url.match(/^\/p\//)) {
-            redirect.type = "?lang";
-            redirect.status = 302;
-        }
+        if (redirect.url.match(/lang\=/)) {
+            redirect.url = redirect.url.replace(/lang\=(\w{2}).lang\=\w{2}/g, "lang\=$1");          // merge multiple lang params           
+            redirect.type += " > ?lang";
+            if (redirect.url.match(/^\/[a-z]{2}\//)) {
+                redirect.url = redirect.url.replace(/lang\=\w{2}/g, "");          // remove lang param
+            }
+        }    
 
-        // cleanup
-        redirect.url = redirect.url
-            .replace(/lang\=\w{2}/g, "")                    // remove lang param
-            .replace(/\/+/g, "/")                           // replace multiple "/" by one
-            .replace(/[\&]+/ig, "&")                        // replace multiple "&" with one
-            .replace(/[\?]+/ig, "?")                        // replace multiple "?" with one
-            .replace(/(.+?)\/\?/ig, "$1?")                  // replace "/?" with "?"
-            .replace(/\?\&/ig, "?")                         // replace "?&" with "?"
-            .replace(/[\&\?]+$/ig, "")                      // cut of tailing "?"
-            .replace(/(.+?)\/*$/ig, "$1")                   // cut of tailing "/" if not en homepage "/"
+        // cleanup        
+        var cleanupUrl = redirect.url
+            .replace(/\/+/g, "/")                   // replace multiple "/" by one
+            .replace(/[\&]+/ig, "&")                // replace multiple "&" with one
+            .replace(/[\?]+/ig, "?")                // replace multiple "?" with one
+            .replace(/(.+?)\/\?/ig, "$1?")          // replace "/?" with "?"
+            .replace(/\?\&/ig, "?")                 // replace "?&" with "?"
+            .replace(/[\&\?]+$/ig, "")              // cut of tailing "?"
+            .replace(/(.+?)\/*$/ig, "$1")           // cut of tailing "/" if not en homepage "/"
         ;
+        if (cleanupUrl != redirect.url) {
+            redirect.type += " > cleanup";
+            redirect.url = cleanupUrl;
+        }
 
         // check for redirect loops
         if ((options.url || options.originalUrl) != redirect.url && redirect.count <= 10) {
