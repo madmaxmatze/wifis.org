@@ -8,7 +8,8 @@ export enum WifiError {
     userIdMissing = "userIdMissing",
     otherUsersWifi = "otherUsersWifi",
     maxWifiCountReached = "maxWifiCountReached",
-    whileWifiDelete = "whileWifiDelete"
+    whileWifiDelete = "whileWifiDelete",
+    labelMismatch = "labelMismatch"
 }
 
 export class Wifi {

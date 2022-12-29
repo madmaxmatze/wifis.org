@@ -22,13 +22,14 @@ export class WifiRepo {
         if (id.length < 3) {
             throw new Error(WifiError.wifiIdTooShort);
         }
+        // TODO: Allow longer IDs ?
         if (id.length > 20) {
             throw new Error(WifiError.wifiIdTooLong);
         }
-        if (["api", "www", "p", "mail", "app"].includes(id)) {
+        if (["api", "www", "p", "mail", "app"].includes(id.toLocaleLowerCase())) {
             throw new Error(WifiError.wifiIdReserved);
         }
-        if (!/^[\w\-]{3,20}$/.test(id.toString())) {
+        if (!/^[\w\-]+$/.test(id)) {
             throw new Error(WifiError.wrongWifiIdChars);
         }
     }
@@ -75,6 +76,17 @@ export class WifiRepo {
     async insert(wifi: Wifi): Promise<boolean> {
         if (!wifi) { throw new Error(WifiError.invalid); }
 
+        this.verifyWifiId(wifi.id);
+ 
+        if (wifi.label && wifi.label.toLowerCase() != wifi.id.toLowerCase()) {
+            throw new Error(WifiError.labelMismatch);
+        }
+        
+        if (wifi.id != wifi.id.toLowerCase()) {
+            wifi.label = wifi.id;
+        }
+        wifi.id = wifi.id.toLowerCase();
+
         var existingWifi: Wifi = await this.get(wifi.id)
         if (existingWifi) {
             throw new Error(WifiError.wifiIdReserved);
@@ -93,7 +105,6 @@ export class WifiRepo {
             throw new Error(WifiError.maxWifiCountReached);
         }
 
-        wifi.id = wifi.id.toLowerCase();
         return this.wifiCollection.doc(wifi.id).set(wifi, { merge: false }).then(() => true);
     }
 
