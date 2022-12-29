@@ -44,32 +44,16 @@
     </div>
 
     {{> footer }}
-
+    
     <script type='text/javascript' src='https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js'></script>
-    <script type="text/javascript">
-        /*
-            revision: "{{revision}}"
-            service: "{{service}}"
-            getLocale: "{{getLocale}}"
-            getLocales: "{{getLocales}}" 
-            env: "{{env}}"    
-        */
-
-        var config = {
-            lang: '{{getLocale}}',      // remove and use HTML lang
-            translations: {{{ json translations }}}
-        };
-    </script>
-
+    <script type='text/javascript' src='/_js/config_{{getLocale}}.js?{{version}}'></script>
     <script type='text/javascript' src='/js/libs/bootstrap-dropdown.js?{{version}}'></script>
     <script type='text/javascript' src='/js/libs/jquery.timeout.js?{{version}}'></script>
     <script type='text/javascript' src='/js/jquery.wifis.form.js?{{version}}'></script>
     <script type='text/javascript' src='/js/jquery.wifis.general.js?{{version}}'></script>
     <script type='text/javascript' src='/js/jquery.wifis.menu.js?{{version}}'></script>
-    <script type='text/javascript' src='/js/jquery.wifis.press.js?{{version}}'></script>
     {{!-- 
-    <script type='text/javascript' src='/js/jquery.wifis.social.js?{{version}}'></script>
-    <script type='text/javascript' src='/js/jquery.wifis.stats.js?{{version}}'></script>
+        <script type='text/javascript' src='/js/jquery.wifis.press.js?{{version}}'></script>
     --}}
     <script type='text/javascript' src='/js/jquery.wifis.tips.js?{{version}}'></script>
     <script type='text/javascript' src='/js/wifis.controller.js?{{version}}'></script>

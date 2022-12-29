@@ -14,6 +14,11 @@ class RedirectMiddlewareExtendedForTesting extends RedirectMiddleware {
 describe('Test Redirect Middleware', () => {
     let testCases: any = [
         {
+            name: "Blog",
+            input: { originalUrl: "/p/blog", lang: "de" },
+            expected: { url: "//blog.wifis.org", status: 301, count: 1, "type": " > blog" }
+        },
+        {
             name: "Lang Homepage",
             input: { originalUrl: "/www/", lang: "fr" },
             expected: { url: "/fr", status: 302, count: 1, type: " > /CC-Homepage" }

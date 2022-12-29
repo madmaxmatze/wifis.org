@@ -1,3 +1,6 @@
+{{#unless (equals env "production")}}
+    <div style="position: fixed; top: 0; z-index: 1000000; color: red; font-size: 2em">{{env}}</div>
+{{/unless}}
 <div class="navbar navbar-fixed-top" data-dropdown="dropdown">
     <div class="navbar-inner">
         <div class="container">

@@ -1,4 +1,4 @@
-import { Get, Post, All, Controller, Res, Param, Session, HttpStatus, UseGuards, Body, Next, Render } from '@nestjs/common';
+import { NotFoundException, Get, Post, All, Controller, Res, Param, Session, HttpStatus, UseGuards, Body, Next, Render } from '@nestjs/common';
 import { Response, NextFunction } from 'express';
 import { ConfigService } from '../config/config.service';
 import { WifiRepo } from '../data/wifi/wifi.repo';
@@ -7,6 +7,7 @@ import { Message } from '../data/message/message.model';
 import { Wifi } from '../data/wifi/wifi.model';
 import { AuthGuard } from '../auth/auth.guard';
 import { Recaptcha, RecaptchaResult, RecaptchaVerificationResult } from '@nestlab/google-recaptcha';
+import * as i18n from 'i18n';
 
 @Controller()
 export class WebController {
@@ -28,6 +29,18 @@ export class WebController {
     @UseGuards(AuthGuard)
     async getWifis(@Res() response: Response, @Session() session: Record<string, any>) {
         return response.render("wifis", { "wifis": await this.wifiRepo.getAllByUserId(session.user.id) });
+    }
+
+    @Get('_js/config_:lang([a-z]{2}).js')
+    async javascript1(@Res() response: Response, @Param('lang') lang: string) {
+        var config = i18n.getLocales().includes(lang) ? {
+            lang : lang,
+            translations : i18n.getCatalog(lang)
+        } : {};
+        
+        return response
+            .contentType("application/javascript")
+            .send(`var config = ${JSON.stringify(config)};`);
     }
 
     /**

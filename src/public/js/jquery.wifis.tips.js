@@ -25,7 +25,7 @@
 	});
 
 	$.fn.wifisTips = function() {
-		new WifisTips($(this));
+        new WifisTips($(this));
 		return this;
 	};
 })(jQuery);

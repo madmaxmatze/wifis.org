@@ -17,7 +17,7 @@ export class I18nMiddleware implements NestMiddleware {
     use(request: Request, response: Response, next: NextFunction) {
         i18n.init(request, response);
         response.locals.translations = i18n.getCatalog(request);
-
+        
         // take language from cookie, if valid
         if (request.cookies
             && request.cookies.locale 

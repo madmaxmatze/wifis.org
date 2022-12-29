@@ -3,12 +3,14 @@ $(function() {
 	// $.wifisAnalytics(config);
 	$("#addWifiForm").wifisForm(config);
 	$(".navbar").wifisMenu();
-	$(".content .press").wifisPress();
+	// $(".content .press").wifisPress();
 	// $(".socialArea").wifisSocial(config);
-	if (typeof wifisStatsData !== "undefined") {
+	/*
+    if (typeof wifisStatsData !== "undefined") {
 		$("#wifisStats").wifisStats({
 			data : wifisStatsData
 		});
 	}
+    */
 	$(".tipsContainer").wifisTips();
 });

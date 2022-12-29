@@ -130,6 +130,8 @@ USER node
 # Base image for production
 FROM node:18-alpine As production
 
+ENV NODE_ENV production
+
 # Copy the bundled code to the production image
 COPY --chown=node:node --from=build_prod /usr/src/app/node_modules ./node_modules
 COPY --chown=node:node --from=build_prod /usr/src/app/dist ./dist

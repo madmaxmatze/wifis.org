@@ -37,11 +37,17 @@ export class RedirectMiddleware implements NestMiddleware {
             return this.redirect(request, response, "?redirectUrl=", 302, request.query.redirectUrl.toString());
         }
         */
-
+    
         // fix old subdomains and path structure
         redirect.url = redirect.url
-            .replace(/^\/(s|m|api|static|www)\//g, "/")      // old mobile subdomain (301 redirected via cloudflare )
+            .replace(/^\/(s|m|static|w|ww|www)\//g, "/")      // old mobile subdomain (301 redirected via cloudflare )
             .replace(/^\/p\/(about|faq|press|tos|languages|login)/g, "/" + redirect.lang + "/$1/");
+
+        // fix old /p/blog url
+        if (redirect.url.match(/\/p\/blog/)) {
+            redirect.type = " > blog";
+            redirect.url = "//blog.wifis.org";
+        }
 
         // force /cc for all non english language homepages
         if (redirect.url.length <= 1 && redirect.lang != "en") {
@@ -68,7 +74,7 @@ export class RedirectMiddleware implements NestMiddleware {
 
         // cleanup        
         var cleanupUrl = redirect.url
-            .replace(/\/+/g, "/")                   // replace multiple "/" by one
+            .replace(/(.+?)\/+/g, "$1/")                   // replace multiple "/" by one
             .replace(/[\&]+/ig, "&")                // replace multiple "&" with one
             .replace(/[\?]+/ig, "?")                // replace multiple "?" with one
             .replace(/(.+?)\/\?/ig, "$1?")          // replace "/?" with "?"
