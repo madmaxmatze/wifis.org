@@ -8,15 +8,21 @@
     <meta name="description" content="{{__ "label.mainTeaser"}}" />
     <meta name="keywords" content="wifi, wifis, wlan, share, email, contact" />
     <meta name="author" content="wifis.org" />
-    {{#if preventIndexing}}
-        <meta name="robots" content="noindex">
+    
+    {{!-- only contact and example wifi should be indexed by search engines  --}}
+    {{#if wifiId}}
+        {{#if (or (equals wifiId "contact") (equals wifiId "example"))}}
+            <link rel=“canonical” href=“https://wifis.org/{{wifiId}}?lang={{getLocale}}” />
+        {{else}}
+            <meta name="robots" content="noindex">
+        {{/if}}
     {{else}}
-        {{#if canonicalUrl}}
-            <link rel=“canonical” href=“https://wifis.org{{canonicalUrl}}” />
+        {{#if error}}
+            <meta name="robots" content="noindex">
+        {{else}}
+            <link rel=“canonical” href=“https://wifis.org{{urlWithoutQuery}}” />
         {{/if}}
     {{/if}}
-
-    
     
     <!-- Google Tag Manager -->
     <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':

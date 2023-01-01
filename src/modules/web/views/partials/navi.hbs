@@ -10,23 +10,23 @@
 
             <ul class="nav pull-right">
                 {{#if user}}
-                    <li {{#if (equals urlPath "/p/wifis")}}class="active" {{/if}}>
+                    <li {{#if (equals urlWithoutQuery "/p/wifis")}}class="active" {{/if}}>
                         <a href="/p/wifis">{{{__ "wifis.linklabel"}}}</a>
                     </li>
                 {{/if}}
 
-                <li class="dropdown {{#if (or (equals urlPathWithoutLang "/about") (equals urlPathWithoutLang "/faq") (equals urlPathWithoutLang "/press") (equals urlPathWithoutLang "/tos"))}}active{{/if}}">
+                <li class="dropdown {{#if (or (equals urlWithoutLangAndQuery "/about") (equals urlWithoutLangAndQuery "/faq") (equals urlWithoutLangAndQuery "/press") (equals urlWithoutLangAndQuery "/tos"))}}active{{/if}}">
                     <a href="/{{getLocale}}/faq" class="dropdown-toggle">
                         {{__ "label.otherwebsite.title"}}<b class="caret"></b>
                     </a>
                     <ul class="dropdown-menu">
-                        <li {{#if (equals urlPathWithoutLang "/faq")}}class="active" {{/if}}>
+                        <li {{#if (equals urlWithoutLangAndQuery "/faq")}}class="active" {{/if}}>
                             <a href="/{{getLocale}}/faq">{{__ "faq.linklabel"}}</a>
                         </li>
-                        <li {{#if (equals urlPathWithoutLang "/about")}}class="active" {{/if}}>
+                        <li {{#if (equals urlWithoutLangAndQuery "/about")}}class="active" {{/if}}>
                             <a href="/{{getLocale}}/about">{{__ "about.linklabel"}}</a>
                         </li>
-                        <li {{#if (equals urlPathWithoutLang "/press")}}class="active" {{/if}}>
+                        <li {{#if (equals urlWithoutLangAndQuery "/press")}}class="active" {{/if}}>
                             <a href="/{{getLocale}}/press">{{__ "press.linklabel"}}</a>
                         </li>
                         <li>
@@ -37,8 +37,8 @@
                     </ul>
                 </li>
 
-                <li id="langDropDown" class="dropdown{{#if (equals urlPathWithoutLang "/languages")}} active{{/if}}">
-                    <a href="/{{getLocale}}/languages?referer={{urlPath}}" class="dropdown-toggle">
+                <li id="langDropDown" class="dropdown{{#if (equals urlWithoutLangAndQuery "/languages")}} active{{/if}}">
+                    <a href="/{{getLocale}}/languages?referer={{urlWithoutQuery}}" class="dropdown-toggle">
                         <span class="sprite flag flag_{{getLocale}}"></span>
                         <b class="caret"></b>
                     </a>
@@ -47,10 +47,14 @@
                         {{#each getLocales}}
                             <li{{#if (equals ../getLocale this)}} class="active"{{/if}}>
                                 <a href=
-                                    {{#if (equals ../urlPath ../urlPathWithoutLang)}}
-                                        "{{../urlPathWithoutLang}}?lang={{this}}"
+                                    {{#if ../wifiId}}
+                                        "{{../urlWithoutLangAndQuery}}?lang={{this}}"
                                     {{else}}
-                                        "/{{this}}{{../urlPathWithoutLang}}"
+                                        {{#if (equals ../urlWithoutLangAndQuery "")}}
+                                            "/"
+                                        {{else}}
+                                            "/{{this}}{{../urlWithoutLangAndQuery}}"
+                                        {{/if}}
                                     {{/if}}
                                 >
                                     <span class="sprite flag flag_{{this}}"></span>
@@ -59,14 +63,14 @@
                             </li>
                         {{/each}}
                         <li>
-                            <a href="/{{getLocale}}/languages?referer={{urlPath}}" style="text-align: center;">
+                            <a href="/{{getLocale}}/languages?referer={{urlWithoutQuery}}" style="text-align: center;">
                                 <b style="color: black;">??</b>
                             </a>
                         </li>
                     </ul>
                 </li>
 
-                <li class="dropdown{{#if (equals urlPathWithoutLang "/login")}} active{{/if}}">
+                <li class="dropdown{{#if (equals urlWithoutLangAndQuery "/login")}} active{{/if}}">
                     <!-- when NOT logged in -->
                     {{#if user}}
                         <a href="#" class="dropdown-toggle" id="logout-menu-item" title="logout">
@@ -82,10 +86,10 @@
                         </a>
                         <ul class="dropdown-menu">
                             <li>
-                                {{#if (equals urlPath "/p/wifis")}}
+                                {{#if (equals urlWithoutQuery "/p/wifis")}}
                                     {{assign "logout_redirect" "/"}}
                                 {{else}}
-                                    {{assign "logout_redirect" urlPath}}
+                                    {{assign "logout_redirect" urlWithoutQuery}}
                                 {{/if}}
                                 <a href="/auth/logout?redirect={{logout_redirect}}">{{__ "label.logout"}}</a>
                             </li>

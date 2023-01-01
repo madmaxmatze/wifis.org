@@ -5,8 +5,8 @@
     <ul>
         {{#each getLocales}}
         <li>
-            <a href="/{{this}}?redirectUrl={{../query.referer}}" class="sprite flag flag_{{this}}"></a>
-            <a href="/{{this}}?redirectUrl={{../query.referer}}">{{../__ (concat "label.lang." this)}}</a>
+            <a href="/{{this}}?redirectUrl={{../queryReferer}}" class="sprite flag flag_{{this}}"></a>
+            <a href="/{{this}}?redirectUrl={{../queryReferer}}">{{../__ (concat "label.lang." this)}}</a>
         </li>
         {{/each}}
     </ul>

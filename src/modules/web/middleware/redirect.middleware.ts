@@ -50,7 +50,7 @@ export class RedirectMiddleware implements NestMiddleware {
         }
 
         // force /cc for all non english language homepages
-        if (redirect.url.length <= 1 && redirect.lang != "en") {
+        if (redirect.url.replace(/\?.*/, "").length <= 1 && redirect.lang != "en") {
             redirect.type += " > /CC-Homepage";
             redirect.status = 302;    // 302 because based on session specific language param
             redirect.url = "/" + redirect.lang;

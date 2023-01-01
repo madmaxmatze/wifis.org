@@ -71,18 +71,18 @@ hbs.registerHelper('json', function (object: any) {
 @Injectable()
 export class HbsMiddleware implements NestMiddleware {
     use(request: any, response: Response, next: NextFunction) {
+        var _ = response.locals;
         // pass some variables to templates
-        response.locals.urlPath = request.originalUrl;
-        response.locals.urlPathWithoutLang = request.originalUrl.replace(/^\/\w{2}$/, "/").replace(/^\/\w{2}\//, "/");
-        response.locals.query = request.query;
-        response.locals.service = process.env.K_SERVICE || '???';
-        response.locals.revision = process.env.K_REVISION || '???';
-        response.locals.version = crypto.createHash('md5').update(response.locals.revision).digest('hex').substr(0, 8);
+        // response.locals.service = process.env.K_SERVICE || '???';
+        _.urlWithoutQuery = request.originalUrl.replace(/\?.*/, "");
+        _.urlWithoutLangAndQuery = _.urlWithoutQuery.replace(/^\/\w{2}$/, "/").replace(/^\/\w{2}\//, "/");
+        _.queryReferer = request.query.referer || "";
+        _.version = crypto.createHash('md5').update(process.env.K_REVISION || '???').digest('hex').substr(0, 8);
         if (!process.env.NODE_ENV) {
             process.env.NODE_ENV = request.app.get('env');
         }
-        response.locals.env = process.env.NODE_ENV;
-        response.locals.user = request.session.user;
+        _.env = process.env.NODE_ENV;
+        _.user = request.session.user;
     
         hbs.registerPartials(resolve(__dirname, "../views/partials"));
 

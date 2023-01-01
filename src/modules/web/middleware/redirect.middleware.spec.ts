@@ -34,6 +34,16 @@ describe('Test Redirect Middleware', () => {
             expected: { url: "/fr", status: 302, count: 1, "type": " > /CC-Homepage" }
         },
         {
+            name: "/-Homepage redirect to lang homepage",
+            input: { originalUrl: "/?lang=it", lang: "it" },
+            expected: { url: "/it", status: 302, count: 1, "type": " > /CC-Homepage" }
+        },
+        {
+            name: "/-Homepage redirect to lang homepage",
+            input: { originalUrl: "/?lang=it?lang=en", lang: "it" },
+            expected: { url: "/it", status: 302, count: 1, "type": " > /CC-Homepage" }
+        },
+        {
             name: "/p/",
             input: { originalUrl: "/p/about", lang: "fr" },
             expected: { url: "/fr/about", status: 301, count: 1, "type": " > cleanup" }
@@ -109,12 +119,27 @@ describe('Test Redirect Middleware', () => {
             expected: { url: "/de/languages", status: 301, count: 1, "type": " > ?lang > cleanup" }
         },
     ];
-    
+
     var middleware = new RedirectMiddlewareExtendedForTesting();
     testCases.forEach((testCase : any) => {
         it(testCase.name, () => {
             expect(middleware.calculateRedirectExtendedForTesting(testCase.input))
                 .toStrictEqual({ ...testCase.input, ...testCase.expected });
         });
+    });
+
+
+
+    const request = require("supertest");
+
+    const loadData = async (dataUrl) => (
+        await request("https://wifis.org")
+            .get('/p/about?lang=it')
+    );
+    
+    var response = loadData("https://wifis.org/p/about?lang=it").then(response => {
+        console.log (response);  
+        console.log (response.url);
+        console.log (response.status);
     });
 });
