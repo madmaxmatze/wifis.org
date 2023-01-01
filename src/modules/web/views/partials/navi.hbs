@@ -10,8 +10,8 @@
 
             <ul class="nav pull-right">
                 {{#if user}}
-                    <li {{#if (equals urlWithoutQuery "/p/wifis")}}class="active" {{/if}}>
-                        <a href="/p/wifis">{{{__ "wifis.linklabel"}}}</a>
+                    <li {{#if (equals urlWithoutLangAndQuery "/wifis")}}class="active" {{/if}}>
+                        <a href="/{{getLocale}}/wifis">{{{__ "wifis.linklabel"}}}</a>
                     </li>
                 {{/if}}
 
@@ -53,7 +53,7 @@
                                         {{#if (equals ../urlWithoutLangAndQuery "")}}
                                             "/"
                                         {{else}}
-                                            "/{{this}}{{../urlWithoutLangAndQuery}}"
+                                           "/{{this}}{{../urlWithoutLangAndQuery}}"
                                         {{/if}}
                                     {{/if}}
                                 >
@@ -86,7 +86,7 @@
                         </a>
                         <ul class="dropdown-menu">
                             <li>
-                                {{#if (equals urlWithoutQuery "/p/wifis")}}
+                                {{#if (equals urlWithoutLangAndQuery "/wifis")}}
                                     {{assign "logout_redirect" "/"}}
                                 {{else}}
                                     {{assign "logout_redirect" urlWithoutQuery}}

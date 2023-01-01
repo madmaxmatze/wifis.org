@@ -25,22 +25,21 @@ export class WebController {
         return response.render(pageId);
     }
 
-    @Get('p/wifis')
+    @Get(":lang([a-z]{2})/wifis")
     @UseGuards(AuthGuard)
     async getWifis(@Res() response: Response, @Session() session: Record<string, any>) {
-        return response.render("wifis", { "wifis": await this.wifiRepo.getAllByUserId(session.user.id) });
+        return response.render("wifis", {
+            "wifis": await this.wifiRepo.getAllByUserId(session.user.id)
+        });
     }
 
     @Get('_js/config_:lang([a-z]{2}).js')
     async javascript1(@Res() response: Response, @Param('lang') lang: string) {
-        var config = i18n.getLocales().includes(lang) ? {
-            lang : lang,
-            translations : i18n.getCatalog(lang)
-        } : {};
-        
-        return response
-            .contentType("application/javascript")
-            .send(`var config = ${JSON.stringify(config)};`);
+        if (!i18n.getLocales().includes(lang)) {
+            return response.status(HttpStatus.NOT_FOUND).send("");
+        }
+     
+        return response.contentType("application/javascript").send("var config = " + JSON.stringify({lang: lang, translations: i18n.getCatalog(lang)}) + ";");
     }
 
     /**
@@ -51,18 +50,18 @@ export class WebController {
         @Param('wifiId') wifiId: string, @Param('wifiIdSuffix') wifiIdSuffix: string) {
         response.locals.wifiId = wifiId;
         response.locals.wifiIdSuffix = wifiIdSuffix;
-        
+
         response.locals.wifi = <Wifi>await this.wifiRepo.get(wifiId);
         if (!response.locals.wifi) {
             return response.status(HttpStatus.NOT_FOUND).render("wifi");
-        }    
-        
+        }
+
         if (response.locals.wifi.label != wifiId) {
             return response.redirect('/' + response.locals.wifi.label + (wifiIdSuffix ? "/" + wifiIdSuffix : ""));
         }
         response.locals.RECAPTCHA_SITE_KEY = this.configService.getValue(ConfigService.KEYS.RECAPTCHA_SITE_KEY);
         response.locals.wifiUserId = response.locals.wifi.userId;
-        
+
         return next();
     }
 
