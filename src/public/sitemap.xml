@@ -13,7 +13,7 @@
     <changefreq>always</changefreq>
   </url>
   <url>
-      <loc>https://wifis.org/en/about</loc>
+    <loc>https://wifis.org/en/about</loc>
     <xhtml:link rel="alternate" hreflang="de" href="https://wifis.org/de/about" />
     <xhtml:link rel="alternate" hreflang="es" href="https://wifis.org/es/about" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://wifis.org/fr/about" />
@@ -73,7 +73,7 @@
     <xhtml:link rel="alternate" hreflang="ru" href="https://wifis.org/ru/language" />
   </url>
   <url>
-    <loc>https://wifis.org/example</loc>
+    <loc>https://wifis.org/example?lang=en</loc>
     <xhtml:link rel="alternate" hreflang="de" href="https://wifis.org/example?lang=de" />
     <xhtml:link rel="alternate" hreflang="es" href="https://wifis.org/example?lang=es" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://wifis.org/example?lang=fr" />
@@ -83,7 +83,7 @@
     <xhtml:link rel="alternate" hreflang="ru" href="https://wifis.org/example?lang=ru" />
   </url>
   <url>
-    <loc>https://wifis.org/contact</loc>
+    <loc>https://wifis.org/contact?lang=en</loc>
     <xhtml:link rel="alternate" hreflang="de" href="https://wifis.org/contact?lang=de" />
     <xhtml:link rel="alternate" hreflang="es" href="https://wifis.org/contact?lang=es" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://wifis.org/contact?lang=fr" />
