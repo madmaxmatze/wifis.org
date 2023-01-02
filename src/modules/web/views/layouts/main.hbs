@@ -9,14 +9,15 @@
     <meta name="keywords" content="wifi, wifis, wlan, share, email, contact" />
     <meta name="author" content="wifis.org" />
     
-    {{!-- only contact and example wifi should be indexed by search engines  --}}
     {{#if wifiId}}
+        {{!-- only /contact + /example wifis should be indexed --}}
         {{#if (or (equals wifiId "contact") (equals wifiId "example"))}}
             <link rel=“canonical” href=“https://wifis.org/{{wifiId}}?lang={{getLocale}}” />
         {{else}}
             <meta name="robots" content="noindex">
         {{/if}}
     {{else}}
+        {{!-- NON wifi pages --}}
         {{#if error}}
             <meta name="robots" content="noindex">
         {{else}}

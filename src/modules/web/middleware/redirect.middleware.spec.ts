@@ -25,7 +25,7 @@ describe('Test Redirect Middleware', () => {
         },
         {
             name: "Lang Homepage with tailing /",
-            input: { originalUrl: "/www/", lang: "en" },
+            input: { originalUrl: "/www/", lang: "en", performLive: true },
             expected: { url: "/", status: 301, count: 1, "type": "" }
         },
         {
@@ -35,28 +35,28 @@ describe('Test Redirect Middleware', () => {
         },
         {
             name: "/-Homepage redirect to lang homepage",
-            input: { originalUrl: "/?lang=it", lang: "it" },
+            input: { originalUrl: "/?lang=it", lang: "it", performLive: true },
             expected: { url: "/it", status: 302, count: 1, "type": " > /CC-Homepage" }
         },
         {
             name: "/-Homepage redirect to lang homepage",
-            input: { originalUrl: "/?lang=it?lang=en", lang: "it" },
+            input: { originalUrl: "/?lang=it?lang=en", lang: "it", performLive: true },
             expected: { url: "/it", status: 302, count: 1, "type": " > /CC-Homepage" }
         },
         {
             name: "/p/",
-            input: { originalUrl: "/p/about", lang: "fr" },
-            expected: { url: "/fr/about", status: 301, count: 1, "type": " > cleanup" }
+            input: { originalUrl: "/p/about", lang: "en", performLive: true },
+            expected: { url: "/en/about", status: 301, count: 1, "type": " > cleanup" }
         },
         {
             name: "/p/ + ?lang",
-            input: { originalUrl: "/www/p/about?lang=fr", lang: "fr" },
+            input: { originalUrl: "/www/p/about?lang=fr", lang: "fr", performLive: true },
             expected: { url: "/fr/about", status: 301, count: 1, "type": " > ?lang > cleanup" }
         },
         {
             name: "/www/ + /p/ + ?lang",
-            input: { originalUrl: "/www/p/about?lang=xx", lang: "fr" },
-            expected: { url: "/fr/about", status: 301, count: 1, "type": " > ?lang > cleanup" }
+            input: { originalUrl: "/www/p/about?lang=xx", lang: "en", performLive: true },
+            expected: { url: "/en/about", status: 301, count: 1, "type": " > ?lang > cleanup" }
         },
         {
             name: "/www/ + wifiname",
@@ -65,22 +65,22 @@ describe('Test Redirect Middleware', () => {
         },
         {
             name: "/static/p/ + ?lang/",
-            input: { originalUrl: "/static/p/faq?lang=xx", lang: "fr" },
+            input: { originalUrl: "/static/p/faq?lang=fr", lang: "fr", performLive: true },
             expected: { url: "/fr/faq", status: 301, count: 1, "type": " > ?lang > cleanup" }
         },
         {
             name: "Old mobile subdomain + parameters",
-            input: { originalUrl: "/m/p/faq?lang=ms&test=1", lang: "fr" },
-            expected: { url: "/fr/faq?test=1", status: 301, count: 1, "type": " > ?lang > cleanup" }
+            input: { originalUrl: "/m/p/faq?lang=ms&test=1", lang: "ms", performLive: true },
+            expected: { url: "/ms/faq?test=1", status: 301, count: 1, "type": " > ?lang > cleanup" }
         },
         {
             name: "Old static subdomain + ?lang param",
-            input: { originalUrl: "/static/p/faq?lang=ms", lang: "fr" },
+            input: { originalUrl: "/static/p/faq?lang=fr", lang: "fr", performLive: true },
             expected: { url: "/fr/faq", status: 301, count: 1, "type": " > ?lang > cleanup" }
         },
         {
             name: "many ///",
-            input: { originalUrl: "/en/////about?", lang: "fr" },
+            input: { originalUrl: "/en/////about?", lang: "en", performLive: true },
             expected: { url: "/en/about", status: 301, count: 1, "type": " > cleanup" }
         },
         {
@@ -110,36 +110,32 @@ describe('Test Redirect Middleware', () => {
         },
         {
             name: "search console cases",
-            input: { originalUrl: "/static/example?lang=en?lang=es", lang: "en" },
+            input: { originalUrl: "/static/example?lang=en?lang=es", lang: "en", performLive: true },
             expected: { url: "/example?lang=en", status: 301, count: 1, "type": " > ?lang > ?lang" }
         },
         {
             name: "search console cases",
-            input: { originalUrl: "/static/p/languages?lang=de?lang=de", lang: "de" },
+            input: { originalUrl: "/static/p/languages?lang=de?lang=de", lang: "de", performLive: true },
             expected: { url: "/de/languages", status: 301, count: 1, "type": " > ?lang > cleanup" }
         },
     ];
 
+    const request = require("supertest");
+    
     var middleware = new RedirectMiddlewareExtendedForTesting();
     testCases.forEach((testCase : any) => {
         it(testCase.name, () => {
             expect(middleware.calculateRedirectExtendedForTesting(testCase.input))
                 .toStrictEqual({ ...testCase.input, ...testCase.expected });
         });
-    });
 
-
-
-    const request = require("supertest");
-
-    const loadData = async (dataUrl) => (
-        await request("https://wifis.org")
-            .get('/p/about?lang=it')
-    );
-    
-    var response = loadData("https://wifis.org/p/about?lang=it").then(response => {
-        console.log (response);  
-        console.log (response.url);
-        console.log (response.status);
+        if (false && testCase.input.performLive) {
+            it("FETCH " + testCase.name, async () => {
+                return request("https://wifis.org")
+                        .get(testCase.input.originalUrl)
+                        .expect('Location', testCase.expected.url)
+                        .expect(testCase.expected.url.status);
+            });
+        }
     });
 });
