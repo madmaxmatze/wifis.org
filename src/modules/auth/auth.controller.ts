@@ -14,7 +14,7 @@ export class AuthController {
             request.session.user = request.user;
         }
 
-        return response.redirect('/p/wifis');
+        return response.redirect(`/${request.getLocale()}/wifis`);
     }
 
     @UseGuards(GoogleAuthGuard)
@@ -25,7 +25,7 @@ export class AuthController {
             request.session.user = request.user;
         }
 
-        return response.redirect('/p/wifis');
+        return response.redirect(`/${request.getLocale()}/wifis`);
     }
 
     @UseGuards(GoogleAuthGuard)
@@ -39,7 +39,7 @@ export class AuthController {
             session.user = request.user;
         }
 
-        return response.redirect('/p/wifis');
+        return response.redirect(`/${request.getLocale()}/wifis`);
     }
 
     @UseGuards(FacebookAuthGuard)
@@ -50,7 +50,7 @@ export class AuthController {
             request.session.user = request.user;
         }
 
-        return response.redirect('/p/wifis');
+        return response.redirect(`/${request.getLocale()}/wifis`);
     }
 
     @UseGuards(FacebookAuthGuard)
@@ -64,7 +64,7 @@ export class AuthController {
             request.session.user = request.user;
         }
 
-        return response.redirect('/p/wifis');
+        return response.redirect(`/${request.getLocale()}/wifis`);
     }
 
     @Get('logout')
@@ -77,17 +77,6 @@ export class AuthController {
         });
         */
 
-        console.log("redirectUrl", redirectUrl);
-
         return response.redirect(redirectUrl || '/');
     }
-
-    /*
-    @UseGuards(AuthenticatedGuard)
-    @Get('protected')
-    getHello(@Request() req): string {
-      return req.user;
-    }
-    */
-
 }

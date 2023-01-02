@@ -165,7 +165,7 @@
 			html += '<a href="/' + label + '">' + label + '</a>';
 			html += '</span>';
 			html += '<span class="add-on deleteButton">';
-			html += '<a class="sprite icon icon-delete" href="/p/wifis?action=delete&wifiid='
+			html += '<a class="sprite icon icon-delete" href="?action=delete&wifiid='
 					+ id
 					+ '" title="'
 					+ config.translations.wifis.deleteButton

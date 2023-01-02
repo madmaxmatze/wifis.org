@@ -41,7 +41,7 @@ export class RedirectMiddleware implements NestMiddleware {
         // fix old subdomains and path structure
         redirect.url = redirect.url
             .replace(/^\/(s|m|static|w|ww|www)\//g, "/")      // old mobile subdomain (301 redirected via cloudflare )
-            .replace(/^\/p\/(about|faq|press|tos|languages|login)/g, "/" + redirect.lang + "/$1/");
+            .replace(/^\/p\/(about|faq|press|tos|languages|login|wifis)/g, "/" + redirect.lang + "/$1/");
 
         // fix old /p/blog url
         if (redirect.url.match(/\/p\/blog/)) {

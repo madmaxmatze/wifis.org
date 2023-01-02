@@ -23,10 +23,6 @@ hbs.registerHelper('stripScripts', function (param) {
     return param.replace(/(<([^>]+)>)/ig, "");
 });
 
-hbs.registerHelper('not', function (val1: any) {
-    return !val1;
-});
-
 hbs.registerHelper('equals', function (val1: any, val2: any) {
     if (arguments.length < 2) {
         throw new Error("Handlebars Helper equal needs 2 parameters");
@@ -62,10 +58,6 @@ hbs.registerHelper('concat', function (...args: any) {
     }
 
     return output;
-});
-
-hbs.registerHelper('json', function (object: any) {
-    return JSON.stringify(object);
 });
 
 @Injectable()
