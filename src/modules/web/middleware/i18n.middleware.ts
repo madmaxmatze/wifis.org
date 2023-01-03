@@ -1,10 +1,13 @@
-import { Injectable, NestMiddleware, NotFoundException } from '@nestjs/common';
+import { Injectable, NestMiddleware } from '@nestjs/common';
 import { Request, Response, NextFunction } from 'express';
 import { resolve } from 'path';
 import * as i18n from 'i18n';
 
+const LANGUAGES : string[] = ["de", "en", "es", "fr", "it", "ms", "nl", "ru"];
+export const LANGUAGES_REGEX : string = LANGUAGES.join("|");
+
 i18n.configure({
-    locales: ["de", "en", "es", "fr", "it", "ms", "nl", "ru"],
+    locales: LANGUAGES,
     cookie: 'locale',
     defaultLocale: 'en',
     directory: resolve(__dirname, "../locales"),
@@ -19,13 +22,11 @@ export class I18nMiddleware implements NestMiddleware {
         response.locals.translations = i18n.getCatalog(request);
         
         // take language from cookie, if valid
-        if (request.cookies
-            && request.cookies.locale 
-            && i18n.getLocales().includes(request.cookies.locale)) {
+        if (request?.cookies?.locale && i18n.getLocales().includes(request.cookies.locale)) {
             response.setLocale(request.cookies.locale);
         }
 
-        if (request.query.lang !== undefined) {
+        if (request?.query?.lang) {
             var lang = request.query.lang.toString().substr(0, 2);  // handle ?lang=en?lang=de
             if (i18n.getLocales().includes(lang)) {
                 response.setLocale(lang);
@@ -34,15 +35,12 @@ export class I18nMiddleware implements NestMiddleware {
         }
 
         // any url with a lang path inside
-        var matches = request.baseUrl.match(/^\/([a-z]{2})(\/.+)*$/);
+        var pathLangRegex = new RegExp(`^\/(${LANGUAGES_REGEX})(\/.+)*$`);
+        var matches = request.baseUrl.match(pathLangRegex);
         if (matches) {
-            var lang = matches[1];
-            if (!i18n.getLocales().includes(lang)) {
-                throw new NotFoundException();
-            }
-            response.setLocale(lang);
+            response.setLocale(matches[1]);
             // TODO: check if this is actually needed, after local has been set on response
-            response.cookie('locale', lang);
+            response.cookie('locale', matches[1]);
         }
 
         next();

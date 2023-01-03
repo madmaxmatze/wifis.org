@@ -1197,6 +1197,25 @@ input[name="g-recaptcha-response"] {
 
 .web .socialArea .socialDummyNumber {background-position: -432px top !important;}
 
-/*
-.wifilogo {background-position: right top;}
-*/
+
+
+
+.debug {
+    position: fixed;
+    top: 0;
+    z-index: 1000000;
+    max-width: 400px;
+    line-break: anywhere;
+}
+.debug > ul {
+    display: none;
+}
+.debug:hover {
+    background-color: #eee;
+}
+.debug:hover > ul {
+    display: block;
+}
+.debug * {
+    color: red !important;
+}

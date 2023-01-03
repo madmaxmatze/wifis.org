@@ -9,7 +9,7 @@ export class RedirectMiddleware implements NestMiddleware {
     use(request: Request, response: Response, next: NextFunction) {
         var redirect = this.calculateRedirect({
             originalUrl: request.originalUrl,
-            lang: request.getLocale()
+            lang: response.getLocale()
         });
 
         if (redirect.url != redirect.originalUrl) {
@@ -49,28 +49,16 @@ export class RedirectMiddleware implements NestMiddleware {
             redirect.url = "//blog.wifis.org";
         }
 
-        // force /cc for all non english language homepages
-        if (redirect.url.replace(/\?.*/, "").length <= 1 && redirect.lang != "en") {
-            redirect.type += " > /CC-Homepage";
-            redirect.status = 302;    // 302 because based on session specific language param
-            redirect.url = "/" + redirect.lang;
-        }
-
-        // "/en" is used to change languge to english on homepage, but afterwards redirect back to plain "/"
-        if (redirect.url == "/en" && redirect.lang == "en") {
-            redirect.type += " > /EN-Homepage";
-            redirect.status = 302;   // 302 because this redirect is needed to properly change language; caching in client needs to be prevented
-            redirect.url = "/";
-        }
-
-        // in case ?lang was used for wifi page, change redirect to 302
+        // handle lang param
         if (redirect.url.match(/lang\=/)) {
-            redirect.url = redirect.url.replace(/lang\=(\w{2}).lang\=\w{2}/g, "lang\=$1");          // merge multiple lang params           
+            redirect.url = redirect.url.replace(/lang\=(\w{2}).lang\=\w{2}/g, "lang\=$1");      // merge multiple lang params           
             redirect.type += " > ?lang";
-            if (redirect.url.match(/^\/[a-z]{2}\//)) {
-                redirect.url = redirect.url.replace(/lang\=\w{2}/g, "");          // remove lang param
+            if (redirect.url.replace(/\?.*/, "").length <= 1) {                                 // if homepage
+                redirect.url = "/" + redirect.lang;
+            } else if ((redirect.url + "/").match(/^\/[a-z]{2}\//)) {                           // if any cms page
+                redirect.url = redirect.url.replace(/lang\=\w{2}/g, "");                        // remove lang param
             }
-        }    
+        }  
 
         // cleanup        
         var cleanupUrl = redirect.url
@@ -85,6 +73,20 @@ export class RedirectMiddleware implements NestMiddleware {
         if (cleanupUrl != redirect.url) {
             redirect.type += " > cleanup";
             redirect.url = cleanupUrl;
+        }
+
+        // "/en" is used to change languge to english on homepage, but afterwards redirect back to plain "/"
+        if (redirect.url.replace(/\?.*/, "") == "/en" && redirect.lang == "en") {
+            redirect.type += " > /EN-Homepage";
+            redirect.status = 302;   // 302 because this redirect is needed to properly change language; caching in client needs to be prevented
+            redirect.url = "/";
+        }
+
+        // force /cc for all non english language homepages
+        if (redirect.url.replace(/\?.*/, "").length <= 1 && redirect.lang != "en") {
+            redirect.type += " > /CC-Homepage";
+            redirect.status = 302;    // 302 because based on session specific language param
+            redirect.url = "/" + redirect.lang;
         }
 
         // check for redirect loops

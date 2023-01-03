@@ -1,0 +1,48 @@
+<head>
+    <!-- Wifis.org ♥ developers - help us https://www.wifis.org/en/languages -->
+    <meta charset="utf-8">
+    <title>{{title}}</title>
+    <meta name="description" content="{{__ "label.mainTeaser"}}" />
+    <meta name="keywords" content="wifi, wifis, wlan, share, email, contact" />
+    <meta name="author" content="wifis.org" />
+    
+    {{#if wifiId}}
+        {{!-- only /contact + /example wifis should be indexed --}}
+        {{#if (or (equals wifiId "contact") (equals wifiId "example"))}}
+            <link rel=“canonical” href=“https://wifis.org/{{wifiId}}?lang={{getLocale}}” />
+            {{#each getLocales}}
+                <link rel="alternate" hreflang="{{this}}" href="https://wifis.org/{{../wifiId}}?lang={{this}}" />
+            {{/each}}
+        {{else}}
+            <meta name="robots" content="noindex">
+        {{/if}}
+    {{else}}
+        {{!-- NON wifi pages --}}
+        {{#if error}}
+            <meta name="robots" content="noindex">
+        {{else}}
+            <link rel=“canonical” href=“https://wifis.org{{urlWithoutQuery}}” />
+            {{#each getLocales}}
+                {{#if (equals ../urlWithoutLangAndQuery "")}}
+                    <link rel="alternate" hreflang="{{this}}" href="https://wifis.org{{#unless (equals this "en")}}/{{this}}{{/unless}}" />
+                {{else}}
+                    <link rel="alternate" hreflang="{{this}}" href="https://wifis.org/{{this}}{{../urlWithoutLangAndQuery}}" />
+                {{/if}}
+            {{/each}}
+        {{/if}}
+    {{/if}}
+    
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-M6XKF9N');</script>
+    <!-- End Google Tag Manager -->
+
+    <link href="//fonts.googleapis.com/css?family=Bevan" rel="stylesheet" type="text/css">
+    {{!-- TODO: Update Boostrap to latest version --}}
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.2.2/css/bootstrap.min.css" />
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link type="text/css" rel="stylesheet" href="/css/style.css" />
+</head>

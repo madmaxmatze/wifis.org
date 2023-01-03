@@ -29,6 +29,16 @@ describe('Test Redirect Middleware', () => {
             expected: { url: "/", status: 301, count: 1, "type": "" }
         },
         {
+            name: "Plain EN-Homepage",
+            input: { originalUrl: "/en", lang: "en" },
+            expected: { url: "/", status: 302, count: 1, "type": " > /EN-Homepage" }
+        },
+        {
+            name: "Plain EN-Homepage with lang param",
+            input: { originalUrl: "/?lang=en", lang: "en", performLive: true },
+            expected: { url: "/", status: 302, count: 1, "type": " > ?lang > /EN-Homepage" }
+        },
+        {
             name: "/-Homepage redirect to lang homepage",
             input: { originalUrl: "/", lang: "fr" },
             expected: { url: "/fr", status: 302, count: 1, "type": " > /CC-Homepage" }
@@ -36,12 +46,12 @@ describe('Test Redirect Middleware', () => {
         {
             name: "/-Homepage redirect to lang homepage",
             input: { originalUrl: "/?lang=it", lang: "it", performLive: true },
-            expected: { url: "/it", status: 302, count: 1, "type": " > /CC-Homepage" }
+            expected: { url: "/it", status: 301, count: 1, "type": " > ?lang" }
         },
         {
             name: "/-Homepage redirect to lang homepage",
             input: { originalUrl: "/?lang=it?lang=en", lang: "it", performLive: true },
-            expected: { url: "/it", status: 302, count: 1, "type": " > /CC-Homepage" }
+            expected: { url: "/it", status: 301, count: 1, "type": " > ?lang" }
         },
         {
             name: "/p/",

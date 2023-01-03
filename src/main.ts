@@ -12,7 +12,6 @@ import * as FirestoreStoreFactory from 'firestore-store';  // https://www.npmjs.
 
 NestFactory.create<NestExpressApplication>(AppModule)
     .then(app => (
-        console.log ("process.env: ", process.env),
         app.use(
             express.static(resolve(__dirname, "./public")),
             express.json(),

@@ -1,4 +1,4 @@
-import { NotFoundException, Get, Post, All, Controller, Res, Param, Session, HttpStatus, UseGuards, Body, Next, Render } from '@nestjs/common';
+import { Get, Post, All, Controller, Res, Param, Session, HttpStatus, UseGuards, Body, Next, Render } from '@nestjs/common';
 import { Response, NextFunction } from 'express';
 import { ConfigService } from '../config/config.service';
 import { WifiRepo } from '../data/wifi/wifi.repo';
@@ -6,6 +6,7 @@ import { CommsService } from '../comms/comms.service';
 import { Message } from '../data/message/message.model';
 import { Wifi } from '../data/wifi/wifi.model';
 import { AuthGuard } from '../auth/auth.guard';
+import { LANGUAGES_REGEX } from './middleware/i18n.middleware';
 import { Recaptcha, RecaptchaResult, RecaptchaVerificationResult } from '@nestlab/google-recaptcha';
 import * as i18n from 'i18n';
 
@@ -20,12 +21,12 @@ export class WebController {
         private readonly commsService: CommsService,
     ) { }
 
-    @Get([WebController.HOMEPAGE_URL, ":lang([a-z]{2})", ":lang([a-z]{2})/:pageId(about|faq|press|tos|languages|login)"])
+    @Get([WebController.HOMEPAGE_URL, `:lang(${LANGUAGES_REGEX})`, `:lang(${LANGUAGES_REGEX})/:pageId(about|faq|press|tos|languages|login)`])
     getPages(@Res() response: Response, @Param('pageId') pageId: string = "home") {
         return response.render(pageId);
     }
 
-    @Get(":lang([a-z]{2})/wifis")
+    @Get(`:lang(${LANGUAGES_REGEX})/wifis`)
     @UseGuards(AuthGuard)
     async getWifis(@Res() response: Response, @Session() session: Record<string, any>) {
         return response.render("wifis", {
@@ -33,13 +34,10 @@ export class WebController {
         });
     }
 
-    @Get('_js/config_:lang([a-z]{2}).js')
+    @Get(`_js/config_:lang(${LANGUAGES_REGEX}).js`)
     async javascript1(@Res() response: Response, @Param('lang') lang: string) {
-        if (!i18n.getLocales().includes(lang)) {
-            return response.status(HttpStatus.NOT_FOUND).send("");
-        }
-     
-        return response.contentType("application/javascript").send("var config = " + JSON.stringify({lang: lang, translations: i18n.getCatalog(lang)}) + ";");
+        var configJson = JSON.stringify({lang: lang, translations: i18n.getCatalog(lang)});
+        return response.contentType("application/javascript").send(`var config = ${configJson};`);
     }
 
     /**
