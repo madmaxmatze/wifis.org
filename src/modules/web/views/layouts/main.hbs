@@ -1,44 +1,39 @@
 <!DOCTYPE html>
-<html lang="{{getLocale}}" class="no-js web lang_{{getLocale}}">
-
-{{> head }}
-
+<html lang="{{getLocale}}" class="no-js">
+<head>
+    <meta charset="utf-8">
+    <title>{{title}}</title>
+    <meta name="description" content="{{__ "label.mainTeaser"}}" />
+    <meta name="keywords" content="wifi, wifis, wlan, share, email, contact" />
+    <meta name="author" content="wifis.org" />
+    <script>document.documentElement.classList.replace("no-js", "js");</script>
+    {{> head_seo }}
+    {{> gtm }}
+    {{!-- TODO: Update Boostrap to latest version OR directly jump to https://tailwindui.com OR all in full react frontend with thin nest js --}}
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.2.2/css/bootstrap.min.css" />
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link type="text/css" rel="stylesheet" href="/css/style.css" />
+</head>
 <body>
-    {{#unless (equals env "production")}}
-        <div class="debug">
-            <h1>{{env}}</h1>
-            <ul>
-                <li><b>lang:</b> {{getLocale}}</li>
-                <li><b>urlWithoutQuery:</b> {{urlWithoutQuery}}</li>
-                <li><b>urlWithoutLangAndQuery:</b> {{urlWithoutLangAndQuery}}</li>
-                <li><b>version:</b> {{version}}</li>
-                <li><b>user:</b> {{json user}}</li>
-            </ul>            
-        </div>
-    {{/unless}}
-
+    {{> dev_env }}
     {{> navi }}
-
-    <div class="container maincontainer {{#if viewname}}{{viewname}}_page{{/if}}">
+    <div class="container maincontainer {{pageId}}_page">
         <div class="content contenttop">
             {{{body}}}
             <div class='clear'></div>
         </div>
     </div>
-
     {{> footer }}
-    
-    <script type='text/javascript' src='https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js'></script>
     <script type='text/javascript' src='/_js/config_{{getLocale}}.js?{{version}}'></script>
-    <script type='text/javascript' src='/js/libs/bootstrap-dropdown.js?{{version}}'></script>
-    <script type='text/javascript' src='/js/libs/jquery.timeout.js?{{version}}'></script>
-    <script type='text/javascript' src='/js/jquery.wifis.form.js?{{version}}'></script>
-    <script type='text/javascript' src='/js/jquery.wifis.general.js?{{version}}'></script>
-    <script type='text/javascript' src='/js/jquery.wifis.menu.js?{{version}}'></script>
-    {{!-- 
-        <script type='text/javascript' src='/js/jquery.wifis.press.js?{{version}}'></script>
-    --}}
-    <script type='text/javascript' src='/js/jquery.wifis.tips.js?{{version}}'></script>
-    <script type='text/javascript' src='/js/wifis.controller.js?{{version}}'></script>
+    <script type='text/javascript' src='/js/script.js?{{version}}'></script>
 </body>
 </html>
+
+{{!-- 
+    <script type='text/javascript' src='https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js'></script>
+    <script type='text/javascript' src='/js/libs/bootstrap-dropdown.js?{{version}}'></script>
+ 
+    <script type='text/javascript' src='/js/libs/jquery.timeout.js?{{version}}'></script>
+    <script type='text/javascript' src='/js/jquery.wifis.form.js?{{version}}'></script>
+    <script type='text/javascript' src='/js/jquery.wifis.tips.js?{{version}}'></script>
+    --}}

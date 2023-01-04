@@ -1,24 +1,24 @@
-<form id="addWifiForm" class="form-inline" method="post" autocomplete="off" action="/p/wifi/add">
+<form id="addWifiForm" class="form-inline" method="post" autocomplete="off">
     {{#each wifis}}
-    <div class="control-group wifiObj" id="wifi{{this.id}}">
+        <div class="control-group wifiObj" id="wifi{{this.id}}">
+            <div class="input-prepend input-append">
+                <span class="add-on">wifis.org/</span>
+                <span class="add-on wifiName" style="font-weight: bold; background: white;">
+                    <a href="/{{this.id}}">{{this.label}}</a>
+                </span>
+                <span class="add-on deleteButton no-js-hidden">
+                    <a class="sprite icon icon-delete" href="javascript: void();" title="{{../__ "wifis.deleteButton"}}"></a>
+                </span>
+            </div>
+        </div>
+    {{/each}}
+
+    <div class="control-group no-js-hidden">
         <div class="input-prepend input-append">
             <span class="add-on">wifis.org/</span>
-            <span class="add-on wifiName" style="font-weight: bold; background: white;">
-                <a href="/{{this.id}}">{{this.label}}</a>
-            </span>
-            <span class="add-on deleteButton">
-                <a class="sprite icon icon-delete" href="/p/wifi/delete?id={{this.id}}"
-                    title="{{../__ "wifis.deleteButton"}}"></a>
-            </span>
-        </div>
-    </div>
-    {{/each}}
-   
-    <div class="control-group ">
-        <div class="input-prepend input-append">
-            <span class="add-on">wifis.org/</span> <input class="addWifiInput" type="text" name="wifiid" value=""
+            <input id="addWifiInput" type="text" name="wifiid" value=""
                 placeholder="{{__ "wifis.enternew"}}" title="{{__ "wifis.enternew"}}" />
-            <button class="btn" type="submit" id="addWifiSave">
+            <button class="btn" value="add" type="submit" formaction="" id="addWifiSave">
                 {{__ "wifis.save"}}
             </button>
             <span class="add-on loader hide">&#160;&#160;&#160;</span>

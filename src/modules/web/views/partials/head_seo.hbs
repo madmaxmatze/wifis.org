@@ -1,0 +1,25 @@
+{{#if wifiId}}
+    {{!-- only /contact + /example wifis should be indexed --}}
+    {{#if (or (equals wifiId "contact") (equals wifiId "example"))}}
+        <link rel=“canonical” href=“https://wifis.org/{{wifiId}}?lang={{getLocale}}” />
+        {{#each getLocales}}
+            <link rel="alternate" hreflang="{{this}}" href="https://wifis.org/{{../wifiId}}?lang={{this}}" />
+        {{/each}}
+    {{else}}
+        <meta name="robots" content="noindex">
+    {{/if}}
+{{else}}
+    {{!-- NON wifi pages --}}
+    {{#if error}}
+        <meta name="robots" content="noindex">
+    {{else}}
+        <link rel=“canonical” href=“https://wifis.org{{urlWithoutQuery}}” />
+        {{#each getLocales}}
+            {{#if (equals pageId "home")}}
+                <link rel="alternate" hreflang="{{this}}" href="https://wifis.org{{#unless (equals this "en")}}/{{this}}{{/unless}}" />
+            {{else}}
+                <link rel="alternate" hreflang="{{this}}" href="https://wifis.org/{{this}}{{../urlWithoutLangAndQuery}}" />
+            {{/if}}
+        {{/each}}
+    {{/if}}
+{{/if}}

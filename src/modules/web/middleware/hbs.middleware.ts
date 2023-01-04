@@ -72,6 +72,9 @@ export class HbsMiddleware implements NestMiddleware {
         response.locals.translations = i18n.getCatalog(request);
         response.locals.urlWithoutQuery = request.originalUrl.replace(/\?.*/, "").replace(/^\/$/, "");
         response.locals.urlWithoutLangAndQuery = response.locals.urlWithoutQuery.replace(/^\/\w{2}$/, "/").replace(/^\/\w{2}\//, "/").replace(/^\/$/, "");
+        if (!response.locals.urlWithoutLangAndQuery || response.locals.urlWithoutQuery != response.locals.urlWithoutLangAndQuery) {
+            response.locals.pageId = response.locals.urlWithoutLangAndQuery.substr(1) || "home";
+        }
         response.locals.queryReferer = request.query.referer || "";
         response.locals.version = crypto.createHash('md5').update(process.env.K_REVISION || '???').digest('hex').substr(0, 8);
         if (!process.env.NODE_ENV) {

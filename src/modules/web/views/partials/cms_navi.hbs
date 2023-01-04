@@ -1,17 +1,17 @@
 <ul class="nav nav-tabs">
-    <li {{#if (equals urlWithoutLangAndQuery "/faq")}}class="active" {{/if}}>
+    <li {{#if (equals pageId "faq")}}class="active" {{/if}}>
         <a href="/{{getLocale}}/faq">{{__ "faq.linklabel"}}</a>
     </li>
-    <li {{#if (equals urlWithoutLangAndQuery "/about")}}class="active" {{/if}}>
+    <li {{#if (equals pageId "about")}}class="active" {{/if}}>
         <a href="/{{getLocale}}/about">{{__ "about.linklabel"}}</a>
     </li>
-    <li {{#if (equals urlWithoutLangAndQuery "/press")}}class="active" {{/if}}>
+    <li {{#if (equals pageId "press")}}class="active" {{/if}}>
         <a href="/{{getLocale}}/press">{{__ "press.linklabel"}}</a>
     </li>
     <li>
         <a href="https://blog.wifis.org" target="_blank"><span class="external sprite">{{__ "blog.linklabel"}}</span></a>
     </li>
-    <li {{#if (equals urlWithoutLangAndQuery "/tos")}}class="active" {{/if}}>
+    <li {{#if (equals pageId "tos")}}class="active" {{/if}}>
         <a href="/{{getLocale}}/tos">{{__ "tos.linklabel"}}</a>
     </li>
 </ul>

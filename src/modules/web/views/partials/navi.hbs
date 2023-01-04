@@ -7,23 +7,23 @@
 
             <ul class="nav pull-right">
                 {{#if user}}
-                    <li {{#if (equals urlWithoutLangAndQuery "/wifis")}}class="active" {{/if}}>
+                    <li {{#if (equals pageId "wifis")}}class="active" {{/if}}>
                         <a href="/{{getLocale}}/wifis">{{{__ "wifis.linklabel"}}}</a>
                     </li>
                 {{/if}}
 
-                <li class="dropdown {{#if (or (equals urlWithoutLangAndQuery "/about") (equals urlWithoutLangAndQuery "/faq") (equals urlWithoutLangAndQuery "/press") (equals urlWithoutLangAndQuery "/tos"))}}active{{/if}}">
+                <li class="dropdown {{#if (or (equals pageId "about") (equals pageId "faq") (equals pageId "press") (equals pageId "tos"))}}active{{/if}}">
                     <a href="/{{getLocale}}/faq" class="dropdown-toggle">
                         {{__ "label.otherwebsite.title"}}<b class="caret"></b>
                     </a>
                     <ul class="dropdown-menu">
-                        <li {{#if (equals urlWithoutLangAndQuery "/faq")}}class="active" {{/if}}>
+                        <li {{#if (equals pageId "faq")}}class="active" {{/if}}>
                             <a href="/{{getLocale}}/faq">{{__ "faq.linklabel"}}</a>
                         </li>
-                        <li {{#if (equals urlWithoutLangAndQuery "/about")}}class="active" {{/if}}>
+                        <li {{#if (equals pageId "about")}}class="active" {{/if}}>
                             <a href="/{{getLocale}}/about">{{__ "about.linklabel"}}</a>
                         </li>
-                        <li {{#if (equals urlWithoutLangAndQuery "/press")}}class="active" {{/if}}>
+                        <li {{#if (equals pageId "press")}}class="active" {{/if}}>
                             <a href="/{{getLocale}}/press">{{__ "press.linklabel"}}</a>
                         </li>
                         <li>
@@ -34,7 +34,7 @@
                     </ul>
                 </li>
 
-                <li id="langDropDown" class="dropdown{{#if (equals urlWithoutLangAndQuery "/languages")}} active{{/if}}">
+                <li id="langDropDown" class="dropdown{{#if (equals pageId "languages")}} active{{/if}}">
                     <a href="/{{getLocale}}/languages?referer={{urlWithoutQuery}}" class="dropdown-toggle">
                         <span class="sprite flag flag_{{getLocale}}"></span>
                         <b class="caret"></b>
@@ -63,7 +63,7 @@
                     </ul>
                 </li>
 
-                <li class="dropdown{{#if (equals urlWithoutLangAndQuery "/login")}} active{{/if}}">
+                <li class="dropdown{{#if (equals pageId "login")}} active{{/if}}">
                     <!-- when NOT logged in -->
                     {{#if user}}
                         <a href="#" class="dropdown-toggle" id="logout-menu-item" title="logout">
@@ -79,7 +79,7 @@
                         </a>
                         <ul class="dropdown-menu">
                             <li>
-                                {{#if (equals urlWithoutLangAndQuery "/wifis")}}
+                                {{#if (equals pageId "wifis")}}
                                     {{assign "logout_redirect" "/"}}
                                 {{else}}
                                     {{assign "logout_redirect" urlWithoutQuery}}
