@@ -1,4 +1,4 @@
-import { Get, Post, All, Controller, Res, Param, Session, HttpStatus, UseGuards, Body, Next, Render } from '@nestjs/common';
+import { Get, Post, All, Controller, Req, Res, Param, Session, HttpStatus, UseGuards, Body, Next, Render } from '@nestjs/common';
 import { Response, NextFunction } from 'express';
 import { ConfigService } from '../config/config.service';
 import { WifiRepo } from '../data/wifi/wifi.repo';
@@ -21,17 +21,22 @@ export class WebController {
         private readonly commsService: CommsService,
     ) { }
 
-    @Get([WebController.HOMEPAGE_URL, `:lang(${LANGUAGES_REGEX})`, `:lang(${LANGUAGES_REGEX})/:pageId(about|faq|press|tos|languages|login)`])
+    @Post([WebController.HOMEPAGE_URL, `:lang(${LANGUAGES_REGEX})`])
+    @UseGuards(AuthGuard)
+    async postWifis(@Req() request: Request, @Res() response: Response, @Next() next: NextFunction, @Session() session: Record<string, any>) {
+        console.log (request.body)
+        next();
+    }
+
+    @All([WebController.HOMEPAGE_URL, `:lang(${LANGUAGES_REGEX})`, `:lang(${LANGUAGES_REGEX})/:pageId(about|faq|press|tos|languages|login)`])
     getPages(@Res() response: Response, @Param('pageId') pageId: string = "home") {
         return response.render(pageId);
     }
-
+    
     @Get(`:lang(${LANGUAGES_REGEX})/wifis`)
     @UseGuards(AuthGuard)
     async getWifis(@Res() response: Response, @Session() session: Record<string, any>) {
-        return response.render("wifis", {
-            "wifis": await this.wifiRepo.getAllByUserId(session.user.id)
-        });
+        return response.render("wifis", {"wifis": await this.wifiRepo.getAllByUserId(session.user.id)});
     }
 
     @Get(`_js/config_:lang(${LANGUAGES_REGEX}).js`)

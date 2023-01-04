@@ -1,0 +1,14 @@
+{{#unless (equals env "production")}}
+    <div class="debug">
+        <h1>{{env}}</h1>
+        <ul>
+            <li><b>lang:</b> {{getLocale}}</li>
+            <li><b>urlWithoutQuery:</b> {{urlWithoutQuery}}</li>
+            <li><b>urlWithoutLangAndQuery:</b> {{urlWithoutLangAndQuery}}</li>
+            <li><b>pageId:</b> {{pageId}}</li>
+            <li><b>wifiId:</b> {{wifiId}}</li>
+            <li><b>version:</b> {{version}}</li>
+            <li><b>user:</b> {{json user}}</li>
+        </ul>            
+    </div>
+{{/unless}}
