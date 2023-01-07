@@ -3,6 +3,7 @@ import { Response, NextFunction } from 'express';
 import { resolve } from 'path';
 import * as hbs from 'hbs';
 import * as crypto from 'crypto';
+import * as i18n from 'i18n';
 
 hbs.registerHelper('assign', function (varName, varValue, options) {
     if (!options.data.root) {
@@ -68,6 +69,7 @@ hbs.registerHelper('json', function (object: any, _options) {
 export class HbsMiddleware implements NestMiddleware {
     use(request: any, response: Response, next: NextFunction) {
         // pass some variables to templates
+        response.locals.translations = i18n.getCatalog(request);
         response.locals.urlWithoutQuery = request.originalUrl.replace(/\?.*/, "").replace(/^\/$/, "");
         response.locals.urlWithoutLangAndQuery = response.locals.urlWithoutQuery.replace(/^\/\w{2}$/, "/").replace(/^\/\w{2}\//, "/").replace(/^\/$/, "");
         response.locals.queryReferer = request.query.referer || "";
