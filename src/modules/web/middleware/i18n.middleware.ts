@@ -4,12 +4,13 @@ import { WifisRedirect } from './wifis.redirect';
 import { resolve } from 'path';
 import * as i18n from 'i18n';
 
+const LANG_COOKIE = "locale";
 const LANGUAGES : string[] = ["de", "en", "es", "fr", "it", "ms", "nl", "ru"];
 export const LANGUAGES_REGEX : string = LANGUAGES.join("|");
 
 i18n.configure({
     locales: LANGUAGES,
-    cookie: 'locale',
+    cookie: LANG_COOKIE,
     defaultLocale: 'en',
     directory: resolve(__dirname, "../locales"),
     queryParameter: 'lang',
@@ -20,13 +21,13 @@ i18n.configure({
 export class I18nMiddleware implements NestMiddleware {
     use(request: Request, response: Response, next: NextFunction) {
         i18n.init(request, response);
-       
+        
         // try to take lang from cookie, potentially overwrite with url (/de/ or ?lang=de)
         var lang = WifisRedirect.getLang(request?.cookies?.locale, request.originalUrl);
-        if (lang) {
+        if (lang && lang != response.getLocale()) {
             response.setLocale(lang);
             // TODO: check if this is actually needed, after local has been set on response
-            response.cookie('locale', lang);
+            response.cookie(LANG_COOKIE, lang);
         }
 
         next();

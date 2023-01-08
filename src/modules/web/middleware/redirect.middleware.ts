@@ -13,19 +13,24 @@ export class RedirectMiddleware implements NestMiddleware {
     ) { }
 
     use(request: Request, response: Response, next: NextFunction) {
-        var redirect = WifisRedirect.getRedirect({
-            hostname: this.configService.getHostname(),
-            pathname: request.baseUrl + request.path,
-            search: request.originalUrl.replace(/^.*?(\?.*)$/, "$1"),            
+        var [, pathname, search] = request.originalUrl.match(/^(.*?)(\?.+)*$/);
+        var options : any = {
+            pathname: pathname,
+            search: search,            
             lang: response.getLocale(),
-        });
+        };
+        if (!this.configService.isDevEnv) {
+            options.protocol = request.protocol;
+            options.hostname = this.configService.getHostname();
+        }
+        var redirect = WifisRedirect.getRedirect(options);
         if (redirect.url) {
             console.log(`${redirect.status} REDIRECT (type:'${redirect.type || "general"}') from '${redirect.requestUrl}' to '${redirect.url}'`);
             return response.redirect(redirect.status, redirect.url);
         }
 
         // only cases to handle outsite of redirect class, otherwise lang cannot be swicthed on homepage
-        if ((request.baseUrl + request.path) == "/en" && redirect.lang == "en") {
+        if (pathname == "/en" && redirect.lang == "en") {
             return response.redirect(302, "");
         }
 

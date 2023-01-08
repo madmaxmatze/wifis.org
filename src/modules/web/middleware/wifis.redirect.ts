@@ -30,23 +30,31 @@ class WifisRedirect {
     }
 
     static getRedirect(options) {
+        if (options.pathname.match(/\./)) { // ignore files
+            return {};
+        }
+
         var redirect = {
             ...{
+                protocol: "https:",
                 hostname: options.hostname || "",
                 pathname: options.pathname || "",
                 search: options.search || "",
+                initialProtocol: options.protocol || "https:",
                 initialHostname: options.hostname || "",
                 initialPathname: options.pathname || "",
                 initialSearch: options.search || "",
-                
                 type : "",
                 count : 0,
             }, ...options, ...{
+                lastProtocol: options.protocol || "https:",
                 lastHostname: options.hostname || "",
                 lastPathname: options.pathname || "",
                 lastSearch: options.search || "",
             }
         };
+
+
 
         redirect.lang = options.lang || WifisRedirect.getLang("en", redirect.pathname);
    
@@ -129,7 +137,8 @@ class WifisRedirect {
         }
 
         // check for redirect loops
-        if ((redirect.lastHost != redirect.hostname 
+        if ((redirect.lastProtocol != redirect.protocol
+                || redirect.lastHostname != redirect.hostname 
                 || redirect.lastPathname != redirect.pathname 
                 || redirect.lastSearch != redirect.search
             ) && redirect.count <= 10) {
@@ -138,7 +147,7 @@ class WifisRedirect {
         }
 
         if (redirect.count) {
-            redirect.url = (redirect.initialHostname == redirect.hostname ? "" : "https://" + redirect.hostname) + redirect.pathname + redirect.search;
+            redirect.url = (redirect.hostname ? "https://" + redirect.hostname : "") + redirect.pathname + redirect.search;
             redirect.status = redirect.status || 301;
         }
         
