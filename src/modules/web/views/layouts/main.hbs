@@ -1,39 +1,47 @@
 <!DOCTYPE html>
 <html lang="{{getLocale}}" class="no-js">
 <head>
-    <meta charset="utf-8">
+    {{#if (__ (concat pageId ".headline"))}}
+        {{assign "title" (__ (concat pageId ".headline")}}
+    {{/if}}
     <title>{{title}}</title>
+    <meta charset="utf-8">
     <meta name="description" content="{{__ "label.mainTeaser"}}" />
     <meta name="keywords" content="wifi, wifis, wlan, share, email, contact" />
     <meta name="author" content="wifis.org" />
-    <script>document.documentElement.classList.replace("no-js", "js");</script>
-    {{> head_seo }}
-    {{> gtm }}
-    {{!-- TODO: Update Boostrap to latest version OR directly jump to https://tailwindui.com OR all in full react frontend with thin nest js --}}
-    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.2.2/css/bootstrap.min.css" />
     <meta name="viewport" content="width=device-width,initial-scale=1">
+    {{> head_seo }}
+    <script>
+        (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+        'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+        })(window,document,'script','dataLayer','GTM-M6XKF9N');
+        
+        document.documentElement.classList.replace("no-js", "js");
+    </script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.3/css/bootstrap.min.css" />
     <link type="text/css" rel="stylesheet" href="/css/style.css" />
 </head>
-<body>
+<body class="{{pageId}}_page">
+    <!--
     {{> dev_env }}
-    {{> navi }}
-    <div class="container maincontainer {{pageId}}_page">
-        <div class="content contenttop">
+    -->
+    {{> header }}
+    
+    <main class="container py-4">
+    
+        <div class="container-lg">
             {{{body}}}
             <div class='clear'></div>
         </div>
-    </div>
+    
+    </main>
+            
     {{> footer }}
-    <script type='text/javascript' src='/_js/config_{{getLocale}}.js?{{version}}'></script>
-    <script type='text/javascript' src='/js/script.js?{{version}}'></script>
+
+    <script type='text/javascript' src='/js/translation/{{getLocale}}.js?{{version}}'></script>
+    {{!-- <script type='text/javascript' src='/js/script.js?{{version}}'></script> --}}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.3/js/bootstrap.min.js"></script>
 </body>
 </html>
-
-{{!-- 
-    <script type='text/javascript' src='https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js'></script>
-    <script type='text/javascript' src='/js/libs/bootstrap-dropdown.js?{{version}}'></script>
- 
-    <script type='text/javascript' src='/js/libs/jquery.timeout.js?{{version}}'></script>
-    <script type='text/javascript' src='/js/jquery.wifis.form.js?{{version}}'></script>
-    <script type='text/javascript' src='/js/jquery.wifis.tips.js?{{version}}'></script>
-    --}}

@@ -39,7 +39,7 @@ export class WebController {
         return response.render("wifis", {"wifis": await this.wifiRepo.getAllByUserId(session.user.id)});
     }
 
-    @Get(`_js/config_:lang(${LANGUAGES_REGEX}).js`)
+    @Get(`js/translation/:lang(${LANGUAGES_REGEX}).js`)
     async javascript1(@Res() response: Response, @Param('lang') lang: string) {
         var configJson = JSON.stringify({lang: lang, translations: i18n.getCatalog(lang)});
         return response.contentType("application/javascript").send(`var config = ${configJson};`);

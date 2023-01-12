@@ -1,31 +1,49 @@
 {{assign "title" (concat (__ "label.title") " - " (__ "label.mainTeaser"))}}
 
+<!--
 <a href="/{{getLocale}}/login" class="wifisButton join">{{& __ "homepage.joinButton"}}</a>
 
 <div class="wifilogo sprite"></div>
 
 {{{__ "homepage.text.0"}}}
+-->
 
-<ul class="teasers">
-    {{#each translations.homepage.teasers}}
-    <li class="teaser{{concat @index 1}}">
-        <div class="number"><span>{{concat @index 1}}</span></div>
-        <div class="text">{{& this}}</div>
-        <div class="image">
-            <a href="/example" title="...">
-                <img src="/img/teaser{{concat @index 1}}_small.png" alt="..." width="210" height="210" />
-            </a>
-        </div>
-    </li>
-    {{/each}}
-</ul>
 
-{{{__ "homepage.text.1"}}}
-
-<div class="wifichecker">
-    <div class="text">
-        {{{__ "homepage.wifichecker"}}}
-    </div>
-
-    {{> wifiForm }}
+    <h1>Mit wifis.org kann dein WLAN Emails empfangen</h1>
+    <blockquote class="bubble1">
+        <p>„Hi, willst du vielleicht für etwas Geld jeden Monat dein WLAN mit mir teilen?”</p>
+    </blockquote>
+    <blockquote class="bubble2">
+        <p>„Ich bin kürzlich im Haus eingezogen und habe dein WLAN gesehen. Lust auf ein Bierchen?”</p>
+    </blockquote>
 </div>
+
+<!--    
+    "<div class="how_to_subtext">(Erfahre mehr über diesen kostenlosen und anonymen Dienst in den <a href="/p/faq" title="Häufig gestellte Fragen">FAQs</a>)</div> </div><div class="content">"
+    -->
+
+<div class="container-lg">
+    <h2>Wie funktioniert es?</h2>
+    <div class="row row-cols-1 row-cols-md-3 mb-3 text-center">
+        {{#each translations.homepage.teasers}}
+        <div class="col">
+            <div class="card mb-4 rounded-3 shadow-sm">
+                <div class="card-header py-3">
+                    <div class="number"><span>{{concat @index 1}}</span></div>
+                    <h4 class="my-0 fw-normal">{{& this}}</h4>
+                </div>
+                <div class="card-body">
+                    <img src="/img/teaser{{concat @index 1}}_small.png" alt="..." width="210" height="210" />
+                </div>
+            </div>
+        </div>
+        {{/each}}
+    </div>
+    
+    <div class="wifichecker">
+        <div class="text">
+            {{{__ "homepage.wifichecker"}}}
+        </div>
+
+        {{> wifiForm }}
+    </div>

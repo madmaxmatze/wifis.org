@@ -1,6 +1,3 @@
-export
-
-
 /**
  * Wifis Redirect Handler
  * 
@@ -11,7 +8,7 @@ export
  * and this class (handling path redirects).
  * Background: CloudRun doesn't allow wildcard domain matching with LoadBalancer
  */
-class WifisRedirect {
+export class WifisRedirect {
     // fetch language from url
     static getLang(lang, url) {
         var validLanguages = "de|en|es|fr|it|ms|nl|ru";
@@ -30,16 +27,19 @@ class WifisRedirect {
     }
 
     static getRedirect(options) {
-        if (options.pathname.match(/\./)) { // ignore files
-            return {};
+        if (!options.search) {
+            options.search = "";
         }
-
+        if (!options.hostname) {
+            options.hostname = "";
+        }
+        
         var redirect = {
             ...{
                 protocol: "https:",
-                hostname: options.hostname || "",
-                pathname: options.pathname || "",
-                search: options.search || "",
+                hostname: options.hostname,
+                pathname: options.pathname,
+                search: options.search,
                 initialProtocol: options.protocol || "https:",
                 initialHostname: options.hostname || "",
                 initialPathname: options.pathname || "",
@@ -53,8 +53,6 @@ class WifisRedirect {
                 lastSearch: options.search || "",
             }
         };
-
-
 
         redirect.lang = options.lang || WifisRedirect.getLang("en", redirect.pathname);
    
@@ -142,6 +140,7 @@ class WifisRedirect {
                 || redirect.lastPathname != redirect.pathname 
                 || redirect.lastSearch != redirect.search
             ) && redirect.count <= 10) {
+            console.log (redirect);
             redirect.count++;
             redirect = WifisRedirect.getRedirect(redirect);
         }

@@ -19,13 +19,14 @@ export class RedirectMiddleware implements NestMiddleware {
             search: search,            
             lang: response.getLocale(),
         };
-        if (!this.configService.isDevEnv) {
+        if (!this.configService.isDevEnv()) {
             options.protocol = request.protocol;
             options.hostname = this.configService.getHostname();
         }
+        console.log (options);
         var redirect = WifisRedirect.getRedirect(options);
         if (redirect.url) {
-            console.log(`${redirect.status} REDIRECT (type:'${redirect.type || "general"}') from '${redirect.requestUrl}' to '${redirect.url}'`);
+            console.log(`${redirect.status} REDIRECT (type:'${redirect.type || "general"}') from '${request.originalUrl}' to '${redirect.url}'`);
             return response.redirect(redirect.status, redirect.url);
         }
 
