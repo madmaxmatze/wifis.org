@@ -4,6 +4,7 @@ html {
 }
 body {
 
+    border: 100px solid red;
 }
 
 html,

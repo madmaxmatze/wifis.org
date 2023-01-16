@@ -1,10 +1,13 @@
 <!DOCTYPE html>
 <html lang="{{getLocale}}" class="no-js">
 <head>
-    {{#if (__ (concat pageId ".headline"))}}
-        {{assign "title" (__ (concat pageId ".headline")}}
-    {{/if}}
-    <title>{{title}}</title>
+    <title>
+        {{#if (__ (concat pageId ".headline"))}}
+            {{stripScripts (__ (concat pageId ".headline"))}}
+        {{else}}
+            {{title}}
+        {{/if}}
+    </title>
     <meta charset="utf-8">
     <meta name="description" content="{{__ "label.mainTeaser"}}" />
     <meta name="keywords" content="wifi, wifis, wlan, share, email, contact" />
