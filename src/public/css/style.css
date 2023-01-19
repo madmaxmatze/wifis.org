@@ -2,10 +2,6 @@
 html {
 	overflow-y: scroll;
 }
-body {
-
-    border: 100px solid red;
-}
 
 html,
 body
@@ -59,7 +55,7 @@ nav {
     text-indent: -1000px;
 	display: block;
 	height: 45px;
-    width: 205px;
+    width: 215px;
 	margin-left: 0px;
 }
 
@@ -69,34 +65,200 @@ nav {
 
 
 
+/* WifiForm ********************************************************************************* */
+input:invalid {
+    background: rgb(255, 218, 218);
+}
+
+.btn-primary {
+    --bs-btn-bg: #49afcd;
+    --bs-btn-hover-bg: #084f74;
+    --bs-btn-disabled-bg: lightgray;
+    --bs-btn-disabled-color: dimgray;
+    --bs-btn-disabled-border-color: darkgray;
+}
+.btn-primary .spinner-border {
+    display: none;
+}
+.btn-primary.disabled .spinner-border {
+    display: inline-block;
+}
 
 
 
 /* Footer ********************************************************************************* */
-.icon span {
-    display: none;
-}
-
-.icon::before {
+.icon span::before {
     display: inline-block;
+    float: left;
+    margin-right: 5px;
     content: "";
+    vertical-align: text-bottom;
     background-repeat: no-repeat;
     background-size: 100% 100%;
     height: 20px;
     width: 20px;
 }
 
-.github_icon::before {
-    background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='currentColor' class='bi bi-github' viewBox='0 0 16 16'><path d='M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z'/></svg>");
+.github_icon span::before {
+    background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='DimGray' class='bi bi-github' viewBox='0 0 16 16'><path d='M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z'/></svg>");
 }
 
-.facebook_icon::before {
-    background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='currentColor' class='bi bi-facebook' viewBox='0 0 16 16'><path d='M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951z'/></svg>");
+.facebook_icon span::before {
+    background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='DimGray' class='bi bi-facebook' viewBox='0 0 16 16'><path d='M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951z'/></svg>");
 }
 
-.twitter_icon::before {
-    background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='currentColor' class='bi bi-twitter' viewBox='0 0 16 16'><path d='M5.026 15c6.038 0 9.341-5.003 9.341-9.334 0-.14 0-.282-.006-.422A6.685 6.685 0 0 0 16 3.542a6.658 6.658 0 0 1-1.889.518 3.301 3.301 0 0 0 1.447-1.817 6.533 6.533 0 0 1-2.087.793A3.286 3.286 0 0 0 7.875 6.03a9.325 9.325 0 0 1-6.767-3.429 3.289 3.289 0 0 0 1.018 4.382A3.323 3.323 0 0 1 .64 6.575v.045a3.288 3.288 0 0 0 2.632 3.218 3.203 3.203 0 0 1-.865.115 3.23 3.23 0 0 1-.614-.057 3.283 3.283 0 0 0 3.067 2.277A6.588 6.588 0 0 1 .78 13.58a6.32 6.32 0 0 1-.78-.045A9.344 9.344 0 0 0 5.026 15z'/></svg>");
+.twitter_icon span::before {
+    background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='DimGray' class='bi bi-twitter' viewBox='0 0 16 16'><path d='M5.026 15c6.038 0 9.341-5.003 9.341-9.334 0-.14 0-.282-.006-.422A6.685 6.685 0 0 0 16 3.542a6.658 6.658 0 0 1-1.889.518 3.301 3.301 0 0 0 1.447-1.817 6.533 6.533 0 0 1-2.087.793A3.286 3.286 0 0 0 7.875 6.03a9.325 9.325 0 0 1-6.767-3.429 3.289 3.289 0 0 0 1.018 4.382A3.323 3.323 0 0 1 .64 6.575v.045a3.288 3.288 0 0 0 2.632 3.218 3.203 3.203 0 0 1-.865.115 3.23 3.23 0 0 1-.614-.057 3.283 3.283 0 0 0 3.067 2.277A6.588 6.588 0 0 1 .78 13.58a6.32 6.32 0 0 1-.78-.045A9.344 9.344 0 0 0 5.026 15z'/></svg>");
 }
+
+
+.press a.logo {
+	line-height: 30px;	
+	margin: 5px 15px 5px 0;
+    height: 30px;
+    display: inline-block;
+    overflow: hidden;
+}
+
+.logo {background: url("/img/logos.png") no-repeat -1000px -1000px;}
+
+.flag_en {background-position: -1px -1px;}
+.flag_de {background-position: -19px -1px;}
+.flag_fr {background-position: -37px -1px;}
+.flag_es {background-position: -73px -1px;}
+.flag_tr {background-position: -55px -1px;}
+.flag_it {background-position: -109px -1px;}
+.flag_ru {background-position: -145px -1px;}
+.flag_ms {background-position: -199px -1px;}
+.flag_nl {background-position: -217px -1px;}
+
+/* a span.sprite {background-position: -688px -47px;} */
+
+.icon-google {background-position: -112px -12px;}
+.icon-google-red {background-position: 0px -12px;}
+.icon-facebook {background-position: -48px -12px;}
+.icon-facebookblue {background-position: -80px -12px;}
+.icon-twitter {background-position: -96px -12px;}
+.icon-linkedin {background-position: -128px -12px;}
+.icon-delete {background-position: -64px -12px;}
+.icon-flattr {background-position: -160px -12px;}
+.icon-tumblr {background-position: -176px -12px;}
+
+.icon32-facebook {background-position: 0px -28px;}
+.icon32-google {background-position: -32px -28px;}
+.icon32-twitter {background-position: -64px -28px;}
+.icon32-mail {background-position: -96px -28px;}
+.icon32-wifi {background-position: -128px -28px;}
+.icon32-flattr {background-position: -160px -28px;}
+.icon32-tumblr {background-position: -192px -28px;}
+.icon32-linkedin {background-position: -224px -28px;}
+
+
+.googleLoginImage {background-position: -377px -29px;}
+.facebookLoginImage {background-position: -267px -29px;}
+.twitterLoginImage {background-position: -380px -22px}
+
+
+/* 1. line */
+.logo-tnw {width: 70px;}
+.logo-tnw:hover  {background-position: 0px 0px;}
+.logo-tnw {background-position: 0px -30px;}
+
+.logo-boingboing {width: 161px;}
+.logo-boingboing:hover  {background-position: -75px 0px;}
+.logo-boingboing {background-position: -75px -30px;}
+
+.logo-rww {width: 198px;}
+.logo-rww:hover  {background-position: -240px 0px;}
+.logo-rww {background-position: -240px -30px;}
+
+.logo-fritz {width: 56px;}
+.logo-fritz:hover  {background-position: -440px 0px;}
+.logo-fritz {background-position: -440px -30px;}
+
+
+/* 2. line */
+.logo-jetzt {width: 80px;}
+.logo-jetzt:hover  {background-position: 0px -60px;}
+.logo-jetzt {background-position: 0px -90px;}
+
+.logo-20minutos {width: 137px;}
+.logo-20minutos:hover  {background-position: -85px -60px;}
+.logo-20minutos {background-position: -85px -90px;}
+
+.logo-nzz {width: 180px;}
+.logo-nzz:hover  {background-position: -225px -60px;}
+.logo-nzz {background-position: -225px -90px;}
+
+.logo-muyinternet {width: 123px;}
+.logo-muyinternet:hover  {background-position: -405px -60px;}
+.logo-muyinternet {background-position: -405px -90px;}
+
+.logo-lc1 {width: 82px;}
+.logo-lc1:hover  {background-position: -530px -60px;}
+.logo-lc1 {background-position: -530px -90px;}
+
+
+/* 3. line */
+.logo-golem {width: 135px;}
+.logo-golem:hover  {background-position: 0px -120px;}
+.logo-golem {background-position: 0px -150px;}
+
+.logo-netzwertig {width: 217px;}
+.logo-netzwertig:hover  {background-position: -140px -120px;}
+.logo-netzwertig {background-position: -140px -150px;}
+
+.logo-wwwhatsnew {width: 217px;}
+.logo-wwwhatsnew:hover  {background-position: -360px -120px;}
+.logo-wwwhatsnew {background-position: -360px -150px;}
+
+.logo-hackernews {width: 30px;}
+.logo-hackernews:hover  {background-position: -580px -120px;}
+.logo-hackernews {background-position: -580px -150px;}
+
+
+/* 4. line */
+.logo-basicthinking {width: 215px;}
+.logo-basicthinking:hover  {background-position: 0px -180px;}
+.logo-basicthinking {background-position: 0px -210px;}
+
+.logo-bandaancha {width: 270px;}
+.logo-bandaancha:hover  {background-position: -220px -180px;}
+.logo-bandaancha {background-position: -220px -210px;}
+
+.logo-pcpraxis {width: 133px;}
+.logo-pcpraxis:hover  {background-position: -500px -180px;}
+.logo-pcpraxis {background-position: -500px -210px;}
+
+	
+/* 5. line */
+.logo-theinquirer {width: 215px;}
+.logo-theinquirer:hover {background-position: 0px -240px;}
+.logo-theinquirer {background-position: 0px -270px;}
+
+.logo-wdr {width: 100px;}
+.logo-wdr:hover {background-position: -220px -240px;}
+.logo-wdr {background-position: -220px -270px;}
+
+.logo-techcrunch_fr {width: 270px;}
+.logo-techcrunch_fr:hover {background-position: -320px -240px;}
+.logo-techcrunch_fr {background-position: -320px -270px;}
+
+
+/* 6. line */
+.logo-lifehacker_ru {width: 205px;}
+.logo-lifehacker_ru:hover {background-position: 0px -300px;}
+.logo-lifehacker_ru {background-position: 0px -330px;}
+
+.logo-dig_ins {width: 214px;}
+.logo-dig_ins:hover {background-position: -205px -300px;}
+.logo-dig_ins {background-position: -205px -330px;}
+
+.logo-downloadblogit {width: 180px;}
+.logo-downloadblogit:hover {background-position: -425px -300px;}
+.logo-downloadblogit {background-position: -425px -330px;}
+
+
 
 
 
@@ -111,4 +273,27 @@ nav {
 }
 .no-js .navbar .navbar-toggler {
     display: none !important;
+}
+
+
+
+/* Debug ********************************************************************************* */
+.debug {
+    position: fixed;
+    top: 0;
+    z-index: 1000000;
+    max-width: 400px;
+    line-break: anywhere;
+}
+.debug > ul {
+    display: none;
+}
+.debug:hover {
+    background-color: #eee;
+}
+.debug:hover > ul {
+    display: block;
+}
+.debug * {
+    color: red !important;
 }

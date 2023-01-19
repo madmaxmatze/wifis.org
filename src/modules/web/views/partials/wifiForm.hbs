@@ -13,20 +13,24 @@
         </div>
     {{/each}}
 
-    <div class="control-group no-js-hidden">
-        <div class="input-prepend input-append">
-            <span class="add-on">wifis.org/</span>
-            <input id="addWifiInput" type="text" name="wifiid" value=""
-                placeholder="{{__ "wifis.enternew"}}" title="{{__ "wifis.enternew"}}" />
-            <button class="btn" value="add" type="submit" formaction="" id="addWifiSave">
-                {{__ "wifis.save"}}
-            </button>
-            <span class="add-on loader hide">&#160;&#160;&#160;</span>
-        </div>
-        <span class="help-inline">
-            {{#if error}}
-                {{! __ (concat "wifis.error." error)}}
+    <div class="input-group mb-3 no-js-hidden">
+        <span class="input-group-text" id="basic-addon3">wifis.org/</span>
+        <input 
+            pattern="^[\w\-]+$" minlength="3" maxlength="20"
+            type="text" class="form-control" id="addWifiInput" name="wifiid"
+            placeholder="{{__ "wifis.enternew"}}" title="{{__ "wifis.enternew"}}">
+       
+        <button class="btn btn-primary" value="add" type="submit" formaction="" id="addWifiSave">
+            <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+            {{__ "wifis.save"}}
+        </button>
+        {{!--
+        <span class="placeholder" style="width: 30px">&#160;&#160;&#160;</span>
+        --}}
+        <div class="invalid-feedback help-inline">
+           {{#if error}}
+                {{!-- __ (concat "wifis.error." error) --}}
             {{/if}}
-        </span>
+        </div>
     </div>
 </form>

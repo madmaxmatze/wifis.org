@@ -32,7 +32,7 @@ const WifiForm = class {
         if (this.wifiForm) {
             this.wifiInput = this.wifiForm.querySelector("#addWifiInput");
             this.wifiInput.addEventListener('keyup', this.addWifiInputHandler.bind(this));
-            this.registerSubmitHandler();
+            this.wifiForm.addEventListener("submit", () => (this.createNewWifi(addWifiInput.val()), false));
         }
     }
 
@@ -96,13 +96,6 @@ const WifiForm = class {
             //    setErrorMsg(data.error);
             //}
         });   
-    }
-
-    registerSubmitHandler() {
-        this.wifiForm.submit(() => {
-            this.createNewWifi(addWifiInput.val());
-            return false;
-        });
     }
 
     createNewWifi (wifiId) {

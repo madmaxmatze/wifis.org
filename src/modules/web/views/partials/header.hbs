@@ -1,53 +1,96 @@
-    <nav class="container navbar navbar-expand-sm text-bg-dark">
-        <div class="container-lg">
-            <a class="navbar-brand col-sm-2" href="/{{#unless (equals getLocale "en")}}{{getLocale}}{{/unless}}">wifis.org</a>
-            
-            <button class="navbar-toggler" type="button">
-                <span class="navbar-toggler-icon"></span>
-            </button>
+<nav class="navbar navbar-expand-sm text-bg-dark mb-4">
+    <div class="container-lg">
+        <a class="navbar-brand col-sm-2"
+            href="/{{#unless (equals getLocale "en")}}{{getLocale}}{{/unless}}">wifis.org</a>
 
-            <div class="collapse navbar-collapse d-sm-flex">
-                <ul class="nav nav-pills col-sm-8"><!--justify-content-sm-center-->
+        <button class="navbar-toggler" type="button">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse d-sm-flex">
+            <ul class="nav nav-pills col-sm-8">
+                <!--justify-content-sm-center-->
+                <li class="nav-item">
+                    <a class="text-white nav-link{{#if (equals pageId "home")}} active{{/if}}"
+                        href="/{{#unless (equals getLocale "en")}}{{getLocale}}{{/unless}}">
+                        {{{__ "homepage.linklabel"}}}
+                    </a>
+                </li>
+
+                {{#if user}}
                     <li class="nav-item">
-                        <a class="text-white nav-link{{#if (equals pageId "home")}} active{{/if}}" href="/{{#unless (equals getLocale "en")}}{{getLocale}}{{/unless}}">
-                            {{{__ "homepage.linklabel"}}}
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="text-white nav-link{{#if (equals pageId "wifis")}} active{{/if}}" href="/{{getLocale}}/wifis">
+                        <a class="text-white nav-link{{#if (equals pageId "wifis")}} active{{/if}}"
+                            href="/{{getLocale}}/wifis">
                             {{{__ "wifis.linklabel"}}}
                         </a>
                     </li>
-                    <li class="nav-item">
-                        <a class="text-white nav-link{{#if (equals pageId "faq")}} active{{/if}}" href="/{{getLocale}}/faq">
-                            {{__ "faq.linklabel"}}
-                        </a>
-                    </li>
-                </ul>
+                {{/if}}
 
-                <div class="d-sm-flex col-sm-4 justify-content-sm-end">
-                    <a class="btn btn-outline-primary" href="/{{getLocale}}/login">Login/Signup</a>
-                </div>
-
-                <!--
-                <div class="dropdown text-end">
-                    <a href="#" class="d-block link-dark text-decoration-none dropdown-toggle" data-bs-toggle="dropdown"
-                        aria-expanded="false">
-                        <img src="https://github.com/mdo.png" alt="mdo" width="32" height="32" class="rounded-circle">
+                <li class="nav-item">
+                    <a class="text-white nav-link{{#if (equals pageId "faq")}} active{{/if}}" href="/{{getLocale}}/faq">
+                        {{__ "faq.linklabel"}}
                     </a>
-                    <ul class="dropdown-menu text-small">
-                        <li><a class="dropdown-item" href="#">Profile</a></li>
-                        <li>
-                            <hr class="dropdown-divider">
-                        </li>
-                        <li><a class="dropdown-item" href="#">Sign out</a></li>
-                    </ul>
-                </div>
-                -->
+                </li>
+            </ul>
+
+            <div class="d-sm-flex col-sm-4 justify-content-sm-end">
+                {{#if user}}
+                    <div class="dropdown text-end">
+                        {{#if (equals pageId "wifis")}}
+                            {{assign "logout_redirect" "/"}}
+                        {{else}}
+                            {{assign "logout_redirect" urlWithoutQuery}}
+                        {{/if}}
+                        <a href="/auth/logout?redirect={{logout_redirect}}"
+                            class="d-block link-dark text-decoration-none dropdown-toggle" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            {{__ "label.logout"}}
+                            <img src="https://github.com/mdo.png" alt="mdo" width="32" height="32"
+                                class="rounded-circle">
+                        </a>
+                        <ul class="dropdown-menu text-small">
+                            <li><a class="dropdown-item" href="#">Profile</a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li><a class="dropdown-item" href="#">Sign out</a></li>
+                        </ul>
+                    </div>
+
+                {{else}}
+
+                    <li id="langDropDown" class="dropdown">
+                        <a href="/{{getLocale}}/languages?referer={{urlWithoutQuery}}" class="dropdown-toggle">
+                            <span class="sprite flag flag_{{getLocale}}"></span>
+                            <b class="caret"></b>
+                        </a>
+
+                        <ul class="dropdown-menu">
+                            {{#each getLocales}}
+                                <li{{#if (equals ../getLocale this)}} class="active" {{/if}}>
+                                    {{#if ../wifiId}}
+
+                                        {{../urlWithoutLangAndQuery}}?lang={{this}}
+
+                                        {{assign "language_switch_url" "/"}}
+                                    {{else}}
+                                        {{assign "logout_redirect" urlWithoutQuery}}
+                                    {{/if}}
+
+                                    <a href={{#if ../wifiId}} "" {{else}} "/{{this}}{{../urlWithoutLangAndQuery}}"
+                                        {{/if}}>
+                                        <span class="sprite flag flag_{{this}}"></span>
+                                        {{../__ (concat "label.lang." this)}}
+                                    </a>
+                    </li>
+                    {{/each}}
+
+                    <a class="btn btn-light" href="/{{getLocale}}/login">{{__ "label.signin"}}</a>
+                {{/if}}
             </div>
         </div>
     </div>
-    </nav>
+</nav>
 
 
 
@@ -77,22 +120,7 @@
                     <a href="/{{getLocale}}/faq">{{__ "faq.linklabel"}}</a>
                 </li>
 
-                <li id="langDropDown" class="dropdown">
-                    <a href="/{{getLocale}}/languages?referer={{urlWithoutQuery}}" class="dropdown-toggle">
-                        <span class="sprite flag flag_{{getLocale}}"></span>
-                        <b class="caret"></b>
-                    </a>
-
-                    <ul class="dropdown-menu">
-                        {{#each getLocales}}
-                        <li{{#if (equals ../getLocale this)}} class="active" {{/if}}>
-                            <a href={{#if ../wifiId}} "{{../urlWithoutLangAndQuery}}?lang={{this}}"
-                                {{else}} "/{{this}}{{../urlWithoutLangAndQuery}}" {{/if}}>
-                                <span class="sprite flag flag_{{this}}"></span>
-                                {{../__ (concat "label.lang." this)}}
-                            </a>
-                </li>
-                {{/each}}
+               
             </ul>
             </li>
 
@@ -142,4 +170,3 @@
 </div>
 
 --}}
-

@@ -14,37 +14,30 @@
     <meta name="author" content="wifis.org" />
     <meta name="viewport" content="width=device-width,initial-scale=1">
     {{> head_seo }}
-    <script>
-        (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-        'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-        })(window,document,'script','dataLayer','GTM-M6XKF9N');
-        
-        document.documentElement.classList.replace("no-js", "js");
-    </script>
+    <script>{ {> head_js } }</script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.3/css/bootstrap.min.css" />
     <link type="text/css" rel="stylesheet" href="/css/style.css" />
 </head>
 <body class="{{pageId}}_page">
-    <!--
-    {{> dev_env }}
-    -->
-    {{> header }}
-    
-    <main class="container py-4">
-    
+    {{> debug }}
+
+    <header class="container">
+        {{> header }}
+    </header>
+
+    <main class="container py-1">
         <div class="container-lg">
             {{{body}}}
             <div class='clear'></div>
         </div>
-    
     </main>
-            
-    {{> footer }}
+
+    <footer class="container py-3">
+        {{> footer }}
+    </footer>
 
     <script type='text/javascript' src='/js/translation/{{getLocale}}.js?{{version}}'></script>
-    {{!-- <script type='text/javascript' src='/js/script.js?{{version}}'></script> --}}
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.3/js/bootstrap.min.js"></script>
+    <script type='text/javascript' src='/js/script.js?{{version}}'></script>
+    {{!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.3/js/bootstrap.min.js"></script> --}}
 </body>
 </html>

@@ -1,149 +1,151 @@
-{{!--
-<footer>
-    {{#unless (equals pageId "press")}}
-    <div class="press">
-        Featured:<br>
+<div class="container-lg">
 
-        {{#if (equals getLocale "de")}}
-        <a href="/{{getLocale}}/press" class="logo logo-golem" title="{{label.footer.featured.hint}} golem.de"></a>
-        <a href="/{{getLocale}}/press" class="logo logo-netzwertig"
-            title="{{label.footer.featured.hint}} www.netzwertig.com"></a>
-        <a href="/{{getLocale}}/press" class="logo logo-basicthinking"
-            title="{{label.footer.featured.hint}} www.basicthinking.de"></a>
-        <br>
-        <a href="/{{getLocale}}/press" class="logo logo-jetzt"
-            title="{{label.footer.featured.hint}} jetzt.sueddeutsche.de"></a>
-        <a href="/{{getLocale}}/press" class="logo logo-fritz"
-            title="{{label.footer.featured.hint}} Fritz.de (Berlin)"></a>
-        <a href="/{{getLocale}}/press" class="logo logo-wdr" title="{{label.footer.featured.hint}} wdr.de"></a>
-        <a href="/{{getLocale}}/press" class="logo logo-pcpraxis"
-            title="{{label.footer.featured.hint}} PCPraxis.de"></a>
-        <a href="/{{getLocale}}/press" class="logo logo-nzz"
-            title="{{label.footer.featured.hint}} Blog.NZZ.ch (Neue Züricher Zeitung)"></a>
-        {{/if}}
-
-        {{#if (equals getLocale "en")}}
-        <a href="/{{getLocale}}/press" class="logo logo-boingboing"
-            title="{{label.footer.featured.hint}} www.BoingBoing.net"></a>
-        <a href="/{{getLocale}}/press" class="logo logo-tnw"
-            title="{{label.footer.featured.hint}} www.TheNextWeb.com"></a>
-        <a href="/{{getLocale}}/press" class="logo logo-rww"
-            title="{{label.footer.featured.hint}} www.ReadWriteWeb.com"></a>
-        <a href="/{{getLocale}}/press" class="logo logo-hackernews"
-            title="{{label.footer.featured.hint}} HackerNews"></a>
-        {{/if}}
-
-        {{#if (equals getLocale "es")}}
-        <a href="/{{getLocale}}/press" class="logo logo-wwwhatsnew"
-            title="{{label.footer.featured.hint}} wwwhatsnew.com"></a>
-        <a href="/{{getLocale}}/press" class="logo logo-20minutos"
-            title="{{label.footer.featured.hint}} blogs.20minutos.es"></a>
-        <a href="/{{getLocale}}/press" class="logo logo-muyinternet"
-            title="{{label.footer.featured.hint}} www.muyinternet.com"></a>
-        <br>
-        <a href="/{{getLocale}}/press" class="logo logo-bandaancha"
-            title="{{label.footer.featured.hint}} bandaancha.eu"></a>
-        <a href="/{{getLocale}}/press" class="logo logo-theinquirer"
-            title="{{label.footer.featured.hint}} www.theinquirer.es"></a>
-        {{/if}}
-
-        {{#if (equals getLocale "fr")}}
-        <a href="/{{getLocale}}/press" class="logo logo-techcrunch_fr"
-            title="{{label.footer.featured.hint}} fr.TechCrunch.com"></a>
-        <a href="/{{getLocale}}/press" class="logo logo-lc1" title="{{label.footer.featured.hint}} www.wat.tv"></a>
-        {{/if}}
-
-        {{#if (equals getLocale "it")}}
-        <a href="/{{getLocale}}/press" class="logo logo-downloadblogit"
-            title="{{label.footer.featured.hint}} downloadblog.it"></a>
-        {{/if}}
-
-        {{#if (equals getLocale "ru")}}
-        <a href="/{{getLocale}}/press" class="logo logo-lifehacker_ru"
-            title="{{label.footer.featured.hint}} LifeHacker.ru"></a>
-        {{/if}}
-    </div>
-    {{/unless}}
-</footer>
-
---}}
-
-
-
-
-
-<footer class="py-5 container">
-    <div class="container-lg">
-        <div class="row">
-            <div class="col-6 col-md-3 mb-4">
-                <h5>Section</h5>
-                <ul class="nav flex-column">
-                    <li class="nav-item mb-2">
-                        <a href="/{{getLocale}}/about" class="nav-link p-0 text-muted">
-                            {{__ "about.linklabel"}}
-                        </a>
-                    </li>
-                    <li class="nav-item mb-2">
-                        <a href="/{{getLocale}}/press"
-                            class="nav-link p-0 text-muted {{#if (equals pageId "press")}}class=" active" {{/if}}">
-                            {{__ "press.linklabel"}}
-                        </a>
-                    </li>
-                    <li class="nav-item mb-2">
-                        <a href="/{{getLocale}}/tos" class="nav-link p-0 text-muted">
-                            {{__ "tos.linklabel"}}
-                        </a>
-                    </li>
-                    <li class="nav-item mb-2">
-                        <a href="/{{getLocale}}/languages" class="nav-link p-0 text-muted">
-                            {{__ "languages.linklabel"}}
-                        </a>
-                    </li>
-
-                </ul>
-            </div>
-
-            <div class="col-6 col-md-2 mb-3">
-                <h5>Blog</h5>
-                <ul class="nav flex-column">
-                    <li class="nav-item mb-2">
-                        <a href="https://blog.wifis.org" class="nav-link p-0 text-muted">{{__ "blog.linklabel"}}</a>
-                    </li>
-                </ul>
-            </div>
-
-            <div class="col-md-5 offset-md-1 mb-3">
-                <form>
-                    <h5>Subscribe to our newsletter</h5>
-                    <p>Monthly digest of what's new and exciting from us.</p>
-                    <div class="d-flex flex-column flex-sm-row w-100 gap-2">
-                        <label for="newsletter1" class="visually-hidden">Email address</label>
-                        <input id="newsletter1" type="text" class="form-control" placeholder="Email address">
-                        <button class="btn btn-primary" type="button">Subscribe</button>
-                    </div>
-                </form>
-            </div>
-        </div>
-
-        <div class="d-flex flex-column flex-sm-row justify-content-between py-4 border-top">
-            <p>&copy; 2023 wifis.org, all rights reserved</p>
-            <ul class="list-unstyled d-flex">
-                <li class="ms-3">
-                    <a class="link-dark icon twitter_icon" href="https://twitter.com/wifis_org">
-                        <span>twitter</span>
+    <div class="row">
+        <div class="col mb-3">
+            <h5>{{__ "label.otherwebsite.title"}}</h5>
+            <ul class="nav">
+                <li class="nav-item mb-2 w-100">
+                    <a href="/{{getLocale}}/languages" title="{{__ "languages.linklabel"}}"
+                        class="nav-link p-0 text-muted">
+                        {{__ "languages.linklabel"}}
                     </a>
                 </li>
-                <li class="ms-3">
-                    <a class="link-dark icon facebook_icon" href="https://www.facebook.com/wifis.org/">
-                        <span>facebook</span>
+                <li class="nav-item mb-2 w-100">
+                    <a href="/{{getLocale}}/about" title="{{__ "about.linklabel"}}" class="nav-link p-0 text-muted">
+                        {{__ "about.linklabel"}}
                     </a>
                 </li>
-                <li class="ms-3">
-                    <a class="link-dark icon github_icon" href="https://github.com/madmaxmatze/wifis.org">
-                        <span>github</span>
+                <li class="nav-item mb-2 w-100">
+                    <a href="/{{getLocale}}/tos" title="{{__ "tos.linklabel"}}" class="nav-link p-0 text-muted">
+                        {{__ "tos.linklabel"}}
                     </a>
                 </li>
             </ul>
         </div>
+
+        <div class="col mb-3">
+            <h5>Social</h5>
+            <ul class="nav">
+                <li class="nav-item mb-2 w-100">
+                    <a href="https://blog.wifis.org" title="{{__ "blog.linklabel"}}" class="nav-link p-0 text-muted">
+                        {{__ "blog.linklabel"}}
+                    </a>
+                </li>
+                <li class="nav-item mb-2 w-100">
+                    <a href="https://twitter.com/wifis_org" class="nav-link p-0 text-muted icon twitter_icon">
+                        <span>twitter</span>
+                    </a>
+                </li>
+                <li class="nav-item mb-2 w-100">
+                    <a href="https://www.facebook.com/wifis.org/" class="nav-link p-0 text-muted icon facebook_icon">
+                        <span>facebook</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+        {{#unless (equals pageId "press")}}
+            <div class="col-md-7 mb-3">
+                <h5>
+                    <a href="/{{getLocale}}/press" class="nav-link">
+                        {{__ "label.footer.featured.text"}}
+                    </a>
+                </h5>
+
+                <div class="press">
+                    {{#if (equals getLocale "de")}}
+                        <a href="/{{getLocale}}/press" class="logo logo-golem"
+                            title="{{label.footer.featured.hint}} golem.de"></a>
+                        <a href="/{{getLocale}}/press" class="logo logo-netzwertig"
+                            title="{{label.footer.featured.hint}} www.netzwertig.com"></a>
+                        <a href="/{{getLocale}}/press" class="logo logo-jetzt"
+                            title="{{label.footer.featured.hint}} jetzt.sueddeutsche.de"></a>
+                        <a href="/{{getLocale}}/press" class="logo logo-fritz"
+                            title="{{label.footer.featured.hint}} Fritz.de (Berlin)"></a>
+                        <a href="/{{getLocale}}/press" class="logo logo-basicthinking"
+                            title="{{label.footer.featured.hint}} www.basicthinking.de"></a>
+                        <a href="/{{getLocale}}/press" class="logo logo-wdr"
+                            title="{{label.footer.featured.hint}} wdr.de"></a>
+                        <a href="/{{getLocale}}/press" class="logo logo-pcpraxis"
+                            title="{{label.footer.featured.hint}} PCPraxis.de"></a>
+                        <a href="/{{getLocale}}/press" class="logo logo-nzz"
+                            title="{{label.footer.featured.hint}} Blog.NZZ.ch (Neue Züricher Zeitung)"></a>
+                    {{/if}}
+
+                    {{#if (equals getLocale "en")}}
+                        <a href="/{{getLocale}}/press" class="logo logo-boingboing"
+                            title="{{label.footer.featured.hint}} www.BoingBoing.net"></a>
+                        <a href="/{{getLocale}}/press" class="logo logo-tnw"
+                            title="{{label.footer.featured.hint}} www.TheNextWeb.com"></a>
+                        <a href="/{{getLocale}}/press" class="logo logo-rww"
+                            title="{{label.footer.featured.hint}} www.ReadWriteWeb.com"></a>
+                        <a href="/{{getLocale}}/press" class="logo logo-hackernews"
+                            title="{{label.footer.featured.hint}} HackerNews"></a>
+                    {{/if}}
+
+                    {{#if (equals getLocale "es")}}
+                        <a href="/{{getLocale}}/press" class="logo logo-wwwhatsnew"
+                            title="{{label.footer.featured.hint}} wwwhatsnew.com"></a>
+                        <a href="/{{getLocale}}/press" class="logo logo-20minutos"
+                            title="{{label.footer.featured.hint}} blogs.20minutos.es"></a>
+                        <a href="/{{getLocale}}/press" class="logo logo-muyinternet"
+                            title="{{label.footer.featured.hint}} www.muyinternet.com"></a>
+                        <a href="/{{getLocale}}/press" class="logo logo-bandaancha"
+                            title="{{label.footer.featured.hint}} bandaancha.eu"></a>
+                        <a href="/{{getLocale}}/press" class="logo logo-theinquirer"
+                            title="{{label.footer.featured.hint}} www.theinquirer.es"></a>
+                    {{/if}}
+
+                    {{#if (equals getLocale "fr")}}
+                        <a href="/{{getLocale}}/press" class="logo logo-techcrunch_fr"
+                            title="{{label.footer.featured.hint}} fr.TechCrunch.com"></a>
+                        <a href="/{{getLocale}}/press" class="logo logo-lc1"
+                            title="{{label.footer.featured.hint}} www.wat.tv"></a>
+                    {{/if}}
+
+                    {{#if (equals getLocale "it")}}
+                        <a href="/{{getLocale}}/press" class="logo logo-downloadblogit"
+                            title="{{label.footer.featured.hint}} downloadblog.it"></a>
+                    {{/if}}
+
+                    {{#if (equals getLocale "ru")}}
+                        <a href="/{{getLocale}}/press" class="logo logo-lifehacker_ru"
+                            title="{{label.footer.featured.hint}} LifeHacker.ru"></a>
+                    {{/if}}
+
+                    {{#if (equals getLocale "ms")}}
+                        <a href="/{{getLocale}}/press" class="nav-link p-0 text-muted">
+                            {{__ "press.linklabel"}}
+                        </a>
+                    {{/if}}
+                </div>
+            </div>
+        {{/unless}}
     </div>
-</footer>
+
+
+
+    <div class="d-flex flex-column flex-sm-row justify-content-between py-3 border-top">
+        <p>{{{__ "label.footer.text"}}}</p>
+        <ul class="list-unstyled d-flex">
+            {{!--
+            <li class="ms-3">
+                <a class="link-dark icon twitter_icon" href="https://twitter.com/wifis_org">
+                    <span>twitter</span>
+                </a>
+            </li>
+            <li class="ms-3">
+                <a class="link-dark icon facebook_icon" href="https://www.facebook.com/wifis.org/">
+                    <span>facebook</span>
+                </a>
+            </li>
+            --}}
+            <li class="ms-3">
+                <a class="link-dark icon github_icon nav-link text-muted"
+                    href="https://github.com/madmaxmatze/wifis.org">
+                    <span>github</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>
