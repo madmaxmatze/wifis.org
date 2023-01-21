@@ -1,0 +1,9 @@
+apiVersion: skaffold/v3
+kind: Config
+build:
+  artifacts:
+    - image: docker.io/library/wifisorg
+      context: node
+      sync:
+        infer:
+          - '**/*.js'

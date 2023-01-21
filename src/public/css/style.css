@@ -30,7 +30,6 @@ main .container-lg {
     padding: 10px;
 	background: white;
 	position: relative;
-	min-height: 400px;
 	padding: 20px;
 	margin-bottom: 20px;
 	-webkit-border-radius: 15px;
@@ -39,6 +38,17 @@ main .container-lg {
 	-webkit-box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
 	   -moz-box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
 		    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+}
+main .container-lg:nth-child(1) {
+    min-height: 300px;
+}
+
+h1,
+h2 {
+	/* font-family: 'Yanone Kaffeesatz', sans-serif; */
+	font-family: 'Bevan', serif;
+	color: #00457c;	
+	font-weight: normal;	
 }
 
 
@@ -66,8 +76,17 @@ nav {
 
 
 /* WifiForm ********************************************************************************* */
+#addWifiForm {
+    width: 400px;
+    margin: 0 auto;
+}
 input:invalid {
     background: rgb(255, 218, 218);
+}
+
+#addWifiInput {
+    max-width: 250px;
+    background: transparent;
 }
 
 .btn-primary {
@@ -77,12 +96,114 @@ input:invalid {
     --bs-btn-disabled-color: dimgray;
     --bs-btn-disabled-border-color: darkgray;
 }
-.btn-primary .spinner-border {
+#addWifiForm .spinner-border {
+    position: absolute;
+    left: -23px;
+    top: 10px;
     display: none;
+    border-color: #084f74;
+    border-right-color: transparent;
 }
-.btn-primary.disabled .spinner-border {
+#addWifiForm.busy .spinner-border {
     display: inline-block;
 }
+
+
+
+/* Homepage ********************************************************************************* */
+.home_page h1 {
+	font-weight: bold;
+	/* color: #3d85c6;  */
+	margin-bottom: 0px;
+	text-shadow: 1px 1px 2px #DDD;
+	text-align: center !important;
+	font-size: 24pt;
+	text-align: center;
+	margin-bottom: 12px;
+}
+.home_page h2 {
+	font-weight: normal;
+	border-bottom: 0px;
+	font-size: 18pt;	
+}
+
+main .container-lg:nth-child(1) {
+    background-image: url(/img/postbox.png);
+    background-repeat: no-repeat;
+    background-position: 30px bottom;
+}
+
+
+
+.home_page blockquote {
+    position: relative;
+    margin: .5em auto;
+    padding: 1em;
+    width: 400px;
+    height: auto;
+    border-radius: .25em;
+    transform: rotate(-4deg) rotateY(15deg);
+    background: #00457c;
+    font: 1em Century Gothic, Verdana, sans-serif;
+    text-align: center;
+  }
+  .home_page blockquote:before, 
+  .home_page blockquote:after {
+    position: absolute;
+    z-index: -1;
+    content: '';
+  }
+  .home_page blockquote:after {
+    top: 0; right: 0; bottom: 0; left: 0;
+    border-radius: inherit;
+    transform: rotate(2deg) translate(.35em, -.15em) scale(1.02);
+    background: #f4fbfe;
+  }
+  .home_page blockquote:before {
+    border: solid 0 transparent;
+    border-right: solid 3.5em #f4fbfe;
+    border-bottom: solid .25em #00457c;
+    bottom: .25em; left: 1.25em;
+    width: 0;
+    height: 1em;
+    transform: rotate(45deg) skewX(75deg);
+  }
+.home_page blockquote p {
+  margin: -5px 0 0 0;
+  color: #00457c;
+  position: relative;
+  transform: rotate(1deg);
+}
+
+.home_page .card .number {
+	position: absolute;
+	border-radius: 15px;
+	background: #004471;
+	width: 30px;
+	height: 30px;
+	color: white;
+	font-size: 20px;
+	text-align: center;
+}
+
+.home_page .card .text {
+	color: #3994bb;
+	text-align: left;
+	margin: 5px 0 5px 35px;
+	font-size: 14px;
+	white-space: nowrap;
+}
+.home_page .card .text b {
+	/* color: #222; */
+	text-shadow: 0 1px 1px #CCC;
+}
+.home_page .card-body img {
+    border-radius: 10px;
+    border: 1px solid #ddd;
+    vertical-align: middle;
+    margin-left: -10px;
+}
+
 
 
 

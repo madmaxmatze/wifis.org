@@ -7,30 +7,29 @@
                     <a href="/{{this.id}}">{{this.label}}</a>
                 </span>
                 <span class="add-on deleteButton no-js-hidden">
-                    <a class="sprite icon icon-delete" href="javascript: void();" title="{{../__ "wifis.deleteButton"}}"></a>
+                    <a class="sprite icon icon-delete" href="javascript: void();"
+                        title="{{../__ "wifis.deleteButton"}}"></a>
                 </span>
             </div>
         </div>
     {{/each}}
 
-    <div class="input-group mb-3 no-js-hidden">
+    <div class="input-group no-js-hidden justify-content-center">
         <span class="input-group-text" id="basic-addon3">wifis.org/</span>
-        <input 
-            pattern="^[\w\-]+$" minlength="3" maxlength="20"
-            type="text" class="form-control" id="addWifiInput" name="wifiid"
-            placeholder="{{__ "wifis.enternew"}}" title="{{__ "wifis.enternew"}}">
-       
-        <button class="btn btn-primary" value="add" type="submit" formaction="" id="addWifiSave">
+        <input pattern="^[\w\-]+$" minlength="3" maxlength="20" type="text" class="form-control" id="addWifiInput"
+            name="wifiid" placeholder="{{__ "wifis.enternew"}}" title="{{__ "wifis.enternew"}}">
+        <button class="btn btn-primary disabled" value="add" type="submit" formaction="" id="addWifiSave">
             <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
-            {{__ "wifis.save"}}
+            <span class="caption">{{__ "wifis.test"}}</span>
         </button>
-        {{!--
-        <span class="placeholder" style="width: 30px">&#160;&#160;&#160;</span>
-        --}}
         <div class="invalid-feedback help-inline">
-           {{#if error}}
+            {{#if error}}
                 {{!-- __ (concat "wifis.error." error) --}}
             {{/if}}
         </div>
+
+        {{!--
+        <span class="placeholder" style="width: 30px">&#160;&#160;&#160;</span>
+        --}}
     </div>
 </form>

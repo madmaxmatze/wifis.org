@@ -31,8 +31,9 @@ const WifiForm = class {
 
         if (this.wifiForm) {
             this.wifiInput = this.wifiForm.querySelector("#addWifiInput");
+            this.wifiButton = this.wifiForm.querySelector("button");
             this.wifiInput.addEventListener('keyup', this.addWifiInputHandler.bind(this));
-            this.wifiForm.addEventListener("submit", () => (this.createNewWifi(addWifiInput.val()), false));
+            this.wifiForm.addEventListener("submit", () => (this.createNewWifi(addWifiInput.value), false));
         }
     }
 
@@ -50,19 +51,23 @@ const WifiForm = class {
         if (config.translations.wifis.error[code]) {
             return config.translations.wifis.error[code];
         }
-        return code;
+        return code || "";
     };
 
     setErrorMessage(message) {
-        console.log(message);
         message = this.getErrorMsgForCode(message);
+        console.log(message);
+        console.log("this.wifiInput.value", this.wifiInput.value);
+        console.log ("disabled", !this.wifiInput.value || message ? "true" : "false")
+        this.wifiButton.classList.toggle("disabled", !this.wifiInput.value || message);
+        this.wifiButton.querySelector(".caption").innerText = config.translations.wifis.test;  //[message ? "test" : "save"];
         this.wifiForm.querySelector(".help-inline").innerHTML = message || "";
     }
 
     validateWifiId(wifiId) {
         console.log("validateWifiId");
         this.setErrorMessage();
-
+        
         if (!wifiId) {
             return this.setErrorMessage("noWifiIdDefined");
         } else if (wifiId.length < 3) {
@@ -75,7 +80,8 @@ const WifiForm = class {
 
         // var loader = document.querySelector(".loader");
         // loader.classList.toggle("hide", currentValidates === 0);
-        
+        this.wifiForm.classList.add("busy");
+
         fetch("/api/wifi/exists", {
             method: 'POST',
             headers: {
@@ -84,14 +90,15 @@ const WifiForm = class {
             },
             body: JSON.stringify({"id" : wifiId})
         }).then(response => response.json()).then(json => {
+            this.wifiForm.classList.remove("busy");
+
             if (json.success && !json.error) {
                 json.error = "otherUsersWifi";
             }
 
             console.log (json);
-            if (json.error) {
-                this.setErrorMessage(json.error);
-            }
+            this.setErrorMessage(json.error);
+            
             // if (addWifiInput.val() === wifiid) {
             //    setErrorMsg(data.error);
             //}

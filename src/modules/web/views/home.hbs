@@ -24,26 +24,25 @@
 
 <div class="container-lg">
     <h2>Wie funktioniert es?</h2>
-    <div class="row row-cols-1 row-cols-md-3 mb-3 text-center">
+    <div class="row row-cols-md-3 text-center p-0">
         {{#each translations.homepage.teasers}}
-        <div class="col">
-            <div class="card mb-4 rounded-3 shadow-sm">
-                <div class="card-header py-3">
+        <div class="col p1">
+            <div class="card border-0 p-0">
+                <div class="card-header bg-transparent border-0 p-0">
                     <div class="number"><span>{{concat @index 1}}</span></div>
-                    <h4 class="my-0 fw-normal">{{& this}}</h4>
+                    <p class="text text-nowrap">{{& this}}</p>
                 </div>
-                <div class="card-body">
+                <div class="card-body p-0">
                     <img src="/img/teaser{{concat @index 1}}_small.png" alt="..." width="210" height="210" />
                 </div>
             </div>
         </div>
         {{/each}}
     </div>
-    
-    <div class="wifichecker">
-        <div class="text">
-            {{{__ "homepage.wifichecker"}}}
-        </div>
+</div>
 
+<div class="container-lg"> 
+    <div class="wifichecker">
+        <div class="mb-2 text-center fw-bold">{{{__ "homepage.wifichecker"}}} </div>
         {{> wifiForm }}
     </div>
