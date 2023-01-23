@@ -27,13 +27,12 @@ if (document.querySelectorAll(".wifiObj").length) {
 // document.querySelector(".home_page #addWifiForm .no-js-hidden").classList.remove("no-js-hidden");
 const WifiForm = class {
     constructor(wifiForm) {
-        this.wifiForm = wifiForm;
-
-        if (this.wifiForm) {
+        if (wifiForm) {
+            this.wifiForm = wifiForm;
             this.wifiInput = this.wifiForm.querySelector("#addWifiInput");
-            this.wifiButton = this.wifiForm.querySelector("button");
             this.wifiInput.addEventListener('keyup', this.addWifiInputHandler.bind(this));
             this.wifiForm.addEventListener("submit", () => (this.createNewWifi(addWifiInput.value), false));
+            this.wifiButton = this.wifiForm.querySelector("button");
         }
     }
 
@@ -43,7 +42,7 @@ const WifiForm = class {
             clearTimeout(this.timer);
             this.timer = setTimeout(() => { 
                 this.validateWifiId(event.target.value);
-            }, 400);
+            }, 400); // only check 400ms after last key press
         }
     }
 
@@ -58,8 +57,10 @@ const WifiForm = class {
         message = this.getErrorMsgForCode(message);
         console.log(message);
         console.log("this.wifiInput.value", this.wifiInput.value);
-        console.log ("disabled", !this.wifiInput.value || message ? "true" : "false")
+        console.log ("disabled", !this.wifiInput.value || message ? "true" : "false");
+        
         this.wifiButton.classList.toggle("disabled", !this.wifiInput.value || message);
+        this.wifiInput.classList.toggle("is-invalid", !!message);
         this.wifiButton.querySelector(".caption").innerText = config.translations.wifis.test;  //[message ? "test" : "save"];
         this.wifiForm.querySelector(".help-inline").innerHTML = message || "";
     }
@@ -78,10 +79,7 @@ const WifiForm = class {
             return this.setErrorMessage("wrongWifiIdChars");
         }
 
-        // var loader = document.querySelector(".loader");
-        // loader.classList.toggle("hide", currentValidates === 0);
-        this.wifiForm.classList.add("busy");
-
+        this.wifiForm.dataset.currentvalidations++;
         fetch("/api/wifi/exists", {
             method: 'POST',
             headers: {
@@ -90,18 +88,16 @@ const WifiForm = class {
             },
             body: JSON.stringify({"id" : wifiId})
         }).then(response => response.json()).then(json => {
-            this.wifiForm.classList.remove("busy");
-
+            console.log (json);
             if (json.success && !json.error) {
                 json.error = "otherUsersWifi";
             }
-
-            console.log (json);
-            this.setErrorMessage(json.error);
-            
-            // if (addWifiInput.val() === wifiid) {
-            //    setErrorMsg(data.error);
-            //}
+            if (addWifiInput.value === wifiId) {
+                this.setErrorMessage(json.error);
+            }
+        })
+        .finally(() => {
+            this.wifiForm.dataset.currentvalidations--;
         });   
     }
 

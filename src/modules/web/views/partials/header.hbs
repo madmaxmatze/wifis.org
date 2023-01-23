@@ -34,22 +34,22 @@
             </ul>
 
             <div class="d-sm-flex col-sm-4 justify-content-sm-end">
-                <li id="langDropDown" class="nav-item dropdown">
-                    <a href="/{{getLocale}}/languages?referer={{urlWithoutQuery}}" class="dropdown-toggle">
-                        <span class="sprite flag flag_{{getLocale}}"></span>
-                        <b class="caret"></b>
+                <div class="nav dropdown text-end">
+                    <a href="/{{getLocale}}/languages?referer={{urlWithoutQuery}}"
+                        class="dropdown-toggle text-white nav-link" data-bs-toggle="dropdown">
+                        <span class="sprite flag flag_{{getLocale}}">DE</span>
                     </a>
-
-                    <ul class="dropdown-menu">
+                    <ul id="langDropDown" class="dropdown-menu text-small">
                         {{#each getLocales}}
                             <li{{#if (equals ../getLocale this)}} class="active" {{/if}}>
-                                <a href={{#if ../wifiId}} "" {{else}} "/{{this}}{{../urlWithoutLangAndQuery}}" {{/if}}>
+                                <a href={{#if ../wifiId}} "" {{else}} "/{{this}}{{../urlWithoutLangAndQuery}}" {{/if}} class="dropdown-item">
                                     <span class="sprite flag flag_{{this}}"></span>
                                     {{../__ (concat "label.lang." this)}}
                                 </a>
-                </li>
-                {{/each}}
-
+                                </li>
+                        {{/each}}
+                    </ul>
+                </div>
 
                 {{#if user}}
                     <div class="dropdown text-end">

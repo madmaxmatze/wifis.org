@@ -3,9 +3,7 @@ html {
 	overflow-y: scroll;
 }
 
-html,
-body
-{
+html, body {
 	background: #f6f2e9;
 }
 
@@ -43,8 +41,7 @@ main .container-lg:nth-child(1) {
     min-height: 300px;
 }
 
-h1,
-h2 {
+h1, h2 {
 	/* font-family: 'Yanone Kaffeesatz', sans-serif; */
 	font-family: 'Bevan', serif;
 	color: #00457c;	
@@ -80,13 +77,15 @@ nav {
     width: 400px;
     margin: 0 auto;
 }
-input:invalid {
-    background: rgb(255, 218, 218);
-}
-
 #addWifiInput {
     max-width: 250px;
     background: transparent;
+}
+#addWifiInput:invalid {
+    border-color: #dc3545 !important;
+}
+.form-control:invalid:focus {
+    box-shadow: 0 0 0 0.25rem rgb(220 53 69 / 25%);
 }
 
 .btn-primary {
@@ -104,9 +103,11 @@ input:invalid {
     border-color: #084f74;
     border-right-color: transparent;
 }
-#addWifiForm.busy .spinner-border {
+
+#addWifiForm:not([data-currentvalidations='0']) .spinner-border {
     display: inline-block;
 }
+
 
 
 
@@ -126,8 +127,7 @@ input:invalid {
 	border-bottom: 0px;
 	font-size: 18pt;	
 }
-
-main .container-lg:nth-child(1) {
+.home_page main > .container-lg:nth-child(1) {
     background-image: url(/img/postbox.png);
     background-repeat: no-repeat;
     background-position: 30px bottom;
