@@ -4,6 +4,7 @@ import { resolve } from 'path';
 import * as hbs from 'hbs';
 import * as crypto from 'crypto';
 import * as i18n from 'i18n';
+import { DEFAULT_LANG } from './i18n.middleware';
 
 hbs.registerHelper('assign', function (varName, varValue, options) {
     if (!options.data.root) {
@@ -37,6 +38,12 @@ hbs.registerHelper('equals', function (val1: any, val2: any) {
     return (val1 == val2);
 });
 
+/*
+hbs.registerHelper('lookup', function(obj, key) {
+    return obj && obj[key];
+  });
+  */
+
 hbs.registerHelper('replace', function (...args: any) {
     if (args.length < 3 || args.length % 2 === 0) {
         throw new Error("replace1: wrong number of arguments : " + JSON.stringify(args));
@@ -69,7 +76,9 @@ hbs.registerHelper('json', function (object: any, _options) {
 export class HbsMiddleware implements NestMiddleware {
     use(request: any, response: Response, next: NextFunction) {
         // pass some variables to templates
-        response.locals.translations = i18n.getCatalog(request);
+        response.locals.translations = i18n.getCatalog(response.locale);
+        response.locals.defaultLang = DEFAULT_LANG;
+        
         response.locals.urlWithoutQuery = request.originalUrl.replace(/\?.*/, "").replace(/^\/$/, "");
         response.locals.urlWithoutLangAndQuery = response.locals.urlWithoutQuery.replace(/^\/\w{2}$/, "/").replace(/^\/\w{2}\//, "/").replace(/^\/$/, "");
         if (!response.locals.urlWithoutLangAndQuery || response.locals.urlWithoutQuery != response.locals.urlWithoutLangAndQuery) {

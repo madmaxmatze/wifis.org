@@ -5,13 +5,14 @@ import { resolve } from 'path';
 import * as i18n from 'i18n';
 
 const LANG_COOKIE = "locale";
+export const DEFAULT_LANG = "en";
 const LANGUAGES : string[] = ["de", "en", "es", "fr", "it", "ms", "nl", "ru"];
 export const LANGUAGES_REGEX : string = LANGUAGES.join("|");
 
 i18n.configure({
     locales: LANGUAGES,
     cookie: LANG_COOKIE,
-    defaultLocale: 'en',
+    defaultLocale: DEFAULT_LANG,
     directory: resolve(__dirname, "../locales"),
     queryParameter: 'lang',
     objectNotation: true,

@@ -1,23 +1,23 @@
 {{!-- TODO: move to translations --}}
 {{assign "title" "Language missing"}}
 
-<div class="no-js-languageSelector">
-    <h2>Choose your language</h2>
-    <ul>
-        {{#each getLocales}}
+<ul>
+    {{#each getLocales}}
         <li>
-            <a href="/{{this}}?redirectUrl={{../queryReferer}}" class="sprite flag flag_{{this}}"></a>
-            <a href="/{{this}}?redirectUrl={{../queryReferer}}">{{../__ (concat "label.lang." this)}}</a>
+            <a href="/{{this}}{{../urlWithoutLangAndQuery}}" class="sprite flag flag_{{this}}"></a>
+            <a href="/{{this}}{{../urlWithoutLangAndQuery}}">{{../__ (concat "label.lang." this)}}</a>
         </li>
-        {{/each}}
-    </ul>
-</div>
+    {{/each}}
+</ul>
 
-<h2>Is your language missing?</h2>
-<img src="/img/languages.png" style="float: right; width: 500px; margin-left: 30px;" />
-<b>You like the idea behind this free and open project, but your
-    language is not supported so far.</b>
-<br>
-<br>
-No problem - we would be very happy to welcome you in our team of people supporting and translating this website. Just
-<a href="/{{getLocale}}/about">contact us</a>
+<div class="clearfix">
+    <h2>Is your language missing?</h2>
+    <img src="/img/languages.png" class="img-thumbnail float-sm-end w-50 ms-2" />
+    <b>You like the idea behind this free and open project, but your
+        language is not supported so far.</b>
+    <br>
+    <br>
+    No problem - we would be very happy to welcome you in our team of people supporting and translating this website.
+    Just
+    <a href="/{{getLocale}}/about">contact us</a>
+</div>

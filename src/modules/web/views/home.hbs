@@ -1,48 +1,36 @@
 {{assign "title" (concat (__ "label.title") " - " (__ "label.mainTeaser"))}}
 
-<!--
-<a href="/{{getLocale}}/login" class="wifisButton join">{{& __ "homepage.joinButton"}}</a>
 
-<div class="wifilogo sprite"></div>
-
-{{{__ "homepage.text.0"}}}
--->
-
-
-    <h1>Mit wifis.org kann dein WLAN Emails empfangen</h1>
-    <blockquote class="bubble1">
-        <p>„Hi, willst du vielleicht für etwas Geld jeden Monat dein WLAN mit mir teilen?”</p>
+{{#each translations.home.quotes}}
+    <blockquote>
+        <p>{{& this}}</p>
     </blockquote>
-    <blockquote class="bubble2">
-        <p>„Ich bin kürzlich im Haus eingezogen und habe dein WLAN gesehen. Lust auf ein Bierchen?”</p>
-    </blockquote>
+{{/each}}
 </div>
 
-<!--    
-    "<div class="how_to_subtext">(Erfahre mehr über diesen kostenlosen und anonymen Dienst in den <a href="/p/faq" title="Häufig gestellte Fragen">FAQs</a>)</div> </div><div class="content">"
-    -->
+{{!-- <div class="how_to_subtext">({{__ "home.howToText"}})</div> --}}
 
 <div class="container-lg">
-    <h2>Wie funktioniert es?</h2>
+    <h2>{{__ "home.howToHeadline"}}</h2>
     <div class="row row-cols-md-3 text-center p-0">
-        {{#each translations.homepage.teasers}}
-        <div class="col p1">
-            <div class="card border-0 p-0">
-                <div class="card-header bg-transparent border-0 p-0">
-                    <div class="number"><span>{{concat @index 1}}</span></div>
-                    <p class="text text-nowrap">{{& this}}</p>
-                </div>
-                <div class="card-body p-0">
-                    <img src="/img/teaser{{concat @index 1}}_small.png" alt="..." width="210" height="210" />
+        {{#each translations.home.teasers}}
+            <div class="col p1">
+                <div class="card border-0 p-0">
+                    <div class="card-header bg-transparent border-0 p-0">
+                        <div class="number"><span>{{concat @index 1}}</span></div>
+                        <p class="text text-nowrap">{{& this}}</p>
+                    </div>
+                    <div class="card-body p-0">
+                        <img src="/img/teaser{{concat @index 1}}_small.png" alt="..." width="210" height="210" />
+                    </div>
                 </div>
             </div>
-        </div>
         {{/each}}
     </div>
 </div>
 
-<div class="container-lg"> 
+<div class="container-lg">
     <div class="wifichecker">
-        <div class="mb-2 text-center fw-bold">{{{__ "homepage.wifichecker"}}} </div>
+        <div class="mb-2 text-center fw-bold">{{{__ "home.wifichecker"}}} </div>
         {{> wifiForm }}
     </div>

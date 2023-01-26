@@ -19,10 +19,12 @@
         "mainTeaser": "Een contact forum voor uw Wi-fi netwerk.",
         "description": "Een contact forum voor uw Wi-fi netwerk. Gemakkelijk, beveiligd en anoniem. Doe mee!",
         "logo": {
-            "hint": "www.wifis.org"
+            "hint": "wifis.org"
         },
         "logout": "Logout",
         "signin": "Login",
+        "signup": "Doe mee",
+        "social": "Sociale media",
         "footer": {
             "text": "&copy; wifis.org",
             "switchToMobile": "terug naar mobiele versie",
@@ -33,45 +35,88 @@
             }
         },
         "otherwebsite": {
-            "title": "meer"
+            "title": "Meer"
         }
     },
     "twitterMsg": "Met @wifis_org kunnen je buren je contacteren via je Wi-fi naam. Bezoek",
-    "blog": {
-        "linklabel": "blog"
-    },
-    "homepage": {
-        "headline": "Home",
-        "linklabel": "Home",
-        "text": [
-            "<h1>Met wifis.org kan je Wi-fi e-mails ontvangen<\/h1> <blockquote class=\"bubble1\"><p>\"Hallo, wil je je Wi-fi delen tegen een maandelijkse betaling?\" <\/p><\/blockquote> <blockquote class=\"bubble2\"><p>\"Ik verhuisde net naar dit gebouw en zag jouw Wi-fi. Een biertje pakken?\"<\/p><\/blockquote> <\/div><div class=\"content\"> <h2>Hoe werkt het?<\/h2>",
-            "<div class=\"how_to_subtext\"> (Meer over deze anonieme service <a href=\"\/p\/faq\">FAQ<\/a>) <\/div> <\/div><div class=\"content\">"
-        ],
-        "teasers": [
-            "<b>JIJ<\/b> hernoem je Wi-Fi netwerk",
-            "<b>ANDEREN<\/b> bekijk je wifis.org url",
-            "<b>WIFIS.ORG<\/b> staat anderen toe jou te contacteren"
-        ],
-        "wifichecker": "Kies je persoonlijke wifis.org ID:",
-        "joinButton": "Doe mee"
-    },
     "404": {
         "headline": "404 Error",
         "linklabel": "404 Error",
         "text": "Pagina niet gevonden"
     },
+    "blog": {
+        "linklabel": "Blog"
+    },
     "about": {
         "headline": "Over",
         "linklabel": "Over",
-        "text": "<h3>Wij maken Wi-fi netwerken sociaal over heel de wereld<\/h3> <div class=\"indent\"> Opgestart in december 2011 in Berlijn, helpt buren om in contact te komen via hun Wi-fi netwerk.<br> Gemakkelijk, sociaal en vooral gratis. Probeer het en laat ons weten wat je ervan vindt. <\/div> <h3>Over ons<\/h3> <div class=\"indent\"> <b>Team:<\/b> {0}<br> <b>Medewerkers:<\/b> {1} <\/div><h3>Contacteer ons<\/h3> <div class=\"indent\"> Jouw feedback en support worden erg op prijs gesteld: {2} Mail ons op {3} {4} Schrijf naar onze Wi-fi: {5} {6} Volg ons op {7} {8} Like ons op {9} {10} Cirkel en +1 ons op {11} {12} Volg onze {13} <\/div>"
+        "text": "<h3>Wij maken Wi-fi netwerken sociaal over heel de wereld</h3> <div class='indent'> Opgestart in december 2011 in Berlijn, helpt buren om in contact te komen via hun Wi-fi netwerk.<br> Gemakkelijk, sociaal en vooral gratis. Probeer het en laat ons weten wat je ervan vindt. </div> <h3>Over ons</h3> <div class='indent'> <b>Team:</b> {0}<br> <b>Medewerkers:</b> {1} </div><h3>Contacteer ons</h3> <div class='indent'> Jouw feedback en support worden erg op prijs gesteld: {2} Mail ons op {3} {4} Schrijf naar onze Wi-fi: {5} {6} Volg ons op {7} {8} Like ons op {9} {10} Cirkel en +1 ons op {11} {12} Volg onze {13} </div>"
     },
     "faq": {
         "headline": "Veelgestelde vragen",
         "linklabel": "Veelgestelde vragen",
-        "text": "<h3 name=\"Waarom\">Waarom zou ik de naam van mijn Wi-fi netwerk veranderen?<\/h3> <div class=\"indent\"> <p> Je verandert niet zomaar de naam (SSID) van je  Wi-fi netwerk. Door je eigen wifis.org url aan te maken (zoals <a href=\"\/bijvoorbeeld\">www.wifis.org\/example<\/a>), geef je iedereen in jouw Wi-fi bereik de mogelijkheid om jou te contacteren zonder te weten wie je bent en waar je woont. Vriendelijke buren zouden je kunnen uitnodigen voor een biertje of zouden je kunnen vragen om je internet toegang te delen tegen een maandelijkse betaling. <\/p> <p> wifis.org is een nieuwe manier om in contact te komen met de mensen rondom jou. Maak deel uit van deze community. <a href=\"\/p\/login\">Doe mee.<\/a> <\/p> <\/div> <h3>Wat moet ik hiervoor betalen?<\/h3> <div class=\"indent\"> <p>Absoluut niets. wifis.org is en zal altijd een gratis service blijven.<\/p> <\/div> <h3>Hoe maak ik een account aan en registreer ik mijn url?<\/h3> <div class=\"indent\"> <p>Volg deze stappen:<\/p> <ol> <li><a href=\"\/p\/login\">Log in<\/a> met je Google of Facebook account.<\/li> <li>Kies jouw wifis.org url.<\/li> <li>Ga naar de settings van je draadloze router of modem.<\/li> <li>Wijzig je wifi netwerknaam naar je wifis.org url. (hiervoor moet je de SSID van je draadloze router of modem wijzigen.)<\/li> <li>Jouw Wi-fi netwerk zou er nu zo moeten uit zien: <a href=\"\/voorbeeld\">wifis.org\/voorbeeld<\/a><\/li> <li>Oh en wanneer je dit doet, zorg er dan voor dat je Wi-fi netwerk zichtbaar is en beveiligd met een wachtwoord.<\/li> <\/ol> <p>Dat is alles wat je moet doen. Iedereen binnen jouw Wi-fi bereik kan je nu contacteren door jouw wifis.org url in hun browser venster in te geven.<\/p> <\/div> <h3>Kan iedereen wifis.org gebruiken?<\/h3> <div class=\"indent\"> <p>Natuurlijk! Alles wat je moet weten is hoe je de naam (SSID) van je Wi-fi netwerk moet aanpassen. En uiteraard moet jouw draadloze router of modem karakters als‘\/’ en ‘.’ondersteunen. Contacteer ons <a href=\"\/p\/vver\">informeer ons<\/a>, als je problemen ondervindt.<\/p> <\/div> <h3>Hoe veilig is wifis.org?<\/h3> <div class=\"indent\"> <p>wifis.org is 100% anoniem en veilig!<\/p> <ul> <li>Jij noch je Wi-fi netwerk kan gelokaliseerd worden via onze website.<\/li> <li>Je e-mailadres, je wifis.org ID en je berichten worden zorgvuldig bewaard om onze service te kunnen aanbieden. Natuurlijk zullen je gegevens nooit verder gegeven worden aan derde partijen.<\/li> <li>We ondersteunen momenteel enkel logins via Facebook (<a href=\"https:\/\/www.facebook.com\/help\/405977429438260\" target=\"_blank\" title=\"Meer informatie over de Facebook login\">?<\/a>) en Google (<a href=\"http:\/\/www.google.com\/support\/accounts\/bin\/answer.py?answer=112802\" target=\"_blank\" title=\"Meer informatie over Google login\">?<\/a>). Wees gerust, we zullen nooit je paswoord weten, bewaren of verliezen. <\/li> <\/ul> <p>Meer informatie op onze <a href=\"\/p\/tos\">Algemene Voorwaarden<\/a>.<\/p> <\/div>",
+        "questions" : [
+            {
+                "question": "Waarom zou ik de naam van mijn Wi-fi netwerk veranderen?",
+                "answer": [
+                    "Je verandert niet zomaar de naam (SSID) van je  Wi-fi netwerk. Door je eigen wifis.org url aan te maken (zoals <a href='/bijvoorbeeld'>wifis.org/example</a>), geef je iedereen in jouw Wi-fi bereik de mogelijkheid om jou te contacteren zonder te weten wie je bent en waar je woont. Vriendelijke buren zouden je kunnen uitnodigen voor een biertje of zouden je kunnen vragen om je internet toegang te delen tegen een maandelijkse betaling. ",
+                    "wifis.org is een nieuwe manier om in contact te komen met de mensen rondom jou. Maak deel uit van deze community. <a href='/p/login'>Doe mee.</a>"
+                ]
+            },
+            {
+                "question": "Wat moet ik hiervoor betalen?",
+                "answer": [
+                    "Absoluut niets. wifis.org is en zal altijd een gratis service blijven."
+                ]
+            },
+            {
+                "question": "Hoe maak ik een account aan en registreer ik mijn url?",
+                "answer": [
+                    "Volg deze stappen:",
+                    "<ol> <li><a href='/p/login'>Log in</a> met je Google of Facebook account.</li> <li>Kies jouw wifis.org url.</li> <li>Ga naar de settings van je draadloze router of modem.</li> <li>Wijzig je wifi netwerknaam naar je wifis.org url. (hiervoor moet je de SSID van je draadloze router of modem wijzigen.)</li> <li>Jouw Wi-fi netwerk zou er nu zo moeten uit zien: <a href='/voorbeeld'>wifis.org/voorbeeld</a></li> <li>Oh en wanneer je dit doet, zorg er dan voor dat je Wi-fi netwerk zichtbaar is en beveiligd met een wachtwoord.</li> </ol>",
+                    "Dat is alles wat je moet doen. Iedereen binnen jouw Wi-fi bereik kan je nu contacteren door jouw wifis.org url in hun browser venster in te geven."
+                ]
+            },
+            {
+                "question": "Kan iedereen wifis.org gebruiken?",
+                "answer": [
+                    "Natuurlijk!",
+                    "Alles wat je moet weten is hoe je de naam (SSID) van je Wi-fi netwerk moet aanpassen. En uiteraard moet jouw draadloze router of modem karakters als‘/’ en ‘.’ondersteunen. Contacteer ons <a href='/p/vver'>informeer ons</a>, als je problemen ondervindt."                   
+                ]
+            },
+            {
+                "question": "Hoe veilig is wifis.org?",
+                "answer": [
+                    "wifis.org is 100% anoniem en veilig!",
+                    "<ul> <li>Jij noch je Wi-fi netwerk kan gelokaliseerd worden via onze website.</li> <li>Je e-mailadres, je wifis.org ID en je berichten worden zorgvuldig bewaard om onze service te kunnen aanbieden. Natuurlijk zullen je gegevens nooit verder gegeven worden aan derde partijen.</li> <li>We ondersteunen momenteel enkel logins via Facebook (<a href='https://www.facebook.com/help/405977429438260' target='_blank' title='Meer informatie over de Facebook login'>?</a>) en Google (<a href='http://www.google.com/support/accounts/bin/answer.py?answer=112802' target='_blank' title='Meer informatie over Google login'>?</a>). Wees gerust, we zullen nooit je paswoord weten, bewaren of verliezen. </li> </ul>",
+                    "Meer informatie op onze <a href='/p/tos'>Algemene Voorwaarden</a>."
+                ]
+            }
+        ],
         "question": {
             "where": "Waar wordt wifis.org gebruikt?"
         }
+    },
+    "home": {
+        "headline": "Met wifis.org kan je Wi-fi e-mails ontvangen",
+        "linklabel": "Home",
+        "quotes": [
+            "'Hallo, wil je je Wi-fi delen tegen een maandelijkse betaling?'",
+            "'Ik verhuisde net naar dit gebouw en zag jouw Wi-fi. Een biertje pakken?'"
+        ],
+        "howToHeadline": "Hoe werkt het?",
+        "howToText": "Meer over deze anonieme service <a href='/p/faq'>FAQ</a>",
+        "teasers": [
+            "<b>JIJ</b> hernoem je Wi-Fi netwerk",
+            "<b>ANDEREN</b> bekijk je wifis.org url",
+            "<b>WIFIS.ORG</b> staat anderen toe jou te contacteren"
+        ],
+        "wifichecker": "Kies je persoonlijke wifis.org ID:"
+    },
+    "languages": {
+        "headline": "Choose your language",
+        "subheadline": "Kies je taal",
+        "linklabel": "Talen"
     },
     "login": {
         "headline": "Login",
@@ -79,9 +124,9 @@
         "text": [
             "wifis.org laat enkel toe je in te loggen via een Google of Facebook account. De twee hoofdredenen hiervoor zijn:", 
         
-            "<b style=\"color: #333\">Jouw voordeel:<\/b> Je moet geen registratieformulier invullen en ook je e-mail adres niet bevestigen.",
+            "<b style='color: #333'>Jouw voordeel:</b> Je moet geen registratieformulier invullen en ook je e-mail adres niet bevestigen.",
         
-            "<b style=\"color: #333\">Jouw privacy en veiligheid:<\/b> Aangezien je je paswoord of andere persoonlijke informatie niet kennen, noch bewaren, kunnen we je garanderen dat we je gegevens nooit verliezen. Meer informatie over deze beveiligde login methodes kan je terugvinden op: "
+            "<b style='color: #333'>Jouw privacy en veiligheid:</b> Aangezien je je paswoord of andere persoonlijke informatie niet kennen, noch bewaren, kunnen we je garanderen dat we je gegevens nooit verliezen. Meer informatie over deze beveiligde login methodes kan je terugvinden op: "
         ],
         "buttonPrefix": "Login met",
         "facebookHelpLinkHintText": "Meer over Facebook 3rd party login",
@@ -100,7 +145,7 @@
     "press": {
         "headline": "Pers",
         "linklabel": "Pers",
-        "text": "Hieronder vind je een verzameling van de persaandacht die we tot nu toe kregen. Aarzel niet om screenshots van de website te gebruiken of <a href=\"https:\/\/picasaweb.google.com\/110726804868278117649\/WifisOrg\" target=\"_blank\">deze beelden <\/a> voor je artikel. Voor aanvragen <a href=\"\/p\/about\">contacteer ons<\/a> en hartelijk dank voor je support!"
+        "text": "Hieronder vind je een verzameling van de persaandacht die we tot nu toe kregen. Aarzel niet om screenshots van de website te gebruiken of <a href='https://picasaweb.google.com/110726804868278117649/WifisOrg' target='_blank'>deze beelden </a> voor je artikel. Voor aanvragen <a href='/p/about'>contacteer ons</a> en hartelijk dank voor je support!"
     },
     "stats": {
         "headline": "wifis.org statistieken",
@@ -110,11 +155,11 @@
         "headline": "Algemene Voorwaarden",
         "linklabel": "Algemene Voorwaarden",
         "introMsg": "De Algemene Voorwaarden zijn momenteel enkel beschikbaar in het Engels",
-        "text": "<h3>1. Accepting the Terms<\/h3> <div class=\"indent\"> <ul> <li>In order to use our Services, you must first agree to the Terms. You may not use the Services if you don’t accept the Terms.<\/li> <li>By actually using our Services, you understand and agree that wifis.org will treat your use of the Services as acceptance of the Terms from that point onwards.<\/li> <\/ul> <\/div> <h3>2. Provision of the Services by wifis.org<\/h3> <div class=\"indent\"> <ul> <li>wifis.org is constantly innovating in order to provide the best possible experience for its users. You acknowledge and agree that the form and nature of the Services which wifis.org provides may change from time to time without prior notice to you.<\/li> <li>As part of this continuing innovation, you acknowledge and agree that wifis.org may stop (permanently or temporarily) providing the Services (or any features within the Services) to you or to users generally, without prior notice to you. You may stop using the Services at any time. You do not need to specifically inform wifis.org when you stop using the Services.<\/li> <\/ul> <\/div> <h3>3. Use of the Services by you<\/h3> <div class=\"indent\"> <ul> <li>In order to access certain Services, you may be required to provide information about yourself (such as identification or contact details) as part of the registration process for the Service, or as part of your continued use of the Services. You agree that any registration information you give to wifis.org will always be accurate, correct and up to date.<\/li> <li>You agree to use the Services only for purposes that are permitted by (a) the Terms and (b) any applicable law, regulation or generally accepted practices or guidelines in the relevant jurisdictions.<\/li> <li>You agree that you will not engage in any activity that interferes with or disrupts the Services (or the servers and networks which are connected to the Services).<\/li> <li>You agree that you are solely responsible for (and that wifis.org has no responsibility to you or to any third party for) any breach of your obligations under the Terms and for the consequences of any such breach.<\/li> <\/ul> <\/div> <h3>4. Your passwords and account security<\/h3> <div class=\"indent\"> <ul> <li>You agree and understand that you are responsible for maintaining the confidentiality of passwords associated with any account you use to access the Services.<\/li> <li>Accordingly, you agree that you will be solely responsible to wifis.org for all activities that occur under your account.<\/li> <\/ul> <\/div> <h3>5. Content in the Services<\/h3> <div class=\"indent\"> <ul> <li>You agree that you are solely responsible for (and that wifis.org has no responsibility to you or to any third party for) any Content that you create, transmit or display while using the Services and for the consequences of your actions (including any loss or damage which wifis.org may suffer) by doing so.<\/li> <\/ul> <\/div> <h3>6. Proprietary rights<\/h3> <div class=\"indent\"> <ul> <li>You acknowledge and agree that wifis.org owns all legal rights, title and interest in and to the Services, including any intellectual property rights which subsist in the Services (whether those rights happen to be registered or not, and wherever in the world those rights may exist). You further acknowledge that the Services may contain information which is designated confidential by wifis.org and that you shall not disclose such information without wifis.org’s prior written consent.<\/li> <li>Unless you have agreed otherwise in writing with wifis.org, nothing in the Terms gives you a right to use any of wifis.org’s trade names, trade marks, service marks, logos, domain names, and other distinctive brand features.<\/li> <\/ul> <\/div> <h3>7. Limitation of liability<\/h3> <div class=\"indent\"> <ul> <li>You agree that wifis.org shall not be liable to you for (a) any changes which wifis.org may make to the Services (or any features within the Services) and (b) the deletion of, corruption of, or failure to store, any content and other communications data maintained or transmitted by or through your use of the Services.<\/li> <\/ul> <\/div>"
+        "text": "<h3>1. Accepting the Terms</h3> <div class='indent'> <ul> <li>In order to use our Services, you must first agree to the Terms. You may not use the Services if you don’t accept the Terms.</li> <li>By actually using our Services, you understand and agree that wifis.org will treat your use of the Services as acceptance of the Terms from that point onwards.</li> </ul> </div> <h3>2. Provision of the Services by wifis.org</h3> <div class='indent'> <ul> <li>wifis.org is constantly innovating in order to provide the best possible experience for its users. You acknowledge and agree that the form and nature of the Services which wifis.org provides may change from time to time without prior notice to you.</li> <li>As part of this continuing innovation, you acknowledge and agree that wifis.org may stop (permanently or temporarily) providing the Services (or any features within the Services) to you or to users generally, without prior notice to you. You may stop using the Services at any time. You do not need to specifically inform wifis.org when you stop using the Services.</li> </ul> </div> <h3>3. Use of the Services by you</h3> <div class='indent'> <ul> <li>In order to access certain Services, you may be required to provide information about yourself (such as identification or contact details) as part of the registration process for the Service, or as part of your continued use of the Services. You agree that any registration information you give to wifis.org will always be accurate, correct and up to date.</li> <li>You agree to use the Services only for purposes that are permitted by (a) the Terms and (b) any applicable law, regulation or generally accepted practices or guidelines in the relevant jurisdictions.</li> <li>You agree that you will not engage in any activity that interferes with or disrupts the Services (or the servers and networks which are connected to the Services).</li> <li>You agree that you are solely responsible for (and that wifis.org has no responsibility to you or to any third party for) any breach of your obligations under the Terms and for the consequences of any such breach.</li> </ul> </div> <h3>4. Your passwords and account security</h3> <div class='indent'> <ul> <li>You agree and understand that you are responsible for maintaining the confidentiality of passwords associated with any account you use to access the Services.</li> <li>Accordingly, you agree that you will be solely responsible to wifis.org for all activities that occur under your account.</li> </ul> </div> <h3>5. Content in the Services</h3> <div class='indent'> <ul> <li>You agree that you are solely responsible for (and that wifis.org has no responsibility to you or to any third party for) any Content that you create, transmit or display while using the Services and for the consequences of your actions (including any loss or damage which wifis.org may suffer) by doing so.</li> </ul> </div> <h3>6. Proprietary rights</h3> <div class='indent'> <ul> <li>You acknowledge and agree that wifis.org owns all legal rights, title and interest in and to the Services, including any intellectual property rights which subsist in the Services (whether those rights happen to be registered or not, and wherever in the world those rights may exist). You further acknowledge that the Services may contain information which is designated confidential by wifis.org and that you shall not disclose such information without wifis.org’s prior written consent.</li> <li>Unless you have agreed otherwise in writing with wifis.org, nothing in the Terms gives you a right to use any of wifis.org’s trade names, trade marks, service marks, logos, domain names, and other distinctive brand features.</li> </ul> </div> <h3>7. Limitation of liability</h3> <div class='indent'> <ul> <li>You agree that wifis.org shall not be liable to you for (a) any changes which wifis.org may make to the Services (or any features within the Services) and (b) the deletion of, corruption of, or failure to store, any content and other communications data maintained or transmitted by or through your use of the Services.</li> </ul> </div>"
     },
     "wifis": {
-        "headline": "mijn Wi-fis",
-        "linklabel": "mijn Wi-fis",
+        "headline": "Mijn Wi-fis",
+        "linklabel": "Mijn Wi-fis",
         "text": "Hier kan je je wifis.org ID´s registreren of verwijderen:",
         "deleteButton": "Delete",
         "enternew": "Geef een Wi-fi naam in",
@@ -129,27 +174,27 @@
             "wifiIdTooShort": "Je ID moet tenminste 3 karakters bevatten.",
             "wifiIdTooLong": "Wij ondersteunen geen ID´s die langer zijn dan 20 karakters.",
             "wrongWifiIdChars": "De enige toegestane karakters zijn letters, cijfers, nummers en koppeltekens.",
-            "maxWifiCountReached": "Je hebt je huidige wifis.org ID limiet bereikt. Probeer de  <b>invite a friend<\/b> link rechts om je limiet te verhogen.",
+            "maxWifiCountReached": "Je hebt je huidige wifis.org ID limiet bereikt. Probeer de  <b>invite a friend</b> link rechts om je limiet te verhogen.",
             "absoluteWifiLimitReached": "We staan momenteel 10 verschillende wifis.org ID´s toe. Als je werkelijk meer ID´s nodig hebt, contacteer ons dan.",
             "whileWifiDelete": "Oeps. Er is een fout opgetreden tijdens het annuleringsproces."
         },
         "tips": [
-            "<div class=\"headline\">ontvang een ander WiFi ID<\/div> <div class=\"text\">Ieder van je vrienden die wifis.org die toetreedt via <a href=\"{0}\" target=\"_blank\" title=\" Dit is je persoonlijke link om vrienden uit te nodigen op wifis.org\">je persoonlijke uitnodigingslink<\/a>, zal de limiet van je wifis.org ID´s die je kan registreren met 1 verhogen.<\/div>",
+            "<div class='headline'>ontvang een ander WiFi ID</div> <div class='text'>Ieder van je vrienden die wifis.org die toetreedt via <a href='{0}' target='_blank' title=' Dit is je persoonlijke link om vrienden uit te nodigen op wifis.org'>je persoonlijke uitnodigingslink</a>, zal de limiet van je wifis.org ID´s die je kan registreren met 1 verhogen.</div>",
                 
-            "<div class=\"headline\">verkorte url<\/div> <div class=\"text\">Kies hier je favoriet. Ze werken allemaal op dezelfde manier: {1} <\/div>",
+            "<div class='headline'>verkorte url</div> <div class='text'>Kies hier je favoriet. Ze werken allemaal op dezelfde manier: {1} </div>",
             
-            "<div class=\"headline\">meer tips<\/div> <div class=\"text\"> <b>Herbenoem je Wi-fi netwerk<\/b><br> Vergeet niet om je Wi-fi network te herbenoemen nadat je je wifis.org ID geregistreerd hebt. Kijk op <a href=\"\/p\/faq\">Veelgestelde vragen<\/a>. <br><br> <b>Eén ID voor meerdere routers<\/b><br> Om je wifis.org ID voor meerdere Wi-fi routers te gebruiken, kan je eender welk karakter toevoegen na een slash“\/” achter jouw ID: {2} <b>Case sensitivity<\/b><br> wifis.org IDs zijn niet case sensitive. <a href=\"http:\/\/wifis.org\/iphONE\">wifis.org\/iphONE<\/a> wordt <a href=\"http:\/\/wifis.org\/iPhone\">wifis.org\/iPhone<\/a> <br><br> <b>Vertel het voort!<\/b><br> Steun onze gratis service door de Flattr knop links te gebruiken en door je vrienden te informeren. <\/div>"
+            "<div class='headline'>meer tips</div> <div class='text'> <b>Herbenoem je Wi-fi netwerk</b><br> Vergeet niet om je Wi-fi network te herbenoemen nadat je je wifis.org ID geregistreerd hebt. Kijk op <a href='/p/faq'>Veelgestelde vragen</a>. <br><br> <b>Eén ID voor meerdere routers</b><br> Om je wifis.org ID voor meerdere Wi-fi routers te gebruiken, kan je eender welk karakter toevoegen na een slash“/” achter jouw ID: {2} <b>Case sensitivity</b><br> wifis.org IDs zijn niet case sensitive. <a href='http://wifis.org/iphONE'>wifis.org/iphONE</a> wordt <a href='http://wifis.org/iPhone'>wifis.org/iPhone</a> <br><br> <b>Vertel het voort!</b><br> Steun onze gratis service door de Flattr knop links te gebruiken en door je vrienden te informeren. </div>"
         ]
     },
     "wifi": {
         "headlinePrefix": "Stuur een e-mail naar:",
         "text": {
             "text": "De bezitter van dit Wi-fi netwerk registreerde zich bij wifis.org om je de kans te geven met hem in contact te komen. Je kan via deze weg shared internet toegang vragen of gewoon eens ´gedag´. In ieder geval, blijf steeds vriendelijk, je buur zal je dankbaar zijn.",
-            "notfound": "Deze url is nog niet geregistreerd.Zorg ervoor dat je de correcte url gebruikt.<\/p> <p>Om deze url te registreren ga <a href=\"\/p\/login\/\">hierheen<\/a>.",
-            "mywifi": "<b>YJe bent nu ingelogd.<\/b> <br> Dit is een preview van hoe jouw wifis.org contact pagina eruit ziet voor bezoekers."
+            "notfound": "Deze url is nog niet geregistreerd.Zorg ervoor dat je de correcte url gebruikt.</p> <p>Om deze url te registreren ga <a href='/p/login/'>hierheen</a>.",
+            "mywifi": "<b>YJe bent nu ingelogd.</b> <br> Dit is een preview van hoe jouw wifis.org contact pagina eruit ziet voor bezoekers."
         },
         "form": {
-            "contact": "geef een e-mailadres of telefoonnummer in <span style=\"font-weight: normal\">(of iedere manier om met je in contact te komen)<\/span>",
+            "contact": "geef een e-mailadres of telefoonnummer in <span style='font-weight: normal'>(of iedere manier om met je in contact te komen)</span>",
             "message": "je boodschap",
             "send": "stuur boodschap",
             "mailsent": "Je boodschap werd verzonden.",

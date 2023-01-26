@@ -1,21 +1,18 @@
 <form id="addWifiForm" class="form-inline" method="post" autocomplete="off" data-currentvalidations=0>
     {{#each wifis}}
-        <div class="control-group wifiObj" id="wifi{{this.id}}">
-            <div class="input-prepend input-append">
-                <span class="add-on">wifis.org/</span>
-                <span class="add-on wifiName" style="font-weight: bold; background: white;">
-                    <a href="/{{this.id}}">{{this.label}}</a>
+        <div data-wifiid="{{this.id}}">
+            <div class="input-group input-group-sm no-js-hidden mb-1">
+                <span class="input-group-text text-muted text-end d-block">wifis.org/</span>
+                <span class="input-group-text wifiName" style="font-weight: bold; background: white;">
+                    <a target="_blank" href="/{{this.id}}">{{this.label}}</a>
                 </span>
-                <span class="add-on deleteButton no-js-hidden">
-                    <a class="sprite icon icon-delete" href="javascript: void();"
-                        title="{{../__ "wifis.deleteButton"}}"></a>
-                </span>
+                <span class="input-group-text deleteButton no-js-hidden border-0 bg-transparent" title="{{../__ "wifis.deleteButton"}}"></span>
             </div>
         </div>
     {{/each}}
 
-    <div class="input-group no-js-hidden justify-content-center">
-        <span class="input-group-text" id="basic-addon3">wifis.org/</span>
+    <div class="input-group {{#if (equals pageId "wifis")}}input-group-sm{{/if}} no-js-hidden mb-1">
+        <span class="input-group-text text-end d-block pe-2">wifis.org/</span>
         <input pattern="^[\w\-]+$" minlength="3" maxlength="20" type="text" class="form-control" id="addWifiInput"
             name="wifiid" placeholder="{{__ "wifis.enternew"}}" title="{{__ "wifis.enternew"}}">
         <button class="btn btn-primary disabled" value="add" type="submit" formaction="" id="addWifiSave">
@@ -23,13 +20,7 @@
             <span class="caption">{{__ "wifis.test"}}</span>
         </button>
         <div class="invalid-feedback help-inline">
-            {{#if error}}
-                {{!-- __ (concat "wifis.error." error) --}}
-            {{/if}}
+            {{#if error}}{{!-- __ (concat "wifis.error." error) --}}{{/if}}
         </div>
-
-        {{!--
-        <span class="placeholder" style="width: 30px">&#160;&#160;&#160;</span>
-        --}}
     </div>
 </form>

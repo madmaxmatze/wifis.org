@@ -1,2 +1,8 @@
-<h2>{{{__ "faq.headline"}}}</h2>
-<p>{{{__ "faq.text"}}}</p>
+{{#each translations.faq.questions}}
+    <h3>{{{this.question}}}</h3>
+    <div class="indent">
+        {{#each this.answer}}
+            <p>{{{this}}} </p>
+        {{/each}}
+    </div>
+{{/each}}

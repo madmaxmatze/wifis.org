@@ -4,7 +4,7 @@ console.log("Wifis.org ♥ developer - join https://github.com/madmaxmatze/wifis
 location.hash = location.hash.replace(/^\#\_\=\_$/, "");    // facebook redirect: https://stackoverflow.com/q/7131909
 
 // press //////////////////////////////////////////////////////////////////
-document.querySelectorAll(".press a.more").forEach(moreLink => 
+document.querySelectorAll(".press_page a.more").forEach(moreLink => 
     moreLink.addEventListener('click', (event) => {
     	event.preventDefault();
         moreLink.parentElement.parentElement.querySelectorAll("li").forEach(link => link.classList.remove("js-hidden"));
@@ -19,8 +19,8 @@ if (logout) {
 }
 
 // wifis //////////////////////////////////////////////////////////////////
-if (document.querySelectorAll(".wifiObj").length) {
-    document.querySelector("#tipsContainer").classList.remove("js-hidden");
+if (document.querySelectorAll("*[data-wifiid]").length) {
+    // document.querySelector("#tipsContainer").classList.remove("js-hidden");
 }
 
 // wifi-form //////////////////////////////////////////////////////////////////
@@ -31,9 +31,47 @@ const WifiForm = class {
             this.wifiForm = wifiForm;
             this.wifiInput = this.wifiForm.querySelector("#addWifiInput");
             this.wifiInput.addEventListener('keyup', this.addWifiInputHandler.bind(this));
-            this.wifiForm.addEventListener("submit", () => (this.createNewWifi(addWifiInput.value), false));
+            this.wifiForm.addEventListener("submit", this.createNewWifiHandler.bind(this));
+            this.registerWifiDeleteHandler();
             this.wifiButton = this.wifiForm.querySelector("button");
         }
+    }
+
+    registerWifiDeleteHandler() {
+        Array.from(this.wifiForm.querySelectorAll("*[data-wifiid] .deleteButton")).forEach(element => {
+            element.removeEventListener("click", this.deleteWifiHandler);
+            element.addEventListener('click', this.deleteWifiHandler);
+        });
+    }
+
+    deleteWifiHandler(event) {
+        event.preventDefault();
+        var wifiObj = event.target.parentElement.parentElement;
+        console.log ("wifiObj", wifiObj);
+        var wifiId = wifiObj.getAttribute("data-wifiid");
+        wifiObj.style.height = 0;
+        wifiObj.style.visibility = 'hidden';
+        console.log ("call wifi delete: " + wifiId);
+
+        fetch("/api/wifi/delete", {
+            method: 'POST',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({"id" : wifiId})
+        }).then(response => response.json()).then(json => {
+            console.log (json);
+            
+            if (json.success) {
+                setTimeout(() => { /* animation should first finish */
+                    wifiObj.remove();
+                }, 600);
+            } else {
+                wifiObj.style.height = "auto";
+                alert (`error removing wifi '${wifiId}'`);
+            }
+        });
     }
 
     addWifiInputHandler(event) {
@@ -51,7 +89,7 @@ const WifiForm = class {
             return config.translations.wifis.error[code];
         }
         return code || "";
-    };
+    }
 
     setErrorMessage(message) {
         message = this.getErrorMsgForCode(message);
@@ -101,7 +139,11 @@ const WifiForm = class {
         });   
     }
 
-    createNewWifi (wifiId) {
+    createNewWifiHandler (event) {
+        event.preventDefault();
+        
+        var wifiId = this.wifiInput.value;
+
         this.setErrorMessage();
 
         fetch("/api/wifi/add", {
@@ -114,32 +156,28 @@ const WifiForm = class {
         }).then(response => response.json()).then(json => {
             if (json.success) {
                 // find correct position
-                var smallerElement = null;
-                this.wifiForm.querySelectorAll(".wifiObj").forEach((element) => {
-                    if (wifiId.toLowerCase() > element.getAttribute("id").substr(4)) {
-                        smallerElement = element;
-                    }
-                });
-                console.log ("smallerElement", smallerElement)
+                var smallerElement = Array.from(this.wifiForm.querySelectorAll("*[data-wifiid]")).reduce((smaller, element) => (
+                    wifiId > element.getAttribute("data-wifiid") ? element : smaller
+                ), null);
 
-                var html = getNewWifiHtml(wifiId.toLowerCase(),
-                wifiId);
-
+                var html = this.getNewWifiHtml(wifiId.toLowerCase(), wifiId);
                 if (smallerElement) {
                     smallerElement.insertAdjacentHTML("afterend", html);
                 } else {
                     this.wifiForm.insertAdjacentHTML("afterbegin", html);
                 }
 
-                // div.show(config.animationSpeed)
+                var newWifi = document.querySelector(`*[data-wifiid='${wifiId}']`)
+
+                setTimeout(() => { /* needed! https://stackoverflow.com/a/55951970/1066081 */
+                    newWifi.style.visibility = 'visible';
+                    newWifi.style.height = '35px';
+                    newWifi.style.opacity = 1;
+                }, 10);
+                
                 this.setErrorMessage();
                 this.wifiInput.value = "";
-                // this.registerWifiListHandler();
-
-                /*
-                if ($(".wifiObj").length) {
-                    $(".tipsContainer").show(500);
-                }*/
+                this.registerWifiDeleteHandler();
             }
             this.setErrorMessage(json.error);
         });
@@ -147,15 +185,13 @@ const WifiForm = class {
 
     getNewWifiHtml(wifiId, label) {
         return `
-            <div class="control-group wifiObj" id="wifi${wifiId}">
-                <div class="input-prepend input-append">
-                    <span class="add-on">wifis.org/</span>
-                    <span class="add-on wifiName" style="font-weight: bold">
-                        <a href="/${label}">${label}</a>
-                    </span>
-                    <span class="add-on deleteButton">
-                        <a class="sprite icon icon-delete" href="?action=delete&wifiid=${wifiId}" title="${config.translations.wifis.deleteButton}"></a>
-                    </span>
+            <div data-wifiid="${wifiId}" style='height: 0; opacity: 0; visibility: hidden;'>
+                <div class="input-group input-group-sm no-js-hidden mb-1">
+                    <span class="input-group-text text-muted text-end d-block">wifis.org/</span>
+                    <span class="input-group-text wifiName" style="font-weight: bold; background: white;">
+                        <a target="_blank" href="/${label}">${label}</a>
+                    </span>    
+                    <span class="input-group-text deleteButton no-js-hidden border-0 bg-transparent"  title="${config.translations.wifis.deleteButton}"></span>
                 </div>
             </div>`;
     }

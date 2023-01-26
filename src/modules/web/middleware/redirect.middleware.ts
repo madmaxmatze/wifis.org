@@ -30,11 +30,6 @@ export class RedirectMiddleware implements NestMiddleware {
             return response.redirect(redirect.status, redirect.url);
         }
 
-        // only cases to handle outsite of redirect class, otherwise lang cannot be swicthed on homepage
-        if (pathname == "/en" && redirect.lang == "en") {
-            return response.redirect(302, "");
-        }
-
         next();
     }
 }

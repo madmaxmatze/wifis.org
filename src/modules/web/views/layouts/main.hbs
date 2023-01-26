@@ -2,11 +2,13 @@
 <html lang="{{getLocale}}" class="no-js">
 <head>
     <title>
+        {{!--
         {{#if (__ (concat pageId ".headline"))}}
             {{stripScripts (__ (concat pageId ".headline"))}}
         {{else}}
             {{title}}
         {{/if}}
+        --}}
     </title>
     <meta charset="utf-8">
     <meta name="description" content="{{__ "label.mainTeaser"}}" />
@@ -15,7 +17,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     {{> head_seo }}
     {{> head_js }}
-    <link href="//fonts.googleapis.com/css?family=Bevan" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Bevan" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.3/css/bootstrap.min.css" />
     <link type="text/css" rel="stylesheet" href="/css/style.css" />
 </head>
@@ -27,11 +29,21 @@
     </header>
 
     <main class="container py-1">
-        <div class="container-lg">
+        <div class="container-lg clearfix">
+            {{#with (lookup translations pageId)}}
+                {{#if headline}}
+                    <h2>
+                        {{headline}}
+                        {{#if subheadline}}<small>{{subheadline}}</small>{{/if}}
+                    </h2>
+                {{/if}}
+            {{/with}}
+            
             {{{body}}}
-            <div class='clear'></div>
         </div>
     </main>
+
+
 
     <footer class="container py-3">
         {{> footer }}
