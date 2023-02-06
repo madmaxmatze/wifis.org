@@ -6,7 +6,8 @@
                 <span class="input-group-text wifiName" style="font-weight: bold; background: white;">
                     <a target="_blank" href="/{{this.id}}">{{this.label}}</a>
                 </span>
-                <span class="input-group-text deleteButton no-js-hidden border-0 bg-transparent" title="{{../__ "wifis.deleteButton"}}"></span>
+                <span class="input-group-text deleteButton no-js-hidden border-0 bg-transparent"
+                    title="{{../__ "wifis.deleteButton"}}"></span>
             </div>
         </div>
     {{/each}}
@@ -17,7 +18,8 @@
             name="wifiid" placeholder="{{__ "wifis.enternew"}}" title="{{__ "wifis.enternew"}}">
         <button class="btn btn-primary disabled" value="add" type="submit" formaction="" id="addWifiSave">
             <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
-            <span class="caption">{{__ "wifis.test"}}</span>
+            <span
+                class="caption">{{#if (equals pageId "wifis")}}{{__ "wifis.save"}}{{else}}{{__ "wifis.test"}}{{/if}}</span>
         </button>
         <div class="invalid-feedback help-inline">
             {{#if error}}{{!-- __ (concat "wifis.error." error) --}}{{/if}}

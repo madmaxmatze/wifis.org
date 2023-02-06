@@ -12,6 +12,7 @@ export const LANGUAGES_REGEX : string = LANGUAGES.join("|");
 i18n.configure({
     locales: LANGUAGES,
     cookie: LANG_COOKIE,
+    retryInDefaultLocale: true,
     defaultLocale: DEFAULT_LANG,
     directory: resolve(__dirname, "../locales"),
     queryParameter: 'lang',

@@ -28,9 +28,10 @@ export class WebController {
         next();
     }
 
-    @All([WebController.HOMEPAGE_URL, `:lang(${LANGUAGES_REGEX})`, `:lang(${LANGUAGES_REGEX})/:pageId(about|faq|press|tos|languages|login)`])
+    @All([WebController.HOMEPAGE_URL, `:lang(${LANGUAGES_REGEX})`, `:lang(${LANGUAGES_REGEX})/:pageId(about|contact|faq|tos|languages|login)`])
     getPages(@Res() response: Response, @Param('pageId') pageId: string = "home") {
-        return response.render(pageId);
+        var viewname = ["about", "contact", "faq", "tos"].includes(pageId) ? "page" : pageId;
+        return response.render(viewname);
     }
     
     @Get(`:lang(${LANGUAGES_REGEX})/wifis`)

@@ -29,15 +29,15 @@
     <changefreq>always</changefreq>
   </url>
   <url>
-    <loc>https://wifis.org/en/press</loc>
+    <loc>https://wifis.org/en/contact</loc>
     <priority>0.6</priority>
-    <xhtml:link rel="alternate" hreflang="de" href="https://wifis.org/de/press" />
-    <xhtml:link rel="alternate" hreflang="es" href="https://wifis.org/es/press" />
-    <xhtml:link rel="alternate" hreflang="fr" href="https://wifis.org/fr/press" />
-    <xhtml:link rel="alternate" hreflang="it" href="https://wifis.org/it/press" />
-    <xhtml:link rel="alternate" hreflang="ms" href="https://wifis.org/ms/press" />
-    <xhtml:link rel="alternate" hreflang="nl" href="https://wifis.org/nl/press" />
-    <xhtml:link rel="alternate" hreflang="ru" href="https://wifis.org/ru/press" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://wifis.org/de/contact" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://wifis.org/es/contact" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://wifis.org/fr/contact" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://wifis.org/it/contact" />
+    <xhtml:link rel="alternate" hreflang="ms" href="https://wifis.org/ms/contact" />
+    <xhtml:link rel="alternate" hreflang="nl" href="https://wifis.org/nl/contact" />
+    <xhtml:link rel="alternate" hreflang="ru" href="https://wifis.org/ru/contact" />
   </url>
   <url>
     <loc>https://wifis.org/en/about</loc>

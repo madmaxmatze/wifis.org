@@ -12,17 +12,6 @@ document.querySelectorAll(".press_page a.more").forEach(moreLink =>
     }, false)
 );
 
-// menu //////////////////////////////////////////////////////////////////
-var logout = document.querySelector("#logout-menu-item");
-if (logout) {
-    logout.setAttribute("href", "javascript: void(0)");
-}
-
-// wifis //////////////////////////////////////////////////////////////////
-if (document.querySelectorAll("*[data-wifiid]").length) {
-    // document.querySelector("#tipsContainer").classList.remove("js-hidden");
-}
-
 // wifi-form //////////////////////////////////////////////////////////////////
 // document.querySelector(".home_page #addWifiForm .no-js-hidden").classList.remove("no-js-hidden");
 const WifiForm = class {
@@ -31,7 +20,9 @@ const WifiForm = class {
             this.wifiForm = wifiForm;
             this.wifiInput = this.wifiForm.querySelector("#addWifiInput");
             this.wifiInput.addEventListener('keyup', this.addWifiInputHandler.bind(this));
-            this.wifiForm.addEventListener("submit", this.createNewWifiHandler.bind(this));
+            if (document.querySelector(".wifis_page")) {
+                this.wifiForm.addEventListener("submit", this.createNewWifiHandler.bind(this));
+            }
             this.registerWifiDeleteHandler();
             this.wifiButton = this.wifiForm.querySelector("button");
         }
@@ -99,7 +90,7 @@ const WifiForm = class {
         
         this.wifiButton.classList.toggle("disabled", !this.wifiInput.value || message);
         this.wifiInput.classList.toggle("is-invalid", !!message);
-        this.wifiButton.querySelector(".caption").innerText = config.translations.wifis.test;  //[message ? "test" : "save"];
+        // this.wifiButton.querySelector(".caption").innerText = config.translations.wifis.test;  //[message ? "test" : "save"];
         this.wifiForm.querySelector(".help-inline").innerHTML = message || "";
     }
 

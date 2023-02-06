@@ -74,7 +74,8 @@ export class WifisRedirect {
         // fix old subdomains and path structure
         redirect.pathname = redirect.pathname
             .replace(/^\/(s|m|static|w|ww|www)\//g, "/")      // old mobile subdomain (301 redirected via cloudflare )
-            .replace(/^\/p\/(about|faq|press|tos|languages|login|wifis)/g, "/" + redirect.lang + "/$1/");
+            .replace(/^\/p\/(about|faq|press|tos|languages|login|wifis)/g, "/" + redirect.lang + "/$1/")
+            .replace(/\/press/, "/about");
 
         // fix old /p/blog url
         if (redirect.pathname.match(/\/p\/blog/)) {

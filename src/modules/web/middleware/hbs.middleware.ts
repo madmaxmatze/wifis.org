@@ -48,7 +48,8 @@ hbs.registerHelper('replace', function (...args: any) {
     if (args.length < 3 || args.length % 2 === 0) {
         throw new Error("replace1: wrong number of arguments : " + JSON.stringify(args));
     }
-    var output = args.pop().fn(this);       // last item is options
+    args.pop();  // last item is options
+    var output = this;
     for (var i = 0; i < args.length; i += 2) {
         output = output.replace(args[i], args[i + 1]);
     }
@@ -60,8 +61,7 @@ hbs.registerHelper('concat', function (...args: any) {
         throw new Error("At least 2 concat values needed");
     }
     var output = args[0];
-    // last item is options
-    for (var i = 1; i < args.length - 1; i++) {
+    for (var i = 1; i < args.length - 1 /* last item is options */; i++) {
         output += args[i];
     }
 

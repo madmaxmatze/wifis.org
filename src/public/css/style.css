@@ -63,8 +63,11 @@ h3 {
 	margin-bottom: 1px;
 	font-size: 18pt;
 }
+h4 {
+	font-size: 14pt;
+}
 .indent {
-    margin-left: 20px;
+    margin-left: 10px;
 }
 main a,
 footer a {
@@ -163,7 +166,12 @@ a.logo {
     width: 16px;
     height: 16px;
 }
-.icon32 {width: 32px; height: 32px; display: inline-block;}
+.icon32 {
+    width: 32px;
+    height: 32px;
+    display: inline-block;
+    vertical-align: middle;
+}
 
 .flag {
    display: inline-block; 
@@ -206,11 +214,6 @@ a.logo {
 .icon32-flattr {background-position: -160px -28px;}
 .icon32-tumblr {background-position: -192px -28px;}
 .icon32-linkedin {background-position: -224px -28px;}
-
-
-.googleLoginImage {background-position: -377px -29px;}
-.facebookLoginImage {background-position: -267px -29px;}
-.twitterLoginImage {background-position: -380px -22px}
 
 
 /* 1. line */
@@ -311,6 +314,35 @@ a.logo {
 .logo-downloadblogit {width: 180px;}
 .logo-downloadblogit:hover {background-position: -425px -300px;}
 .logo-downloadblogit {background-position: -425px -330px;}
+
+
+
+
+/* Login PAGE: /p/login ***************************************************************** */
+.login_page .loginButtons .btn span b {
+	display: none;
+}
+.login_page .loginButtons .btn {
+	vertical-align: middle;
+    width: 170px;
+    height: 50px;
+    margin-bottom: 20px;
+}
+.login_page .loginButtons .btn span {
+	margin: 5px auto 3px;
+	display: block;
+	height: 30px;
+	width: 107px;
+}
+.login_page .loginButtons .btn:hover {
+    background-color: #eee;
+    color: black;
+}
+
+.googleLoginImage {background-position: -377px -29px;}
+.facebookLoginImage {background-position: -267px -29px;}
+.twitterLoginImage {background-position: -380px -22px}
+
 
 
 
@@ -482,6 +514,11 @@ a.logo {
 
 
 
+
+/* TOS PAGE ********************************************************************************* */
+.tos_page .alert-danger:lang(en) {
+    display: none;
+}
 
 
 

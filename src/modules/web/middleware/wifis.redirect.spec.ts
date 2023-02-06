@@ -110,7 +110,7 @@ describe('Test Redirect Middleware', () => {
         },
         {
             name: "many ///",
-            request: { pathname: "/en/////about", search: "?" },
+            request: { pathname: "/en/////press", search: "?" },
             response: { url: "/en/about", status: 301 }
         },
         {

@@ -1,21 +1,5 @@
 {
     "label": {
-        "lang": {
-            "de": "Deutsch",
-            "en": "English",
-            "es": "Español",
-            "fr": "Français",
-            "it": "Italiano",
-            "ms": "Melayu",
-            "nl": "Nederlands",
-            "ru": "Русский",
-            "gr": "ελληνικά",
-            "cn": "中國",
-            "jp": "日本人",
-            "pt": "Português",
-            "tr": "Türkçe"
-        },
-        "title": "wifis.org",
         "mainTeaser": "Borang Perhubungan buat Rangkaian Wi-Fi anda.",
         "description": "Borang Perhubungan buat Rangkaian Wi-Fi anda. Mudah, selamat dan anonymous. Mari sertai kami!",
         "logo": {
@@ -44,58 +28,86 @@
         "linklabel": "404 Ralat",
         "text": "Halaman gagal ditemui"
     },
-    "blog": {
-        "linklabel": "Blog"
-    },
     "about": {
         "headline": "Perihal",
         "linklabel": "Perihal",
-        "text": "<h3>Kami menjadikan dunia rangkaian Wi-Fi bermasyarakat</h3> <div class='indent'> Disyarikatkan pada Disember 2011 di Berlin wifis.org membantu kejiranan untuk senantiasa bersilaturahim melalui rangkaian Wi-Fi mereka.<br> Ianya mudah, sosial dan percuma. Jom kita cuba dan maklumkan pada kami apa yang anda rasa mengenai aplikasi ini.</div> <h3>Perihal Kami</h3>  <div class='indent'> <b>Pasukan:</b> {0}<br> <b>Pendukung:</b> {1} </div><h3>Hubungi Kami</h3> <div class='indent'> Pandangan dan sokongan anda adalah amat dihargai: {2} Hantar emel pada kami {3} {4} Karang surat pada Wi-Fi: {5} {6} Ikut kami di {7} {8} Sukai Wi-Fi di {9} {10} Keliling kami dan +1 di {11} {12} membaca  {13} kami </div>"
+        "content" : [
+            {
+                "headline": "Kami menjadikan dunia rangkaian Wi-Fi bermasyarakat",
+                "text": [
+                    "Disyarikatkan pada Disember 2011 di Berlin wifis.org membantu kejiranan untuk senantiasa bersilaturahim melalui rangkaian Wi-Fi mereka.<br> Ianya mudah, sosial dan percuma. Jom kita cuba dan maklumkan pada kami apa yang anda rasa mengenai aplikasi ini."
+                ]
+            },
+            {
+                "headline": "Perihal Kami",
+                "text": [
+                    "<b>Pasukan:</b> [ABOUT_TEAM]",
+                    "<b>Pendukung:</b> [ABOUT_SUPPORTER]"
+                ]
+            }
+        ]
+    },
+    "blog": {
+        "linklabel": "Blog"
+    },
+    "contact": {
+        "headline": "Hubungi Kami",
+        "linklabel": "Hubungi Kami",
+        "content": [
+            {
+                "text": [
+                    "Pandangan dan sokongan anda adalah amat dihargai:",
+                    "[CONTACT_MAIL_ICON] Hantar emel pada kami [CONTACT_MAIL_ADDRESS]",
+                    "[CONTACT_WIFI_ICON] Karang surat pada Wi-Fi: [CONTACT_WIFI_ADDRESS]",
+                    "[CONTACT_TWITTER_ICON] Ikut kami di [CONTACT_TWITTER_ADDRESS]",
+                    "[CONTACT_FACEBOOK_ICON] Sukai Wi-Fi di [CONTACT_FACEBOOK_ADDRESS]",
+                    "[CONTACT_BLOG_ICON] membaca [CONTACT_BLOG_ADDRESS] kami"
+                ]
+            }
+        ]
     },
     "faq": {
         "headline": "Soalan Kerap Ditanya",
         "linklabel": "Soalan Kerap Ditanya",
-        "questions" : [
+        "content": [
             {
-                "question": "Kenapa pula saya perlu menukar nama Wi-Fi saya?",
-                "answer": [
+                "headline": "Kenapa pula saya perlu menukar nama Wi-Fi saya?",
+                "text": [
                     "Kamu bukan hanya perlu menukar nama (SSID) rangkaian Wi-Fi anda. Dengan hanya menetapkan url wifis.org anda (like <a href='/contoh'>wifis.org/contoh</a>), kamu membuka peluang kepada orang-orang yang berada disekitar rangkaian anda untuk menghubungi anda tanpa perlu mereka untuk tahu identiti anda dan dimana anda tinggal. Kemungkinan besar jiran-jiran anda yang mesra akan menjemput anda untuk bertandang ke rumah mereka untuk majlis tertentu atau meminta kebenaran anda untuk berkongsi akses internet dengan bayaran bulanan. ",
                     "wifis.org  adalah cara terbaru untuk bersilaturahim dengan orang di sekeliling anda. Jadilah sebahagian dari komuniti anda. <a href='/p/login'>Sertai kami.</a>"
                 ]
             },
             {
-                "question": "Berapa harga yang dikenakan?",
-                "answer": [
+                "headline": "Berapa harga yang dikenakan?",
+                "text": [
                     "Percuma semata-mata. wifis.org akan kekal dan selalu percuma kepada sesiapapun."
                 ]
             },
             {
-                "question": "Macam mana hendak buat akaun dan daftar url saya?",
-                "answer": [
+                "headline": "Macam mana hendak buat akaun dan daftar url saya?",
+                "text": [
                     "Ikut langkah-langkah berikut:",
                     "<ol> <li><a href='/p/login'>Daftar masuk</a>  menggunakan Google atau akaun Facebook anda.</li> <li>Pilih url wifis.org anda.</li> <li>Pergi ke tetapan wireless router atau modem anda.</li> <li>Tukar nama rangkaian wifi anda kepada url wifis.org anda. (Anda dikehendaki menukar SSID di wireless router atau modem anda.)</li> <li>Rangkaian wifi anda sepatutnya kelihatan begini: <a href='/example'>wifis.org/contoh</a></li> <li>Oh ye, sementara anda membaikinya, pastikan rangkaian anda dapat dilihat dan dilengkapi dengan kata laluan.</li> </ol>",
                     "Itu sahaja yang anda perlukan setakat ini. Barangsiapa yang berada dalam naungan rangkaian Wi-Fi anda akan dapat menghubungi anda dengan menggunakan url wifis.org anda di pelayar internet mereka."
                 ]
             },
             {
-                "question": "Sesiapa sahaja boleh menggunakan wifis.org?",
-                "answer": [
+                "headline": "Sesiapa sahaja boleh menggunakan wifis.org?",
+                "text": [
                     "Sudah tentu!",
                     "Apa yang anda perlu lakukan adalah menukar nama (SSID) rangkaian Wi-Fi anda. Jelas sekali, router wayarles atau modem anda perlulah berupaya untuk memanfaatkan karakter seperti ‘/’ dan ‘.’. Sila <a href='/p/about'>maklumkan pada kami</a>, sekiranya anda menghadapi sebarang masalah."                   
                 ]
             },
             {
-                "question": "Selamatkah wifis.org?",
-                "answer": [
+                "headline": "Selamatkah wifis.org?",
+                "text": [
                     "wifis.org dijamin 100% identiti-selamat dan menyelamatkan!",
                     "<ul> <li>Anda dan rangkaian Wi-Fi anda tidak dapat ditelusuri melalui laman web kami.</li> <li>Alamat emel anda, ID wifis.org anda dan segala mesej anda terselamat dari sebarang penyalahgunaan. Sudah tentu, data-data anda tidak akan didedahkan kepada mana-mana pihak ketiga. </li> <li>Kami hanya menyokong daftar masuk melalui Facebook (<a href='https://www.facebook.com/help/405977429438260' target='_blank' title='Maklumat lanjut mengenai facebook login'>?</a>) dan Google (<a href='http://www.google.com/support/accounts/bin/answer.py?answer=112802' target='_blank' title='Maklumat lanjut mengenai google login'>?</a>) buat masa ini.</li> </ul>",
                     "Maklumat tambahan boleh didapati pada <a href='/p/tos'>Terma dan Syarat kami</a>."
                 ]
             }
         ],
-        "question": {
-            "where": "Where is wifis.org used?"
-        }
+        "where": "Where is wifis.org used?"
     },
     "home": {
         "headline": "Kini WiFi anda boleh menerima emel",
@@ -115,7 +127,7 @@
     },
     "languages": {
         "headline": "Choose your language",
-        "subheadline": "Pilih Bahasa anda",
+        "subheadline": "(Pilih Bahasa anda)",
         "linklabel": "Bahasa"
     },
     "login": {
@@ -154,8 +166,13 @@
     "tos": {
         "headline": "Terma Penggunaan",
         "linklabel": "Terma Penggunaan",
-        "introMsg": "Hanya tersedia dalam bahasa Inggeris sahaja buat masa ini.",
-        "text": "<h3>1. Accepting the Terms</h3> <div class='indent'> <ul> <li>In order to use our Services, you must first agree to the Terms. You may not use the Services if you don’t accept the Terms.</li> <li>By actually using our Services, you understand and agree that wifis.org will treat your use of the Services as acceptance of the Terms from that point onwards.</li> </ul> </div> <h3>2. Provision of the Services by wifis.org</h3> <div class='indent'> <ul> <li>wifis.org is constantly innovating in order to provide the best possible experience for its users. You acknowledge and agree that the form and nature of the Services which wifis.org provides may change from time to time without prior notice to you.</li> <li>As part of this continuing innovation, you acknowledge and agree that wifis.org may stop (permanently or temporarily) providing the Services (or any features within the Services) to you or to users generally, without prior notice to you. You may stop using the Services at any time. You do not need to specifically inform wifis.org when you stop using the Services.</li> </ul> </div> <h3>3. Use of the Services by you</h3> <div class='indent'> <ul> <li>In order to access certain Services, you may be required to provide information about yourself (such as identification or contact details) as part of the registration process for the Service, or as part of your continued use of the Services. You agree that any registration information you give to wifis.org will always be accurate, correct and up to date.</li> <li>You agree to use the Services only for purposes that are permitted by (a) the Terms and (b) any applicable law, regulation or generally accepted practices or guidelines in the relevant jurisdictions.</li> <li>You agree that you will not engage in any activity that interferes with or disrupts the Services (or the servers and networks which are connected to the Services).</li> <li>You agree that you are solely responsible for (and that wifis.org has no responsibility to you or to any third party for) any breach of your obligations under the Terms and for the consequences of any such breach.</li> </ul> </div> <h3>4. Your passwords and account security</h3> <div class='indent'> <ul> <li>You agree and understand that you are responsible for maintaining the confidentiality of passwords associated with any account you use to access the Services.</li> <li>Accordingly, you agree that you will be solely responsible to wifis.org for all activities that occur under your account.</li> </ul> </div> <h3>5. Content in the Services</h3> <div class='indent'> <ul> <li>You agree that you are solely responsible for (and that wifis.org has no responsibility to you or to any third party for) any Content that you create, transmit or display while using the Services and for the consequences of your actions (including any loss or damage which wifis.org may suffer) by doing so.</li> </ul> </div> <h3>6. Proprietary rights</h3> <div class='indent'> <ul> <li>You acknowledge and agree that wifis.org owns all legal rights, title and interest in and to the Services, including any intellectual property rights which subsist in the Services (whether those rights happen to be registered or not, and wherever in the world those rights may exist). You further acknowledge that the Services may contain information which is designated confidential by wifis.org and that you shall not disclose such information without wifis.org’s prior written consent.</li> <li>Unless you have agreed otherwise in writing with wifis.org, nothing in the Terms gives you a right to use any of wifis.org’s trade names, trade marks, service marks, logos, domain names, and other distinctive brand features.</li> </ul> </div> <h3>7. Limitation of liability</h3> <div class='indent'> <ul> <li>You agree that wifis.org shall not be liable to you for (a) any changes which wifis.org may make to the Services (or any features within the Services) and (b) the deletion of, corruption of, or failure to store, any content and other communications data maintained or transmitted by or through your use of the Services.</li> </ul> </div>"
+        "content" : [
+            {
+                "text": [
+                    "<div class='alert alert-danger'>Hanya tersedia dalam bahasa Inggeris sahaja buat masa ini</div>[TOS]"
+                ]
+            }
+        ]
     },
     "wifis": {
         "headline": "My Wi-Fis",

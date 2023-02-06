@@ -3,20 +3,26 @@
         <div class="col mb-3">
             <h5>{{__ "label.otherwebsite.title"}}</h5>
             <ul class="nav">
-                <li class="nav-item mb-2 w-100">
-                    <a href="/{{getLocale}}/languages" title="{{__ "languages.linklabel"}}"
-                        class="nav-link p-0 text-muted">
-                        {{__ "languages.linklabel"}}
-                    </a>
-                </li>
-                <li class="nav-item mb-2 w-100">
+                <li class="nav-item mb-2 ms-0 w-100">
                     <a href="/{{getLocale}}/about" title="{{__ "about.linklabel"}}" class="nav-link p-0 text-muted">
                         {{__ "about.linklabel"}}
                     </a>
                 </li>
-                <li class="nav-item mb-2 w-100">
+                <li class="nav-item mb-2 ms-0 w-100">
+                    <a href="/{{getLocale}}/contact" title="{{__ "contact.linklabel"}}"
+                        class="nav-link p-0 text-muted">
+                        {{__ "contact.linklabel"}}
+                    </a>
+                </li>
+                <li class="nav-item mb-2 ms-0 w-100">
                     <a href="/{{getLocale}}/tos" title="{{__ "tos.linklabel"}}" class="nav-link p-0 text-muted">
                         {{__ "tos.linklabel"}}
+                    </a>
+                </li>
+                <li class="nav-item mb-2 ms-0 w-100">
+                    <a href="/{{getLocale}}/languages" title="{{__ "languages.linklabel"}}"
+                        class="nav-link p-0 text-muted">
+                        {{__ "languages.linklabel"}}
                     </a>
                 </li>
             </ul>
@@ -25,17 +31,17 @@
         <div class="col mb-3">
             <h5>{{{__ "label.social"}}}</h5>
             <ul class="nav">
-                <li class="nav-item mb-2 w-100">
+                <li class="nav-item mb-2 ms-0 w-100">
                     <a href="https://blog.wifis.org" target="_blank" title="{{__ "blog.linklabel"}}" class="nav-link p-0 text-muted">
                         {{__ "blog.linklabel"}}
                     </a>
                 </li>
-                <li class="nav-item mb-2 w-100">
+                <li class="nav-item mb-2 ms-0 w-100">
                     <a href="https://twitter.com/wifis_org" target="_blank" class="nav-link p-0 text-muted icon twitter_icon">
                         <span>twitter</span>
                     </a>
                 </li>
-                <li class="nav-item mb-2 w-100">
+                <li class="nav-item mb-2 ms-0 w-100">
                     <a href="https://www.facebook.com/wifis.org/" target="_blank" class="nav-link p-0 text-muted icon facebook_icon">
                         <span>facebook</span>
                     </a>
@@ -126,7 +132,7 @@
 
     <div class="d-flex flex-column flex-sm-row justify-content-between py-3 border-top">
         <p>{{{__ "label.footer.text"}}}</p>
-        <ul class="list-unstyled d-flex">
+        <ul class="list-unstyled d-flex w-30">
             {{!--
             <li class="ms-3">
                 <a class="link-dark icon twitter_icon" href="https://twitter.com/wifis_org">
@@ -140,7 +146,7 @@
             </li>
             --}}
             <li class="ms-3">
-                <a class="link-dark icon github_icon nav-link text-muted"
+                <a class="link-dark icon github_icon nav-link text-muted text-nowrap w-100"
                     href="https://github.com/madmaxmatze/wifis.org">
                     <span>github</span>
                 </a>
