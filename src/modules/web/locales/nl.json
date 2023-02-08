@@ -1,4 +1,5 @@
 {
+    "lang": "nl",
     "label": {
         "mainTeaser": "Een contact forum voor uw Wi-fi netwerk.",
         "description": "Een contact forum voor uw Wi-fi netwerk. Gemakkelijk, beveiligd en anoniem. Doe mee!",
@@ -41,8 +42,8 @@
             {
                 "headline": "Over ons",
                 "text": [
-                    "<b>Team:</b> [ABOUT_TEAM]",
-                    "<b>Medewerkers:</b> [ABOUT_SUPPORTER]"
+                    "<p><b>Team:</b> {__about.team}</p>",
+                    "<p><b>Medewerkers:</b> {__about.supporter}</p>"
                 ]
             }
         ]
@@ -53,18 +54,15 @@
     "contact": {
         "headline": "Contacteer ons",
         "linklabel": "Contact",
-        "content": [
-            {
-                "text": [
-                    "Jouw feedback en support worden erg op prijs gesteld:",
-                    "[CONTACT_MAIL_ICON] Mail ons op [CONTACT_MAIL_ADDRESS]",
-                    "[CONTACT_WIFI_ICON] Schrijf naar onze Wi-fi: [CONTACT_WIFI_ADDRESS]",
-                    "[CONTACT_TWITTER_ICON] Volg ons op [CONTACT_TWITTER_ADDRESS]",
-                    "[CONTACT_FACEBOOK_ICON] Like ons op [CONTACT_FACEBOOK_ADDRESS]",
-                    "[CONTACT_BLOG_ICON] Volg onze [CONTACT_BLOG_ADDRESS]"
-                ]
-            }
-        ]
+        "content": [{
+            "text": ["{__contact.htmlTemplate}"]
+        }],
+        "introText": "Jouw feedback en support worden erg op prijs gesteld:",
+        "mailText": "Mail ons op",
+        "wifiText": "Schrijf naar onze Wi-fi:",
+        "twitterText" : "Volg ons op",
+        "facebookText": "Like ons op",
+        "blogText": "Volg onze"
     },
     "faq": {
         "headline": "Veelgestelde vragen",
@@ -73,8 +71,8 @@
             {
                 "headline": "Waarom zou ik de naam van mijn Wi-fi netwerk veranderen?",
                 "text": [
-                    "Je verandert niet zomaar de naam (SSID) van je  Wi-fi netwerk. Door je eigen wifis.org url aan te maken (zoals <a href='/bijvoorbeeld'>wifis.org/example</a>), geef je iedereen in jouw Wi-fi bereik de mogelijkheid om jou te contacteren zonder te weten wie je bent en waar je woont. Vriendelijke buren zouden je kunnen uitnodigen voor een biertje of zouden je kunnen vragen om je internet toegang te delen tegen een maandelijkse betaling. ",
-                    "wifis.org is een nieuwe manier om in contact te komen met de mensen rondom jou. Maak deel uit van deze community. <a href='/p/login'>Doe mee.</a>"
+                    "Je verandert niet zomaar de naam (SSID) van je  Wi-fi netwerk. Door je eigen wifis.org url aan te maken (zoals <a href='/example'>wifis.org/example</a>), geef je iedereen in jouw Wi-fi bereik de mogelijkheid om jou te contacteren zonder te weten wie je bent en waar je woont. Vriendelijke buren zouden je kunnen uitnodigen voor een biertje of zouden je kunnen vragen om je internet toegang te delen tegen een maandelijkse betaling. ",
+                    "wifis.org is een nieuwe manier om in contact te komen met de mensen rondom jou. Maak deel uit van deze community. <a href='/{__lang}/login'>Doe mee.</a>"
                 ]
             },
             {
@@ -87,7 +85,7 @@
                 "headline": "Hoe maak ik een account aan en registreer ik mijn url?",
                 "text": [
                     "Volg deze stappen:",
-                    "<ol> <li><a href='/p/login'>Log in</a> met je Google of Facebook account.</li> <li>Kies jouw wifis.org url.</li> <li>Ga naar de settings van je draadloze router of modem.</li> <li>Wijzig je wifi netwerknaam naar je wifis.org url. (hiervoor moet je de SSID van je draadloze router of modem wijzigen.)</li> <li>Jouw Wi-fi netwerk zou er nu zo moeten uit zien: <a href='/voorbeeld'>wifis.org/voorbeeld</a></li> <li>Oh en wanneer je dit doet, zorg er dan voor dat je Wi-fi netwerk zichtbaar is en beveiligd met een wachtwoord.</li> </ol>",
+                    "<ol> <li><a href='/{__lang}/login'>Log in</a> met je Google of Facebook account.</li> <li>Kies jouw wifis.org url.</li> <li>Ga naar de settings van je draadloze router of modem.</li> <li>Wijzig je wifi netwerknaam naar je wifis.org url. (hiervoor moet je de SSID van je draadloze router of modem wijzigen.)</li> <li>Jouw Wi-fi netwerk zou er nu zo moeten uit zien: <a href='/voorbeeld'>wifis.org/voorbeeld</a></li> <li>Oh en wanneer je dit doet, zorg er dan voor dat je Wi-fi netwerk zichtbaar is en beveiligd met een wachtwoord.</li> </ol>",
                     "Dat is alles wat je moet doen. Iedereen binnen jouw Wi-fi bereik kan je nu contacteren door jouw wifis.org url in hun browser venster in te geven."
                 ]
             },
@@ -95,7 +93,7 @@
                 "headline": "Kan iedereen wifis.org gebruiken?",
                 "text": [
                     "Natuurlijk!",
-                    "Alles wat je moet weten is hoe je de naam (SSID) van je Wi-fi netwerk moet aanpassen. En uiteraard moet jouw draadloze router of modem karakters als‘/’ en ‘.’ondersteunen. Contacteer ons <a href='/p/vver'>informeer ons</a>, als je problemen ondervindt."                   
+                    "Alles wat je moet weten is hoe je de naam (SSID) van je Wi-fi netwerk moet aanpassen. En uiteraard moet jouw draadloze router of modem karakters als‘/’ en ‘.’ondersteunen. Contacteer ons <a href='/{__lang}/contact'>informeer ons</a>, als je problemen ondervindt."                   
                 ]
             },
             {
@@ -103,7 +101,7 @@
                 "text": [
                     "wifis.org is 100% anoniem en veilig!",
                     "<ul> <li>Jij noch je Wi-fi netwerk kan gelokaliseerd worden via onze website.</li> <li>Je e-mailadres, je wifis.org ID en je berichten worden zorgvuldig bewaard om onze service te kunnen aanbieden. Natuurlijk zullen je gegevens nooit verder gegeven worden aan derde partijen.</li> <li>We ondersteunen momenteel enkel logins via Facebook (<a href='https://www.facebook.com/help/405977429438260' target='_blank' title='Meer informatie over de Facebook login'>?</a>) en Google (<a href='http://www.google.com/support/accounts/bin/answer.py?answer=112802' target='_blank' title='Meer informatie over Google login'>?</a>). Wees gerust, we zullen nooit je paswoord weten, bewaren of verliezen. </li> </ul>",
-                    "Meer informatie op onze <a href='/p/tos'>Algemene Voorwaarden</a>."
+                    "Meer informatie op onze <a href='/{__lang}/tos'>Algemene Voorwaarden</a>."
                 ]
             }
         ],
@@ -117,7 +115,7 @@
             "'Ik verhuisde net naar dit gebouw en zag jouw Wi-fi. Een biertje pakken?'"
         ],
         "howToHeadline": "Hoe werkt het?",
-        "howToText": "Meer over deze anonieme service <a href='/p/faq'>FAQ</a>",
+        "howToText": "Meer over deze anonieme service <a href='/{__lang}/faq'>FAQ</a>",
         "teasers": [
             "<b>JIJ</b> hernoem je Wi-Fi netwerk",
             "<b>ANDEREN</b> bekijk je wifis.org url",
@@ -157,7 +155,7 @@
     "press": {
         "headline": "Pers",
         "linklabel": "Pers",
-        "text": "Hieronder vind je een verzameling van de persaandacht die we tot nu toe kregen. Aarzel niet om screenshots van de website te gebruiken of <a href='https://picasaweb.google.com/110726804868278117649/WifisOrg' target='_blank'>deze beelden </a> voor je artikel. Voor aanvragen <a href='/p/about'>contacteer ons</a> en hartelijk dank voor je support!"
+        "text": "Hieronder vind je een verzameling van de persaandacht die we tot nu toe kregen. Aarzel niet om screenshots van de website te gebruiken of <a href='https://picasaweb.google.com/110726804868278117649/WifisOrg' target='_blank'>deze beelden </a> voor je artikel. Voor aanvragen <a href='/{__lang}/contact'>contacteer ons</a> en hartelijk dank voor je support!"
     },
     "stats": {
         "headline": "wifis.org statistieken",
@@ -169,7 +167,7 @@
         "content" : [
             {
                 "text": [
-                    "<div class='alert alert-danger'>De Algemene Voorwaarden zijn momenteel enkel beschikbaar in het Engels</div>[TOS]"
+                    "<div class='alert alert-danger'>De Algemene Voorwaarden zijn momenteel enkel beschikbaar in het Engels</div>{__tos.termsOfService}"
                 ]
             }
         ]
@@ -200,7 +198,7 @@
                 
             "<div class='headline'>verkorte url</div> <div class='text'>Kies hier je favoriet. Ze werken allemaal op dezelfde manier: {1} </div>",
             
-            "<div class='headline'>meer tips</div> <div class='text'> <b>Herbenoem je Wi-fi netwerk</b><br> Vergeet niet om je Wi-fi network te herbenoemen nadat je je wifis.org ID geregistreerd hebt. Kijk op <a href='/p/faq'>Veelgestelde vragen</a>. <br><br> <b>Eén ID voor meerdere routers</b><br> Om je wifis.org ID voor meerdere Wi-fi routers te gebruiken, kan je eender welk karakter toevoegen na een slash“/” achter jouw ID: {2} <b>Case sensitivity</b><br> wifis.org IDs zijn niet case sensitive. <a href='http://wifis.org/iphONE'>wifis.org/iphONE</a> wordt <a href='http://wifis.org/iPhone'>wifis.org/iPhone</a> <br><br> <b>Vertel het voort!</b><br> Steun onze gratis service door de Flattr knop links te gebruiken en door je vrienden te informeren. </div>"
+            "<div class='headline'>meer tips</div> <div class='text'> <b>Herbenoem je Wi-fi netwerk</b><br> Vergeet niet om je Wi-fi network te herbenoemen nadat je je wifis.org ID geregistreerd hebt. Kijk op <a href='/{__lang}/faq'>Veelgestelde vragen</a>. <br><br> <b>Eén ID voor meerdere routers</b><br> Om je wifis.org ID voor meerdere Wi-fi routers te gebruiken, kan je eender welk karakter toevoegen na een slash“/” achter jouw ID: {2} <b>Case sensitivity</b><br> wifis.org IDs zijn niet case sensitive. <a href='http://wifis.org/iphONE'>wifis.org/iphONE</a> wordt <a href='http://wifis.org/iPhone'>wifis.org/iPhone</a> <br><br> <b>Vertel het voort!</b><br> Steun onze gratis service door de Flattr knop links te gebruiken en door je vrienden te informeren. </div>"
         ]
     },
     "wifi": {
@@ -208,7 +206,7 @@
         "text": {
             "text": "De bezitter van dit Wi-fi netwerk registreerde zich bij wifis.org om je de kans te geven met hem in contact te komen. Je kan via deze weg shared internet toegang vragen of gewoon eens ´gedag´. In ieder geval, blijf steeds vriendelijk, je buur zal je dankbaar zijn.",
             "notfound": "Deze url is nog niet geregistreerd.Zorg ervoor dat je de correcte url gebruikt.</p> <p>Om deze url te registreren ga <a href='/p/login/'>hierheen</a>.",
-            "mywifi": "<b>YJe bent nu ingelogd.</b> <br> Dit is een preview van hoe jouw wifis.org contact pagina eruit ziet voor bezoekers."
+            "mywifi": "<b> Dit is je Wifi.</b> <br> Probeer het contactformulier gerust eens uit."
         },
         "form": {
             "contact": "geef een e-mailadres of telefoonnummer in <span style='font-weight: normal'>(of iedere manier om met je in contact te komen)</span>",

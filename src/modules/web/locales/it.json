@@ -1,4 +1,5 @@
 {
+    "lang": "it",
     "label": {
         "mainTeaser": "Un form di contatto per la tua rete wifi.",
         "description": "Un form di contatto per la tua rete wifi. Facile, sicuro e anonimo. Iscriviti!",
@@ -42,8 +43,8 @@
             {
                 "headline": "Scopri wifis.org",
                 "text": [
-                    "<b>Team:</b> [ABOUT_TEAM]",
-                    "<b>Collaboratori:</b> [ABOUT_SUPPORTER]"
+                    "<p><b>Team:</b> {__about.team}</p>",
+                    "<p><b>Collaboratori:</b> {__about.supporter}</p>"
                 ]
             }
         ]
@@ -54,18 +55,15 @@
     "contact": {
         "headline": "Contattaci",
         "linklabel": "Contattaci",
-        "content" : [
-            {
-                "text": [
-                    "Le tue opinioni e il tuo supporto sono molto apprezzati:",
-                    "[CONTACT_MAIL_ICON] Scrivici [CONTACT_MAIL_ADDRESS]",
-                    "[CONTACT_WIFI_ICON] Scrivi alla nostra wifi: [CONTACT_WIFI_ADDRESS]", 
-                    "[CONTACT_TWITTER_ICON] Seguici su [CONTACT_TWITTER_ADDRESS]",
-                    "[CONTACT_FACEBOOK_ICON] Clicca Like su [CONTACT_FACEBOOK_ADDRESS]",
-                    "[CONTACT_BLOG_ICON] Leggere il nostro [CONTACT_BLOG_ADDRESS]"
-                ]
-            }
-        ]
+        "content": [{
+            "text": ["{__contact.htmlTemplate}"]
+        }],
+        "introText": "Le tue opinioni e il tuo supporto sono molto apprezzati:",
+        "mailText": "Scrivici",
+        "wifiText": "Scrivi alla nostra wifi:",
+        "twitterText" : "Seguici su",
+        "facebookText": "Clicca Like su",
+        "blogText": "Leggere il nostro"
     },
     "faq": {
         "headline": "FAQ",
@@ -75,7 +73,7 @@
                 "headline": "Perchè dovrei cambiare il nome della mia rete wifi?",
                 "text": [
                     "Non cambi semplicemente il nome (SSID) della tua rete wifi.Impostando la tua url wifis.org (come <a href='/example'>wifis.org/example</a>), darai a chiunque si trovi sotto la copertura della tua rete la possibilità di contattarti senza che sappiano chi sei e dove vivi. Simpatici vicini potrebbero invitarti per una birra ochiederti di condividere l’accesso a internet in cambio di un rimborso mensile. ",
-                    "wifis.org è il nuovo modo di conoscere le persone che vivono vicino a te. Entra a far parte della community. <a href='/p/login'>Iscriviti.</a>"
+                    "wifis.org è il nuovo modo di conoscere le persone che vivono vicino a te. Entra a far parte della community. <a href='/{__lang}/login'>Iscriviti.</a>"
                 ]
             },
             {
@@ -88,7 +86,7 @@
                 "headline": "Come posso creare un account e impostare la mia url?",
                 "text": [
                     "Segui questo procedimento:",
-                    "<ol> <li>Effettua il <a href='/p/login'>log in</a> con il tuo account Google o Facebook.</li> <li>Scegli la tua url wifis.org.</li> <li>Entra nelle impostazioni del tuo router or modem.</li> <li>Cambia il nome della tua rete wifi con la tua url wifis.org. (È necessario cambiare il SSID del tuo router o modem wireless.)</li> <li>Your wifi network should look like this now: <a href='/example'>wifis.org/example</a></li> <li>Oh, e già che ci sei,assicurati che la tua rete wifi sia visibile e protetta da una password.</li> </ol>",
+                    "<ol> <li>Effettua il <a href='/{__lang}/login'>log in</a> con il tuo account Google o Facebook.</li> <li>Scegli la tua url wifis.org.</li> <li>Entra nelle impostazioni del tuo router or modem.</li> <li>Cambia il nome della tua rete wifi con la tua url wifis.org. (È necessario cambiare il SSID del tuo router o modem wireless.)</li> <li>Your wifi network should look like this now: <a href='/example'>wifis.org/example</a></li> <li>Oh, e già che ci sei,assicurati che la tua rete wifi sia visibile e protetta da una password.</li> </ol>",
                     "Questo è tutto. Tutti quelli che si trovano sotto la copertura della tua rete wifi ora potranno contattarti visitando la tua url wifis.org tramite il loro browser."
                 ]
             },
@@ -96,7 +94,7 @@
                 "headline": "Tutti possono usare wifi.org?",
                 "text": [
                     "Certamente!",
-                    "Tutto quel che devi sapere è come cambiare il nome (SSID) della tua rete wifi. Naturalmente, il tuo router o modem wireless devono supportare caratteri come “/” e “.”. Nel caso vi siano problemi, per favore <a href='/p/about'>contattaci</a>."                   
+                    "Tutto quel che devi sapere è come cambiare il nome (SSID) della tua rete wifi. Naturalmente, il tuo router o modem wireless devono supportare caratteri come “/” e “.”. Nel caso vi siano problemi, per favore <a href='/{__lang}/about'>contattaci</a>."                   
                 ]
             },
             {
@@ -104,7 +102,7 @@
                 "text": [
                     "wifis.org è anonimo e sicuro al 100%!",
                     "<ul> <li>Tu e la tua rete wifi non potete essere individuati tramite il nostro sito.</li> <li>Il tuo indirizzo email, il tuo ID wifis.org e i tuoi messaggi sono conservati in maniera sicura in questo servizio. Certamente, alcun tuo dato sarà mai comunicato a terzi.</li> <li>Accettiamo login solo tramite Facebook (<a href='https://www.facebook.com/help/405977429438260' target='_blank' title='More information about facebook login'>?</a>) e Google (<a href='http://www.google.com/support/accounts/bin/answer.py?answer=112802' target='_blank' title='More information about google login'>?</a>) per il momento. Stai certo che non conosceremo nè salveremo o perderemo la tua password.</li> </ul>",
-                    "Per ulteriori informazioni consulta i <a href='/p/tos'>Terms Of Service</a>."
+                    "Per ulteriori informazioni consulta i <a href='/{__lang}/tos'>Terms Of Service</a>."
                 ]
             }
         ],
@@ -118,7 +116,7 @@
             "'Mi sono appena trasferito qui vicino e ho visto la tua rete wifi. Ti va se ci vediamo per una birra?'"
         ],
         "howToHeadline": "Come funziona?",
-        "howToText": "Scopri di più su questo servizio gratuito e anonimo nelle <a href='/p/faq'>FAQ</a>",
+        "howToText": "Scopri di più su questo servizio gratuito e anonimo nelle <a href='/{__lang}/faq'>FAQ</a>",
         "teasers": [
             "<b>TU</b> rinomini la tua rete wifi",
             "<b>GLI ALTRI</b> vedono il tuo profilo wifis.org",
@@ -158,7 +156,7 @@
     "press": {
         "headline": "Area stampa",
         "linklabel": "area stampa",
-        "text": "Sotto puoi trovare una raccolta di articoli che hanno parlato di noi recentemente. Per gli articoli, screenshot del sito <a href='https://picasaweb.google.com/110726804868278117649/WifisOrg' target='_blank'>queste immagini</a> possono essere usate liberamente. Per richieste d’informazioni, <a href='/p/about'>contattateci</a> e grazie mille per il supporto!"
+        "text": "Sotto puoi trovare una raccolta di articoli che hanno parlato di noi recentemente. Per gli articoli, screenshot del sito <a href='https://picasaweb.google.com/110726804868278117649/WifisOrg' target='_blank'>queste immagini</a> possono essere usate liberamente. Per richieste d’informazioni, <a href='/{__lang}/about'>contattateci</a> e grazie mille per il supporto!"
     },
     "stats": {
         "headline": "wifis.org stats",
@@ -170,7 +168,7 @@
         "content" : [
             {
                 "text": [
-                    "<div class='alert alert-danger'>Le condizioni di utilizzo sono attualmente disponibili <b>solo in Inglese</b></div>[TOS]"
+                    "<div class='alert alert-danger'>Le condizioni di utilizzo sono attualmente disponibili <b>solo in Inglese</b></div>{__tos.termsOfService}"
                 ]
             }
         ]
@@ -201,15 +199,15 @@
             
             "<div class='headline'>format url del ID wifis.org</div> <div class='text'>Rinomina la rete wifi con il format url che preferisci. Vanno bene tutti: {1} </div>",
             
-            "<div class='headline'>qualche consiglio</div> <div class='text'> <b>Rinomina la tua rete wifi</b><br> Non dimenticare di rinominare la tua rete wifi dopo aver creato il tuo ID wifis.org. Leggi le <a href='/p/faq'>FAQ</a>. <br><br> <b>Una ID per più di un router</b><br> Per usare una ID wifis.org per più router wifi, puoi aggiungere tutti i caratteri che preferisci dopo uno slash “/” dopo il tuo ID: {2} <b>Case sensitivity</b><br> Gli ID wifis.org non sono case sensitive. <a href='http://wifis.org/iphONE'>wifis.org/iphONE</a> equivale a <a href='http://wifis.org/iPhone'>wifis.org/iPhone</a> <br><br> <b>Spargi la voce!</b><br> Supporta il nostro servizio gratuito cliccando sul bottone Flattr sulla sinistra e parlandone ai tuoi amici. </div>"
+            "<div class='headline'>qualche consiglio</div> <div class='text'> <b>Rinomina la tua rete wifi</b><br> Non dimenticare di rinominare la tua rete wifi dopo aver creato il tuo ID wifis.org. Leggi le <a href='/{__lang}/faq'>FAQ</a>. <br><br> <b>Una ID per più di un router</b><br> Per usare una ID wifis.org per più router wifi, puoi aggiungere tutti i caratteri che preferisci dopo uno slash “/” dopo il tuo ID: {2} <b>Case sensitivity</b><br> Gli ID wifis.org non sono case sensitive. <a href='http://wifis.org/iphONE'>wifis.org/iphONE</a> equivale a <a href='http://wifis.org/iPhone'>wifis.org/iPhone</a> <br><br> <b>Spargi la voce!</b><br> Supporta il nostro servizio gratuito cliccando sul bottone Flattr sulla sinistra e parlandone ai tuoi amici. </div>"
         ]
     },
     "wifi": {
         "headlinePrefix": "Scrivi una email a:",
         "text": {
-            "text": "Il proprietario di questa rete wifi si è iscritto a wifis.org per darti la possibilità di contattarlo. Potresti chiederli di condividere l’accesso a internet o solo fare un saluto. In ogni caso, sii gentile per favore. Il tuo vicino di ringrazierà. wifi.text.notfound=   \tLa url non è ancora registrata. Assicurati di avere inserito la url corretta.</p> <p>Per registrare questa url, vai <a href='/p/login/'>qui</a>.",
-            "notfound": "The url is not registered yet. Please make sure you have the correct url.</p> <p>To register this url, go <a href='/p/login/'>here</a>.",
-            "mywifi": "<b>Ora sei registrato.</b> <br> Questa è una preview di come apparirà la tua pagina di contatto wifis.org ai visitatori."
+            "text": "Il proprietario di questa rete wifi si è iscritto a wifis.org per darti la possibilità di contattarlo. Potresti chiederli di condividere l’accesso a internet o solo fare un saluto. In ogni caso, sii gentile per favore. Il tuo vicino di ringrazierà.",
+            "notfound": "La url non è ancora registrata. Assicurati di avere inserito la url corretta.</p> <p>Per registrare questa url, vai <a href='/p/login/'>qui</a>.",
+            "mywifi": "<b>Questo è il tuo Wi-Fi.</b> <br> Sentiti libero di provare il modulo di contatto."
         },
         "form": {
             "contact": "fornisci una email o un numero di telefono <span style='font-weight: normal'>(qualsiasi modo per contattarti)</span>",

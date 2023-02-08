@@ -1,4 +1,4 @@
-import { Get, Post, All, Controller, Req, Res, Param, Session, HttpStatus, UseGuards, Body, Next, Render } from '@nestjs/common';
+import { Get, Post, All, Controller, Req, Res, Param, Session, HttpStatus, UseGuards, Body, Next, Render, UseInterceptors } from '@nestjs/common';
 import { Response, NextFunction } from 'express';
 import { ConfigService } from '../config/config.service';
 import { WifiRepo } from '../data/wifi/wifi.repo';
@@ -7,9 +7,25 @@ import { Message } from '../data/message/message.model';
 import { Wifi } from '../data/wifi/wifi.model';
 import { AuthGuard } from '../auth/auth.guard';
 import { LANGUAGES_REGEX } from './middleware/i18n.middleware';
+import { HtmlInterceptor } from './interceptor/html.interceptor';
 import { Recaptcha, RecaptchaResult, RecaptchaVerificationResult } from '@nestlab/google-recaptcha';
 import * as i18n from 'i18n';
 
+function postRenderProcessing(response: Response, _err: any, html: string) {
+    var matches, preventLoop = 3;
+    while ((matches = [...html.matchAll(/\{\_\_\s*(.+?)\s*\}/gi)]) && preventLoop-- > 0) {
+        matches.forEach(match => {
+            var replacement = i18n.__(match[1]);
+            if (typeof replacement != "string") {
+                replacement = Array.from(replacement).join(" ");
+            }
+            html = html.replace(match[0], replacement);
+        });
+    }
+    response.send(html);
+}
+
+// @UseInterceptors(HtmlInterceptor)
 @Controller()
 export class WebController {
     private static WIFI_URL: string = ":wifiId([a-zA-Z0-9\_\-]{3,20})/:wifiIdSuffix(*)?";
@@ -22,27 +38,33 @@ export class WebController {
     ) { }
 
     @Post([WebController.HOMEPAGE_URL, `:lang(${LANGUAGES_REGEX})`])
-    @UseGuards(AuthGuard)
     async postWifis(@Req() request: Request, @Res() response: Response, @Next() next: NextFunction, @Session() session: Record<string, any>) {
-        console.log (request.body)
+        console.log(request.body)
         next();
     }
 
-    @All([WebController.HOMEPAGE_URL, `:lang(${LANGUAGES_REGEX})`, `:lang(${LANGUAGES_REGEX})/:pageId(about|contact|faq|tos|languages|login)`])
-    getPages(@Res() response: Response, @Param('pageId') pageId: string = "home") {
+    @All([WebController.HOMEPAGE_URL, `:lang(${LANGUAGES_REGEX})`, `:lang(${LANGUAGES_REGEX})/:pageId(about|contact|faq|tos|press|languages|login)`])
+    getPages(@Res() response: Response, @Next() next: NextFunction, @Param('pageId') pageId: string = "home") {
         var viewname = ["about", "contact", "faq", "tos"].includes(pageId) ? "page" : pageId;
-        return response.render(viewname);
+        response.render(viewname, (err : Error, html : string) => {
+            if (err) {
+                console.log ("err", err);
+                next(err);
+            } else {
+                postRenderProcessing(response, err, html);
+            }
+        });
     }
-    
+
     @Get(`:lang(${LANGUAGES_REGEX})/wifis`)
     @UseGuards(AuthGuard)
     async getWifis(@Res() response: Response, @Session() session: Record<string, any>) {
-        return response.render("wifis", {"wifis": await this.wifiRepo.getAllByUserId(session.user.id)});
+        return response.render("wifis", { "wifis": await this.wifiRepo.getAllByUserId(session.user.id) });
     }
 
     @Get(`js/translation/:lang(${LANGUAGES_REGEX}).js`)
     async javascript1(@Res() response: Response, @Param('lang') lang: string) {
-        var configJson = JSON.stringify({lang: lang, translations: i18n.getCatalog(lang)});
+        var configJson = JSON.stringify({ lang: lang, translations: i18n.getCatalog(lang) });
         return response.contentType("application/javascript").send(`var config = ${configJson};`);
     }
 
@@ -52,6 +74,7 @@ export class WebController {
     @All(WebController.WIFI_URL)
     async requestWifi(@Res() response: Response, @Next() next: NextFunction,
         @Param('wifiId') wifiId: string, @Param('wifiIdSuffix') wifiIdSuffix: string) {
+        response.locals.pageId = "wifi";
         response.locals.wifiId = wifiId;
         response.locals.wifiIdSuffix = wifiIdSuffix;
 

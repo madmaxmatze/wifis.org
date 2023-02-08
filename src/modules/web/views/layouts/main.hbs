@@ -37,12 +37,25 @@
                         {{#if subheadline}}<small>{{subheadline}}</small>{{/if}}
                     </h2>
                 {{/if}}
+
+                {{#each content}}
+                    {{#if this.headline}}
+                        <h3>{{{this.headline}}}</h3>
+                    {{/if}}
+                    <section>
+                        {{#if this.subHeadline}}
+                            <h4>{{{this.subHeadline}}}</h4>
+                        {{/if}}
+                        {{#each this.text}}
+                            {{{this}}}
+                        {{/each}}
+                    </section>
+                {{/each}}
             {{/with}}
-            
+         
             {{{body}}}
         </div>
     </main>
-
 
 
     <footer class="container py-3">

@@ -32,6 +32,8 @@ export class I18nMiddleware implements NestMiddleware {
             response.cookie(LANG_COOKIE, lang);
         }
 
+        i18n.setLocale(response.getLocale());
+    
         next();
     }
 }

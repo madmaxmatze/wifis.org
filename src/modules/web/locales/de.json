@@ -1,4 +1,5 @@
 {
+    "lang": "de",
     "label": {
         "mainTeaser": "Ein Kontaktformular für dein WLAN",
         "description": "Mit wifis.org emfängt dein WLAN Emails von Nachbarn und freundlichen Menschen in deiner Umgebung. Einfach, sicher und anonym.",
@@ -41,8 +42,8 @@
             {
                 "headline": "Über uns",
                 "text": [
-                    "<b>Team:</b> [ABOUT_TEAM]",
-                    "<b>Unterstützer:</b> [ABOUT_SUPPORTER]"
+                    "<p><b>Team:</b> {__about.team}</p>",
+                    "<p><b>Unterstützer:</b> {__about.supporter}</p>"
                 ]
             },
             {
@@ -78,18 +79,15 @@
     "contact": {
         "headline": "Kontakt",
         "linklabel": "Kontakt",
-        "content" : [
-            {
-                "text": [
-                    "Wir freuen uns über Feedback sowie weitere Unterstützung:",
-                    "[CONTACT_MAIL_ICON] Schicke Emails an [CONTACT_MAIL_ADDRESS]",
-                    "[CONTACT_WIFI_ICON] Schreibe direkt an unser WLAN [CONTACT_WIFI_ADDRESS]", 
-                    "[CONTACT_TWITTER_ICON] Folge uns auf [CONTACT_TWITTER_ADDRESS]",
-                    "[CONTACT_FACEBOOK_ICON] Like uns auf [CONTACT_FACEBOOK_ADDRESS]",
-                    "[CONTACT_BLOG_ICON] Folge unserem [CONTACT_BLOG_ADDRESS]"
-                ]
-            }
-        ]
+        "content": [{
+            "text": ["{__contact.htmlTemplate}"]
+        }],
+        "introText": "Wir freuen uns über Feedback sowie weitere Unterstützung:",
+        "mailText": "Schicke Emails an",
+        "wifiText": "Schreibe direkt an unser WLAN",
+        "twitterText" : "Folge uns auf",
+        "facebookText": "Like uns auf",
+        "blogText": "Folge unserem"
     },
     "faq": {
         "headline": "FAQ",
@@ -112,7 +110,7 @@
                 "headline": "Was muss ich tun?",
                 "text": [
                     "Folge einfach diesen Schritten:",
-                    "<ol> <li>Melde dich <a href='/p/login'>hier</a> an.</li> <li>Sichere dir deinen eigenen wifis.org Namen.</li> <li>Öffne die Einstellungen deines WLAN Routers.</li> <li>Ändere den Namen deines WLANs (SSID) in deine neue wifis.org Adresse.</li> </ol>",
+                    "<ol> <li>Melde dich <a href='/{__lang}/login'>hier</a> an.</li> <li>Sichere dir deinen eigenen wifis.org Namen.</li> <li>Öffne die Einstellungen deines WLAN Routers.</li> <li>Ändere den Namen deines WLANs (SSID) in deine neue wifis.org Adresse.</li> </ol>",
                     "Herzlichen Glückwunsch. Du bist nun über deine wifis.org Adresse per Mail erreichbar - bleibst selbst aber anonym.</p>"
                 ]
             },
@@ -128,7 +126,7 @@
                 "text": [
                     "wifis.org ist 100% anonym und sicher!",
                     "<ul> <li>Du und dein WLAN können über diese Webseite nicht gesucht oder lokalisiert werden.</li> <li>Nur deine Emailadresse, deine wifis.org Namen und Nachrichten, die du erhälst, werden gespeichert, um unseren Dienst erbringen zu können. Diese Daten werden niemals an Dritte weitergegeben!</li> <li>Wir unterstützen ausschließlich die sichere Anmeldungen über Facebook (<a href='https://www.facebook.com/help/405977429438260' target='_blank' title='Hier erfährst du mehr über den Facebook Login für anderen Webseiten'>?</a>) und Google (<a href='https://www.google.com/support/accounts/bin/answer.py?answer=112802' target='_blank' title='Hier erfährst du mehr über den Google Login für anderen Webseiten'>?</a>), um zu garantieren, dass wir niemals Benutzerdaten/-passwörter kennen, speichern oder verlieren.</li> </ul>",
-                    "Nähere Informationen findest du in den <a href='/p/tos'>Nutzungsbedingungen</a>."
+                    "Nähere Informationen findest du in den <a href='/{__lang}/tos'>Nutzungsbedingungen</a>."
                 ]
             },
             {
@@ -149,7 +147,7 @@
             "„Ich bin kürzlich im Haus eingezogen und habe dein WLAN gesehen. Lust auf ein Bierchen?”"
         ],
         "howToHeadline": "Wie funktioniert es?",
-        "howToText": "Erfahre mehr über diesen kostenlosen und anonymen Dienst in den <a href='/p/faq' title='Häufig gestellte Fragen'>FAQs</a>",
+        "howToText": "Erfahre mehr über diesen kostenlosen und anonymen Dienst in den <a href='/{__lang}/faq' title='Häufig gestellte Fragen'>FAQs</a>",
         "wifichecker": "Prüfe welcher WLAN-Name noch frei ist:",
         "teasers": [
             "<b>DU</b> benennst dein WLAN um",
@@ -189,7 +187,7 @@
     "press": {
         "headline": "Presse",
         "linklabel": "Presse",
-        "text": "Seitdem <b>wifis.org</b> Ende 2011 live gegangen ist, wird die Seite regelmäßig in Blogs und Nachrichten-Webseiten weltweit empfohlen. <br> Für Anfragen sind wir jederzeit <a href='/p/about'>erreichbar</a> und freuen uns über weitere Unterstützung.<br><br> Frei verwendbares Bildmaterial ist <a href='https://picasaweb.google.com/110726804868278117649/WifisOrg' target='_blank'>hier</a> verfügbar."
+        "text": "Seitdem <b>wifis.org</b> Ende 2011 live gegangen ist, wird die Seite regelmäßig in Blogs und Nachrichten-Webseiten weltweit empfohlen. <br> Für Anfragen sind wir jederzeit <a href='/{__lang}/contact'>erreichbar</a> und freuen uns über weitere Unterstützung.<br><br> Frei verwendbares Bildmaterial ist <a href='https://picasaweb.google.com/110726804868278117649/WifisOrg' target='_blank'>hier</a> verfügbar."
     },
     "stats": {
         "headline": "wifis.org stats",
@@ -201,7 +199,7 @@
         "content" : [
             {
                 "text": [
-                    "<div class='alert alert-danger'>Die Nutzerungsbedingungen sind derzeit <b>nur auf Englisch</b> verfügbar.</div>[TOS]"
+                    "<div class='alert alert-danger'>Die Nutzerungsbedingungen sind derzeit <b>nur auf Englisch</b> verfügbar.</div>{__tos.termsOfService}"
                 ]
             }
         ]
@@ -232,7 +230,7 @@
             
             "<div class='headline'>Kurze WLAN-Urls</div> <div class='text'>Nutze die URL die dir am Besten gefällt: {1} </div>",
             
-            "<div class='headline'>Weitere Tipps</div> <div class='text'> <b>WLAN umbennen nicht vergessen</b><br> Nachdem du deinen wifis.org Namen registriert hast, vergiss nicht dein WLAN auch umzubennenen. Mehr in den <a href='/p/faq'>FAQs</a>. <br><br> <b>Ein wifis.org Name für viele Router</b><br> An deinen wifis.org Namen kannst du nach einem Schrägstich „/” beliebige Zeichen anhängen und ihn so für mehrere Router verwenden: {2}  <b>Groß/Kleinschreibung</b><br> WLAN Namen können Großbuchstaben enthalten. <a href='https://wifis.org/iphONE'>wifis.org/iphONE</a> führt zu <a href='https://wifis.org/iPhone'>wifis.org/iPhone</a> <br><br> <b>Unterstützer gesucht</b><br> Unterstütze diesen kostenlosen Dienst per Flattr Button oder auch indem du deinen Freunden über die sozialen Netzwerke davon erzählst. </div>"
+            "<div class='headline'>Weitere Tipps</div> <div class='text'> <b>WLAN umbennen nicht vergessen</b><br> Nachdem du deinen wifis.org Namen registriert hast, vergiss nicht dein WLAN auch umzubennenen. Mehr in den <a href='/{__lang}/faq'>FAQs</a>. <br><br> <b>Ein wifis.org Name für viele Router</b><br> An deinen wifis.org Namen kannst du nach einem Schrägstich „/” beliebige Zeichen anhängen und ihn so für mehrere Router verwenden: {2}  <b>Groß/Kleinschreibung</b><br> WLAN Namen können Großbuchstaben enthalten. <a href='https://wifis.org/iphONE'>wifis.org/iphONE</a> führt zu <a href='https://wifis.org/iPhone'>wifis.org/iPhone</a> <br><br> <b>Unterstützer gesucht</b><br> Unterstütze diesen kostenlosen Dienst per Flattr Button oder auch indem du deinen Freunden über die sozialen Netzwerke davon erzählst. </div>"
         ]
     },
     "wifi": {
@@ -240,7 +238,7 @@
         "text": {
             "text": "Der Eigentümer dieses WLANs benutzt extra einen wifis.org Namen, damit DU ihm schreiben kannst. Er will dir so die Möglichkeit geben, einfach mal Hallo zu sagen oder gar nach der Mitbenutzung seines WLANs zu fragen.",
             "notfound": "Ein WLAN mit diesem Namen ist nicht registriert. Überprüfe, ob die Web-Adresse korrekt geschrieben ist.</p> <p>Um mehr über wifis.org zu erfahren, klicke <a href='/'>hier</a>.",
-            "mywifi": "<b>Du bist gerade angemeldet.</b> <br> Deswegen siehst du nur die Vorschau von deiner WLAN Kontaktseite."
+            "mywifi": "<b>Dies ist dein WIFI!</b><br> Probiere das Kontaktformular gern aus."
         },
         "form": {
             "contact": "Deine Email / Telefonnummer <span style='font-weight: normal'>(Wie bist du zu erreichen?)</span>",

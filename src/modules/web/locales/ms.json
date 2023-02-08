@@ -1,4 +1,5 @@
 {
+    "lang": "ms",
     "label": {
         "mainTeaser": "Borang Perhubungan buat Rangkaian Wi-Fi anda.",
         "description": "Borang Perhubungan buat Rangkaian Wi-Fi anda. Mudah, selamat dan anonymous. Mari sertai kami!",
@@ -41,8 +42,8 @@
             {
                 "headline": "Perihal Kami",
                 "text": [
-                    "<b>Pasukan:</b> [ABOUT_TEAM]",
-                    "<b>Pendukung:</b> [ABOUT_SUPPORTER]"
+                    "<p><b>Pasukan:</b> {__about.team}</p>",
+                    "<p><b>Pendukung:</b> {__about.supporter}</p>"
                 ]
             }
         ]
@@ -53,18 +54,15 @@
     "contact": {
         "headline": "Hubungi Kami",
         "linklabel": "Hubungi Kami",
-        "content": [
-            {
-                "text": [
-                    "Pandangan dan sokongan anda adalah amat dihargai:",
-                    "[CONTACT_MAIL_ICON] Hantar emel pada kami [CONTACT_MAIL_ADDRESS]",
-                    "[CONTACT_WIFI_ICON] Karang surat pada Wi-Fi: [CONTACT_WIFI_ADDRESS]",
-                    "[CONTACT_TWITTER_ICON] Ikut kami di [CONTACT_TWITTER_ADDRESS]",
-                    "[CONTACT_FACEBOOK_ICON] Sukai Wi-Fi di [CONTACT_FACEBOOK_ADDRESS]",
-                    "[CONTACT_BLOG_ICON] membaca [CONTACT_BLOG_ADDRESS] kami"
-                ]
-            }
-        ]
+        "content": [{
+            "text": ["{__contact.htmlTemplate}"]
+        }],
+        "introText": "Pandangan dan sokongan anda adalah amat dihargai:",
+        "mailText": "Hantar emel pada kami",
+        "wifiText": "Karang surat pada Wi-Fi:",
+        "twitterText" : "Ikut kami di",
+        "facebookText": "Sukai Wi-Fi di",
+        "blogText": "membaca kami"
     },
     "faq": {
         "headline": "Soalan Kerap Ditanya",
@@ -74,7 +72,7 @@
                 "headline": "Kenapa pula saya perlu menukar nama Wi-Fi saya?",
                 "text": [
                     "Kamu bukan hanya perlu menukar nama (SSID) rangkaian Wi-Fi anda. Dengan hanya menetapkan url wifis.org anda (like <a href='/contoh'>wifis.org/contoh</a>), kamu membuka peluang kepada orang-orang yang berada disekitar rangkaian anda untuk menghubungi anda tanpa perlu mereka untuk tahu identiti anda dan dimana anda tinggal. Kemungkinan besar jiran-jiran anda yang mesra akan menjemput anda untuk bertandang ke rumah mereka untuk majlis tertentu atau meminta kebenaran anda untuk berkongsi akses internet dengan bayaran bulanan. ",
-                    "wifis.org  adalah cara terbaru untuk bersilaturahim dengan orang di sekeliling anda. Jadilah sebahagian dari komuniti anda. <a href='/p/login'>Sertai kami.</a>"
+                    "wifis.org  adalah cara terbaru untuk bersilaturahim dengan orang di sekeliling anda. Jadilah sebahagian dari komuniti anda. <a href='/{__lang}/login'>Sertai kami.</a>"
                 ]
             },
             {
@@ -87,7 +85,7 @@
                 "headline": "Macam mana hendak buat akaun dan daftar url saya?",
                 "text": [
                     "Ikut langkah-langkah berikut:",
-                    "<ol> <li><a href='/p/login'>Daftar masuk</a>  menggunakan Google atau akaun Facebook anda.</li> <li>Pilih url wifis.org anda.</li> <li>Pergi ke tetapan wireless router atau modem anda.</li> <li>Tukar nama rangkaian wifi anda kepada url wifis.org anda. (Anda dikehendaki menukar SSID di wireless router atau modem anda.)</li> <li>Rangkaian wifi anda sepatutnya kelihatan begini: <a href='/example'>wifis.org/contoh</a></li> <li>Oh ye, sementara anda membaikinya, pastikan rangkaian anda dapat dilihat dan dilengkapi dengan kata laluan.</li> </ol>",
+                    "<ol> <li><a href='/{__lang}/login'>Daftar masuk</a>  menggunakan Google atau akaun Facebook anda.</li> <li>Pilih url wifis.org anda.</li> <li>Pergi ke tetapan wireless router atau modem anda.</li> <li>Tukar nama rangkaian wifi anda kepada url wifis.org anda. (Anda dikehendaki menukar SSID di wireless router atau modem anda.)</li> <li>Rangkaian wifi anda sepatutnya kelihatan begini: <a href='/example'>wifis.org/contoh</a></li> <li>Oh ye, sementara anda membaikinya, pastikan rangkaian anda dapat dilihat dan dilengkapi dengan kata laluan.</li> </ol>",
                     "Itu sahaja yang anda perlukan setakat ini. Barangsiapa yang berada dalam naungan rangkaian Wi-Fi anda akan dapat menghubungi anda dengan menggunakan url wifis.org anda di pelayar internet mereka."
                 ]
             },
@@ -95,7 +93,7 @@
                 "headline": "Sesiapa sahaja boleh menggunakan wifis.org?",
                 "text": [
                     "Sudah tentu!",
-                    "Apa yang anda perlu lakukan adalah menukar nama (SSID) rangkaian Wi-Fi anda. Jelas sekali, router wayarles atau modem anda perlulah berupaya untuk memanfaatkan karakter seperti ‘/’ dan ‘.’. Sila <a href='/p/about'>maklumkan pada kami</a>, sekiranya anda menghadapi sebarang masalah."                   
+                    "Apa yang anda perlu lakukan adalah menukar nama (SSID) rangkaian Wi-Fi anda. Jelas sekali, router wayarles atau modem anda perlulah berupaya untuk memanfaatkan karakter seperti ‘/’ dan ‘.’. Sila <a href='/{__lang}/about'>maklumkan pada kami</a>, sekiranya anda menghadapi sebarang masalah."                   
                 ]
             },
             {
@@ -103,7 +101,7 @@
                 "text": [
                     "wifis.org dijamin 100% identiti-selamat dan menyelamatkan!",
                     "<ul> <li>Anda dan rangkaian Wi-Fi anda tidak dapat ditelusuri melalui laman web kami.</li> <li>Alamat emel anda, ID wifis.org anda dan segala mesej anda terselamat dari sebarang penyalahgunaan. Sudah tentu, data-data anda tidak akan didedahkan kepada mana-mana pihak ketiga. </li> <li>Kami hanya menyokong daftar masuk melalui Facebook (<a href='https://www.facebook.com/help/405977429438260' target='_blank' title='Maklumat lanjut mengenai facebook login'>?</a>) dan Google (<a href='http://www.google.com/support/accounts/bin/answer.py?answer=112802' target='_blank' title='Maklumat lanjut mengenai google login'>?</a>) buat masa ini.</li> </ul>",
-                    "Maklumat tambahan boleh didapati pada <a href='/p/tos'>Terma dan Syarat kami</a>."
+                    "Maklumat tambahan boleh didapati pada <a href='/{__lang}/tos'>Terma dan Syarat kami</a>."
                 ]
             }
         ],
@@ -117,7 +115,7 @@
             "'Saya orang baru disini dan terperasan Wi-Fi anda. Jom kita pergi ngeteh petang ini?'"
         ],
         "howToHeadline": "Bagaimana ia berfungsi?",
-        "howToText": "Dalami lagi pengetahuan anda mengenai khidmat percuma dan tidak beridentiti ini di  <a href='/p/faq'>SKD</a>",
+        "howToText": "Dalami lagi pengetahuan anda mengenai khidmat percuma dan tidak beridentiti ini di  <a href='/{__lang}/faq'>SKD</a>",
         "teasers": [
             "<b>ANDA</b> Namakan semula Wi-Fi anda",
             "<b>ORANG LAIN</b> perasan url wifis.org anda",
@@ -157,7 +155,7 @@
     "press": {
         "headline": "Akhbar",
         "linklabel": "Akhbar",
-        "text": "Disini anda boleh mendapati koleksi liputan akhbar yang terkini mengenai kami. Anda dibenarkan untuk menggunakan skrin-skrin laman web atau <a href='https://picasaweb.google.com/110726804868278117649/WifisOrg' target='_blank'>pustaka imej-imej ini</a> untuk artikel anda. Sebarang pertanyaan boleh diajukan <a href='/p/about'>pada kami</a> dan kami dahului dengan ribuan terima kasih untuk sokongan anda!"
+        "text": "Disini anda boleh mendapati koleksi liputan akhbar yang terkini mengenai kami. Anda dibenarkan untuk menggunakan skrin-skrin laman web atau <a href='https://picasaweb.google.com/110726804868278117649/WifisOrg' target='_blank'>pustaka imej-imej ini</a> untuk artikel anda. Sebarang pertanyaan boleh diajukan <a href='/{__lang}/about'>pada kami</a> dan kami dahului dengan ribuan terima kasih untuk sokongan anda!"
     },
     "stats": {
         "headline": "wifis.org stats",
@@ -169,7 +167,7 @@
         "content" : [
             {
                 "text": [
-                    "<div class='alert alert-danger'>Hanya tersedia dalam bahasa Inggeris sahaja buat masa ini</div>[TOS]"
+                    "<div class='alert alert-danger'>Hanya tersedia dalam bahasa Inggeris sahaja buat masa ini</div>{__tos.termsOfService}"
                 ]
             }
         ]
@@ -200,7 +198,7 @@
             
             "<div class='headline'>pemendekkan url</div> <div class='text'>Pilih mana-mana yang anda gemar. Semuanya sama: {1} </div>",
             
-            "<div class='headline'>mau tips lagi?</div> <div class='text'> <b>Penamaan semula rangkaian WiFi anda</b><br> Jangan lupa untuk menamakan semula rangkaian Wi-Fi anda seusai anda mendaftar ID wifis.org anda. Jom ke <a href='/p/faq'>SKD</a>. <br><br> <b>Satu ID untuk banyak routers</b><br> Untuk menggunakan ID wifis.org untuk banyak router, kamu boleh menambah apa saja karakter yang anda suka selepas palang “/” dipangkal ID anda: {2} <b>Karakter sensitif</b><br> ID wifis.org tidak sensitif pada huruf kecil maupun besar. <a href='http://wifis.org/iphONE'>wifis.org/iphONE</a> akan membawa anda ke <a href='http://wifis.org/iPhone'>wifis.org/iPhone</a> <br><br> <b>Sebarkan berita ini!</b><br> Sila sokong khidmat percuma kami dengan klik pada ikon Flattr dikiri sana dan juga pada teman-teman anda. </div>"
+            "<div class='headline'>mau tips lagi?</div> <div class='text'> <b>Penamaan semula rangkaian WiFi anda</b><br> Jangan lupa untuk menamakan semula rangkaian Wi-Fi anda seusai anda mendaftar ID wifis.org anda. Jom ke <a href='/{__lang}/faq'>SKD</a>. <br><br> <b>Satu ID untuk banyak routers</b><br> Untuk menggunakan ID wifis.org untuk banyak router, kamu boleh menambah apa saja karakter yang anda suka selepas palang “/” dipangkal ID anda: {2} <b>Karakter sensitif</b><br> ID wifis.org tidak sensitif pada huruf kecil maupun besar. <a href='http://wifis.org/iphONE'>wifis.org/iphONE</a> akan membawa anda ke <a href='http://wifis.org/iPhone'>wifis.org/iPhone</a> <br><br> <b>Sebarkan berita ini!</b><br> Sila sokong khidmat percuma kami dengan klik pada ikon Flattr dikiri sana dan juga pada teman-teman anda. </div>"
         ]
     },
     "wifi": {
@@ -208,7 +206,7 @@
         "text": {
             "text": "Tuan milik rangkaian Wi-Fi telah mendaftar dengan wifis.org untuk membuka peluang kepada anda untuk berhubung dengan beliau.  Kamu mungkin sahaja boleh menanya untuk berkongsi akses internet atau hanya mengirim salam padanya. Ataupun sekadar beramah mesra. Jiran anda akan merasa kasihnya anda.",
             "notfound": "Url ini belum terdaftar lagi. Sila pastikan anda mempunyai url yang sebenar.</p> <p>Untuk mendaftar url ini, sila ke <a href='/p/login/'>sini</a>.",
-            "mywifi": "<b>Anda sudahpun masuk sekaran.</b> <br> Ini adalah gambaran awal laman perhubungan kamu kelihatan pada pengunjung."
+            "mywifi": "<b>Anda sudahpun masuk sekaran.</b> <br> Jangan ragu untuk mencuba borang hubungan."
         },
         "form": {
             "contact": "Sila nyatakan emel atau nombor untuk dihubungi <span style='font-weight: normal'>(apa-apa cara untuk menghubungi kamu)</span>",

@@ -78,7 +78,6 @@ export class HbsMiddleware implements NestMiddleware {
         // pass some variables to templates
         response.locals.translations = i18n.getCatalog(response.locale);
         response.locals.defaultLang = DEFAULT_LANG;
-        
         response.locals.urlWithoutQuery = request.originalUrl.replace(/\?.*/, "").replace(/^\/$/, "");
         response.locals.urlWithoutLangAndQuery = response.locals.urlWithoutQuery.replace(/^\/\w{2}$/, "/").replace(/^\/\w{2}\//, "/").replace(/^\/$/, "");
         if (!response.locals.urlWithoutLangAndQuery || response.locals.urlWithoutQuery != response.locals.urlWithoutLangAndQuery) {

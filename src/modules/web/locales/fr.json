@@ -1,4 +1,5 @@
 {
+    "lang": "fr",
     "label": {
         "mainTeaser": "Votre réseau wi-fi peut recevoir des emails.",
         "description": "Avec wifis.org votre réseau wi-fi peut recevoir des emails. C’est simple, fiable et anonyme. Vous pouvez ainsi partager votre réseau, votre facture ou bien d’autres choses...",
@@ -42,8 +43,8 @@
             {
                 "headline": "Qui sommes nous",
                 "text": [
-                    "<b>Équipe:</b> [ABOUT_TEAM]",
-                    "<b>Supporters:</b> [ABOUT_SUPPORTER]"
+                    "<p><b>Équipe:</b> {__about.team}</p>",
+                    "<p><b>Supporters:</b> {__about.supporter}</p>"
                 ]
             }
         ]
@@ -54,18 +55,15 @@
     "contact": {
         "headline": "Contact",
         "linklabel": "Contact",
-        "content": [
-            {
-                "text": [
-                    "Vos commentaires et soutien sont les bien venus:",
-                    "[CONTACT_MAIL_ICON] Envoyez-nous un email [CONTACT_MAIL_ADDRESS]",
-                    "[CONTACT_WIFI_ICON] Écrivez à notre réseau wi-fi: [CONTACT_WIFI_ADDRESS]",
-                    "[CONTACT_TWITTER_ICON] Suivez-nous sur [CONTACT_TWITTER_ADDRESS]",
-                    "[CONTACT_FACEBOOK_ICON] Aimez-nous sur [CONTACT_FACEBOOK_ADDRESS]",
-                    "[CONTACT_BLOG_ICON] Lisez notre [CONTACT_BLOG_ADDRESS]"
-                ]
-            }
-        ]
+        "content": [{
+                "text": ["{__contact.htmlTemplate}"]
+        }],
+        "introText": "Vos commentaires et soutien sont les bien venus:",
+        "mailText": "Envoyez-nous un email",
+        "wifiText": "Écrivez à notre réseau wi-fi:",
+        "twitterText" : "Suivez-nous sur",
+        "facebookText": "Aimez-nous sur",
+        "blogText": "Lisez notre"
     },
     "faq": {
         "headline": "FAQ",
@@ -90,7 +88,7 @@
                 "headline": "Que dois-je faire?",
                 "text": [
                     "Suivez les étapes suivantes:",
-                    "<ol> <li>Connectez-vous <a href='/p/login'>ici,</a> </li> <li>Enregistrez-vous un nom wifis.org. </li> <li>Ouvrez les paramètres de votre router. </li> <li>Renommez votre réseau wi-fi (SSID) par votre nouvelle adresse de wifis.org. </li> </ol>",
+                    "<ol> <li>Connectez-vous <a href='/{__lang}/login'>ici,</a> </li> <li>Enregistrez-vous un nom wifis.org. </li> <li>Ouvrez les paramètres de votre router. </li> <li>Renommez votre réseau wi-fi (SSID) par votre nouvelle adresse de wifis.org. </li> </ol>",
                     "Félicitations! Vous pouvez désormais être contacté grâce à votre adresse wifis.org tout en restant anonyme."
                 ]
             },
@@ -106,7 +104,7 @@
                 "text": [
                     "wifis.org est 100% anonyme et fiable!",
                     "<ul> <li>Il est impossible de vous chercher ou de vous localiser par ce site web.</li> <li>Pour pouvoir vous offrir ce service, nous enregistrons seulement votre adresse email, votre pseudo wifis.org et les messages que vous recevez. Vos informations resteront confidentielles.</li> <li>On soutient que des connexions sécurisés par Facebook (<a href='https://www.facebook.com/help/405977429438260' target='_blank' title='En savoir plus sur la connexion par facebook pour d’autres sites'>?</a>) et Google (<a href='http://www.google.com/support/accounts/bin/answer.py?answer=112802' target='_blank' title='En savoir plus sur la connexion par google pour d’autres sites'>?</a>), Ne pas connaître ou sauvegarder votre mot de passe est pour nous le meilleur moyen de ne pas le perdre</li> </ul>",
-                    "En savoir plus <a href='/p/tos'>Conditions d’utilisation</a>."
+                    "En savoir plus <a href='/{__lang}/tos'>Conditions d’utilisation</a>."
                 ]
             }
         ],
@@ -120,7 +118,7 @@
             "«Je viens d’emménager dans ce bâtiment et j’ai vu ton réseau wi-fi. As-tu envie de prendre un verre?»"
         ],
         "howToHeadline": "Comment ça marche?",
-        "howToText": "(Apprennez plus sur ce service gratuit et anonyme sous <a href='/p/faq' title='foire aux questions'>FAQs</a>)",
+        "howToText": "(Apprennez plus sur ce service gratuit et anonyme sous <a href='/{__lang}/faq' title='foire aux questions'>FAQs</a>)",
         "teasers": [
             "<b>VOUS </b> renommez votre réseau wi-fi",
             "<b>D’AUTRES</b> voient votre réseau wi-fi",
@@ -172,7 +170,7 @@
         "content" : [
             {
                 "text": [
-                    "<div class='alert alert-danger'>En ce moment-là les conditions d’utilisation  <b> ne sont disponibles qu’ en anglais</b>.</div>[TOS]"
+                    "<div class='alert alert-danger'>En ce moment-là les conditions d’utilisation  <b> ne sont disponibles qu’ en anglais</b>.</div>{__tos.termsOfService}"
                 ]
             }
         ]
@@ -203,7 +201,7 @@
                 
             "<div class='headline'>URLs de réseaux wi-fi courtes</div> <div class='text'>Utilisez l’URL qui vous préférez: {1} </div>",
             
-            "<div class='headline'>Plus de conseils</div> <div class='text'> <b>N’oubliez pas de changer le nom de votre wi-fi</b><br> Après avoir enregistré un nom wi-fi, n’oubliez pas de aussi renommer votre réseau wifi par ce nom. En savoir plus sous <a href='/p/faq'>FAQs</a>. <br><br> <b>Un nom wifis.org pour plusieurs routeurs</b><br> Vous pouvez ajouter les caractères que vous voulez à votre nom en ajoutant une barre oblique derrière votre nom  wifis.org et ainsi utiliser le nom pour plusieurs routeurs: {2} <b>Majuscule/minuscule</b><br> Des noms de wi-fi peuvent contenir des majuscules. <a href='http://wifis.org/iphONE'>wifis.org/iphONE</a> devient <a href='http://wifis.org/iPhone'>wifis.org/iPhone</a> <br><br> <b>Aidez-nous</b><br> Soutenez ce service gratuit à l’aide de Flattr ou en parlant de notre service a vos amis.</div>"
+            "<div class='headline'>Plus de conseils</div> <div class='text'> <b>N’oubliez pas de changer le nom de votre wi-fi</b><br> Après avoir enregistré un nom wi-fi, n’oubliez pas de aussi renommer votre réseau wifi par ce nom. En savoir plus sous <a href='/{__lang}/faq'>FAQs</a>. <br><br> <b>Un nom wifis.org pour plusieurs routeurs</b><br> Vous pouvez ajouter les caractères que vous voulez à votre nom en ajoutant une barre oblique derrière votre nom  wifis.org et ainsi utiliser le nom pour plusieurs routeurs: {2} <b>Majuscule/minuscule</b><br> Des noms de wi-fi peuvent contenir des majuscules. <a href='http://wifis.org/iphONE'>wifis.org/iphONE</a> devient <a href='http://wifis.org/iPhone'>wifis.org/iPhone</a> <br><br> <b>Aidez-nous</b><br> Soutenez ce service gratuit à l’aide de Flattr ou en parlant de notre service a vos amis.</div>"
         ]
     },
     "wifi": {
@@ -211,7 +209,7 @@
         "text": {
             "text": "Le propriétaire de ce wifi utilise un nom de wifs.org expressément, pour que VOUS puissiez lui écrire un message. Il veut vous donner la possibilité de pouvoir simplement lui dire bonjour ou de partager sa connexion d’internet.",
             "notfound": "Il n’y a pas de wi-fi enregistré sous ce nom. Vérifiez si vous avez écrit l’adresse correctement.</p> <p>Pour savoir plus sur  wifis.org, cliquez <a href='/'>ici</a>.",
-            "mywifi": "<b>Vous êtes connecté</b> <br> C’est pour ça que vous voyez seulement l’aperçu du formulaire de contacte de votre wifi."
+            "mywifi": "<b>C'est votre Wi-Fi</b> <br> N'hésitez pas à essayer le formulaire de contact."
         },
         "form": {
             "contact": "Votre adresse émail / numéro de téléphone <span style='font-weight: normal'>(Comment peut-on vous contacter?)</span>",

@@ -66,7 +66,7 @@ h3 {
 h4 {
 	font-size: 14pt;
 }
-.indent {
+section {
     margin-left: 10px;
 }
 main a,
@@ -155,6 +155,13 @@ a.logo {
     height: 30px;
     display: inline-block;
     overflow: hidden;
+    background-image: url("/img/logos.png");
+    filter: opacity(0.6) grayscale(1);
+    vertical-align: middle;
+    text-indent: -10000px;
+}
+.logo:hover {
+    filter: none;
 }
 .sprite,
 .flag {
@@ -217,105 +224,46 @@ a.logo {
 
 
 /* 1. line */
-.logo-tnw {width: 70px;}
-.logo-tnw:hover  {background-position: 0px 0px;}
-.logo-tnw {background-position: 0px -30px;}
-
-.logo-boingboing {width: 161px;}
-.logo-boingboing:hover  {background-position: -75px 0px;}
-.logo-boingboing {background-position: -75px -30px;}
-
-.logo-rww {width: 198px;}
-.logo-rww:hover  {background-position: -240px 0px;}
-.logo-rww {background-position: -240px -30px;}
-
-.logo-fritz {width: 56px;}
-.logo-fritz:hover  {background-position: -440px 0px;}
-.logo-fritz {background-position: -440px -30px;}
-
+.logo-tnw {width: 70px; background-position: 0px 0px;}
+.logo-boingboing {width: 161px; background-position: -75px 0px;}
+.logo-rww {width: 198px; background-position: -240px 0px;}
+.logo-fritz {width: 56px; background-position: -440px 0px;}
 
 /* 2. line */
-.logo-jetzt {width: 80px;}
-.logo-jetzt:hover  {background-position: 0px -60px;}
-.logo-jetzt {background-position: 0px -90px;}
-
-.logo-20minutos {width: 137px;}
-.logo-20minutos:hover  {background-position: -85px -60px;}
-.logo-20minutos {background-position: -85px -90px;}
-
-.logo-nzz {width: 180px;}
-.logo-nzz:hover  {background-position: -225px -60px;}
-.logo-nzz {background-position: -225px -90px;}
-
-.logo-muyinternet {width: 123px;}
-.logo-muyinternet:hover  {background-position: -405px -60px;}
-.logo-muyinternet {background-position: -405px -90px;}
-
-.logo-lc1 {width: 82px;}
-.logo-lc1:hover  {background-position: -530px -60px;}
-.logo-lc1 {background-position: -530px -90px;}
-
+.logo-jetzt {width: 80px; background-position: 0px -60px;}
+.logo-20minutos {width: 137px; background-position: -85px -60px;}
+.logo-nzz {width: 180px; background-position: -225px -60px;}
+.logo-muyinternet {width: 123px; background-position: -405px -60px;}
+.logo-lc1 {width: 82px; background-position: -530px -60px;}
 
 /* 3. line */
-.logo-golem {width: 135px;}
-.logo-golem:hover  {background-position: 0px -120px;}
-.logo-golem {background-position: 0px -150px;}
-
-.logo-netzwertig {width: 217px;}
-.logo-netzwertig:hover  {background-position: -140px -120px;}
-.logo-netzwertig {background-position: -140px -150px;}
-
-.logo-wwwhatsnew {width: 217px;}
-.logo-wwwhatsnew:hover  {background-position: -360px -120px;}
-.logo-wwwhatsnew {background-position: -360px -150px;}
-
-.logo-hackernews {width: 30px;}
-.logo-hackernews:hover  {background-position: -580px -120px;}
-.logo-hackernews {background-position: -580px -150px;}
-
+.logo-golem {width: 135px; background-position: 0px -120px;}
+.logo-netzwertig {width: 217px; background-position: -140px -120px;}
+.logo-wwwhatsnew {width: 217px; background-position: -360px -120px;}
+.logo-hackernews {width: 30px; background-position: -580px -120px;}
 
 /* 4. line */
-.logo-basicthinking {width: 215px;}
-.logo-basicthinking:hover  {background-position: 0px -180px;}
-.logo-basicthinking {background-position: 0px -210px;}
-
-.logo-bandaancha {width: 270px;}
-.logo-bandaancha:hover  {background-position: -220px -180px;}
-.logo-bandaancha {background-position: -220px -210px;}
-
-.logo-pcpraxis {width: 133px;}
-.logo-pcpraxis:hover  {background-position: -500px -180px;}
-.logo-pcpraxis {background-position: -500px -210px;}
-
+.logo-basicthinking {width: 215px; background-position: 0px -180px;}
+.logo-bandaancha {width: 270px; background-position: -220px -180px;}
+.logo-pcpraxis {width: 133px; background-position: -500px -180px;}
 	
 /* 5. line */
-.logo-theinquirer {width: 215px;}
-.logo-theinquirer:hover {background-position: 0px -240px;}
-.logo-theinquirer {background-position: 0px -270px;}
-
-.logo-wdr {width: 100px;}
-.logo-wdr:hover {background-position: -220px -240px;}
-.logo-wdr {background-position: -220px -270px;}
-
-.logo-techcrunch_fr {width: 270px;}
-.logo-techcrunch_fr:hover {background-position: -320px -240px;}
-.logo-techcrunch_fr {background-position: -320px -270px;}
-
+.logo-theinquirer {width: 215px; background-position: 0px -240px;}
+.logo-wdr {width: 100px; background-position: -220px -240px;}
+.logo-techcrunch_fr {width: 270px; background-position: -320px -240px;}
 
 /* 6. line */
-.logo-lifehacker_ru {width: 205px;}
-.logo-lifehacker_ru:hover {background-position: 0px -300px;}
-.logo-lifehacker_ru {background-position: 0px -330px;}
-
-.logo-dig_ins {width: 214px;}
-.logo-dig_ins:hover {background-position: -205px -300px;}
-.logo-dig_ins {background-position: -205px -330px;}
-
-.logo-downloadblogit {width: 180px;}
-.logo-downloadblogit:hover {background-position: -425px -300px;}
-.logo-downloadblogit {background-position: -425px -330px;}
+.logo-lifehacker_ru {width: 205px; background-position: 0px -300px;}
+.logo-dig_ins {width: 214px; background-position: -205px -300px;}
+.logo-downloadblogit {width: 180px; background-position: -425px -300px;}
 
 
+
+/* Press PAGE: ********************************************************************** */
+.press_page .more {
+    vertical-align: middle;
+    line-height: 35px;
+}
 
 
 /* Login PAGE: /p/login ***************************************************************** */
@@ -505,13 +453,47 @@ a.logo {
 .home_page .card .text b {
 	text-shadow: 0 1px 1px #CCC;
 }
-.home_page .card-body img {
+.home_page .card-body {
+    width: 210px;
+    height: 210px;
     border-radius: 10px;
     border: 1px solid #ddd;
     vertical-align: middle;
-    margin-left: -10px;
+    margin-left: 30px;
+    transition: background 1s;
+    background-position: center;
+    background-size: 100%;
+}
+.home_page .card-body:hover {
+    background-size: 110%;
+}
+.home_page .col:nth-child(1) .card-body:hover { background-image: url(/img/teaser1_active1.png);}
+.home_page .col:nth-child(2) .card-body:hover { background-image: url(/img/teaser2_dark_active.png);}
+.home_page .col:nth-child(3) .card-body:hover { background-image: url(/img/teaser3_dark_active.png);}
+
+.home_page .col:nth-child(1) .card-body { background-image: url(/img/teaser1_small.png);}
+.home_page .col:nth-child(2) .card-body { background-image: url(/img/teaser2_small.png);}
+.home_page .col:nth-child(3) .card-body { background-image: url(/img/teaser3_small.png);}
+
+
+
+/* WIFIS PAGE */
+.wifis_page h3 {
+	border-bottom: 0px solid black;
+	font-weight: bold;
+	font-size: 12pt;
+    margin-top: 0;
+	line-height: 17pt;
+    float: right;
+    width: 300px;		
 }
 
+.wifis_page section {
+    float: right;
+    width: 300px;
+    clear: right;
+
+}
 
 
 
@@ -521,6 +503,10 @@ a.logo {
 }
 
 
+/* WIFI PAGE ********************************************************************************* */
+.wifi_page textarea {
+    height: 150px !important;
+}
 
 
 
