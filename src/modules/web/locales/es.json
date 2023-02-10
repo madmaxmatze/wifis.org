@@ -208,7 +208,7 @@
         "text": {
             "text": "El dueño de esta red wifi se ha registrado en wifis.org para posibilitar que le contactes. Podrías simplemente saludar, o pedir acceso a la red.  Sé cortés, tu vecino te lo agradecerá.",
             "notfound": "Esta wifi todavía no está activada.  Asegúrate de haber marcado bien el URL.</p> <p>Para activar este wifi, véase <a href='/p/login/'>aquí</a>.",
-            "mywifi": "<b> Esta es tu Wi-Fi <b><br> Si quieres probar el formulario de contacto."
+            "mywifi": "<h4>Esta es tu Wi-Fi</h4> Si quieres probar el formulario de contacto."
         },
         "form": {
             "contact": "Deja tus datos <span style='font-weight: normal'>(cualquier modo de ponerse en contacto contigo)</span>",

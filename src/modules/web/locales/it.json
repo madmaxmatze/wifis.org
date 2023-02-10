@@ -207,7 +207,7 @@
         "text": {
             "text": "Il proprietario di questa rete wifi si è iscritto a wifis.org per darti la possibilità di contattarlo. Potresti chiederli di condividere l’accesso a internet o solo fare un saluto. In ogni caso, sii gentile per favore. Il tuo vicino di ringrazierà.",
             "notfound": "La url non è ancora registrata. Assicurati di avere inserito la url corretta.</p> <p>Per registrare questa url, vai <a href='/p/login/'>qui</a>.",
-            "mywifi": "<b>Questo è il tuo Wi-Fi.</b> <br> Sentiti libero di provare il modulo di contatto."
+            "mywifi": "<h4>Questo è il tuo Wi-Fi.</h4> Sentiti libero di provare il modulo di contatto."
         },
         "form": {
             "contact": "fornisci una email o un numero di telefono <span style='font-weight: normal'>(qualsiasi modo per contattarti)</span>",

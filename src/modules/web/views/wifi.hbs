@@ -9,13 +9,30 @@
     {{#if (equals wifiUserId user.id)}}
         <div class="alert alert-warning">
             {{{__ "wifi.text.mywifi"}}}
+
+            <ul>
+                <li>
+                    <b>Standard:</b>
+                    <a href='https://wifis.org/{{wifiId}}'>wifis.org/{{wifiId}}</a>
+                </li>
+                <li>
+                    <b>{__wifi.urls.subdomains}:</b>
+                    <a href='https://{{wifiId}}.wifis.org'>{{wifiId}}.wifis.org</a>
+                </li>
+                <li>
+                    <b>{__wifi.urls.short}:</b>
+                    <a href='https://wif.is/{{wifiId}}'>wif.is/{{wifiId}}</a>
+                </li>
+                <li>
+                    <b>{__wifi.urls.subwifis}:</b> 
+                    <a href='https://wifis.org/{{wifiId}}/whatever/sub/wifi_$!@'>wifis.org/{{wifiId}}/whatever/sub/wifi_$!@</a>
+                </li>
+                
+            </ul>
         </div>
-        <!-- <div class="yourWifiOverlay"></div> -->
     {{/if}}
 
-
     <p> {{{__ "wifi.text.text"}}} </p>
-   
 
     {{#if sendSuccess}}
         <div class="alert alert-success">

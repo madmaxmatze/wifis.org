@@ -11,10 +11,15 @@ import { HtmlInterceptor } from './interceptor/html.interceptor';
 import { Recaptcha, RecaptchaResult, RecaptchaVerificationResult } from '@nestlab/google-recaptcha';
 import * as i18n from 'i18n';
 
-function postRenderProcessing(response: Response, _err: any, html: string) {
-    var matches, preventLoop = 3;
+function postRenderProcessing(err: any, html: string, response: Response, next: NextFunction) {
+    if (err) {
+        return next(err);
+    }
+
+    var matches, preventLoop = 5;
     while ((matches = [...html.matchAll(/\{\_\_\s*(.+?)\s*\}/gi)]) && preventLoop-- > 0) {
         matches.forEach(match => {
+            console.log(match[1]);
             var replacement = i18n.__(match[1]);
             if (typeof replacement != "string") {
                 replacement = Array.from(replacement).join(" ");
@@ -46,20 +51,17 @@ export class WebController {
     @All([WebController.HOMEPAGE_URL, `:lang(${LANGUAGES_REGEX})`, `:lang(${LANGUAGES_REGEX})/:pageId(about|contact|faq|tos|press|languages|login)`])
     getPages(@Res() response: Response, @Next() next: NextFunction, @Param('pageId') pageId: string = "home") {
         var viewname = ["about", "contact", "faq", "tos"].includes(pageId) ? "page" : pageId;
-        response.render(viewname, (err : Error, html : string) => {
-            if (err) {
-                console.log ("err", err);
-                next(err);
-            } else {
-                postRenderProcessing(response, err, html);
-            }
-        });
+        response.render(viewname, (err: Error, html: string) => postRenderProcessing(err, html, response, next));
     }
 
     @Get(`:lang(${LANGUAGES_REGEX})/wifis`)
     @UseGuards(AuthGuard)
-    async getWifis(@Res() response: Response, @Session() session: Record<string, any>) {
-        return response.render("wifis", { "wifis": await this.wifiRepo.getAllByUserId(session.user.id) });
+    async getWifis(@Res() response: Response, @Next() next: NextFunction, @Session() session: Record<string, any>) {
+        return response.render(
+            "wifis",
+            { "wifis": await this.wifiRepo.getAllByUserId(session.user.id) },
+            (err: Error, html: string) => postRenderProcessing(err, html, response, next)
+        );
     }
 
     @Get(`js/translation/:lang(${LANGUAGES_REGEX}).js`)
@@ -93,8 +95,9 @@ export class WebController {
     }
 
     @Get(WebController.WIFI_URL)
-    @Render("wifi")
-    async getWifi() { }
+    async getWifi(@Res() response: Response, @Next() next: NextFunction) {
+        response.render("wifi", (err: Error, html: string) => postRenderProcessing(err, html, response, next));
+    }
 
     @Post(WebController.WIFI_URL)
     @Recaptcha()

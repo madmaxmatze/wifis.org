@@ -302,21 +302,6 @@
             "absoluteWifiLimitReached": "We only allow up to 10 different wifis.org IDs at this point. If you really need more IDs please contact us.",
             "whileWifiDelete": "Oops. There was an error during the deletion process."
         },
-        "content": [
-            {
-                "headline": "Pick your favorite:",
-                "text": [
-                    "(They all work the same)",
-                    "<ul>",
-                        "<li><b>Standard:</b> <a href='https://wifis.org/example'>wifis.org/example</a></li>",
-                        "<li><b>Subdomains:</b> <a href='https://example.wifis.org'>example.wifis.org</a></li>",
-                        "<li><b>Short-Urls:</b> <a href='https://wif.is/example'>wif.is/example</a></li>",
-                        "<li><b>Sub-WiFis:</b> <a href='https://wifis.org/example/sub/wifi!'>wifis.org/example/sub/wifi!</a></li>",
-                        "<li><b>Lower/Uppercase:</b> <a href='https://wifis.org/iPhOnE'>wifis.org/iPhone</a></li>",
-                    "</ul>"
-                ]
-            }
-        ],
         "tips": [
             "<div class='headline'>get another WiFi ID</div> <div class='text'>Each of your friends who joins wifis.org through <a href='{0}' target='_blank' title='This is your personal link to invite friends to wifis.org'>your personal invite link</a>, will increase the limit of wifis.org IDs you can register by one.</div>",
             "<div class='headline'>more tips</div><div class='text'> <b>Rename your Wi-Fi network</b><br> Don’t forget to rename your Wi-Fi network after you registered your wifis.org ID. See <a href='/{__lang}/faq'>FAQ</a>. <br><br> <b>One ID for many routers</b><br> To use one wifis.org ID for several Wi-Fi routers, you may add any characters you like after a slash “/” behind your ID: {2} <b>Case sensitivity</b><br> wifis.org IDs are not case sensitive. <a href='http://wifis.org/iphONE'>wifis.org/iphONE</a> will lead to <a href='http://wifis.org/iPhone'>wifis.org/iPhone</a> <br><br> <b>Spread the word!</b><br> Please support our free service by using the Flattr button on the left and by telling your friends. </div>"
@@ -327,7 +312,13 @@
         "text": {
             "text": "The owner of this Wi-Fi network signed up for wifis.org to give you the chance to get in touch with them.  You might want to ask for shared internet access or just say 'hello'. Either way, please be kind. Your neighbor will thank you.",
             "notfound": "The url is not registered yet. Please make sure you have the correct url.</p> <p>To register this url, go <a href='/p/login/'>here</a>.",
-            "mywifi": "<b>Ini ialah Wifi anda.</b> <br> Feel free to try out the contact form."
+            "mywifi": "<h4>This is your WIFI</h4> Feel free to try out the contact form.<br><br><b>HINT:</b> You can choose your favorite Wifi name:"
+        },
+        "urls": {
+            "subdomains": "Subdomains",
+            "short": "Short-Urls",
+            "subwifis": "Sub-WiFis",
+            "cases": "Lower/Uppercase"
         },
         "form": {
             "contact": "please provide an email or phone number <span style='font-weight: normal'>(any way to get in touch with you)</span>",

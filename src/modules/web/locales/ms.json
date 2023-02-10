@@ -206,7 +206,7 @@
         "text": {
             "text": "Tuan milik rangkaian Wi-Fi telah mendaftar dengan wifis.org untuk membuka peluang kepada anda untuk berhubung dengan beliau.  Kamu mungkin sahaja boleh menanya untuk berkongsi akses internet atau hanya mengirim salam padanya. Ataupun sekadar beramah mesra. Jiran anda akan merasa kasihnya anda.",
             "notfound": "Url ini belum terdaftar lagi. Sila pastikan anda mempunyai url yang sebenar.</p> <p>Untuk mendaftar url ini, sila ke <a href='/p/login/'>sini</a>.",
-            "mywifi": "<b>Anda sudahpun masuk sekaran.</b> <br> Jangan ragu untuk mencuba borang hubungan."
+            "mywifi": "<h4>Anda sudahpun masuk sekaran.</h4> Jangan ragu untuk mencuba borang hubungan."
         },
         "form": {
             "contact": "Sila nyatakan emel atau nombor untuk dihubungi <span style='font-weight: normal'>(apa-apa cara untuk menghubungi kamu)</span>",

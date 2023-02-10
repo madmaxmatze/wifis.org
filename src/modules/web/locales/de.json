@@ -238,7 +238,12 @@
         "text": {
             "text": "Der Eigentümer dieses WLANs benutzt extra einen wifis.org Namen, damit DU ihm schreiben kannst. Er will dir so die Möglichkeit geben, einfach mal Hallo zu sagen oder gar nach der Mitbenutzung seines WLANs zu fragen.",
             "notfound": "Ein WLAN mit diesem Namen ist nicht registriert. Überprüfe, ob die Web-Adresse korrekt geschrieben ist.</p> <p>Um mehr über wifis.org zu erfahren, klicke <a href='/'>hier</a>.",
-            "mywifi": "<b>Dies ist dein WIFI!</b><br> Probiere das Kontaktformular gern aus."
+            "mywifi": "<h4>Dies ist dein WIFI!</h4>Probiere das Kontaktformular gern aus.<br><br><b>TIP:</b> Nutze den WLAN Namen der dir am Besten gefällt:"
+        },
+        "urls": {
+            "short": "Kurz-Urls",
+            "subwifis": "Unter-WLANs",
+            "cases": "Groß/Kleinschreibung"
         },
         "form": {
             "contact": "Deine Email / Telefonnummer <span style='font-weight: normal'>(Wie bist du zu erreichen?)</span>",

@@ -206,7 +206,7 @@
         "text": {
             "text": "De bezitter van dit Wi-fi netwerk registreerde zich bij wifis.org om je de kans te geven met hem in contact te komen. Je kan via deze weg shared internet toegang vragen of gewoon eens ´gedag´. In ieder geval, blijf steeds vriendelijk, je buur zal je dankbaar zijn.",
             "notfound": "Deze url is nog niet geregistreerd.Zorg ervoor dat je de correcte url gebruikt.</p> <p>Om deze url te registreren ga <a href='/p/login/'>hierheen</a>.",
-            "mywifi": "<b> Dit is je Wifi.</b> <br> Probeer het contactformulier gerust eens uit."
+            "mywifi": "<h4>Dit is je Wifi.</h4> Probeer het contactformulier gerust eens uit."
         },
         "form": {
             "contact": "geef een e-mailadres of telefoonnummer in <span style='font-weight: normal'>(of iedere manier om met je in contact te komen)</span>",

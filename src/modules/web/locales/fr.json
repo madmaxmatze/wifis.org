@@ -209,7 +209,7 @@
         "text": {
             "text": "Le propriétaire de ce wifi utilise un nom de wifs.org expressément, pour que VOUS puissiez lui écrire un message. Il veut vous donner la possibilité de pouvoir simplement lui dire bonjour ou de partager sa connexion d’internet.",
             "notfound": "Il n’y a pas de wi-fi enregistré sous ce nom. Vérifiez si vous avez écrit l’adresse correctement.</p> <p>Pour savoir plus sur  wifis.org, cliquez <a href='/'>ici</a>.",
-            "mywifi": "<b>C'est votre Wi-Fi</b> <br> N'hésitez pas à essayer le formulaire de contact."
+            "mywifi": "<h4>C'est votre Wi-Fi</h4> N'hésitez pas à essayer le formulaire de contact."
         },
         "form": {
             "contact": "Votre adresse émail / numéro de téléphone <span style='font-weight: normal'>(Comment peut-on vous contacter?)</span>",

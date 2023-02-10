@@ -255,14 +255,18 @@ a.logo {
 /* 6. line */
 .logo-lifehacker_ru {width: 205px; background-position: 0px -300px;}
 .logo-dig_ins {width: 214px; background-position: -205px -300px;}
-.logo-downloadblogit {width: 180px; background-position: -425px -300px;}
+.logo-downloadblogit {width: 165px; background-position: -425px -300px;}
 
 
 
 /* Press PAGE: ********************************************************************** */
-.press_page .more {
-    vertical-align: middle;
-    line-height: 35px;
+.press_page main li a:not(.logo) {
+    display: block;
+    margin: 10px 10px 10px 0;
+}
+.press_page main li:not(:last-child) a:not(.logo)::after {
+    content: '|';
+    margin-left: 10px;
 }
 
 
@@ -477,23 +481,8 @@ a.logo {
 
 
 
-/* WIFIS PAGE */
-.wifis_page h3 {
-	border-bottom: 0px solid black;
-	font-weight: bold;
-	font-size: 12pt;
-    margin-top: 0;
-	line-height: 17pt;
-    float: right;
-    width: 300px;		
-}
+/* WIFIS PAGE ******************************************************************************* */
 
-.wifis_page section {
-    float: right;
-    width: 300px;
-    clear: right;
-
-}
 
 
 
@@ -507,7 +496,9 @@ a.logo {
 .wifi_page textarea {
     height: 150px !important;
 }
-
+.wifi_page .alert ul {
+    margin-bottom: 0;
+}
 
 
 

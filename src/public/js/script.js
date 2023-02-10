@@ -1,19 +1,9 @@
 // general
 console.log("Wifis.org ♥ developer - join https://github.com/madmaxmatze/wifis.org");
-
 location.hash = location.hash.replace(/^\#\_\=\_$/, "");    // facebook redirect: https://stackoverflow.com/q/7131909
 
-// press //////////////////////////////////////////////////////////////////
-document.querySelectorAll(".press_page a.more").forEach(moreLink => 
-    moreLink.addEventListener('click', (event) => {
-    	event.preventDefault();
-        moreLink.parentElement.parentElement.querySelectorAll("li").forEach(link => link.classList.remove("js-hidden"));
-        moreLink.remove();
-    }, false)
-);
 
 // wifi-form //////////////////////////////////////////////////////////////////
-// document.querySelector(".home_page #addWifiForm .no-js-hidden").classList.remove("no-js-hidden");
 const WifiForm = class {
     constructor(wifiForm) {
         if (wifiForm) {
