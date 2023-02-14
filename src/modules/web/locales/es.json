@@ -1,28 +1,15 @@
 {
+    "lang": "es",
     "label": {
-        "lang": {
-            "de": "Deutsch",
-            "en": "English",
-            "es": "Español",
-            "fr": "Français",
-            "it": "Italiano",
-            "ms": "Melayu",
-            "nl": "Nederlands",
-            "ru": "Русский",
-            "gr": "ελληνικά",
-            "cn": "中國",
-            "jp": "日本人",
-            "pt": "Português",
-            "tr": "Türkçe"
-        },
-        "title": "wifis.org",
         "mainTeaser": "Un formulario de contacto para tu red wifi.",
         "description": "Un formulario de contacto para tu red wifi. Es fácil, social y gratis.",
         "logo": {
-            "hint": "www.wifis.org"
+            "hint": "wifis.org"
         },
         "logout": "Salir",
         "signin": "Acceder",
+        "signup": "Acceder", 
+        "social": "Medios sociales",
         "footer": {
             "text": "&copy; wifis.org",
             "switchToMobile": "volver a la versión móvil",
@@ -33,28 +20,10 @@
             }
         },
         "otherwebsite": {
-            "title": "más"
+            "title": "Más"
         }
     },
     "twitterMsg": "Con @wifis_org your tus vecinos pueden contactarte a traves del nombre de tu wifi. Visita",
-    "blog": {
-        "linklabel": "Blog"
-    },
-    "homepage": {
-        "headline": "Página principal",
-        "linklabel": "Página principal",
-        "text": [
-            "<h1>Tu red wifi puede recibir correo electrónico<\/h1> <blockquote class=\"bubble1\"><p>«¿Hola, te gustaría compartir tu wifi a cambio de un pago mensual?»<\/p><\/blockquote> <blockquote class=\"bubble2\"><p>«Me acabo de mudar y he visto tu wifi. ¿Tomamos una cerveza?»<\/p><\/blockquote> <\/div><div class=\"content\"> <h2>¿Cómo funciona?<\/h2>",
-            "<div class=\"how_to_subtext\">(Más información sobre este servicio gratuito y anónimo en<a href=\"\/p\/faq\">preguntas frecuentes<\/a>)<\/div> <\/div><div class=\"content\">"
-        ],
-        "teasers": [
-            "<b>TÚ<\/b> renombras tu red wifi",
-            "<b>OTROS<\/b> ven tu URL wifis.org",
-            "<b>WIFIS.ORG<\/b> deja a otros contactarte"
-        ],
-        "wifichecker": "Elige tu propio nombre de wifi:",
-        "joinButton": "Acceder" 
-    },
     "404": {
         "headline": "404 Error",
         "linklabel": "404 Error",
@@ -63,15 +32,103 @@
     "about": {
         "headline": "Sobre nosotros",
         "linklabel": "Sobre nosotros",
-        "text": "<h3>Convirtiendo las redes wi-fis en redes sociales<\/h3> <div class=\"indent\"> Fundado en Berlin en Diciembre del 2011, www.wifis.org ayuda a vecinos de contactarse a través de su red wi-fi.<br> Es fácil, social y gratis. Pruébalo y dinos lo que piensas. <\/div> <h3>Quiénes somos<\/h3>  <div class=\"indent\"> <b>Equipo:<\/b> {0}<br> <b>Apoyo:<\/b> {1} <\/div><h3>Contacto<\/h3> <div class=\"indent\"> Apreciamos mucho vuestras opiniones y vuestro apoyo: {2} Escribidnos a {3} {4} Escribid a nuestra red wi-fi: {5} {6} Seguid nos en {7} {8} “Me gusta” en {9} {10} +1 nos en {11} {12} Seguid noestros {13} <\/div>"
+        "content" : [
+            {
+                "headline": "Convirtiendo las redes wi-fis en redes sociales",
+                "text": [
+                    "Fundado en Berlin en Diciembre del 2011, wifis.org ayuda a vecinos de contactarse a través de su red wi-fi.",
+                    "Es fácil, social y gratis. Pruébalo y dinos lo que piensas."
+                ]
+            },
+            {
+                "headline": "Quiénes somos",
+                "text": [
+                    "<p><b>Equipo:</b> {__about.team}</p>",
+                    "<p><b>Apoyo:</b> {__about.supporter}</p>"
+                ]
+            }
+        ]
+    },
+    "blog": {
+        "linklabel": "Blog"
+    },
+    "contact": {
+        "headline": "Contacto",
+        "linklabel": "Contacto",
+        "content": [{
+            "text": ["{__contact.htmlTemplate}"]
+        }],
+        "introText": "Apreciamos mucho vuestras opiniones y vuestro apoyo:",
+        "mailText": "Escribidnos a",
+        "wifiText": "Escribid a nuestra red wi-fi:",
+        "twitterText" : "Seguid nos en",
+        "facebookText": "“Me gusta” en",
+        "blogText": "Seguid noestros"
     },
     "faq": {
-        "headline": "FAQ <small>(las preguntas frecuentes)<\/small>",
+        "headline": "FAQ",
+        "subheadline": "(las preguntas frecuentes)",
         "linklabel": "FAQ",
-        "text": "<h3>¿Por qué cambiaría el nombre de mi red wifi?<\/h3> <div class=\"indent\"> <p> No estás solamente cambiando el nombre de tu red wifi.  Configurando tu propio URL wifis.org (como <a href=\"\/example\">www.wifis.org\/example<\/a>), dejas la oportunidad de contactarse contigo a todos que estén dentro del alcance de tu red wifi.  Sin que sepan ni quién eres ni dónde exactamente vives. Puede que los vecinos amables te inviten una copa o que te pidan acceso a cambio de un pago mensual. <\/p> <p> wifis.org es una nueva manera de contactarse con los que estén cerca. Haz parte de la comunidad ya <a href=\"\/p\/login\">activa<\/a> hoy. <\/p> <\/div> <h3>¿Cuánto cuesta?<\/h3> <div class=\"indent\"> <p>Absolutamente nada.  wifis.org es y seguirá siendo un servicio gratis.<\/p> <\/div> <h3>¿Cómo me doy de alta y activo un propio URL?<\/h3> <div class=\"indent\"> <p>Sigue estos pasos:<\/p> <ol> <li><a href=\"\/p\/login\">Accede<\/a> con tu cuenta Google o Facebook. <\/li> <li>Elige tu propio URL wifis.org.<\/li> <li>Ve la configuración de tu router o módem.<\/li> <li>Cambia el nombre (el SSID) de tu red wifi con el URL wifis.org que acabas de activar.<\/li> <li>Ahora tu red wifi debe parecer así: <a href=\"\/example\">wifis.org\/example<\/a><\/li> <li>Ya que estás, asegura que tu red wifi esté visible y protegida con contraseña.<\/li> <\/ol> <p>\tYa está. Todos dentro del alcance de tu red wifi ahora pueden contactarse contigo metiendo tu URL wifis.org en el navegador. <\/p> <\/div> <h3>¿Puede cualquiera usar wifis.org?<\/h3> <div class=\"indent\"> <p>¡Claro que sí! Sólo hay que saber cambiarle el nombre (SSID) a una red wifi.<\/p> <\/div> <h3>¿Cuánto seguro es wifis.org?<\/h3> <div class=\"indent\"> <p>¡wifis.org es 100% anónimo y seguro!<\/p> <ul> <li>No se puede localizar ni a ti ni tu red wifi a través de este sitio.<\/li> <li>Tu dirección email, los nombres de tus redes y los mensajes que recibes son las únicas cosas registradas, y nunca serán divulgadas.<\/li> <li>Es posible acceder sólo con Facebook (<a href=\"https:\/\/www.facebook.com\/help\/405977429438260\" target=\"_blank\" title=\"Más información sobre acceso con facebook\">?<\/a>) o Google (<a href=\"http:\/\/www.google.com\/support\/accounts\/bin\/answer.py?answer=112802\" target=\"_blank\" title=\" Más información sobre acceso con Google \">?<\/a>), para asegurar que nunca sepamos, registremos ni perdamos su contraseña. <\/li> <\/ul> <p>Más información se puede encontrar en <a href=\"\/p\/tos\" title=\"Términos y condiciones\">Términos y condiciones<\/a> <\/p> <\/div>",
-        "question": {
-            "where": "¿Donde se utiliza wifis.org?"
-        }
+        "content": [
+            {
+                "headline": "¿Por qué cambiaría el nombre de mi red wifi?",
+                "text": [
+                    "No estás solamente cambiando el nombre de tu red wifi. Configurando tu propio URL wifis.org (como <a href='/example'>wifis.org/example</a>), dejas la oportunidad de contactarse contigo a todos que estén dentro del alcance de tu red wifi. Sin que sepan ni quién eres ni dónde exactamente vives. Puede que los vecinos amables te inviten una copa o que te pidan acceso a cambio de un pago mensual.",
+                    "wifis.org es una nueva manera de contactarse con los que estén cerca. Haz parte de la comunidad ya <a href='/{__lang}/login'>activa</a> hoy."
+                ]
+            },
+            {
+                "headline": "¿Cuánto cuesta?",
+                "text": [
+                    "Absolutamente nada. wifis.org es y seguirá siendo un servicio gratis."
+                ]
+            },
+            {
+                "headline": "¿Cómo me doy de alta y activo un propio URL?",
+                "text": [
+                    "Sigue estos pasos:",
+                    "<ol> <li><a href='/{__lang}/login'>Accede</a> con tu cuenta Google o Facebook. </li> <li>Elige tu propio URL wifis.org.</li> <li>Ve la configuración de tu router o módem.</li> <li>Cambia el nombre (el SSID) de tu red wifi con el URL wifis.org que acabas de activar.</li> <li>Ahora tu red wifi debe parecer así: <a href='/example'>wifis.org/example</a></li> <li>Ya que estás, asegura que tu red wifi esté visible y protegida con contraseña.</li> </ol>",
+                    "Ya está. Todos dentro del alcance de tu red wifi ahora pueden contactarse contigo metiendo tu URL wifis.org en el navegador."
+                ]
+            },
+            {
+                "headline": "¿Puede cualquiera usar wifis.org?",
+                "text": [
+                    "¡Claro que sí!",
+                    "Sólo hay que saber cambiarle el nombre (SSID) a una red wifi."                   
+                ]
+            },
+            {
+                "headline": "¿Cuánto seguro es wifis.org?",
+                "text": [
+                    "¡wifis.org es 100% anónimo y seguro!",
+                    "<ul> <li>No se puede localizar ni a ti ni tu red wifi a través de este sitio.</li> <li>Tu dirección email, los nombres de tus redes y los mensajes que recibes son las únicas cosas registradas, y nunca serán divulgadas.</li> <li>Es posible acceder sólo con Facebook (<a href='https://www.facebook.com/help/405977429438260' target='_blank' title='Más información sobre acceso con facebook'>?</a>) o Google (<a href='http://www.google.com/support/accounts/bin/answer.py?answer=112802' target='_blank' title=' Más información sobre acceso con Google '>?</a>), para asegurar que nunca sepamos, registremos ni perdamos su contraseña. </li> </ul>",
+                    "Más información se puede encontrar en <a href='/{__lang}/tos' title='Términos y condiciones'>Términos y condiciones</a>."
+                ]
+            }
+        ],
+        "where": "¿Donde se utiliza wifis.org?"
+    },
+    "home": {
+        "headline": "Tu red wifi puede recibir correo electrónico",
+        "linklabel": "Página principal",
+        "quotes": [
+            "«¿Hola, te gustaría compartir tu wifi a cambio de un pago mensual?»",
+            "«Me acabo de mudar y he visto tu wifi. ¿Tomamos una cerveza?»"
+        ],
+        "howToHeadline": "¿Cómo funciona?",
+        "howToText": "Más información sobre este servicio gratuito y anónimo en<a href='/{__lang}/faq'>preguntas frecuentes</a>",
+        "teasers": [
+            "<b>TÚ</b> renombras tu red wifi",
+            "<b>OTROS</b> ven tu URL wifis.org",
+            "<b>WIFIS.ORG</b> deja a otros contactarte"
+        ],
+        "wifichecker": "Elige tu propio nombre de wifi:"
+    },
+    "languages": {
+        "headline": "Choose your language",
+        "subheadline": "(Elige tu idioma)",
+        "linklabel": "Idiomas"
     },
     "login": {
         "headline": "Acceder",
@@ -79,9 +136,9 @@
         "text": [
             "wifis.org sólo ofrece el inicio de sessión (login) via tu cuenta existente de google o facebook por 2 razones:",
             
-            "<b style=\"color: #333\">Tu confort:<\/b> No tienes que llenar ningunos formularios de registración ni confirmar ninguna dirección de email.",
+            "<b style='color: #333'>Tu confort:</b> No tienes que llenar ningunos formularios de registración ni confirmar ninguna dirección de email.",
             
-            "<b style=\"color: #333\">Tu intimidad y seguridad:<\/b> Como no conocemos ni guardamos tu contraseña ni otras informaciones personales, te podemos dar una garantía de 100% que nunca perderemos tus datos! Puedes recibir más informaciones sobre esta manera segura de login con: "
+            "<b style='color: #333'>Tu intimidad y seguridad:</b> Como no conocemos ni guardamos tu contraseña ni otras informaciones personales, te podemos dar una garantía de 100% que nunca perderemos tus datos! Puedes recibir más informaciones sobre esta manera segura de login con: "
         ],
         "buttonPrefix": "Acceder con",
         "facebookHelpLinkHintText": "Más información sobre acceso con facebook",
@@ -109,12 +166,17 @@
     "tos": {
         "headline": "Términos y Condiciones",
         "linklabel": "Términos y Condiciones",
-        "introMsg": "Los Términos y Condiciones en este momento están disponibles <b>sólo en inglés<\/b>.",
-        "text": "<h3>1. Accepting the Terms<\/h3> <div class=\"indent\"> <ul> <li>In order to use our Services, you must first agree to the Terms. You may not use the Services if you don’t accept the Terms.<\/li> <li>By actually using our Services, you understand and agree that wifis.org will treat your use of the Services as acceptance of the Terms from that point onwards.<\/li> <\/ul> <\/div> <h3>2. Provision of the Services by wifis.org<\/h3> <div class=\"indent\"> <ul> <li>wifis.org is constantly innovating in order to provide the best possible experience for its users. You acknowledge and agree that the form and nature of the Services which wifis.org provides may change from time to time without prior notice to you.<\/li> <li>As part of this continuing innovation, you acknowledge and agree that wifis.org may stop (permanently or temporarily) providing the Services (or any features within the Services) to you or to users generally, without prior notice to you. You may stop using the Services at any time. You do not need to specifically inform wifis.org when you stop using the Services.<\/li> <\/ul> <\/div> <h3>3. Use of the Services by you<\/h3> <div class=\"indent\"> <ul> <li>In order to access certain Services, you may be required to provide information about yourself (such as identification or contact details) as part of the registration process for the Service, or as part of your continued use of the Services. You agree that any registration information you give to wifis.org will always be accurate, correct and up to date.<\/li> <li>You agree to use the Services only for purposes that are permitted by (a) the Terms and (b) any applicable law, regulation or generally accepted practices or guidelines in the relevant jurisdictions.<\/li> <li>You agree that you will not engage in any activity that interferes with or disrupts the Services (or the servers and networks which are connected to the Services).<\/li> <li>You agree that you are solely responsible for (and that wifis.org has no responsibility to you or to any third party for) any breach of your obligations under the Terms and for the consequences of any such breach.<\/li> <\/ul> <\/div> <h3>4. Your passwords and account security<\/h3> <div class=\"indent\"> <ul> <li>You agree and understand that you are responsible for maintaining the confidentiality of passwords associated with any account you use to access the Services.<\/li> <li>Accordingly, you agree that you will be solely responsible to wifis.org for all activities that occur under your account.<\/li> <\/ul> <\/div> <h3>5. Content in the Services<\/h3> <div class=\"indent\"> <ul> <li>You agree that you are solely responsible for (and that wifis.org has no responsibility to you or to any third party for) any Content that you create, transmit or display while using the Services and for the consequences of your actions (including any loss or damage which wifis.org may suffer) by doing so.<\/li> <\/ul> <\/div> <h3>6. Proprietary rights<\/h3> <div class=\"indent\"> <ul> <li>You acknowledge and agree that wifis.org owns all legal rights, title and interest in and to the Services, including any intellectual property rights which subsist in the Services (whether those rights happen to be registered or not, and wherever in the world those rights may exist). You further acknowledge that the Services may contain information which is designated confidential by wifis.org and that you shall not disclose such information without wifis.org’s prior written consent.<\/li> <li>Unless you have agreed otherwise in writing with wifis.org, nothing in the Terms gives you a right to use any of wifis.org’s trade names, trade marks, service marks, logos, domain names, and other distinctive brand features.<\/li> <\/ul> <\/div> <h3>7. Limitation of liability<\/h3> <div class=\"indent\"> <ul> <li>You agree that wifis.org shall not be liable to you for (a) any changes which wifis.org may make to the Services (or any features within the Services) and (b) the deletion of, corruption of, or failure to store, any content and other communications data maintained or transmitted by or through your use of the Services.<\/li> <\/ul> <\/div>"
+        "content" : [
+            {
+                "text": [
+                    "<div class='alert alert-danger'>Los Términos y Condiciones en este momento están disponibles <b>sólo en inglés</b>.</div>{__tos.termsOfService}"
+                ]
+            }
+        ]
     },
     "wifis": {
-        "headline": "mis wifis",
-        "linklabel": "mis wifis",
+        "headline": "Mis wifis",
+        "linklabel": "Mis wifis",
         "text": "Aquí se puede activar o cancelar sus redes wifi:",
         "deleteButton": "Cancelar",
         "enternew": "Introduce un nombre",
@@ -129,27 +191,32 @@
             "wifiIdTooShort": "El nombre wifi debe consistir de al menos 3 caracteres.",
             "wifiIdTooLong": "El nombre no debe consistir de más de 20 carácteres.",
             "wrongWifiIdChars": "Se permite solo letras, números y guión.",
-            "maxWifiCountReached": "Has alcanzado el límite máximo de wifis. Con el enlace \"invita a un amigo\" a la derecha puedes aumentar el número de wifi",
+            "maxWifiCountReached": "Has alcanzado el límite máximo de wifis. Con el enlace 'invita a un amigo' a la derecha puedes aumentar el número de wifi",
             "absoluteWifiLimitReached": "Invitando amigos, puedes alcanzar el límite absoluto de 10 wifis. Si de verdad necesitas más, ponte en contacto con nosotros o considera usar la función ‘namespace’ elaborada a la derecha.",
             "whileWifiDelete": "Uf, Hubo un error en el proceso de cancelación. Te hemos enviado atrás en el tiempo para intentarlo de nuevo"
         },
         "tips": [
-            "<div class=\"headline\">Consige otro nombre de WiFi<\/div> <div class=\"text\"> Cada uno de tus amigos que se active a través de <a href=\"{0}\" target=\"_blank\" title=\"Este es tu enlace personal para invitar a tus amigos a wifis.org\">tu enlace invito personal<\/a>, incrementará tu límite de wifis por uno. <\/div>",
+            "<div class='headline'>Consige otro nombre de WiFi</div> <div class='text'> Cada uno de tus amigos que se active a través de <a href='{0}' target='_blank' title='Este es tu enlace personal para invitar a tus amigos a wifis.org'>tu enlace invito personal</a>, incrementará tu límite de wifis por uno. </div>",
             
-            "<div class=\"headline\">wifis URL corto<\/div> <div class=\"text\">Elige la forma de nombre que más te gusta: {1} <\/div>",
+            "<div class='headline'>wifis URL corto</div> <div class='text'>Elige la forma de nombre que más te gusta: {1} </div>",
             
-            "<div class=\"headline\">más consejos<\/div> <div class=\"text\"> <b>Cambia el nombre de la red wifi<\/b><br> Después de activar una wifi, no te olvides de cambiar el nombre de la wifi propia. Véase la <a href=\"\/p\/faq\">FAQ<\/a>. <br><br> <b>Muchos wifis con sólo un nombre<\/b><br> Una vez activado un nombre wifis.org, se puede usar con muchos redes wifi: {2} <b>Mayúsculo & Minúsculo<\/b><br> Los nombres wifi no distinguen mayúsculas de minúsculas. <a href=\"http:\/\/wifis.org\/iphONE\">wifis.org\/iphONE<\/a> sale <a href=\"http:\/\/wifis.org\/iPhone\">wifis.org\/iPhone<\/a> <br><br> <b>Corre la voz<\/b><br> Apóyanos usando el botón Flattr o compartelo con tus amigos a través de los enlaces a la izquierda. <\/div>"
+            "<div class='headline'>más consejos</div> <div class='text'> <b>Cambia el nombre de la red wifi</b><br> Después de activar una wifi, no te olvides de cambiar el nombre de la wifi propia. Véase la <a href='/{__lang}/faq'>FAQ</a>. <br><br> <b>Muchos wifis con sólo un nombre</b><br> Una vez activado un nombre wifis.org, se puede usar con muchos redes wifi: {2} <b>Mayúsculo & Minúsculo</b><br> Los nombres wifi no distinguen mayúsculas de minúsculas. <a href='http://wifis.org/iphONE'>wifis.org/iphONE</a> sale <a href='http://wifis.org/iPhone'>wifis.org/iPhone</a> <br><br> <b>Corre la voz</b><br> Apóyanos usando el botón Flattr o compartelo con tus amigos a través de los enlaces a la izquierda. </div>"
         ]
     },
     "wifi": {
         "headlinePrefix": "Escribir un mensaje a:",
         "text": {
             "text": "El dueño de esta red wifi se ha registrado en wifis.org para posibilitar que le contactes. Podrías simplemente saludar, o pedir acceso a la red.  Sé cortés, tu vecino te lo agradecerá.",
-            "notfound": "Esta wifi todavía no está activada.  Asegúrate de haber marcado bien el URL.<\/p> <p>Para activar este wifi, véase <a href=\"\/p\/login\/\">aquí<\/a>.",
-            "mywifi": "<b>Actualmente estás conectado <b><br> Por eso ves sólo una vista preliminar de tu página de contacto"
+            "notfound": "Esta wifi todavía no está activada.  Asegúrate de haber marcado bien el URL.</p> <p>Para activar este wifi, véase <a href='/p/login/'>aquí</a>.",
+            "mywifi": "<h4>Esta es tu Wi-Fi</h4> Si quieres probar el formulario de contacto.<br><br><b>Pista:</b> Elige la forma de nombre que más te gusta:"
+        },
+        "urls": {
+            "standard": "Estándar",
+            "subdomains": "Subdominion",
+            "short": "URL corto"
         },
         "form": {
-            "contact": "Deja tus datos <span style=\"font-weight: normal\">(cualquier modo de ponerse en contacto contigo)<\/span>",
+            "contact": "Deja tus datos <span style='font-weight: normal'>(cualquier modo de ponerse en contacto contigo)</span>",
             "message": "Tu mensaje",
             "send": "Envía",
             "mailsent": "Tu mensaje ha sido enviado.",

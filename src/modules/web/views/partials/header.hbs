@@ -1,0 +1,177 @@
+<nav class="navbar navbar-expand-sm navbar-dark text-bg-dark mb-4">
+    <div class="container-lg">
+        <a class="navbar-brand col-sm-2"
+            href="/{{#unless (equals getLocale defaultLang)}}{{getLocale}}{{/unless}}">wifis.org</a>
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#rightNav"
+            aria-controls="rightNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse d-sm-flex" id="rightNav">
+            <ul class="navbar-nav nav-pills col-sm-8">
+                <!--justify-content-sm-center-->
+                <li class="nav-item">
+                    <a class="text-white nav-link{{#if (equals pageId "home")}} active{{/if}}"
+                        href="/{{#unless (equals getLocale defaultLang)}}{{getLocale}}{{/unless}}">
+                        {{{__ "home.linklabel"}}}
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="text-white nav-link{{#if (equals pageId "faq")}} active{{/if}}" href="/{{getLocale}}/faq">
+                        {{__ "faq.linklabel"}}
+                    </a>
+                </li>
+
+                {{#if user}}
+                    <li class="nav-item">
+                        <a class="text-white nav-link{{#if (equals pageId "wifis")}} active{{/if}}"
+                            href="/{{getLocale}}/wifis">
+                            {{{__ "wifis.linklabel"}}}
+                        </a>
+                    </li>
+                {{/if}}
+            </ul>
+
+            <div class="d-sm-flex col-sm-4 justify-content-sm-end">
+                <div class="navbar-nav nav-pills nav-item dropdown text-start langNav">
+                    <a href="/{{getLocale}}/languages" class="dropdown-toggle text-white nav-link"
+                        data-bs-toggle="dropdown">
+                        <span class="sprite flag flag_{{getLocale}}">DE</span>
+                    </a>
+                    <ul class="dropdown-menu text-small">
+                        {{#each getLocales}}
+                            <li>
+                                <a href={{#if ../wifiId}} "/{{../wifiId}}?lang={{this}}"
+                                    {{else}} "/{{this}}{{../urlWithoutLangAndQuery}}" {{/if}}
+                                    class="dropdown-item {{#if (equals ../getLocale this)}} active{{/if}}">
+                                    <span class="sprite flag flag_{{this}}"></span>
+                                    {{../__ (concat "label.lang." this)}}
+                                </a>
+                            </li>
+                        {{/each}}
+                    </ul>
+                </div>
+
+                {{#if user}}
+                    <div class="navbar-nav nav-pills dropdown text-end">
+                        {{#if (equals pageId "wifis")}}
+                            {{assign "logout_redirect" "/"}}
+                        {{else}}
+                            {{assign "logout_redirect" urlWithoutQuery}}
+                        {{/if}}
+
+                        <a href="/auth/logout" class="dropdown-toggle text-white nav-link" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            {{#if user.name}}
+                                {{user.name}}
+                            {{else}}
+                                {{user.email}}
+                            {{/if}}
+
+                            <span class="sprite loginType icon icon-{{user.provider}}"></span>
+
+                        </a>
+                        <ul class="dropdown-menu text-small">
+                            {{!--
+                                <li><a class="dropdown-item" href="#">Profile</a></li>
+                                <li><hr class="dropdown-divider"></li>
+                            --}}
+                            <li><a class="dropdown-item" href="/auth/logout">{{__ "label.logout"}}</a></li>
+                        </ul>
+                    </div>
+
+                {{else}}
+                    <a class="nav-item btn btn-light" href="/{{getLocale}}/login">
+                        {{__ "label.signin"}}
+                        {{#if (__ "label.signup")}}
+                            {{#unless (equals (__ "label.signin") (__ "label.signup"))}}
+                                /{{__ "label.signup"}}
+                            {{/unless}}
+                        {{/if}}
+                    </a>
+                {{/if}}
+            </div>
+        </div>
+    </div>
+</nav>
+
+
+
+
+{{!--
+
+<div class="navbar navbar-fixed-top" data-dropdown="dropdown">
+    <div class="navbar-inner">
+        <div class="container">
+            <a class="sprite brand active" href="/{{#unless (equals getLocale "en")}}{{getLocale}}{{/unless}}">
+                <span>wifis.org</span>
+            </a>
+
+            <ul class="nav pull-right">
+                <li {{#if (equals pageId "home")}}class="active" {{/if}}>
+                    <a
+                        href="/{{#unless (equals getLocale "en")}}{{getLocale}}{{/unless}}">{{{__ "homepage.linklabel"}}}</a>
+                </li>
+
+                {{#if user}}
+                <li {{#if (equals pageId "wifis")}}class="active" {{/if}}>
+                    <a href="/{{getLocale}}/wifis">{{{__ "wifis.linklabel"}}}</a>
+                </li>
+                {{/if}}
+
+                <li {{#if (equals pageId "faq")}}class="active" {{/if}}>
+                    <a href="/{{getLocale}}/faq">{{__ "faq.linklabel"}}</a>
+                </li>
+
+               
+            </ul>
+            </li>
+
+            <li class="dropdown{{#if (equals pageId "login")}} active{{/if}}">
+                <!-- when NOT logged in -->
+                {{#if user}}
+                <a href="#" class="dropdown-toggle" id="logout-menu-item" title="logout">
+                    <span class="loginName" title="logout">
+                        {{#if user.name}}
+                        {{user.name}}
+                        {{else}}
+                        {{user.email}}
+                        {{/if}}
+                    </span>
+                    <span class="sprite loginType icon icon-{{user.provider}}"></span>
+                    <b class="caret"></b>
+                </a>
+                <ul class="dropdown-menu">
+                    <li>
+                        {{#if (equals pageId "wifis")}}
+                        {{assign "logout_redirect" "/"}}
+                        {{else}}
+                        {{assign "logout_redirect" urlWithoutQuery}}
+                        {{/if}}
+                        <a href="/auth/logout?redirect={{logout_redirect}}">{{__ "label.logout"}}</a>
+                    </li>
+                </ul>
+                {{else}}
+                <a href="/{{getLocale}}/login" class="dropdown-toggle">{{__ "label.signin"}}<b class="caret"></b></a>
+                <ul class="dropdown-menu">
+                    <li>
+                        <a class="googleLogin" href="/auth/login/google" title="Login with google" rel="nofollow">
+                            <span>{{__ "login.google.hint"}}</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="facebookLogin" href="/auth/login/facebook" title="Login with Facebook" rel="nofollow">
+                            <span>{{__ "login.facebook.hint"}}</span>
+                        </a>
+                    </li>
+                </ul>
+                {{/if}}
+            </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+--}}

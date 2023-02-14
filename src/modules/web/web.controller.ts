@@ -1,4 +1,4 @@
-import { Get, Post, All, Controller, Res, Param, Session, HttpStatus, UseGuards, Body, Next, Render } from '@nestjs/common';
+import { Get, Post, All, Controller, Req, Res, Param, Session, HttpStatus, UseGuards, Body, Next, Render, UseInterceptors } from '@nestjs/common';
 import { Response, NextFunction } from 'express';
 import { ConfigService } from '../config/config.service';
 import { WifiRepo } from '../data/wifi/wifi.repo';
@@ -6,12 +6,13 @@ import { CommsService } from '../comms/comms.service';
 import { Message } from '../data/message/message.model';
 import { Wifi } from '../data/wifi/wifi.model';
 import { AuthGuard } from '../auth/auth.guard';
-import { LANGUAGES_REGEX } from './middleware/i18n.middleware';
+import { I18nMiddleware } from './middleware/i18n.middleware';
 import { Recaptcha, RecaptchaResult, RecaptchaVerificationResult } from '@nestlab/google-recaptcha';
 import * as i18n from 'i18n';
 
 @Controller()
 export class WebController {
+    private static LANGUAGES_REGEX : string = I18nMiddleware.LANGUAGES.join("|");
     private static WIFI_URL: string = ":wifiId([a-zA-Z0-9\_\-]{3,20})/:wifiIdSuffix(*)?";
     private static HOMEPAGE_URL: string = "";
 
@@ -21,22 +22,25 @@ export class WebController {
         private readonly commsService: CommsService,
     ) { }
 
-    @Get([WebController.HOMEPAGE_URL, `:lang(${LANGUAGES_REGEX})`, `:lang(${LANGUAGES_REGEX})/:pageId(about|faq|press|tos|languages|login)`])
-    getPages(@Res() response: Response, @Param('pageId') pageId: string = "home") {
-        return response.render(pageId);
+    @All([WebController.HOMEPAGE_URL, `:lang(${WebController.LANGUAGES_REGEX})`, `:lang(${WebController.LANGUAGES_REGEX})/:pageId(about|contact|faq|tos|press|languages|login)`])
+    getPages(@Res() response: Response, @Next() next: NextFunction, @Param('pageId') pageId: string = "home") {
+        var viewname = ["about", "contact", "faq", "tos"].includes(pageId) ? "page" : pageId;
+        response.render(viewname, (err: Error, html: string) => I18nMiddleware.tagsReplacement(err, html, next, response));
     }
 
-    @Get(`:lang(${LANGUAGES_REGEX})/wifis`)
+    @Get(`:lang(${WebController.LANGUAGES_REGEX})/wifis`)
     @UseGuards(AuthGuard)
-    async getWifis(@Res() response: Response, @Session() session: Record<string, any>) {
-        return response.render("wifis", {
-            "wifis": await this.wifiRepo.getAllByUserId(session.user.id)
-        });
+    async getWifis(@Res() response: Response, @Next() next: NextFunction, @Session() session: Record<string, any>) {
+        return response.render(
+            "wifis",
+            { "wifis": await this.wifiRepo.getAllByUserId(session.user.id) },
+            (err: Error, html: string) => I18nMiddleware.tagsReplacement(err, html, next, response)
+        );
     }
 
-    @Get(`_js/config_:lang(${LANGUAGES_REGEX}).js`)
+    @Get(`js/translation/:lang(${WebController.LANGUAGES_REGEX}).js`)
     async javascript1(@Res() response: Response, @Param('lang') lang: string) {
-        var configJson = JSON.stringify({lang: lang, translations: i18n.getCatalog(lang)});
+        var configJson = JSON.stringify({ lang: lang, translations: i18n.getCatalog(lang) });
         return response.contentType("application/javascript").send(`var config = ${configJson};`);
     }
 
@@ -46,6 +50,7 @@ export class WebController {
     @All(WebController.WIFI_URL)
     async requestWifi(@Res() response: Response, @Next() next: NextFunction,
         @Param('wifiId') wifiId: string, @Param('wifiIdSuffix') wifiIdSuffix: string) {
+        response.locals.pageId = "wifi";
         response.locals.wifiId = wifiId;
         response.locals.wifiIdSuffix = wifiIdSuffix;
 
@@ -64,8 +69,9 @@ export class WebController {
     }
 
     @Get(WebController.WIFI_URL)
-    @Render("wifi")
-    async getWifi() { }
+    async getWifi(@Res() response: Response, @Next() next: NextFunction) {
+        response.render("wifi", (err: Error, html: string) => I18nMiddleware.tagsReplacement(err, html, next, response));
+    }
 
     @Post(WebController.WIFI_URL)
     @Recaptcha()

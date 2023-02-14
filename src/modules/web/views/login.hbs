@@ -1,41 +1,32 @@
-{{assign "title" (__ "login.headline")}}
+<div class="loginButtons text-center">
+    <b>{{{__ "login.buttonPrefix"}}}</b><br><br>
 
-<h2>{{{__ "login.headline"}}}</h2>
+    <a class="btn btn-outline-secondary googleLogin" href="/auth/login/google" title="{{__ "login.google.hint"}}" rel="nofollow">
+        <span class="sprite googleLoginImage"><b>{{{__ "login.google.hint"}}}</b></span>
+    </a><br>
 
-<div class="login">
-    <div class="loginButtons">
-        <b>{{{__ "login.buttonPrefix"}}}</b>
-        <a class="btn googleLogin" href="/auth/login/google" title="{{__ "login.google.hint"}}" rel="nofollow">
-            <span class="sprite googleLoginImage"><b>{{{__ "login.google.hint"}}}</b></span>
-        </a>
-        <br>
-        <br>
-        <b>{{{__ "login.buttonPrefix"}}}</b>
-        <a class="btn facebookLogin" href="/auth/login/facebook" title="{{__ "login.facebook.hint"}}" rel="nofollow">
-            <span class="sprite facebookLoginImage"><b>{{{__ "login.facebook.hint"}}}</b></span>
-        </a>
-        
-        {{#if (equals env "development")}}
-        <br>
-        <br>
+    <a class="btn btn-outline-secondary facebookLogin" href="/auth/login/facebook" title="{{__ "login.facebook.hint"}}" rel="nofollow">
+        <span class="sprite facebookLoginImage"><b>{{{__ "login.facebook.hint"}}}</b></span>
+    </a><br>
+
+    {{#if (equals env "development")}}
         <form action="/auth/login/local" method="post">
             <input name="username" id="username" type="hidden" value="dummy_username">
             <input name="password" id="password" type="hidden" value="dummy_password">
-            <button type="submit">Dummy Login</button>
-        </form>
-        {{/if}}
-    </div>
+            <button class="btn btn-outline-secondary" type="submit">Dummy Login</button>
+        </form><br>
+    {{/if}}
+</div>
 
-    <div class="loginHelpText">
-        <b>{{{__ "login.text.0"}}}</b>
+<div class="loginHelpText">
+    <b>{{{__ "login.text.0"}}}</b>
 
-        <ol>
-            <li>{{& __ "login.text.1"}}</li>
-            <li>{{& __ "login.text.2"}}
-                <a href="https://support.google.com/accounts/answer/112802" target="_blank"
-                    title="{{__ "login.googleHelpLinkHintText"}}" rel="nofollow">Google</a>,
-                <a href="http://www.facebook.com/help/?faq=212800608741834#Is-it-safe-to-login-with-Facebook-on-another-site"
-                    target="_blank" title="{{__ "login.facebookHelpLinkHintText"}}" rel="nofollow">Facebook</a>
-            </li>
-    </div>
+    <ol>
+        <li>{{& __ "login.text.1"}}</li>
+        <li>{{& __ "login.text.2"}}
+            <a href="https://support.google.com/accounts/answer/112802" target="_blank"
+                title="{{__ "login.googleHelpLinkHintText"}}" rel="nofollow">Google</a>,
+            <a href="http://www.facebook.com/help/?faq=212800608741834#Is-it-safe-to-login-with-Facebook-on-another-site"
+                target="_blank" title="{{__ "login.facebookHelpLinkHintText"}}" rel="nofollow">Facebook</a>
+        </li>
 </div>

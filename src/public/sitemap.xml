@@ -29,30 +29,19 @@
     <changefreq>always</changefreq>
   </url>
   <url>
-    <loc>https://wifis.org/example?lang=en</loc>
-    <priority>0.7</priority>
-    <xhtml:link rel="alternate" hreflang="de" href="https://wifis.org/example?lang=de" />
-    <xhtml:link rel="alternate" hreflang="es" href="https://wifis.org/example?lang=es" />
-    <xhtml:link rel="alternate" hreflang="fr" href="https://wifis.org/example?lang=fr" />
-    <xhtml:link rel="alternate" hreflang="it" href="https://wifis.org/example?lang=it" />
-    <xhtml:link rel="alternate" hreflang="ms" href="https://wifis.org/example?lang=ms" />
-    <xhtml:link rel="alternate" hreflang="nl" href="https://wifis.org/example?lang=nl" />
-    <xhtml:link rel="alternate" hreflang="ru" href="https://wifis.org/example?lang=ru" />
-  </url>
-  <url>
-    <loc>https://wifis.org/en/press</loc>
+    <loc>https://wifis.org/en/contact</loc>
     <priority>0.6</priority>
-    <xhtml:link rel="alternate" hreflang="de" href="https://wifis.org/de/press" />
-    <xhtml:link rel="alternate" hreflang="es" href="https://wifis.org/es/press" />
-    <xhtml:link rel="alternate" hreflang="fr" href="https://wifis.org/fr/press" />
-    <xhtml:link rel="alternate" hreflang="it" href="https://wifis.org/it/press" />
-    <xhtml:link rel="alternate" hreflang="ms" href="https://wifis.org/ms/press" />
-    <xhtml:link rel="alternate" hreflang="nl" href="https://wifis.org/nl/press" />
-    <xhtml:link rel="alternate" hreflang="ru" href="https://wifis.org/ru/press" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://wifis.org/de/contact" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://wifis.org/es/contact" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://wifis.org/fr/contact" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://wifis.org/it/contact" />
+    <xhtml:link rel="alternate" hreflang="ms" href="https://wifis.org/ms/contact" />
+    <xhtml:link rel="alternate" hreflang="nl" href="https://wifis.org/nl/contact" />
+    <xhtml:link rel="alternate" hreflang="ru" href="https://wifis.org/ru/contact" />
   </url>
   <url>
     <loc>https://wifis.org/en/about</loc>
-    <priority>0.5</priority>
+    <priority>0.6</priority>
     <xhtml:link rel="alternate" hreflang="de" href="https://wifis.org/de/about" />
     <xhtml:link rel="alternate" hreflang="es" href="https://wifis.org/es/about" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://wifis.org/fr/about" />
@@ -62,7 +51,18 @@
     <xhtml:link rel="alternate" hreflang="ru" href="https://wifis.org/ru/about" />
   </url>
   <url>
-    <loc>https://wifis.org/contact?lang=en</loc>
+    <loc>https://wifis.org/example</loc>
+    <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="de" href="https://wifis.org/example?lang=de" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://wifis.org/example?lang=es" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://wifis.org/example?lang=fr" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://wifis.org/example?lang=it" />
+    <xhtml:link rel="alternate" hreflang="ms" href="https://wifis.org/example?lang=ms" />
+    <xhtml:link rel="alternate" hreflang="nl" href="https://wifis.org/example?lang=nl" />
+    <xhtml:link rel="alternate" hreflang="ru" href="https://wifis.org/example?lang=ru" />
+  </url>
+  <url>
+    <loc>https://wifis.org/contact</loc>
     <priority>0.5</priority>
     <xhtml:link rel="alternate" hreflang="de" href="https://wifis.org/contact?lang=de" />
     <xhtml:link rel="alternate" hreflang="es" href="https://wifis.org/contact?lang=es" />
@@ -85,7 +85,7 @@
   </url>
   <url>
     <loc>https://wifis.org/en/login</loc>
-    <priority>0.5</priority>
+    <priority>0.2</priority>
     <xhtml:link rel="alternate" hreflang="de" href="https://wifis.org/de/login" />
     <xhtml:link rel="alternate" hreflang="es" href="https://wifis.org/es/login" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://wifis.org/fr/login" />
@@ -96,13 +96,6 @@
   </url>
   <url>
     <loc>https://wifis.org/en/languages</loc>
-    <priority>0.5</priority>
-    <xhtml:link rel="alternate" hreflang="de" href="https://wifis.org/de/languages" />
-    <xhtml:link rel="alternate" hreflang="es" href="https://wifis.org/es/languages" />
-    <xhtml:link rel="alternate" hreflang="fr" href="https://wifis.org/fr/languages" />
-    <xhtml:link rel="alternate" hreflang="it" href="https://wifis.org/it/languages" />
-    <xhtml:link rel="alternate" hreflang="ms" href="https://wifis.org/ms/languages" />
-    <xhtml:link rel="alternate" hreflang="nl" href="https://wifis.org/nl/languages" />
-    <xhtml:link rel="alternate" hreflang="ru" href="https://wifis.org/ru/languages" />
+    <priority>0.2</priority>
   </url>
 </urlset>

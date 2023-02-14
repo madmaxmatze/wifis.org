@@ -1,4 +1,5 @@
 {
+    "lang": "en",
     "label": {
         "lang": {
             "de": "Deutsch",
@@ -19,10 +20,12 @@
         "mainTeaser": "A Contact Form For Your Wi-Fi Network.",
         "description": "A Contact Form For Your Wi-Fi Network. Easy, secure and anonymous. Join us!",
         "logo": {
-            "hint": "www.wifis.org"
+            "hint": "wifis.org"
         },
         "logout": "Logout",
         "signin": "Login",
+        "signup": "Signup",
+        "social": "Social",
         "footer": {
             "text": "&copy; wifis.org",
             "switchToMobile": "back to mobile version",
@@ -33,55 +36,184 @@
             }
         },
         "otherwebsite": {
-            "title": "more"
+            "title": "More"
         }
     },
     "twitterMsg": "With @wifis_org your neighbors can contact you through your Wi-Fi name. Visit",
-    "blog": {
-        "linklabel": "blog"
-    },
-    "homepage": {
-        "headline": "Home",
-        "linklabel": "Home",
-        "text": [
-            "<h1>With wifis.org your Wi-Fi can receive emails<\/h1> <blockquote class=\"bubble1\"><p>\"Hi, would you like to share your Wi-Fi for a monthly payment?\" <\/p><\/blockquote> <blockquote class=\"bubble2\"><p>\"I just moved into this building and saw your Wi-Fi. Want to grab a beer?\"<\/p><\/blockquote> <\/div><div class=\"content\"> <h2>How does it work?<\/h2>",
-            "<div class=\"how_to_subtext\"> (Learn more about this free and anonymous service in <a href=\"\/p\/faq\">FAQ<\/a>) <\/div> <\/div><div class=\"content\">"
-        ],
-        "wifichecker": "Choose your personal wifis.org ID:",
-        "joinButton": "Join now",
-        "teasers" : [
-            "<b>YOU<\/b> rename your Wi-Fi network",
-            "<b>OTHERS<\/b> see your wifis.org url",
-            "<b>WIFIS.ORG<\/b> allows others to contact you"
-        ]
-    },
     "404": {
         "headline": "404 Error",
         "linklabel": "404 Error",
         "text": "Page not found"
     },
     "about": {
-        "headline": "about",
-        "linklabel": "about",
-        "text": "<h3>We are making the world's Wi-Fi networks social<\/h3> <div class=\"indent\"> Founded in December of 2011 in Berlin www.wifis.org helps neighbors to get in touch through their Wi-Fi network.<br> It's easy, social and free. Give it a shot and let us know what you think. <\/div> <h3>About us<\/h3>  <div class=\"indent\"> <b>Team:<\/b> {0}<br> <b>Supporter:<\/b> {1} <\/div><h3>Contact us<\/h3> <div class=\"indent\"> Your feedback and support is very much appreciated: {2} Mail us to {3} {4} Write to our Wi-Fi: {5} {6} Follow us on {7} {8} Like us on {9} {10} Circle and +1 us on {11} {12} Follow our {13} <\/div>"
+        "headline": "About",
+        "linklabel": "About",
+        "content" : [
+            {
+                "headline": "We are making the world's Wi-Fi networks social",
+                "text": [
+                    "Founded in December of 2011 in Berlin wifis.org helps neighbors to get in touch through their Wi-Fi network.<br> It's easy, social and free. Give it a shot and let us know what you think."
+                ]
+            },
+            {
+                "headline": "About us",
+                "text": [
+                    "<p><b>Team:</b> {__about.team}</p>",
+                    "<p><b>Supporter:</b> {__about.supporter}</p>"
+                ]
+            }
+        ],
+        "team": [
+            "<a href='https://mathiasnitzsche.de' target='_blank'>Mathias</a>",
+            "<span style='color: #BBB'>(Founder, Coder),</span>",
+            "<a href='https://www.linkedin.com/in/hoehne/' target='_blank'>Robert</a>",
+            "<span style='color: #BBB'>(Product),</span>",
+            "Malena <span style='color: #BBB'>(Marketing/User Support),</span>",
+            "<a href='https://vonverhille.tumblr.com/' target='_blank'>James</a>",
+            "<span style='color: #BBB'>(Design)</span>"
+        ],
+        "supporter": [
+            "Howard <span style='color: #BBB'>(ES-Translation),</span>",
+            "<a href='https://www.facebook.com/karenkennes22' target='_blank'>Karen</a>",
+            "<span style='color: #BBB'>(NL-Translation),</span>",
+            "<a href='https://www.linkedin.com/in/lorenzotubertini' target='_blank'>Lorenzo</a>",
+            "<span style='color: #BBB'>(IT-Translation),</span>",
+            "<a href='https://jobberies.com' target='_blank'>Muhaimin</a>",
+            "<span style='color: #BBB'>(MS-Translation),</span>",
+            "<a href='https://ravenstalker.wordpress.com' target='_blank'>ArnO</a>",
+            "<span style='color: #BBB'>&amp;</span>",
+            "<a href='https://twitter.com/russelomua' target='_blank'>Николай</a>",
+            "<span style='color: #BBB'>(RU-Translation)</span>"
+        ]
+    },
+    "blog": {
+        "linklabel": "Blog"
+    },
+    "contact": {
+        "headline": "Contact",
+        "linklabel": "Contact",
+        "htmlTemplate": [
+            "<p>{__contact.introText}</p>",
+            "<p>",
+                "<span class='sprite icon32 icon32-mail'></span>",
+                "{__contact.mailText}",
+                "<b>&#105;&#110;&#102;&#111;&#64;&#119;&#105;&#102;&#105;&#115;&#46;&#111;&#114;&#103;</b>",
+            "</p>",
+            "<p>",
+                "<a href='/contact' class='sprite icon32 icon32-wifi'></a>",
+                "{__contact.wifiText}",
+                "<a href='/contact'>wifis.org/contact</a>",
+            "</p>",
+            "<p>",
+                "<a href='https://twitter.com/wifis_org' target='_blank' class='sprite icon32 icon32-twitter'></a>",
+                "{__contact.twitterText}",
+                "<a href='https://twitter.com/wifis_org' target='_blank'>Twitter</a>",
+            "</p>",
+            "<p>",
+                "<a href='https://www.facebook.com/wifis.org' target='_blank' class='sprite icon32 icon32-facebook'></a>",
+                "{__contact.facebookText}",
+                "<a href='https://www.facebook.com/wifis.org' target='_blank'>Facebook</a>",
+            "</p>",
+            "<p>",
+                "<a href='https://blog.wifis.org' target='_blank' class='sprite icon32 icon32-tumblr'></a>",
+                "{__contact.blogText}",
+                "<a href='https://blog.wifis.org' target='_blank'>Blog</a>",
+            "</p>"
+        ],
+        "content": [{
+            "text": ["{__contact.htmlTemplate}"]
+        }],
+        "introText": "Your feedback and support is very much appreciated:",
+        "mailText": "Mail us to",
+        "wifiText": "Write to our Wi-Fi",
+        "twitterText" : "Follow us on",
+        "facebookText": "Like us on",
+        "blogText": "Follow our"
     },
     "faq": {
-        "headline": "faq",
-        "linklabel": "faq",
-        "text": "<h3 name=\"why\">Why would I change the name of my Wi-Fi network?<\/h3> <div class=\"indent\"> <p> You don’t just change the name (SSID) of your Wi-Fi network. By setting up your own wifis.org url (like <a href=\"\/example\">www.wifis.org\/example<\/a>), you’ll give anyone in your Wi-Fi range the opportunity to contact you without them knowing who you are and where you live. Friendly neighbors might invite you to have a beer or ask you to share your internet access for a monthly payment. <\/p> <p> wifis.org is a new way of getting in touch with people around you. Be part of the community. <a href=\"\/p\/login\">Join us.<\/a> <\/p> <\/div> <h3>What does it cost me?<\/h3> <div class=\"indent\"> <p>Absolutely nothing. wifis.org is and will always be a free service.<\/p> <\/div> <h3>How do I set up an account and register my own url?<\/h3> <div class=\"indent\"> <p>Follow these steps:<\/p> <ol> <li><a href=\"\/p\/login\">Log in<\/a> with your Google or Facebook account.<\/li> <li>Choose your wifis.org url.<\/li> <li>Go to the settings of your wireless router or modem.<\/li> <li>Change your wifi network’s name to your wifis.org url. (You need to change the SSID of your wireless router or modem.)<\/li> <li>Your wifi network should look like this now: <a href=\"\/example\">wifis.org\/example<\/a><\/li> <li>Oh, and while you’re at it, make sure your Wi-Fi network is visible and secured with a password.<\/li> <\/ol> <p>That’s all you have to do. Everyone within your Wi-Fi coverage will now be able to contact you by entering your wifis.org url in their browser window.<\/p> <\/div> <h3>Can anyone use wifis.org?<\/h3> <div class=\"indent\"> <p>Of course! All you have to know is how to change the name (SSID) of your Wi-Fi network. Obviously, your wireless router or modem has to support characters like ‘\/’ and ‘.’. Please <a href=\"\/p\/about\">let us know<\/a>, if you run into troubles.<\/p> <\/div> <h3>How secure is wifis.org?<\/h3> <div class=\"indent\"> <p>wifis.org is 100% anonymous and secure!<\/p> <ul> <li>You or your Wi-Fi network cannot be located through our website.<\/li> <li>Your email address, your wifis.org ID and your messages are being securely saved in order to provide our service. Of course, none of your data will ever be exposed to third parties.<\/li> <li>We only support logins with Facebook (<a href=\"https:\/\/www.facebook.com\/help\/405977429438260\" target=\"_blank\" title=\"More information about facebook login\">?<\/a>) and Google (<a href=\"http:\/\/www.google.com\/support\/accounts\/bin\/answer.py?answer=112802\" target=\"_blank\" title=\"More information about google login\">?<\/a>) at this time. Rest assured that we will never know, save or lose your password.<\/li> <\/ul> <p>Further information can be found in our <a href=\"\/p\/tos\">Terms Of Service<\/a>.<\/p><\/div>     <h3 name=\"why\">How to delete your account and data?<\/h3> <div class=\"indent\"> <p> wifis.org only saves the absolute minimum amount of data required: your email and name. If you nevertheless want to make sure this data is deleted, please request a deletion with an email to info@wifis.org</p></div>",
-        "question": {
-            "where": "Where is wifis.org used?"
-        }
+        "headline": "FAQs",
+        "linklabel": "FAQs",
+        "content": [
+            {
+                "headline": "Why would I change the name of my Wi-Fi network?",
+                "text": [
+                    "You don’t just change the name (SSID) of your Wi-Fi network. By setting up your own wifis.org url (like <a href='/example'>wifis.org/example</a>),you’ll give anyone in your Wi-Fi range the opportunity to contact you without them knowing who you are and where you live. ",
+                    "Friendly neighbors might invite you to have a beer or ask you to share your internet access for a monthly payment. ",
+                    "wifis.org is a new way of getting in touch with people around you. Be part of the community. "
+                ]
+            },
+            {
+                "headline": "How much does it cost?",
+                "text": [
+                    "Absolutely nothing. wifis.org is and will always be a free service."
+                ]
+            },
+            {
+                "headline": "What do I have to do?",
+                "text": [
+                    "Follow these steps:",
+                    "<ol> <li><a href='/{__lang}/login'>Log in</a> with your Google or Facebook account.</li> <li>Choose your wifis.org url.</li> <li>Go to the settings of your wireless router or modem.</li> <li>Change your wifi network’s name to your wifis.org url. (You need to change the SSID of your wireless router or modem.)</li> <li>Your wifi network should look like this now: <a href='/example'>wifis.org/example</a></li> <li>Oh, and while you’re at it, make sure your Wi-Fi network is visible and secured with a password.</li> </ol>",
+                    "That’s all you have to do. Everyone within your Wi-Fi coverage will now be able to contact you by entering your wifis.org url in their browser window."
+                ]
+            },
+            {
+                "headline": "Can anyone use wifis.org?",
+                "text": [
+                    "Of course!",
+                    "All you have to know is how to change the name (SSID) of your Wi-Fi network. Obviously, your wireless router or modem has to support characters like ‘/’ and ‘.’. Please <a href='/{__lang}/contact'>let us know</a>, if you run into troubles."
+                ]
+            },
+            {
+                "headline": "How secure is wifis.org?",
+                "text": [
+                    "wifis.org is 100% anonymous and secure!",
+                    "You or your Wi-Fi network cannot be located through our website.</li> <li>Your email address, your wifis.org ID and your messages are being securely saved in order to provide our service. Of course, none of your data will ever be exposed to third parties.</li> <li>We only support logins with Facebook (<a href='https://www.facebook.com/help/405977429438260' target='_blank' title='More information about facebook login'>?</a>) and Google (<a href='http://www.google.com/support/accounts/bin/answer.py?answer=112802' target='_blank' title='More information about google login'>?</a>) at this time. Rest assured that we will never know, save or lose your password.</li> </ul>",
+                    "Further information can be found in our <a href='/{__lang}/tos'>Terms Of Service</a>."
+                ]
+            },
+            {
+                "headline": "Anything else?",
+                "text": [
+                    "Just sign up and discover many more features like",
+                    "{__wifi.exampleHtml}"
+                ]
+            },
+            {
+                "headline": "How to delete your account and data?",
+                "text": [
+                    "wifis.org only saves the absolute minimum amount of data required: your email and name. If you nevertheless want to make sure this data is deleted, please request a deletion with an email to info@wifis.org"
+                ]
+            }
+        ],
+        "where": "Where is wifis.org used?"
+    },
+    "home": {
+        "headline": "With wifis.org your Wi-Fi can receive emails",
+        "linklabel": "Home",
+        "quotes": [
+            "'Hi, would you like to share your Wi-Fi for a monthly payment?'",
+            "'I just moved into this building and saw your Wi-Fi. Want to grab a beer?'"
+        ],
+        "howToHeadline": "How does it work?",
+        "howToText": "Learn more about this free and anonymous service in <a href='/{__lang}/faq'>FAQ</a>",
+        "wifichecker": "Choose your personal wifis.org ID:",
+        "teasers": [
+            "<b>YOU</b> rename your Wi-Fi network",
+            "<b>OTHERS</b> see your wifis.org url",
+            "<b>WIFIS.ORG</b> allows others to contact you"
+        ]
+    },
+    "languages": {
+        "headline": "Choose your language",
+        "linklabel": "Languages"
     },
     "login": {
         "headline": "Login",
         "linklabel": "Login",
         "text": [
             "wifis.org only allows login with your existing Google or Facebook account. The two main reasons are:",
-        
-            "<b style=\"color: #333\">Your comfort:<\/b> You don’t have to fill out any registration forms or confirm your email address.",
-        
-            "<b style=\"color: #333\">Your privacy and security:<\/b> Since we don’t know or store your password or any personal information, we can guarantee that we will never lose your data. Further information about these secure login methods can be found here: "
+            "<b style='color: #333'>Your comfort:</b> You don’t have to fill out any registration forms or confirm your email address.",
+            "<b style='color: #333'>Your privacy and security:</b> Since we don’t know or store your password or any personal information, we can guarantee that we will never lose your data. Further information about these secure login methods can be found here: "
         ],
         "buttonPrefix": "Login with",
         "facebookHelpLinkHintText": "More information about Facebook 3rd party login",
@@ -98,23 +230,61 @@
         "notPossibleOnMobileDevice": "Oops, unfortunately you can’t log in using the mobile version of wifis.org. Please proceed to our desktop version: {0}"
     },
     "press": {
-        "headline": "press",
+        "headline": "Press",
         "linklabel": "press",
-        "text": "Bellow you find a collection of the recent press coverage we received. Feel free to use screenshots of the website or <a href=\"https:\/\/picasaweb.google.com\/110726804868278117649\/WifisOrg\" target=\"_blank\">these image resources<\/a> for you article. For inquiries please <a href=\"\/p\/about\">contact us<\/a> and thanks a lot for your support!"
+        "text": "Bellow you find a collection of the recent press coverage we received. Feel free to use screenshots of the website or <a href='https://picasaweb.google.com/110726804868278117649/WifisOrg' target='_blank'>these image resources</a> for you article. For inquiries please <a href='/{__lang}/about'>contact us</a> and thanks a lot for your support!"
     },
     "stats": {
         "headline": "wifis.org stats",
         "linklabel": "stats"
     },
     "tos": {
-        "headline": "terms of service",
-        "linklabel": "terms of service",
-        "introMsg" : "",
-        "text": "<h3>1. Accepting the Terms<\/h3> <div class=\"indent\"> <ul> <li>In order to use our Services, you must first agree to the Terms. You may not use the Services if you don’t accept the Terms.<\/li> <li>By actually using our Services, you understand and agree that wifis.org will treat your use of the Services as acceptance of the Terms from that point onwards.<\/li> <\/ul> <\/div> <h3>2. Provision of the Services by wifis.org<\/h3> <div class=\"indent\"> <ul> <li>wifis.org is constantly innovating in order to provide the best possible experience for its users. You acknowledge and agree that the form and nature of the Services which wifis.org provides may change from time to time without prior notice to you.<\/li> <li>As part of this continuing innovation, you acknowledge and agree that wifis.org may stop (permanently or temporarily) providing the Services (or any features within the Services) to you or to users generally, without prior notice to you. You may stop using the Services at any time. You do not need to specifically inform wifis.org when you stop using the Services.<\/li> <\/ul> <\/div> <h3>3. Use of the Services by you<\/h3> <div class=\"indent\"> <ul> <li>In order to access certain Services, you may be required to provide information about yourself (such as identification or contact details) as part of the registration process for the Service, or as part of your continued use of the Services. You agree that any registration information you give to wifis.org will always be accurate, correct and up to date.<\/li> <li>You agree to use the Services only for purposes that are permitted by (a) the Terms and (b) any applicable law, regulation or generally accepted practices or guidelines in the relevant jurisdictions.<\/li> <li>You agree that you will not engage in any activity that interferes with or disrupts the Services (or the servers and networks which are connected to the Services).<\/li> <li>You agree that you are solely responsible for (and that wifis.org has no responsibility to you or to any third party for) any breach of your obligations under the Terms and for the consequences of any such breach.<\/li> <\/ul> <\/div> <h3>4. Your passwords and account security<\/h3> <div class=\"indent\"> <ul> <li>You agree and understand that you are responsible for maintaining the confidentiality of passwords associated with any account you use to access the Services.<\/li> <li>Accordingly, you agree that you will be solely responsible to wifis.org for all activities that occur under your account.<\/li> <\/ul> <\/div> <h3>5. Content in the Services<\/h3> <div class=\"indent\"> <ul> <li>You agree that you are solely responsible for (and that wifis.org has no responsibility to you or to any third party for) any Content that you create, transmit or display while using the Services and for the consequences of your actions (including any loss or damage which wifis.org may suffer) by doing so.<\/li> <\/ul> <\/div> <h3>6. Proprietary rights<\/h3> <div class=\"indent\"> <ul> <li>You acknowledge and agree that wifis.org owns all legal rights, title and interest in and to the Services, including any intellectual property rights which subsist in the Services (whether those rights happen to be registered or not, and wherever in the world those rights may exist). You further acknowledge that the Services may contain information which is designated confidential by wifis.org and that you shall not disclose such information without wifis.org’s prior written consent.<\/li> <li>Unless you have agreed otherwise in writing with wifis.org, nothing in the Terms gives you a right to use any of wifis.org’s trade names, trade marks, service marks, logos, domain names, and other distinctive brand features.<\/li> <\/ul> <\/div> <h3>7. Limitation of liability<\/h3> <div class=\"indent\"> <ul> <li>You agree that wifis.org shall not be liable to you for (a) any changes which wifis.org may make to the Services (or any features within the Services) and (b) the deletion of, corruption of, or failure to store, any content and other communications data maintained or transmitted by or through your use of the Services.<\/li> <\/ul> <\/div>"
+        "headline": "Terms of service",
+        "linklabel": "Terms of service",
+        "content" : [{
+            "text": ["{__tos.termsOfService}"]
+        }],
+        "termsOfService": [
+            "<h3>1. Accepting the Terms</h3>",
+            "<ul>",
+                "<li>In order to use our Services, you must first agree to the Terms. You may not use the Services if you don’t accept the Terms.</li>",
+                "<li>By actually using our Services, you understand and agree that wifis.org will treat your use of the Services as acceptance of the Terms from that point onwards.</li>",
+            "</ul>",
+            "<h3>2. Provision of the Services by wifis.org</h3>",
+            "<ul>",
+                "<li>wifis.org is constantly innovating in order to provide the best possible experience for its users. You acknowledge and agree that the form and nature of the Services which wifis.org provides may change from time to time without prior notice to you.</li>",
+                "<li>As part of this continuing innovation, you acknowledge and agree that wifis.org may stop (permanently or temporarily) providing the Services (or any features within the Services) to you or to users generally, without prior notice to you. You may stop using the Services at any time. You do not need to specifically inform wifis.org when you stop using the Services.</li>",
+            "</ul>",
+            "<h3>3. Use of the Services by you</h3>",
+            "<ul>",
+                "<li>In order to access certain Services, you may be required to provide information about yourself (such as identification or contact details) as part of the registration process for the Service, or as part of your continued use of the Services. You agree that any registration information you give to wifis.org will always be accurate, correct and up to date.</li>",
+                "<li>You agree to use the Services only for purposes that are permitted by (a) the Terms and (b) any applicable law, regulation or generally accepted practices or guidelines in the relevant jurisdictions.</li>",
+                "<li>You agree that you will not engage in any activity that interferes with or disrupts the Services (or the servers and networks which are connected to the Services).</li>",
+                "<li>You agree that you are solely responsible for (and that wifis.org has no responsibility to you or to any third party for) any breach of your obligations under the Terms and for the consequences of any such breach.</li>",
+            "</ul>",
+            "<h3>4. Your passwords and account security</h3>",
+            "<ul>", 
+                "<li>You agree and understand that you are responsible for maintaining the confidentiality of passwords associated with any account you use to access the Services.</li>",
+                "<li>Accordingly, you agree that you will be solely responsible to wifis.org for all activities that occur under your account.</li>",
+            "</ul>",
+            "<h3>5. Content in the Services</h3>",
+            "<ul>",
+                "<li>You agree that you are solely responsible for (and that wifis.org has no responsibility to you or to any third party for) any Content that you create, transmit or display while using the Services and for the consequences of your actions (including any loss or damage which wifis.org may suffer) by doing so.</li>",
+            "</ul>",
+            "<h3>6. Proprietary rights</h3>",
+            "<ul>",
+                "<li>You acknowledge and agree that wifis.org owns all legal rights, title and interest in and to the Services, including any intellectual property rights which subsist in the Services (whether those rights happen to be registered or not, and wherever in the world those rights may exist). You further acknowledge that the Services may contain information which is designated confidential by wifis.org and that you shall not disclose such information without wifis.org’s prior written consent.</li>",
+                "<li>Unless you have agreed otherwise in writing with wifis.org, nothing in the Terms gives you a right to use any of wifis.org’s trade names, trade marks, service marks, logos, domain names, and other distinctive brand features.</li>",
+            "</ul>",
+            "<h3>7. Limitation of liability</h3>",
+            "<ul>",
+                "<li>You agree that wifis.org shall not be liable to you for (a) any changes which wifis.org may make to the Services (or any features within the Services) and (b) the deletion of, corruption of, or failure to store, any content and other communications data maintained or transmitted by or through your use of the Services.</li>",
+            "</ul>"
+        ]
     },
     "wifis": {
-        "headline": "my Wi-Fis",
-        "linklabel": "my Wi-Fis",
+        "headline": "My Wi-Fis",
+        "linklabel": "My Wi-Fis",
         "text": "Here you can register or delete your wifis.org IDs:",
         "deleteButton": "Delete",
         "enternew": "Enter a Wi-Fi name",
@@ -129,27 +299,39 @@
             "wifiIdTooShort": "Your ID has to be at least 3 characters.",
             "wifiIdTooLong": "We do not support IDs longer than 20 characters.",
             "wrongWifiIdChars": "The only characters allowed are letters, numbers and hyphens.",
-            "maxWifiCountReached": "You have reached your current limit of wifis.org IDs. Try the <b>invite a friend<\/b> link on the right to increase your limit.",
+            "maxWifiCountReached": "You have reached your current limit of wifis.org IDs. Try the <b>invite a friend</b> link on the right to increase your limit.",
             "absoluteWifiLimitReached": "We only allow up to 10 different wifis.org IDs at this point. If you really need more IDs please contact us.",
             "whileWifiDelete": "Oops. There was an error during the deletion process."
         },
         "tips": [
-            "<div class=\"headline\">get another WiFi ID<\/div> <div class=\"text\">Each of your friends who joins wifis.org through <a href=\"{0}\" target=\"_blank\" title=\"This is your personal link to invite friends to wifis.org\">your personal invite link<\/a>, will increase the limit of wifis.org IDs you can register by one.<\/div>",
-                
-            "<div class=\"headline\">url shortening<\/div> <div class=\"text\">Pick your favorite. They all work the same: {1} <\/div>",
-            
-            "<div class=\"headline\">more tips<\/div><div class=\"text\"> <b>Rename your Wi-Fi network<\/b><br> Don’t forget to rename your Wi-Fi network after you registered your wifis.org ID. See <a href=\"\/p\/faq\">FAQ<\/a>. <br><br> <b>One ID for many routers<\/b><br> To use one wifis.org ID for several Wi-Fi routers, you may add any characters you like after a slash “\/” behind your ID: {2} <b>Case sensitivity<\/b><br> wifis.org IDs are not case sensitive. <a href=\"http:\/\/wifis.org\/iphONE\">wifis.org\/iphONE<\/a> will lead to <a href=\"http:\/\/wifis.org\/iPhone\">wifis.org\/iPhone<\/a> <br><br> <b>Spread the word!<\/b><br> Please support our free service by using the Flattr button on the left and by telling your friends. <\/div>"
+            "<div class='headline'>get another WiFi ID</div> <div class='text'>Each of your friends who joins wifis.org through <a href='{0}' target='_blank' title='This is your personal link to invite friends to wifis.org'>your personal invite link</a>, will increase the limit of wifis.org IDs you can register by one.</div>",
+            "<div class='headline'>more tips</div><div class='text'> <b>Rename your Wi-Fi network</b><br> Don’t forget to rename your Wi-Fi network after you registered your wifis.org ID. See <a href='/{__lang}/faq'>FAQ</a>. <br><br> <b>One ID for many routers</b><br> To use one wifis.org ID for several Wi-Fi routers, you may add any characters you like after a slash “/” behind your ID: {2} <b>Case sensitivity</b><br> wifis.org IDs are not case sensitive. <a href='http://wifis.org/iphONE'>wifis.org/iphONE</a> will lead to <a href='http://wifis.org/iPhone'>wifis.org/iPhone</a> <br><br> <b>Spread the word!</b><br> Please support our free service by using the Flattr button on the left and by telling your friends. </div>"
         ]
     },
     "wifi": {
         "headlinePrefix": "Write an email to:",
         "text": {
-            "text": "The owner of this Wi-Fi network signed up for wifis.org to give you the chance to get in touch with them.  You might want to ask for shared internet access or just say \"hello\". Either way, please be kind. Your neighbor will thank you.",
-            "notfound": "The url is not registered yet. Please make sure you have the correct url.<\/p> <p>To register this url, go <a href=\"\/p\/login\/\">here<\/a>.",
-            "mywifi": "<b>You're logged in right now.<\/b> <br> This is a preview of what your wifis.org contact page looks like to visitors."
+            "text": "The owner of this Wi-Fi network signed up for wifis.org to give you the chance to get in touch with them.  You might want to ask for shared internet access or just say 'hello'. Either way, please be kind. Your neighbor will thank you.",
+            "notfound": "The url is not registered yet. Please make sure you have the correct url.</p> <p>To register this url, go <a href='/p/login/'>here</a>.",
+            "mywifi": "<h4>This is your WIFI</h4> Feel free to try out the contact form.<br><br><b>HINT:</b> You can choose your favorite Wifi name:"
         },
+        "urls": {
+            "standard": "Standard",
+            "subdomains": "Sub-Domain",
+            "short": "Short-URL",
+            "subwifis": "Sub-WiFis",
+            "cases": "Lower/Uppercase"
+        },
+        "exampleHtml": [
+            "<ul>",
+                "<li><b>{__wifi.urls.subdomains}:</b> <a href='https://example.wifis.org' rel='nofollow'>example.wifis.org</a></li>",
+                "<li><b>{__wifi.urls.short}:</b> <a href='https://wif.is/example' rel='nofollow'>wif.is/example</a></li>", 
+                "<li><b>{__wifi.urls.subwifis}:</b> <a href='https://wifis.org/example/unter/wlan!' rel='nofollow'>wifis.org/example/unter/wlan!</a></li>",
+                "<li><b>{__wifi.urls.cases}:</b> <a href='https://wifis.org/iPhOnE' rel='nofollow'>wifis.org/iPhOnE</a></li>",
+            "</ul>"
+        ],
         "form": {
-            "contact": "please provide an email or phone number <span style=\"font-weight: normal\">(any way to get in touch with you)<\/span>",
+            "contact": "please provide an email or phone number <span style='font-weight: normal'>(any way to get in touch with you)</span>",
             "message": "your message",
             "send": "send message",
             "mailsent": "Your message has been sent.",

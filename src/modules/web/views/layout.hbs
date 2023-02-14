@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="{{getLocale}}" class="no-js">
+<head>
+    <meta charset="utf-8">
+    <meta name="description" content="{{__ "label.mainTeaser"}}" />
+    <meta name="keywords" content="wifi, wifis, wlan, share, email, contact" />
+    <meta name="author" content="wifis.org" />
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    {{> head_seo }}
+    <link type="text/css" href="https://fonts.googleapis.com/css?family=Bevan" rel="stylesheet" />
+    <link type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.3/css/bootstrap.min.css"
+        rel="stylesheet" />
+    <link type="text/css" href="/css/style.css" rel="stylesheet" />
+    <script src="/js/script.js?{{version}}"></script>
+</head>
+<body class="{{pageId}}_page">
+    {{> debug }}
+
+    <header class="container">
+        {{> header }}
+    </header>
+
+    <main class="container py-1">
+        <div class="container-lg clearfix">
+            {{#with (lookup translations pageId)}}
+                {{#if headline}}
+                    <h2>
+                        {{headline}}
+                        {{#if subheadline}}
+                            <small>{{subheadline}}</small>
+                        {{/if}}
+                    </h2>
+                {{/if}}
+
+                {{#each content}}
+                    {{#if this.headline}}
+                        <h3>{{{this.headline}}}</h3>
+                    {{/if}}
+                    <section>
+                        {{#if this.subHeadline}}
+                            <h4>{{{this.subHeadline}}}</h4>
+                        {{/if}}
+                        {{#each this.text}}
+                            {{{this}}}
+                        {{/each}}
+                    </section>
+                {{/each}}
+            {{/with}}
+
+            {{{body}}}
+        </div>
+    </main>
+
+
+    <footer class="container py-3">
+        {{> footer }}
+    </footer>
+
+    <script type='text/javascript' src='/js/translation/{{getLocale}}.js?{{version}}'></script>
+</body>
+</html>

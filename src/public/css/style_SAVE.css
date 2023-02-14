@@ -1,0 +1,1087 @@
+/* LAYOUT ********************************************************************************* */
+html {
+	overflow-y: scroll;
+}
+body {
+	padding-top: 90px;
+}
+.cms_page .contenttop, .Admin .contenttop {
+	margin-top: 30px;
+}
+
+.js .js-hidden,
+.no-js .no-js-hidden {
+    display: none;
+}
+
+
+/* Background ********************************************************************************* */
+html,
+body,
+.content,
+footer,
+.maincontainer
+{
+	background: #f6f2e9;
+}
+
+
+
+
+/* Background ********************************************************************************* */
+.wifisButton {
+    position: absolute;
+    right: 30px;
+    bottom: 30px;
+    
+	text-decoration: none;
+	border-bottom: 2px dashed #00457C;
+	padding-bottom: 5px;
+}
+.wifisButton:hover {
+	text-decoration: none;
+	border-bottom: 2px solid #FA2A2A;
+}
+
+
+
+/* FONTS ********************************************************************************* */
+h1,
+h2,
+.wifisButton {
+	/* font-family: 'Yanone Kaffeesatz', sans-serif; */
+	font-family: Tahoma, serif;
+	color: #00457c;	
+	font-weight: bold;	
+}
+h2 {
+	font-size: 22pt;
+}
+h2 small {
+	font-size: 15pt;
+}
+h3 {
+	color: #00457c;	
+}
+
+
+
+
+/* Links ********************************************************************************* */
+a,
+.pagination a:hover {
+	text-decoration: none;
+	color : #FA5E2A /* #479bc1 */;
+}
+
+a:hover {
+	color: #FA2A2A;
+	text-decoration: underline;
+}
+
+
+
+
+
+	
+	
+
+
+
+/* Genaral ********************************************************************************* */
+.maincontainer {
+	position: relative;
+	z-index: 10;
+}
+.content {
+	position: relative;
+	padding: 10px;
+	background: white;
+	position: relative;
+	min-height: 400px;
+	padding: 20px;
+	margin-bottom: 20px;
+	-webkit-border-radius: 15px;
+	   -moz-border-radius: 15px;
+	        border-radius: 15px;
+	-webkit-box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+	   -moz-box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+		    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+}
+.home_page .content {
+	min-height: 0;
+}
+h2 {
+	clear: both;
+	border-bottom: 1px solid #AAA;
+	padding-bottom: 5px;
+	margin-bottom: 15px;
+	overflow: hidden;
+}
+h3 {
+	clear: both;
+	font-weight: normal;
+	margin-top: 20px;	
+	margin-bottom: 1px;
+	font-size: 18pt;
+}
+.clear {font-size:0px;clear:both;line-height:0px;}
+.indent {
+	margin-left: 20px;
+}
+
+
+
+.nav-tabs {
+	position: absolute;
+	top: -38px;
+	width: 700px;
+}
+.nav-tabs li {
+	margin-left: 10px; 
+	overflow: hidden;
+
+}
+.nav-tabs li a{
+	-webkit-border-radius: 8px 8px 0 0;
+	   -moz-border-radius: 8px 8px 0 0;
+	        border-radius: 8px 8px 0 0;
+	-webkit-box-shadow: 0 -1px 3px rgba(0, 0, 0, 0.1);
+	   -moz-box-shadow: 0 -1px 3px rgba(0, 0, 0, 0.1);
+		    box-shadow: 0 -1px 3px rgba(0, 0, 0, 0.1);
+	background-color: rgba(255, 255, 255, 0.3);
+	color: #333;
+}	
+.nav-tabs li a:hover {
+	background-color: rgba(255, 255, 255, 0.5);	
+	color: black;
+}
+.nav-tabs .active > a,
+.nav-tabs .active > a:hover {
+   	background-color: white;
+}
+
+
+
+
+
+/* TOPBAR ********************************************************************************* */
+.navbar-fixed-top .navbar-inner, .navbar-static-top .navbar-inner {
+	border-width: 0;
+}
+
+.navbar .navbar-inner {
+	height: 65px;
+	filter: none !important;
+	box-shadow: 0px 0px 10px #444;
+	/*
+	-webkit-border-radius: 0 0 8px 8px;
+	   -moz-border-radius: 0 0 8px 8px;
+	        border-radius: 0 0 8px 8px;
+	width: 940px;
+	background: #555;
+	background: #3d85c6;	
+	*/
+	background: url(/img/bg_top.png) repeat;
+	margin: 0 auto;
+}
+.brand {
+	text-indent: -1000px;
+	background-position: -480px 10px !important;
+	display: block;
+	height: 44px;
+	width: 200px;
+	margin-left: 0px;
+}
+.brand span {
+	font-size: 140%;
+	font-weight: bold;
+}
+.navbar h3 a {
+	padding: 5px 13px 6px;
+}
+
+.navbar .nav > li > a,
+.navbar .nav > li > a:hover {
+ 	color: #EEE;
+	text-shadow: none !important;
+	font-size: 110%;
+}
+
+
+.navbar .nav li.dropdown.open > .dropdown-toggle, .navbar .nav li.dropdown.active > .dropdown-toggle, .navbar .nav li.dropdown.open.active > .dropdown-toggle,
+.navbar .nav > .active > a, .navbar .nav > .active > a:hover, .navbar .nav > .active > a:focus,
+.navbar .nav > li > a:hover {
+	color: #EEE;
+	background-color: rgba(0, 0, 0, 0.2) !important;
+}
+
+
+.navbar .nav li.dropdown > .dropdown-toggle .caret {
+	border-top-color: #EEE;
+	border-bottom-color: #EEE;
+}
+
+.navbar .nav li.dropdown.open > .dropdown-toggle .caret, .navbar .nav li.dropdown.active > .dropdown-toggle .caret, .navbar .nav li.dropdown.open.active > .dropdown-toggle .caret {
+	border-top-color: #FFF;
+	border-bottom-color: #FFF;
+}
+
+
+
+.navbar .pull-left,
+.navbar .pull-right {
+	margin: 25px 0 0 0 !important;	
+}
+#langDropDown .dropdown-menu {
+	float: right;
+	min-width: 50px !important;
+}
+#langDropDown .dropdown-menu li .flag {
+	display: inline-block;
+	margin-right: 5px;
+	vertical-align: bottom;
+}
+.dropdown-menu a {
+	padding: 6px 15px;
+}
+#langDropDown .dropdown-toggle {
+	white-space: nowrap;
+}
+#langDropDown .dropdown-toggle .flag {
+	float: left;
+}
+
+.navbar li {
+	margin-left: 10px;
+}
+.nav .dropdown-menu li {
+	margin-left: 0px;
+}
+.nav .dropdown-menu li a {
+	color: #555 !important;
+	text-shadow: none !important;	
+}
+.nav .dropdown-menu { 	
+	margin-top: 0px !important;
+}
+.nav .dropdown-menu .flag {
+	margin: 2px 0 3px 0;
+}
+.dropdown-menu .active > a, 
+.dropdown-menu .active > a:hover {
+	background: rgba(200, 200, 200, 0.2);	
+	color: black !important;
+}
+.nav .dropdown-menu li a:hover {
+	background: rgba(200, 200, 200, 0.3);	
+ 	filter: none !important;
+ 	color: black !important;
+}
+.navbar .loginName {
+	max-width: 300px;
+	overflow: hidden;
+	display: inline-block;
+	vertical-align: middle;
+}
+.navbar .loginType {
+	margin-left: 4px;
+	display: inline-block;
+	margin-top: 2px;
+}
+
+
+
+
+
+
+
+
+/* no js language selection */
+.no-js-languageSelector {
+	margin-bottom: 50px;
+}
+/*
+.js .no-js-languageSelector {
+	display: none;
+}
+*/
+.no-js-languageSelector ul {
+    list-style: none;
+}	
+.no-js-languageSelector ul li {
+	margin-bottom: 4px;
+}	
+	
+	
+
+/* FLAG ********************************************************************************* */
+.flag {
+   	display: block; 
+  	height: 10px;
+  	width: 16px;
+  	margin-top: 4px;
+  	border: 1px solid #111;
+}
+.flag:hover {
+  	border-color: #333;
+}
+.no-js-languageSelector .flag {
+  	float: left;
+  	margin-right: 5px;
+}
+
+
+
+	
+	
+/* FOOTER ********************************************************************************* */
+footer {
+	margin-bottom: 10px;
+	font-size: 90%;
+	border-top: 0px !important;
+	text-align: center;
+	margin: 0 auto !important;
+	width: 940px;
+	position: relative;
+	text-align: center;
+	padding: 5px 0 10px 0;
+}
+
+
+
+
+
+/* FORM ********************************************************************************* */
+.form-actions {		/* button area below form */
+	background: transparent !important;
+	border-top: 0px solid #DDD !important;
+}
+form .input {
+	 margin-left: 10px;
+}
+input, textarea, select {
+	color: auto;
+}
+
+.contactform input, .contactform textarea {
+	width: 90%;
+}
+.contactform .form-actions input {
+	width: 200px;
+}
+.contactform textarea {
+	height: 150px;
+}
+.home_page #addWifiForm .no-js-hidden {
+    display: block !important;
+}
+#addWifiForm {
+	width: 400px;
+}
+#addWifiForm input {
+	margin-bottom: 0px;
+}
+#addWifiForm .deleteButton {
+	background: transparent;
+	border: 0px;	
+}
+#addWifiForm .wifiObjExtended .deleteButton {
+	display: none;
+	float: right;		
+}
+#addWifiForm .hover .deleteButton {
+	display: block !important;
+}
+#addWifiForm div.error {
+	background: none !important;
+}
+#addWifiForm .help-block {
+	clear: both;
+}
+#addWifiForm .deleteButton a {
+	display: block;
+	cursor: pointer;
+}
+#addWifiForm .wifiObj {
+	display: block;
+	height: 30px;
+	margin-bottom: 0px;
+}
+#addWifiForm .wifiObj, #addWifiForm .newWifiObj {
+/*	float: left; */
+	clear: left;	
+}
+.home_page .wifichecker {
+	margin-bottom: 10px;
+}
+.home_page .wifichecker #addWifiForm .newWifiObj {
+	float: none;
+}
+#addWifiForm .wifiObj .wifiName {
+	background: white !important;
+}
+#addWifiForm .input-prepend .add-on, 
+#addWifiForm .input-append .add-on, 
+#addWifiForm .input #addWifiInput {
+	color: #333 !important;
+}
+#addWifiForm .loader {
+	background-position: 4px 6px !important;
+	border: none;
+	display: inline-block;
+    margin-left: 4px;
+	width: 20px;
+	height: 20px;
+    background-color: transparent; 
+}
+
+
+#addWifiForm .loader, .statsChart {
+	background-image: url(/img/ajax-loader.gif);
+	background-repeat: no-repeat;
+	background-position: center center;
+}
+
+.hide {
+    display: none !important;
+}
+
+.deleteWifiForm input {
+    display: none;
+}
+
+
+
+
+
+/* Stats ********************************************************************************* */
+.countriesMap {
+	margin: 0 0 10px 20px;
+	position: relative;
+	overflow: hidden;
+	height: 300px;
+}
+
+
+
+a span.external {
+	padding-left: 16px;
+    background: url(/img/sprites.png) no-repeat -688px -47px;
+}
+
+
+
+
+
+
+
+
+/* Login PAGE: /p/login ********************************************************************************* */
+.btn span b {
+	display: none;
+}
+.login .btn {
+	vertical-align: middle;
+}
+.login .btn span {
+	margin: 5px auto 3px;
+	display: block;
+	height: 30px;
+	width: 107px;
+}
+.loginButtons {
+	text-align: center;
+}
+.loginHelpText {
+	position: absolute;
+	bottom: 0px;
+	margin: 20px;
+}
+
+/* ABOUT PAGE ********************************************************************************* */
+.about .icon32 {
+	vertical-align: middle;
+	margin-right: 10px;
+}
+
+
+
+
+/* HOMEPAGE ********************************************************************************* */
+.home_page {
+	color: #444;
+}
+.home_page .contenttop {
+	overflow: hidden;
+	height: 210px;	
+}
+.wifilogo {
+	position: absolute;
+	bottom: 0px;	
+	left: 40px;
+	margin-right: 20px;
+	width: 200px;
+	height: 170px;
+	background: url(/img/postbox.png) left top no-repeat !important;
+}
+.home_page h1 {
+	font-weight: bold;
+	/* color: #3d85c6;  */
+	margin-bottom: 0px;
+	text-shadow: 1px 1px 2px #DDD;
+	text-align: center !important;
+	font-size: 28pt;
+	text-align: left;
+	margin-bottom: 12px;
+	white-space: nowrap;
+}
+.home_page h2 {
+	font-weight: normal;
+	border-bottom: 0px;
+	font-size: 18pt;	
+}
+.home_page ul {
+	list-style: none;
+	overflow: hidden;
+	margin: 5px -10px 20px 0px;	
+	padding: 0;
+}
+.home_page ul li {
+	color: #444;
+	float: left;
+	/* height: 280px; */
+	position: relative;
+	width: 32%;
+}
+.home_page ul li .headline {
+	color: #3D85C6;
+	text-transform: uppercase;
+	font-weight: bold;
+	position: absolute;
+	top: 8px;
+	left: 45px;
+	font-size: 30px;
+}
+.home_page ul li .text {
+	color: #3994bb;
+	text-align: left;
+	margin: 5px 0 5px 35px;
+	font-size: 14px;
+	white-space: nowrap;
+}
+.home_page ul li .text b {
+	/* color: #222; */
+	text-shadow: 0 1px 1px #CCC;
+}
+
+	
+.home_page .image {
+	margin: 0 auto;
+	/* height: 200px;  */
+	width: 210px;
+
+	overflow: hidden;
+	text-align: center;
+	background: white;
+	padding: 0px;
+
+	border: 1px solid #DDD;
+
+	-webkit-border-radius: 10px;
+	   -moz-border-radius: 10px;
+	        border-radius: 10px;
+	-webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075);
+	   -moz-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075);
+	        box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075);
+}
+
+.home_page .teaser1 .image a {background: url(/img/teaser1_active.png);}
+.home_page .teaser2 .image a {background: url(/img/teaser2_dark_active.png);}
+.home_page .teaser3 .image a {background: url(/img/teaser3_dark_active.png);}
+
+.homhome_page .image a img,
+.home_page .image a {
+	display: block;
+	height: 210px;
+	width: 210px;	
+}
+.home_page .image a:hover img {
+	display: none;
+}
+
+.home_page .how_to_subtext {
+	text-align: right;
+	display: none;
+}
+.home_page .teasers .number {
+	position: absolute;
+	border-radius: 15px;
+	background: #004471;
+	width: 30px;
+	height: 30px;
+	color: white;
+	font-size: 20px;
+	text-align: center;
+}
+.home_page .teasers .number span {
+	position: relative;
+	top: 5px;
+}
+.home_page .wifichecker .text {
+	float: left;
+	font-size: 11pt;
+	/* 
+	color: #00457c;
+	font-weight: bold; */
+	margin: 5px 10px 0 120px;
+}
+
+.home_page .wifichecker form {
+	float: left;
+	margin-bottom: 0px;
+}
+/*.home_page .wifichecker form .input {
+	margin-left: 0px;
+}
+.home_page #addWifiForm .help-block {
+	clear: both;
+	float: left;
+	display: inline;
+	height: auto;
+}
+*/
+.home_page .join {
+	font-size: 2.4em;	
+	bottom: 20px;
+	right: 30px;
+	position: absolute;
+	line-height: 22pt;	
+	text-align: right;
+}
+
+
+/* ============================================================================================================================
+== OVAL SPEECH BUBBLE (more CSS3): http://nicolasgallagher.com/pure-css-speech-bubbles/demo/
+ ============================================================================================================================ */
+.home_page blockquote p {
+	font-style: italic;
+	font-size: 15px;
+}
+.bubble1, .bubble1:before {
+	background: #EFEFEF;
+	/* background:#7cb1c8; */
+} 
+.bubble1 {
+	position:absolute;
+	top: 80px;
+	left: 350px;
+	/* width: 600px; */ 
+	padding: 10px;
+	margin: 0;
+	text-align:center;
+	/* color: black; */
+	/* css3 */
+	-webkit-border-radius:20px;
+	-moz-border-radius:20px;
+	border-radius:20px;
+}
+.bubble1:before {
+	width:100px;
+	content:"";
+	position:absolute;
+	bottom:-20px;
+	left:50%;
+	height:20px;
+	margin:0 0 0 -50px;
+}
+
+/* creates a rounded rectangle to cover part of the rectangle generated above */
+.bubble1:after {
+	content:"";
+	position:absolute;
+	bottom:-20px;
+	left:0;
+	width:50%;
+	height:20px;
+	background:#fff;
+	/* css3 */
+	-webkit-border-top-right-radius:20px;
+	-moz-border-radius-topright:20px;
+	border-top-right-radius:20px;
+}
+
+/* creates the other rounded rectangle */
+.bubble1 > :first-child:before {
+	content:""; 
+	position:absolute; 
+	bottom:-20px; 
+	right:0; 
+	width:50%; 
+	height:20px; 
+	background:#fff;
+	/* css3 */
+	-webkit-border-top-left-radius:20px;
+	-moz-border-radius-topleft:20px;
+	border-top-left-radius:20px;
+}
+
+
+.bubble2 {
+	background: whiteSmoke /* #005076 */;	
+	position:absolute;
+	top: 150px;
+	left: 280px;
+	width:400px;
+	padding: 10px 10px;
+	margin:1em auto 50px;
+	text-align:center;
+	/* color: black; */ 
+	z-index:3;
+	-webkit-border-radius:20px;
+	-moz-border-radius:20px;
+	border-radius:20px;
+}
+.bubble2 p {font-size:1.25em;}
+
+/* creates part of the curve */
+.bubble2:before {
+	background: whiteSmoke /* #005076 */;	
+    content:"";
+	position:absolute;
+	z-index:1;
+	left: -40px;
+	top: 17px;
+	width:60px;
+	height:30px;
+	/* need this for webkit - bug in handling of border-radius */
+	/* css3 */
+	-webkit-border-bottom-left-radius:80px 50px;
+	-moz-border-radius-bottomleft:80px 50px;
+	border-bottom-left-radius:80px 50px;
+	/* using translate to avoid undesired appearance in CSS2.1-capabable but CSS3-incapable browsers */
+	-webkit-transform:translate(0, -2px);
+	-moz-transform:translate(0, -2px);
+	-ms-transform:translate(0, -2px);
+	-o-transform:translate(0, -2px);
+	transform:translate(0, -2px);
+}
+
+/* creates part of the curved pointy bit */
+.bubble2:after {
+	content:"";
+	position:absolute;
+	z-index:20;
+	left: -20px;
+	top: -5px;
+	width: 50px;
+	height:32px;
+	background: white;
+	/* css3 */
+	-webkit-border-bottom-left-radius:200px 150px; 
+	-moz-border-radius-bottomleft:200px 150px; 
+	border-bottom-left-radius:200px 150px; 
+	/* using translate to avoid undesired appearance in CSS2.1-capabable but CSS3-incapable browsers */
+	-webkit-transform:translate(-30px, -2px);
+	-moz-transform:translate(-30px, -2px);
+	-ms-transform:translate(-30px, -2px);
+	-o-transform:translate(-30px, -2px);
+	transform:translate(-30px, -2px);
+}
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+footer .press {
+	text-align: center;
+	margin: 0 auto;
+	width: 800px;
+	color: #999;
+	font-weight: bold;
+}
+
+.breadcrumb a,
+.press a {
+	display: inline-block;
+	vertical-align: middle;
+ 	color: #555;
+}
+
+.breadcrumb a,
+.press a {
+	line-height: 30px;	
+	margin: 5px 0px 5px 0;
+	height: 30px;
+	overflow: hidden;
+}
+
+
+.content .press .hasLogo span
+{
+	display: none;
+}
+.js .content .press .breadcrumbWithLogos li.hasLogo a,
+.js .content .press .breadcrumbWithLogos li a.more,
+.content .press .breadcrumbWithLogos li.more
+{
+    cursor: pointer;
+	display: inline-block;
+}
+
+.press .logo {
+	text-indent: -1000px;	
+	margin-right: 15px;
+}
+
+.content .press .breadcrumb .more a {
+ 	color: #999;
+ 	text-transform: lowercase;
+}
+.content .press .breadcrumb a:hover {
+ 	color: #0069d6;
+}
+
+
+
+
+
+/* TipsContainer ********************************************************************************* */
+#tipsContainer {
+	float: right;
+	width: 300px;
+	border-top: 0px solid black;
+}
+#tipsContainer .tip .text {
+	margin: 0px 10px 10px 25px;
+}
+#tipsContainer .active .text {
+	display: block;
+}
+#tipsContainer .tip .headline {
+	border-bottom: 0px solid black;
+	font-weight: bold;
+	font-size: 12pt;
+	line-height: 17pt;
+	padding: 4px 10px;		
+}		
+
+#tipsContainer .tip .headline::before {
+	/* http://www.alanwood.net/unicode/geometric_shapes.html */
+    content: "\25BA";
+    float:left;
+    margin-right:5px;
+    font-size:10px;
+}
+
+#tipsContainer .tip.active .headline::before {
+    content: "\25BC";
+    float:left;
+    margin-right:5px;
+    font-size:10px;
+}
+
+
+/* /wifi */
+.yourWifiTopMessage {
+	color: red;
+	font-size: 130%;
+	margin-bottom: 20px;
+	text-align: center;
+}
+.yourWifiOverlay {
+	background-color: white;
+	width: 900px;
+	height: 500px;
+	position: absolute;
+	opacity: 0.3;
+	top: 70px;
+	cursor: not-allowed;
+}
+
+input[name="g-recaptcha-response"] {
+    display: none;
+}
+
+
+
+/* SPRITE */
+.icon {width: 16px; height: 16px;}
+.icon32 {width: 32px; height: 32px; display: inline-block;}
+.sprite {background: url("/img/sprites.png") no-repeat -1000px -1000px;}
+.logo {background: url("/img/logos.png") no-repeat -1000px -1000px;}
+
+.flag_en {background-position: -1px -1px;}
+.flag_de {background-position: -19px -1px;}
+.flag_fr {background-position: -37px -1px;}
+.flag_es {background-position: -73px -1px;}
+.flag_tr {background-position: -55px -1px;}
+.flag_it {background-position: -109px -1px;}
+.flag_ru {background-position: -145px -1px;}
+.flag_ms {background-position: -199px -1px;}
+.flag_nl {background-position: -217px -1px;}
+
+/* a span.sprite {background-position: -688px -47px;} */
+
+.icon-google {background-position: -112px -12px;}
+.icon-google-red {background-position: 0px -12px;}
+.icon-facebook {background-position: -48px -12px;}
+.icon-facebookblue {background-position: -80px -12px;}
+.icon-twitter {background-position: -96px -12px;}
+.icon-linkedin {background-position: -128px -12px;}
+.icon-delete {background-position: -64px -12px;}
+.icon-flattr {background-position: -160px -12px;}
+.icon-tumblr {background-position: -176px -12px;}
+
+.icon32-facebook {background-position: 0px -28px;}
+.icon32-google {background-position: -32px -28px;}
+.icon32-twitter {background-position: -64px -28px;}
+.icon32-mail {background-position: -96px -28px;}
+.icon32-wifi {background-position: -128px -28px;}
+.icon32-flattr {background-position: -160px -28px;}
+.icon32-tumblr {background-position: -192px -28px;}
+.icon32-linkedin {background-position: -224px -28px;}
+
+
+.googleLoginImage {background-position: -377px -29px;}
+.facebookLoginImage {background-position: -267px -29px;}
+.twitterLoginImage {background-position: -380px -22px}
+
+
+/* 1. line */
+.logo-tnw {width: 70px;}
+.logo-tnw:hover  {background-position: 0px 0px;}
+.logo-tnw {background-position: 0px -30px;}
+
+.logo-boingboing {width: 161px;}
+.logo-boingboing:hover  {background-position: -75px 0px;}
+.logo-boingboing {background-position: -75px -30px;}
+
+.logo-rww {width: 198px;}
+.logo-rww:hover  {background-position: -240px 0px;}
+.logo-rww {background-position: -240px -30px;}
+
+.logo-fritz {width: 56px;}
+.logo-fritz:hover  {background-position: -440px 0px;}
+.logo-fritz {background-position: -440px -30px;}
+
+
+/* 2. line */
+.logo-jetzt {width: 80px;}
+.logo-jetzt:hover  {background-position: 0px -60px;}
+.logo-jetzt {background-position: 0px -90px;}
+
+.logo-20minutos {width: 137px;}
+.logo-20minutos:hover  {background-position: -85px -60px;}
+.logo-20minutos {background-position: -85px -90px;}
+
+.logo-nzz {width: 180px;}
+.logo-nzz:hover  {background-position: -225px -60px;}
+.logo-nzz {background-position: -225px -90px;}
+
+.logo-muyinternet {width: 123px;}
+.logo-muyinternet:hover  {background-position: -405px -60px;}
+.logo-muyinternet {background-position: -405px -90px;}
+
+.logo-lc1 {width: 82px;}
+.logo-lc1:hover  {background-position: -530px -60px;}
+.logo-lc1 {background-position: -530px -90px;}
+
+
+/* 3. line */
+.logo-golem {width: 135px;}
+.logo-golem:hover  {background-position: 0px -120px;}
+.logo-golem {background-position: 0px -150px;}
+
+.logo-netzwertig {width: 217px;}
+.logo-netzwertig:hover  {background-position: -140px -120px;}
+.logo-netzwertig {background-position: -140px -150px;}
+
+.logo-wwwhatsnew {width: 217px;}
+.logo-wwwhatsnew:hover  {background-position: -360px -120px;}
+.logo-wwwhatsnew {background-position: -360px -150px;}
+
+.logo-hackernews {width: 30px;}
+.logo-hackernews:hover  {background-position: -580px -120px;}
+.logo-hackernews {background-position: -580px -150px;}
+
+
+/* 4. line */
+.logo-basicthinking {width: 215px;}
+.logo-basicthinking:hover  {background-position: 0px -180px;}
+.logo-basicthinking {background-position: 0px -210px;}
+
+.logo-bandaancha {width: 270px;}
+.logo-bandaancha:hover  {background-position: -220px -180px;}
+.logo-bandaancha {background-position: -220px -210px;}
+
+.logo-pcpraxis {width: 133px;}
+.logo-pcpraxis:hover  {background-position: -500px -180px;}
+.logo-pcpraxis {background-position: -500px -210px;}
+
+	
+/* 5. line */
+.logo-theinquirer {width: 215px;}
+.logo-theinquirer:hover {background-position: 0px -240px;}
+.logo-theinquirer {background-position: 0px -270px;}
+
+.logo-wdr {width: 100px;}
+.logo-wdr:hover {background-position: -220px -240px;}
+.logo-wdr {background-position: -220px -270px;}
+
+.logo-techcrunch_fr {width: 270px;}
+.logo-techcrunch_fr:hover {background-position: -320px -240px;}
+.logo-techcrunch_fr {background-position: -320px -270px;}
+
+
+/* 6. line */
+.logo-lifehacker_ru {width: 205px;}
+.logo-lifehacker_ru:hover {background-position: 0px -300px;}
+.logo-lifehacker_ru {background-position: 0px -330px;}
+
+.logo-dig_ins {width: 214px;}
+.logo-dig_ins:hover {background-position: -205px -300px;}
+.logo-dig_ins {background-position: -205px -330px;}
+
+.logo-downloadblogit {width: 180px;}
+.logo-downloadblogit:hover {background-position: -425px -300px;}
+.logo-downloadblogit {background-position: -425px -330px;}
+
+
+
+
+
+.debug {
+    position: fixed;
+    top: 0;
+    z-index: 1000000;
+    max-width: 400px;
+    line-break: anywhere;
+}
+.debug > ul {
+    display: none;
+}
+.debug:hover {
+    background-color: #eee;
+}
+.debug:hover > ul {
+    display: block;
+}
+.debug * {
+    color: red !important;
+}

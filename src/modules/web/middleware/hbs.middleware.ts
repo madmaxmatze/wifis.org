@@ -4,6 +4,7 @@ import { resolve } from 'path';
 import * as hbs from 'hbs';
 import * as crypto from 'crypto';
 import * as i18n from 'i18n';
+import { I18nMiddleware } from './i18n.middleware';
 
 hbs.registerHelper('assign', function (varName, varValue, options) {
     if (!options.data.root) {
@@ -37,11 +38,18 @@ hbs.registerHelper('equals', function (val1: any, val2: any) {
     return (val1 == val2);
 });
 
+/*
+hbs.registerHelper('lookup', function(obj, key) {
+    return obj && obj[key];
+  });
+  */
+
 hbs.registerHelper('replace', function (...args: any) {
     if (args.length < 3 || args.length % 2 === 0) {
         throw new Error("replace1: wrong number of arguments : " + JSON.stringify(args));
     }
-    var output = args.pop().fn(this);       // last item is options
+    args.pop();  // last item is options
+    var output = this;
     for (var i = 0; i < args.length; i += 2) {
         output = output.replace(args[i], args[i + 1]);
     }
@@ -53,8 +61,7 @@ hbs.registerHelper('concat', function (...args: any) {
         throw new Error("At least 2 concat values needed");
     }
     var output = args[0];
-    // last item is options
-    for (var i = 1; i < args.length - 1; i++) {
+    for (var i = 1; i < args.length - 1 /* last item is options */; i++) {
         output += args[i];
     }
 
@@ -69,9 +76,13 @@ hbs.registerHelper('json', function (object: any, _options) {
 export class HbsMiddleware implements NestMiddleware {
     use(request: any, response: Response, next: NextFunction) {
         // pass some variables to templates
-        response.locals.translations = i18n.getCatalog(request);
+        response.locals.translations = i18n.getCatalog(response.locale);
+        response.locals.defaultLang = I18nMiddleware.DEFAULT_LANG;
         response.locals.urlWithoutQuery = request.originalUrl.replace(/\?.*/, "").replace(/^\/$/, "");
         response.locals.urlWithoutLangAndQuery = response.locals.urlWithoutQuery.replace(/^\/\w{2}$/, "/").replace(/^\/\w{2}\//, "/").replace(/^\/$/, "");
+        if (!response.locals.urlWithoutLangAndQuery || response.locals.urlWithoutQuery != response.locals.urlWithoutLangAndQuery) {
+            response.locals.pageId = response.locals.urlWithoutLangAndQuery.substr(1) || "home";
+        }
         response.locals.queryReferer = request.query.referer || "";
         response.locals.version = crypto.createHash('md5').update(process.env.K_REVISION || '???').digest('hex').substr(0, 8);
         if (!process.env.NODE_ENV) {
@@ -85,7 +96,8 @@ export class HbsMiddleware implements NestMiddleware {
         request.app
             .set('view engine', 'hbs')
             .set('views', resolve(__dirname, "../views"))
-            .set('view options', { layout: "layouts/main.hbs" });
+            // .set('view options', { layout: "layouts/main.hbs" })
+        ;
 
         next();
     }

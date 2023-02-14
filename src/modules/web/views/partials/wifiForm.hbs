@@ -1,32 +1,31 @@
-<form id="addWifiForm" class="form-inline" method="post" autocomplete="off" action="/p/wifi/add">
+<div id="addWifiForm" class="form-inline no-js-hidden" data-currentvalidations=0>
     {{#each wifis}}
-    <div class="control-group wifiObj" id="wifi{{this.id}}">
-        <div class="input-prepend input-append">
-            <span class="add-on">wifis.org/</span>
-            <span class="add-on wifiName" style="font-weight: bold; background: white;">
-                <a href="/{{this.id}}">{{this.label}}</a>
-            </span>
-            <span class="add-on deleteButton">
-                <a class="sprite icon icon-delete" href="/p/wifi/delete?id={{this.id}}"
-                    title="{{../__ "wifis.deleteButton"}}"></a>
-            </span>
+        <div data-wifiid="{{this.id}}">
+            <div class="input-group input-group-sm mb-1">
+                <span class="input-group-text text-muted text-end d-block">wifis.org/</span>
+                <span class="input-group-text wifiName" style="font-weight: bold; background: white;">
+                    <a target="_blank" href="/{{this.id}}"
+                        title=" - wifis.org/example \n - example.wifis.org">{{this.label}}</a>
+                </span>
+                <span class="input-group-text deleteButton border-0 bg-transparent"
+                    title="{{../__ "wifis.deleteButton"}}"></span>
+            </div>
         </div>
-    </div>
     {{/each}}
-   
-    <div class="control-group ">
-        <div class="input-prepend input-append">
-            <span class="add-on">wifis.org/</span> <input class="addWifiInput" type="text" name="wifiid" value=""
-                placeholder="{{__ "wifis.enternew"}}" title="{{__ "wifis.enternew"}}" />
-            <button class="btn" type="submit" id="addWifiSave">
-                {{__ "wifis.save"}}
-            </button>
-            <span class="add-on loader hide">&#160;&#160;&#160;</span>
+
+    <div class="input-group {{#if (equals pageId "wifis")}}input-group-sm{{/if}} mb-1">
+        <span class="input-group-text text-end d-block pe-2">wifis.org/</span>
+        <input pattern="^[\w\-]+$" minlength="3" maxlength="20" type="text" class="form-control" id="addWifiInput"
+            name="wifiid" placeholder="{{__ "wifis.enternew"}}" title="{{__ "wifis.enternew"}}">
+        <button class="btn btn-primary disabled" id="addWifiSave">
+            <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+            <span
+                class="caption">{{#if (equals pageId "wifis")}}{{__ "wifis.save"}}{{else}}{{__ "wifis.test"}}{{/if}}</span>
+        </button>
+        <div class="invalid-feedback help-inline">
+            {{#if error}}{{!-- __ (concat "wifis.error." error) --}}{{/if}}
         </div>
-        <span class="help-inline">
-            {{#if error}}
-                {{! __ (concat "wifis.error." error)}}
-            {{/if}}
-        </span>
     </div>
-</form>
+</div>
+
+<script type='text/javascript' src='/js/wifi.form.js?{{version}}'></script>

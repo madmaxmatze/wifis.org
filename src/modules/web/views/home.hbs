@@ -1,32 +1,32 @@
-{{assign "viewname" "home"}}
 {{assign "title" (concat (__ "label.title") " - " (__ "label.mainTeaser"))}}
 
-<a href="/{{getLocale}}/login" class="wifisButton join">{{& __ "homepage.joinButton"}}</a>
 
-<div class="wifilogo sprite"></div>
-
-{{{__ "homepage.text.0"}}}
-
-<ul class="teasers">
-    {{#each translations.homepage.teasers}}
-    <li class="teaser{{concat @index 1}}">
-        <div class="number"><span>{{concat @index 1}}</span></div>
-        <div class="text">{{& this}}</div>
-        <div class="image">
-            <a href="/example" title="...">
-                <img src="/img/teaser{{concat @index 1}}_small.png" alt="..." width="210" height="210" />
-            </a>
-        </div>
-    </li>
-    {{/each}}
-</ul>
-
-{{{__ "homepage.text.1"}}}
-
-<div class="wifichecker">
-    <div class="text">
-        {{{__ "homepage.wifichecker"}}}
-    </div>
-
-    {{> wifiForm }}
+{{#each translations.home.quotes}}
+    <blockquote>
+        <p>{{& this}}</p>
+    </blockquote>
+{{/each}}
 </div>
+
+{{!-- <div class="how_to_subtext">({{__ "home.howToText"}})</div> --}}
+
+<div class="container-lg">
+    <h2>{{__ "home.howToHeadline"}}</h2>
+    <div class="row row-cols-md-3 text-center p-0">
+        {{#each translations.home.teasers}}
+            <div class="col p1">
+                <div class="card border-0 p-0">
+                    <div class="card-header bg-transparent border-0 p-0">
+                        <div class="number"><span>{{concat @index 1}}</span></div>
+                        <p class="text text-nowrap">{{& this}}</p>
+                    </div>
+                    <a href="/example" class="card-body p-0"></a>
+                </div>
+            </div>
+        {{/each}}
+    </div>
+</div>
+
+<div class="container-lg no-js-hidden">
+    <div class="mb-2 text-center fw-bold">{{{__ "home.wifichecker"}}} </div>
+    {{> wifiForm }}

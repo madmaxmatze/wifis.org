@@ -6,19 +6,32 @@
         <a href="/{{wifiId}}">wifis.org/{{wifiId}}</a>{{#if wifiIdSuffix}}<small>/{{wifiIdSuffix}}</small>{{/if}}
     </h2>
 
-    <p>
-        {{{__ "wifi.text.text"}}}
-    </p>
-    <br>
-
-
     {{#if (equals wifiUserId user.id)}}
-        <div class="alert alert-error yourWifiTopMessage">
+        <div class="alert alert-warning">
             {{{__ "wifi.text.mywifi"}}}
+
+            <ul>
+                <li>
+                    <b>{__wifi.urls.standard}:</b>
+                    <a href='https://wifis.org/{{wifiId}}' rel='nofollow'>wifis.org/{{wifiId}}</a>
+                </li>
+                <li>
+                    <b>{__wifi.urls.subdomains}:</b>
+                    <a href='https://{{wifiId}}.wifis.org' rel='nofollow'>{{wifiId}}.wifis.org</a>
+                </li>
+                <li>
+                    <b>{__wifi.urls.short}:</b>
+                    <a href='https://wif.is/{{wifiId}}' rel='nofollow'>wif.is/{{wifiId}}</a>
+                </li>
+                <li>
+                    <b>{__wifi.urls.subwifis}:</b> 
+                    <a href='https://wifis.org/{{wifiId}}/whatever/sub/wifi_$!@' rel='nofollow'>wifis.org/{{wifiId}}/whatever/sub/wifi_$!@</a>
+                </li>        
+            </ul>
         </div>
-        <div class="yourWifiOverlay"></div>
     {{/if}}
 
+    <p> {{{__ "wifi.text.text"}}} </p>
 
     {{#if sendSuccess}}
         <div class="alert alert-success">
@@ -44,28 +57,24 @@
         <script src="https://www.google.com/recaptcha/api.js"></script>
 
         <form method="POST" id='contactform' class="contactform form-stacked">
-            <div class="clearfix">
-                <label>{{{__ "wifi.form.contact"}}}</label>
-                <div class="input">
-                    <input name="contact" value="{{form_field_contact}}" />
-                    {{!-- <c:if test="${fn:startsWith(error, 'email')==true}">
-                        <span class="help-block">
-                            <spring:message code="wifi.form.error.${error}" /></span>
-                    </c:if>
-                    --}}
-                </div>
+            <div class="mb-3 form-floating">
+                <input name="contact" class="form-control" value="{{form_field_contact}}" placeholder="{{{__ "wifi.form.contact"}}}" />
+                <label class="form-label">{{{__ "wifi.form.contact"}}}</label>
+                {{!-- <c:if test="${fn:startsWith(error, 'email')==true}">
+                    <span class="help-block">
+                        <spring:message code="wifi.form.error.${error}" /></span>
+                </c:if>
+                --}}
             </div>
-            <div class="clearfix">
-                <label>{{{__ "wifi.form.message"}}}</label>
-                <div class="input">
-                    <textarea name="text">{{form_field_text}}</textarea>
+            <div class="mb-3 form-floating">
+                <textarea name="text" class="form-control" placeholder="{{{__ "wifi.form.message"}}}">{{form_field_text}}</textarea>
+                <label class="form-label">{{{__ "wifi.form.message"}}}</label>
                     {{!--
                     <c:if test="${fn:startsWith(error, 'text')==true}">
                         <span class="help-block">
                             <spring:message code="wifi.form.error.${error}" /></span>
                     </c:if>
                     --}}
-                </div>
             </div>
             
             

@@ -1,28 +1,15 @@
 {
+    "lang": "de",
     "label": {
-        "lang": {
-            "de": "Deutsch",
-            "en": "English",
-            "es": "Español",
-            "fr": "Français",
-            "it": "Italiano",
-            "ms": "Melayu",
-            "nl": "Nederlands",
-            "ru": "Русский",
-            "gr": "ελληνικά",
-            "cn": "中國",
-            "jp": "日本人",
-            "pt": "Português",
-            "tr": "Türkçe"
-        },
-        "title": "wifis.org",
-        "mainTeaser": "Ein Kontaktformular für dein WLAM",
-        "description": "Mit www.wifis.org kann dein WLAN Emails von Nachbarn und freundlichen Menschen in deiner Umgebung empfangen. Einfach, sicher und anonym.",
+        "mainTeaser": "Ein Kontaktformular für dein WLAN",
+        "description": "Mit wifis.org emfängt dein WLAN Emails von Nachbarn und freundlichen Menschen in deiner Umgebung. Einfach, sicher und anonym.",
         "logo": {
             "hint": "Zurück zur Startseite"
         },
         "logout": "Ausloggen",
         "signin": "Einloggen",
+        "signup": "Anmelden",
+        "social": "Social",
         "footer": {
             "text": "&copy; wifis.org",
             "switchToMobile": "zurück zur Handy Version",
@@ -37,24 +24,6 @@
         }
     },
     "twitterMsg": "Mit @wifis_org können deine Nachbarn an dein WLAN schreiben. Besuche",
-    "blog": {
-        "linklabel": "Blog"
-    },
-    "homepage": {
-        "headline": "Startseite",
-        "linklabel": "Startseite",
-        "text": [
-            "<h1>Mit wifis.org kann dein WLAN Emails empfangen<\/h1> <blockquote class=\"bubble1\"><p>„Hi, willst du vielleicht für etwas Geld jeden Monat dein WLAN mit mir teilen?”<\/p><\/blockquote> <blockquote class=\"bubble2\"><p>„Ich bin kürzlich im Haus eingezogen und habe dein WLAN gesehen. Lust auf ein Bierchen?”<\/p><\/blockquote> <\/div><div class=\"content\"> <h2>Wie funktioniert es?<\/h2>",
-            "<div class=\"how_to_subtext\">(Erfahre mehr über diesen kostenlosen und anonymen Dienst in den <a href=\"\/p\/faq\" title=\"Häufig gestellte Fragen\">FAQs<\/a>)<\/div> <\/div><div class=\"content\">"
-        ],
-        "wifichecker": "Prüfe welcher WLAN-Name noch frei ist:",
-        "joinButton": "Anmelden",
-        "teasers": [
-            "<b>DU<\/b> benennst dein WLAN um",
-            "<b>ANDERE<\/b> sehen dein WLAN",
-            "<b>WIFIS.ORG<\/b> ermöglicht es DICH anzuschreiben"
-        ]
-    },
     "404": {
         "headline": "404 Fehler",
         "linklabel": "404 Fehler",
@@ -63,15 +32,167 @@
     "about": {
         "headline": "Impressum",
         "linklabel": "Impressum",
-        "text": "<h3>Wir verwandeln die WLAN-Netze der Welt in soziale Netze<\/h3> <div class=\"indent\"> Gegründet im Dezember 2011 in Berlin gibt <b>wifis.org<\/b> den Menschen die Möglichkeit Nachrichten auszutauschen und sich kennen zu lernen - nur mittels eines WLAN-Namens. Mitmachen ist einfach, kostenlos und anonym. Probiere es aus und sage uns deine Meinung. <\/div> <h3>Über uns<\/h3> <div class=\"indent\"> <b>Team:<\/b> {0} <br><b>Unterstützer:<\/b> {1} <\/div> <h3>Kontakt<\/h3> <div class=\"indent\"> <address> <strong>Mathias Nitzsche<\/strong> <span style=\"color: gray\">(Betreiber der Webseite und verantwortlich für den Inhalt gemäß § 5 TMG)<\/span> <br> Wissmannstr. 44 <br> 12049 Berlin <\/address> Wir freuen uns über Feedback sowie weitere Unterstützung: {2} Schicke Emails an {3} {4} Schreibe direkt an unser WLAN: {5} {6} Folge uns auf {7} {8} Like uns auf {9} {10} Einkreisen und +1en auf {11} {12} Folge unserem {13} <\/div> <h3>Haftung für Inhalte<\/h3> <div class=\"indent\"> <p> Die Inhalte der Seiten wurden mit größter Sorgfalt erstellt. Für die Richtigkeit, Vollständigkeit und Aktualität der Inhalte kann jedoch keine Gewähr übernommen werden. Als Diensteanbieter bin ich gemäß § 6 Abs.1 MDStV und § 8 Abs.1 TDG für eigene Inhalte auf diesen Seiten nach den allgemeinen Gesetzen verantwortlich. Diensteanbieter sind jedoch nicht verpflichtet, die von ihnen übermittelten oder gespeicherten fremden Informationen zu überwachen oder nach Umständen zu forschen, die auf eine rechtswidrige Tätigkeit hinweisen. Verpflichtungen zur Entfernung oder Sperrung der Nutzung von Informationen nach den allgemeinen Gesetzen bleiben hiervon unberührt. Eine diesbezügliche Haftung ist jedoch erst ab dem Zeitpunkt der Kenntnis einer konkreten Rechtsverletzung möglich. Bei bekannt werden von entsprechenden Rechtsverletzungen werden diese Inhalte umgehend entfernt. Trotz sorgfältiger inhaltlicher Kontrolle übernehme ich keine Haftung für die Inhalte externer Links. Für den Inhalt der verlinkten Seiten sind ausschließlich deren Betreiber verantwortlich. <\/p> <\/div> <h3>Datenschutz<\/h3> <div class=\"indent\"> <p> Die Nutzung unserer Webseite ist in der Regel ohne Angabe personenbezogener Daten möglich. Soweit auf unseren Seiten personenbezogene Daten (beispielsweise Name, Anschrift oder eMail-Adressen) erhoben werden, erfolgt dies, soweit möglich, stets auf freiwilliger Basis. Diese Daten werden ohne Ihre ausdrückliche Zustimmung nicht an Dritte weitergegeben. Wir weisen darauf hin, dass die Datenübertragung im Internet (z.B. bei der Kommunikation per E-Mail) Sicherheitslücken aufweisen kann. Ein lückenloser Schutz der Daten vor dem Zugriff durch Dritte ist nicht möglich. Der Nutzung von im Rahmen der Impressumspflicht veröffentlichten Kontaktdaten durch Dritte zur Übersendung von nicht ausdrücklich angeforderter Werbung und Informationsmaterialien wird hiermit ausdrücklich widersprochen. Die Betreiber der Seiten behalten sich ausdrücklich rechtliche Schritte im Falle der unverlangten Zusendung von Werbeinformationen, etwa durch Spam-Mails, vor. <\/p> <\/div> <h3>Nutzung von Drittsoftware<\/h3> <div style=\"height: 300px; overflow: scroll; overflow-x: hidden;\"> <div class=\"indent\"> <h4>Datenschutzerklärung für die Nutzung von Facebook-Plugins (Like-Button)<\/h4> <p> Auf unseren Seiten sind Plugins des sozialen Netzwerks Facebook, 1601 South California Avenue, Palo Alto, CA 94304, USA integriert. Die Facebook-Plugins erkennen Sie an dem Facebook-Logo oder dem \"Like-Button\" (\"Gefällt mir\") auf unserer Seite. Eine Übersicht über die Facebook-Plugins finden Sie hier: http:\/\/developers.facebook.com\/docs\/plugins\/. Wenn Sie unsere Seiten besuchen, wird über das Plugin eine direkte Verbindung zwischen Ihrem Browser und dem Facebook-Server hergestellt. Facebook erhält dadurch die Information, dass Sie mit Ihrer IP-Adresse unsere Seite besucht haben. Wenn Sie den Facebook \"Like-Button\" anklicken während Sie in Ihrem Facebook-Account eingeloggt sind, können Sie die Inhalte unserer Seiten auf Ihrem Facebook-Profil verlinken. Dadurch kann Facebook den Besuch unserer Seiten Ihrem Benutzerkonto zuordnen. Wir weisen darauf hin, dass wir als Anbieter der Seiten keine Kenntnis vom Inhalt der übermittelten Daten sowie deren Nutzung durch Facebook erhalten. Weitere Informationen hierzu finden Sie in der Datenschutzerklärung von facebook unter http:\/\/de-de.facebook.com\/policy.php Wenn Sie nicht wünschen, dass Facebook den Besuch unserer Seiten Ihrem Facebook-Nutzerkonto zuordnen kann, loggen Sie sich bitte aus Ihrem Facebook-Benutzerkonto aus. <\/p> <\/div> <div class=\"indent\"> <h4>Datenschutzerklärung für die Nutzung von Google Analytics<\/h4> <p> Diese Website benutzt Google Analytics, einen Webanalysedienst der Google Inc. (\"Google\"). Google Analytics verwendet sog. \"Cookies\", Textdateien, die auf Ihrem Computer gespeichert werden und die eine Analyse der Benutzung der Website durch Sie ermöglicht. Die durch den Cookie erzeugten Informationen über Ihre Benutzung dieser Website (einschließlich Ihrer IP-Adresse) wird an einen Server von Google in den USA übertragen und dort gespeichert. Google wird diese Informationen benutzen, um Ihre Nutzung der Website auszuwerten, um Reports über die Websiteaktivitäten für die Websitebetreiber zusammenzustellen und um weitere mit der Websitenutzung und der Internetnutzung verbundene Dienstleistungen zu erbringen. Auch wird Google diese Informationen gegebenenfalls an Dritte übertragen, sofern dies gesetzlich vorgeschrieben ist oder soweit Dritte diese Daten im Auftrag von Google verarbeiten. Google wird in keinem Fall Ihre IP-Adresse mit anderen Daten der Google Inc. in Verbindung bringen. Sie können die Speicherung der Cookies durch eine entsprechende Einstellung Ihrer Browser-Software verhindern; wir weisen Sie jedoch darauf hin, dass Sie in diesem Fall gegebenenfalls nicht sämtliche Funktionen dieser Website vollumfänglich werden nutzen können. Sie können darüber hinaus die Erfassung der durch das Cookie erzeugten und auf Ihre Nutzung der Website bezogenen Daten (inkl. Ihrer IP-Adresse) an Google sowie die Verarbeitung dieser Daten durch Google verhindern, indem sie das unter dem folgenden Link verfügbare Browser-Plugin herunterladen und installieren: http:\/\/tools.google.com\/dlpage\/gaoptout?hl=de. <\/p> <\/div> <div class=\"indent\"> <h4>Datenschutzerklärung für die Nutzung von Google +1<\/h4> <p> Erfassung und Weitergabe von Informationen: Mithilfe der Google +1-Schaltfläche können Sie Informationen weltweit veröffentlichen. über die Google +1-Schaltfläche erhalten Sie und andere Nutzer personalisierte Inhalte von Google und unseren Partnern. Google speichert sowohl die Information, dass Sie für einen Inhalt +1 gegeben haben, als auch Informationen über die Seite, die Sie beim Klicken auf +1 angesehen haben. Ihre +1 können als Hinweise zusammen mit Ihrem Profilnamen und Ihrem Foto in Google-Diensten, wie etwa in Suchergebnissen oder in Ihrem Google-Profil, oder an anderen Stellen auf Websites und Anzeigen im Internet eingeblendet werden. Google zeichnet Informationen über Ihre +1-Aktivitäten auf, um die Google-Dienste für Sie und andere zu verbessern. Um die Google +1-Schaltfläche verwenden zu können, benötigen Sie ein weltweit sichtbares, öffentliches Google-Profil, das zumindest den für das Profil gewählten Namen enthalten muss. Dieser Name wird in allen Google-Diensten verwendet. In manchen Fällen kann dieser Name auch einen anderen Namen ersetzen, den Sie beim Teilen von Inhalten über Ihr Google-Konto verwendet haben. Die Identität Ihres Google-Profils kann Nutzern angezeigt werden, die Ihre E-Mail-Adresse kennen oder über andere identifizierende Informationen von Ihnen verfügen. <\/p> <p> Verwendung der erfassten Informationen: Neben den oben erläuterten Verwendungszwecken werden die von Ihnen bereitgestellten Informationen gemäß den geltenden Google-Datenschutzbestimmungen genutzt. Google veröffentlicht möglicherweise zusammengefasste Statistiken über die +1-Aktivitäten der Nutzer bzw. gibt diese an Nutzer und Partner weiter, wie etwa Publisher, Inserenten oder verbundene Websites. <\/p> <\/div> <div class=\"indent\"> <h4>Datenschutzerklärung für die Nutzung von Twitter<\/h4> <p> Auf unseren Seiten sind Funktionen des Dienstes Twitter eingebunden. Diese Funktionen werden angeboten durch die Twitter Inc., 795 Folsom St., Suite 600, San Francisco, CA 94107, USA. Durch das Benutzen von Twitter und der Funktion \"Re-Tweet\" werden die von Ihnen besuchten Webseiten mit Ihrem Twitter-Account verknüpft und anderen Nutzern bekannt gegeben. Dabei werden auch Daten an Twitter übertragen. Wir weisen darauf hin, dass wir als Anbieter der Seiten keine Kenntnis vom Inhalt der übermittelten Daten sowie deren Nutzung durch Twitter erhalten. Weitere Informationen hierzu finden Sie in der Datenschutzerklärung von Twitter unter http:\/\/twitter.com\/privacy. Ihre Datenschutzeinstellungen bei Twitter können Sie in den Konto-Einstellungen unter http:\/\/twitter.com\/account\/settings ändern. <\/p> <\/div> <\/div>"
+        "content" : [
+            {
+                "headline": "Wir verwandeln die WLAN-Netze der Welt in soziale Netze",
+                "text": [
+                    "Gegründet im Dezember 2011 in Berlin gibt <b>wifis.org</b> den Menschen die Möglichkeit Nachrichten auszutauschen und sich kennen zu lernen - nur mittels eines WLAN-Namens.",
+                    "Mitmachen ist einfach, kostenlos und anonym. Probiere es aus und sage uns deine Meinung."
+                ]
+            },
+            {
+                "headline": "Über uns",
+                "text": [
+                    "<p><b>Team:</b> {__about.team}</p>",
+                    "<p><b>Unterstützer:</b> {__about.supporter}</p>"
+                ]
+            },
+            {
+                "headline": "Betreiber der Webseite und verantwortlich für den Inhalt gemäß § 5 TMG",
+                "text": [
+                    "<address> <strong>Mathias Nitzsche</strong><br> Lucy-Lameck-Str. 44 <br> 12049 Berlin </address>"
+                ]
+            },
+            {
+                "headline": "Haftung für Inhalte",
+                "text": [
+                    "Die Inhalte der Seiten wurden mit größter Sorgfalt erstellt. Für die Richtigkeit, Vollständigkeit und Aktualität der Inhalte kann jedoch keine Gewähr übernommen werden.",
+                    "Als Diensteanbieter bin ich gemäß § 6 Abs.1 MDStV und § 8 Abs.1 TDG für eigene Inhalte auf diesen Seiten nach den allgemeinen Gesetzen verantwortlich. Diensteanbieter sind jedoch nicht verpflichtet,",
+                    "die von ihnen übermittelten oder gespeicherten fremden Informationen zu überwachen oder nach Umständen zu forschen, die auf eine rechtswidrige Tätigkeit hinweisen.",
+                    "Verpflichtungen zur Entfernung oder Sperrung der Nutzung von Informationen nach den allgemeinen Gesetzen bleiben hiervon unberührt.",
+                    "Eine diesbezügliche Haftung ist jedoch erst ab dem Zeitpunkt der Kenntnis einer konkreten Rechtsverletzung möglich. Bei bekannt werden von entsprechenden Rechtsverletzungen werden diese Inhalte umgehend entfernt.",
+                    "Trotz sorgfältiger inhaltlicher Kontrolle übernehme ich keine Haftung für die Inhalte externer Links. Für den Inhalt der verlinkten Seiten sind ausschließlich deren Betreiber verantwortlich."
+                ]
+            },
+            {
+                "headline": "Datenschutz",
+                "text": [
+                    "Die Nutzung unserer Webseite ist in der Regel ohne Angabe personenbezogener Daten möglich. Soweit auf unseren Seiten personenbezogene Daten (beispielsweise Name, Anschrift oder eMail-Adressen) erhoben werden,",
+                    "erfolgt dies, soweit möglich, stets auf freiwilliger Basis. Diese Daten werden ohne Ihre ausdrückliche Zustimmung nicht an Dritte weitergegeben.",
+                    "Wir weisen darauf hin, dass die Datenübertragung im Internet (z.B. bei der Kommunikation per E-Mail) Sicherheitslücken aufweisen kann. Ein lückenloser Schutz der Daten vor dem Zugriff durch Dritte ist nicht möglich.",
+                    "Der Nutzung von im Rahmen der Impressumspflicht veröffentlichten Kontaktdaten durch Dritte zur Übersendung von nicht ausdrücklich angeforderter Werbung und Informationsmaterialien wird hiermit ausdrücklich widersprochen.",
+                    "Die Betreiber der Seiten behalten sich ausdrücklich rechtliche Schritte im Falle der unverlangten Zusendung von Werbeinformationen, etwa durch Spam-Mails, vor."
+                ]
+            },
+            {
+                "headline": "Nutzung von Drittsoftware",
+                "subHeadline": "Datenschutzerklärung für die Nutzung von Google Analytics",
+                "text": [
+                    "Diese Website benutzt Google Analytics, einen Webanalysedienst der Google Inc. ('Google'). Google Analytics verwendet sog. 'Cookies', Textdateien,",
+                    "die auf Ihrem Computer gespeichert werden und die eine Analyse der Benutzung der Website durch Sie ermöglicht.",
+                    "Die durch den Cookie erzeugten Informationen über Ihre Benutzung dieser Website (einschließlich Ihrer IP-Adresse) wird an einen Server von Google in den USA übertragen und dort gespeichert.",
+                    "Google wird diese Informationen benutzen, um Ihre Nutzung der Website auszuwerten,",
+                    "um Reports über die Websiteaktivitäten für die Websitebetreiber zusammenzustellen und um weitere mit der Websitenutzung und der Internetnutzung verbundene Dienstleistungen zu erbringen.",
+                    "Auch wird Google diese Informationen gegebenenfalls an Dritte übertragen, sofern dies gesetzlich vorgeschrieben ist oder soweit Dritte diese Daten im Auftrag von Google verarbeiten.",
+                    "Google wird in keinem Fall Ihre IP-Adresse mit anderen Daten der Google Inc. in Verbindung bringen.",
+                    "Sie können die Speicherung der Cookies durch eine entsprechende Einstellung Ihrer Browser-Software verhindern;",
+                    "wir weisen Sie jedoch darauf hin, dass Sie in diesem Fall gegebenenfalls nicht sämtliche Funktionen dieser Website vollumfänglich werden nutzen können.",
+                    "Sie können darüber hinaus die Erfassung der durch das Cookie erzeugten und auf Ihre Nutzung der Website bezogenen Daten (inkl. Ihrer IP-Adresse) an Google sowie die Verarbeitung dieser Daten durch Google verhindern,",
+                    "indem sie das unter dem folgenden Link verfügbare Browser-Plugin herunterladen und installieren: https://tools.google.com/dlpage/gaoptout?hl=de."
+                ]
+            }
+        ]
+    },
+    "blog": {
+        "linklabel": "Blog"
+    },
+    "contact": {
+        "headline": "Kontakt",
+        "linklabel": "Kontakt",
+        "content": [{
+            "text": ["{__contact.htmlTemplate}"]
+        }],
+        "introText": "Wir freuen uns über Feedback sowie weitere Unterstützung:",
+        "mailText": "Schicke Emails an",
+        "wifiText": "Schreibe direkt an unser WLAN",
+        "twitterText" : "Folge uns auf",
+        "facebookText": "Like uns auf",
+        "blogText": "Folge unserem"
     },
     "faq": {
-        "headline": "FAQ <small>(Häufig gestellte Fragen)<\/small>",
+        "headline": "FAQ",
+        "subheadline": "(Häufig gestellte Fragen)",
         "linklabel": "FAQ",
-        "text": "<h3 name=\"warum\">Warum sollte ich mein WLAN mit einer wifis.org Adresse benennen?<\/h3> <div class=\"indent\"> <p> Irgendeinen Namen braucht dein WLAN eh. Warum also nicht einen, der auch was kann? <\/p><p> Mit einem wifis.org Namen (z.B. <a href=\"\/example\">www.wifis.org\/example<\/a>) gibst du jedem, der das WLAN sieht, die Möglichkeit dir eine Email zu schreiben. Du wirst so vielleicht Emails von freundlichen Nachbarn erhalten, die dich auf ein Bier einladen oder dich fragen, ob man sich nicht Internet und die Kosten teilen will. <\/p><p> Mitmachen ist kostenlos und einfach und das Beste: Du bleibst dabei völlig anonym. <\/p> <\/div><h3 name=\"what\">Wieviel kostet der Spaß?<\/h3> <div class=\"indent\"> <p>wifis.org ist ein kostenloser Dienst. Dies wird auch immmer so bleiben!<\/p> <\/div> <h3 name=\"was\">Was muss ich tun?<\/h3> <div class=\"indent\"> <p>Folge einfach diesen Schritten:<\/p> <ol> <li>Melde dich <a href=\"\/p\/login\">hier<\/a> an.<\/li> <li>Sichere dir deinen eigenen wifis.org Namen.<\/li> <li>Öffne die Einstellungen deines WLAN Routers.<\/li> <li>Ändere den Namen deines WLANs (SSID) in deine neue wifis.org Adresse.<\/li> <\/ol> <p>Herzlichen Glückwunsch. Du bist nun über deine www.wifis.org Adresse per Mail erreichbar - bleibst selbst aber anonym.<\/p> <\/div> <h3 name=\"wer\">Wer kann mitmachen?<\/h3> <div class=\"indent\"> <p>Jeder mit einem eigenem WLAN. <br> <span style=\"color: gray\"> (Einzige Ausnahme sind Router, die entgegen der offiziellen Spezifikation nicht erlauben Sonderzeichen in WLAN Namen zu nutzen.) <\/span><\/p> <\/div> <h3 name=\"sicherheit\">Wie sicher ist wifis.org?<\/h3> <div class=\"indent\"> <p>wifis.org ist 100% anonym und sicher!<\/p> <ul> <li>Du und dein WLAN können über diese Webseite nicht gesucht oder lokalisiert werden.<\/li> <li>Nur deine Emailadresse, deine wifis.org Namen und Nachrichten, die du erhälst, werden gespeichert, um unseren Dienst erbringen zu können. Diese Daten werden niemals an Dritte weitergegeben!<\/li> <li>Wir unterstützen ausschließlich die sichere Anmeldungen über Facebook (<a href=\"https:\/\/www.facebook.com\/help\/405977429438260\" target=\"_blank\" title=\"Hier erfährst du mehr über den Facebook Login für anderen Webseiten\">?<\/a>) und Google (<a href=\"http:\/\/www.google.com\/support\/accounts\/bin\/answer.py?answer=112802\" target=\"_blank\" title=\"Hier erfährst du mehr über den Google Login für anderen Webseiten\">?<\/a>), um zu garantieren, dass wir niemals Benutzerdaten\/-passwörter kennen, speichern oder verlieren.<\/li> <\/ul> <p>Nähere Informationen findest du in den <a href=\"\/p\/tos\">Nutzungsbedingungen<\/a>.<\/p> <\/div> <h3 name=\"sonst\">Sonst noch was?<\/h3> <div class=\"indent\"> <p>Melde dich einfach und kostenlos an und entdecke viele weitere Funktionen wie:<\/p> <ul> <li><b>Kurz-Urls:<\/b> <a href=\"http:\/\/wif.is\/example\">wif.is\/example<\/a><\/li> <li><b>Sub-WLANs:<\/b> <a href=\"http:\/\/wifis.org\/example\/unter\/wlan!\">wifis.org\/example\/unter\/wlan!<\/a><\/li> <li><b>Groß\/Kleinschreibung:<\/b> Probiere <a href=\"http:\/\/wifis.org\/iPhOnE\">wifis.org\/iPhOnE<\/a> <\/ul> <\/div>",
-        "question": {
-            "where": "Wo wird Wifis.org benutzt?"
-        }
+        "content" : [
+            {
+                "headline": "Warum sollte ich mein WLAN mit einer wifis.org Adresse benennen?",
+                "text": [
+                    "Irgendeinen Namen braucht dein WLAN eh. Warum also nicht einen, der auch was kann?",
+                    "Mit einem wifis.org Namen (z.B. <a href='/example'>wifis.org/example</a>) gibst du jedem, der das WLAN sieht, die Möglichkeit dir eine Email zu schreiben.",
+                    "Du wirst so vielleicht Emails von freundlichen Nachbarn erhalten, die dich auf ein Bier einladen oder dich fragen, ob man sich nicht Internet und die Kosten teilen will.",
+                    "Mitmachen ist kostenlos und einfach und das Beste: Du bleibst dabei völlig anonym."
+                ]
+            },
+            {
+                "headline": "Wieviel kostet der Spaß?",
+                "text": ["wifis.org ist ein kostenloser Dienst. Dies wird auch immmer so bleiben!"]
+            },
+            {
+                "headline": "Was muss ich tun?",
+                "text": [
+                    "Folge einfach diesen Schritten:",
+                    "<ol>",
+                        "<li>Melde dich <a href='/{__lang}/login'>hier</a> an.</li>",
+                        "<li>Sichere dir deinen eigenen wifis.org Namen.</li>",
+                        "<li>Öffne die Einstellungen deines WLAN Routers.</li>",
+                        "<li>Ändere den Namen deines WLANs (SSID) in deine neue wifis.org Adresse.</li>",
+                    "</ol>",
+                    "Herzlichen Glückwunsch. Du bist nun über deine wifis.org Adresse per Mail erreichbar - bleibst selbst aber anonym.</p>"
+                ]
+            },
+            {
+                "headline": "Wer kann mitmachen?",
+                "text": [
+                    "Jeder mit einem eigenem WLAN.",
+                    "<span style='color: gray'> (Einzige Ausnahme sind Router, die entgegen der offiziellen Spezifikation nicht erlauben Sonderzeichen in WLAN Namen zu nutzen.) </span>"
+                ]
+            },
+            {
+                "headline": "Wie sicher ist wifis.org?",
+                "text": [
+                    "wifis.org ist 100% anonym und sicher!",
+                    "<ul>",
+                        "<li>Du und dein WLAN können über diese Webseite nicht gesucht oder lokalisiert werden.</li>",
+                        "<li>Nur deine Emailadresse, deine wifis.org Namen und Nachrichten, die du erhälst, werden gespeichert, um unseren Dienst erbringen zu können. Diese Daten werden niemals an Dritte weitergegeben!</li>",
+                        "<li>Wir unterstützen ausschließlich die sichere Anmeldungen über",
+                            "Facebook (<a href='https://www.facebook.com/help/405977429438260' target='_blank' rel='nofollow' title='Hier erfährst du mehr über den Facebook Login für anderen Webseiten'>?</a>) und",
+                            "Google (<a href='https://www.google.com/support/accounts/bin/answer.py?answer=112802' rel='nofollow' target='_blank' title='Hier erfährst du mehr über den Google Login für anderen Webseiten'>?</a>),",
+                            "um zu garantieren, dass wir niemals Benutzerdaten/-passwörter kennen, speichern oder verlieren.",
+                        "</li>",
+                    "</ul>",
+                    "Nähere Informationen findest du in den <a href='/{__lang}/tos'>Nutzungsbedingungen</a>."
+                ]
+            },
+            {
+                "headline": "Sonst noch was?",
+                "text": [
+                    "Melde dich einfach und kostenlos an und entdecke viele weitere Funktionen wie:",
+                    "{__wifi.exampleHtml}"
+                ]
+            }
+        ],
+        "where": "Wo wird Wifis.org benutzt?"
+    },
+    "home": {
+        "headline": "Mit wifis.org kann dein WLAN Emails empfangen",
+        "linklabel": "Startseite",
+        "quotes": [
+            "„Hi, willst du vielleicht für etwas Geld jeden Monat dein WLAN mit mir teilen?”",
+            "„Ich bin kürzlich im Haus eingezogen und habe dein WLAN gesehen. Lust auf ein Bierchen?”"
+        ],
+        "howToHeadline": "Wie funktioniert es?",
+        "howToText": "Erfahre mehr über diesen kostenlosen und anonymen Dienst in den <a href='/{__lang}/faq' title='Häufig gestellte Fragen'>FAQs</a>",
+        "wifichecker": "Prüfe welcher WLAN-Name noch frei ist:",
+        "teasers": [
+            "<b>DU</b> benennst dein WLAN um",
+            "<b>ANDERE</b> sehen dein WLAN",
+            "<b>WIFIS.ORG</b> erlaubt DICH anzuschreiben"
+        ]
+    },
+    "languages": {
+        "headline": "Choose your language",
+        "subheadline": "(Wähle deine Sprache)",
+        "linklabel": "Sprachen"
     },
     "login": {
         "headline": "Anmelden",
@@ -79,9 +200,10 @@
         "text": [
             "wifis.org ermöglicht nur das Einloggen mit deinem Google oder Facebook Account aus folgenden Gründen:",
             
-            "<b style=\"color: #333\">Komfort:<\/b> Ein langer Registrierungsprozess, der das Ausfüllen eines Formulares und die Bestätigung deiner Email Adresse erfordert, ist nicht nötig.",
+            "<b style='color: #333'>Komfort:</b> Ein langer Registrierungsprozess, der das Ausfüllen eines Formulares und die Bestätigung deiner Email Adresse erfordert, ist nicht nötig.",
             
-            "<b style=\"color: #333\">Sicherheit und Datenschutz:<\/b> Da wir kein Passwort oder andere persönliche Informationen von dir erfragen oder speichern, können wir zu 100% garantieren, dass wir deine Daten niemals verlieren oder an Dritte weiter geben! Weitere Informationen über diese sichere Art des Logins erfährst du direkt bei den Anbietern: "
+            "<b style='color: #333'>Sicherheit und Datenschutz:</b> Da wir kein Passwort oder andere persönliche Informationen von dir erfragen oder speichern, können wir zu 100% garantieren, dass wir deine Daten niemals verlieren oder an Dritte weiter geben!",
+            "Weitere Informationen über diese sichere Art des Logins erfährst du direkt bei den Anbietern: "
         ],
         "buttonPrefix": "Anmelden mit",
         "facebookHelpLinkHintText": "Hier erfährst du mehr über den Facebook Login für anderen Webseiten",
@@ -100,7 +222,15 @@
     "press": {
         "headline": "Presse",
         "linklabel": "Presse",
-        "text": "Seitdem <b>wifis.org<\/b> Ende 2011 live gegangen ist, wird die Seite regelmäßig in Blogs und Nachrichten-Webseiten weltweit empfohlen. <br> Für Anfragen sind wir jederzeit <a href=\"\/p\/about\">erreichbar<\/a> und freuen uns über weitere Unterstützung.<br><br> Frei verwendbares Bildmaterial ist <a href=\"https:\/\/picasaweb.google.com\/110726804868278117649\/WifisOrg\" target=\"_blank\">hier<\/a> verfügbar."
+        "content" : [
+            {  
+                "text": [
+                    "Seitdem <b>wifis.org</b> Ende 2011 live gegangen ist, wird die Seite regelmäßig in Blogs und Nachrichten-Webseiten weltweit empfohlen.",
+                    "<br> Für Anfragen sind wir jederzeit <a href='/{__lang}/contact'>erreichbar</a> und freuen uns über weitere Unterstützung.<br><br>",
+                    "Frei verwendbares Bildmaterial ist <a href='https://picasaweb.google.com/110726804868278117649/WifisOrg' target='_blank'>hier</a> verfügbar."
+                ]
+            }
+        ]  
     },
     "stats": {
         "headline": "wifis.org stats",
@@ -109,8 +239,13 @@
     "tos": {
         "headline": "Nutzungsbedingungen",
         "linklabel": "Nutzungsbedingungen",
-        "introMsg": "Die Nutzerungsbedingungen sind derzeit <b>nur auf Englisch<\/b> verfügbar.",
-        "text": "<h3>1. Accepting the Terms<\/h3> <div class=\"indent\"> <ul> <li>In order to use our Services, you must first agree to the Terms. You may not use the Services if you don’t accept the Terms.<\/li> <li>By actually using our Services, you understand and agree that wifis.org will treat your use of the Services as acceptance of the Terms from that point onwards.<\/li> <\/ul> <\/div> <h3>2. Provision of the Services by wifis.org<\/h3> <div class=\"indent\"> <ul> <li>wifis.org is constantly innovating in order to provide the best possible experience for its users. You acknowledge and agree that the form and nature of the Services which wifis.org provides may change from time to time without prior notice to you.<\/li> <li>As part of this continuing innovation, you acknowledge and agree that wifis.org may stop (permanently or temporarily) providing the Services (or any features within the Services) to you or to users generally, without prior notice to you. You may stop using the Services at any time. You do not need to specifically inform wifis.org when you stop using the Services.<\/li> <\/ul> <\/div> <h3>3. Use of the Services by you<\/h3> <div class=\"indent\"> <ul> <li>In order to access certain Services, you may be required to provide information about yourself (such as identification or contact details) as part of the registration process for the Service, or as part of your continued use of the Services. You agree that any registration information you give to wifis.org will always be accurate, correct and up to date.<\/li> <li>You agree to use the Services only for purposes that are permitted by (a) the Terms and (b) any applicable law, regulation or generally accepted practices or guidelines in the relevant jurisdictions.<\/li> <li>You agree that you will not engage in any activity that interferes with or disrupts the Services (or the servers and networks which are connected to the Services).<\/li> <li>You agree that you are solely responsible for (and that wifis.org has no responsibility to you or to any third party for) any breach of your obligations under the Terms and for the consequences of any such breach.<\/li> <\/ul> <\/div> <h3>4. Your passwords and account security<\/h3> <div class=\"indent\"> <ul> <li>You agree and understand that you are responsible for maintaining the confidentiality of passwords associated with any account you use to access the Services.<\/li> <li>Accordingly, you agree that you will be solely responsible to wifis.org for all activities that occur under your account.<\/li> <\/ul> <\/div> <h3>5. Content in the Services<\/h3> <div class=\"indent\"> <ul> <li>You agree that you are solely responsible for (and that wifis.org has no responsibility to you or to any third party for) any Content that you create, transmit or display while using the Services and for the consequences of your actions (including any loss or damage which wifis.org may suffer) by doing so.<\/li> <\/ul> <\/div> <h3>6. Proprietary rights<\/h3> <div class=\"indent\"> <ul> <li>You acknowledge and agree that wifis.org owns all legal rights, title and interest in and to the Services, including any intellectual property rights which subsist in the Services (whether those rights happen to be registered or not, and wherever in the world those rights may exist). You further acknowledge that the Services may contain information which is designated confidential by wifis.org and that you shall not disclose such information without wifis.org’s prior written consent.<\/li> <li>Unless you have agreed otherwise in writing with wifis.org, nothing in the Terms gives you a right to use any of wifis.org’s trade names, trade marks, service marks, logos, domain names, and other distinctive brand features.<\/li> <\/ul> <\/div> <h3>7. Limitation of liability<\/h3> <div class=\"indent\"> <ul> <li>You agree that wifis.org shall not be liable to you for (a) any changes which wifis.org may make to the Services (or any features within the Services) and (b) the deletion of, corruption of, or failure to store, any content and other communications data maintained or transmitted by or through your use of the Services.<\/li> <\/ul> <\/div>"
+        "content" : [
+            {
+                "text": [
+                    "<div class='alert alert-danger'>Die Nutzerungsbedingungen sind derzeit <b>nur auf Englisch</b> verfügbar.</div>{__tos.termsOfService}"
+                ]
+            }
+        ]
     },
     "wifis": {
         "headline": "Meine WLANs",
@@ -128,32 +263,34 @@
             "otherUsersWifi": "WLAN-Name ist bereits vergeben",
             "wifiIdTooShort": "WLAN-Namen müssen mind 3 Zeichen lang sein",
             "wifiIdTooLong": "WLAN-Namen dürfen nicht länger als 20 Zeichen sein",
-            "wrongWifiIdChars": "In WLAN-Namen sind nur Buchstaben, Zahlen und Binde\/Unterstriche erlaubt",
+            "wrongWifiIdChars": "In WLAN-Namen sind nur Buchstaben, Zahlen und Binde/Unterstriche erlaubt",
             "maxWifiCountReached": "Deine Maximalanzahl von WLANs ist erreicht. Durch Einladen von Freunden mit dem Link rechts, kannst du dieses Limit erhöhen.",
             "absoluteWifiLimitReached": "Selbst durch Einladen von sehr vielen Freunden ist das absolute WLAN Limit bei 10. Wenn du noch mehr brauchst, schreibe uns einfach oder versuche es mal mit der Namespace Funktion (beschrieben in der Tipps Box).",
             "whileWifiDelete": "Fehler beim Löschen des WLANs"
         },
         "tips": [
-            "<div class=\"headline\">Extra wifis.org-ID sichern!<\/div> <div class=\"text\">Du kannst ein weiteres WLAN erstellen, für jeden Nutzer, der sich bei wifis.org über <a href=\"{0}\" target=\"_blank\" title=\"Dies ist dein persönlicher Link um Freunde zu wifis.org einzuladen\">deinen persönlichen Einladungslink<\/a> anmeldet.<\/div>",
-            
-            "<div class=\"headline\">Kurze WLAN-Urls<\/div> <div class=\"text\">Nutze die URL die dir am Besten gefällt: {1} <\/div>",
-            
-            "<div class=\"headline\">Weitere Tipps<\/div> <div class=\"text\"> <b>WLAN umbennen nicht vergessen<\/b><br> Nachdem du deinen wifis.org Namen registriert hast, vergiss nicht dein WLAN auch umzubennenen. Mehr in den <a href=\"\/p\/faq\">FAQs<\/a>. <br><br> <b>Ein wifis.org Name für viele Router<\/b><br> An deinen wifis.org Namen kannst du nach einem Schrägstich „\/” beliebige Zeichen anhängen und ihn so für mehrere Router verwenden: {2}  <b>Groß\/Kleinschreibung<\/b><br> WLAN Namen können Großbuchstaben enthalten. <a href=\"http:\/\/wifis.org\/iphONE\">wifis.org\/iphONE<\/a> führt zu <a href=\"http:\/\/wifis.org\/iPhone\">wifis.org\/iPhone<\/a> <br><br> <b>Unterstützer gesucht<\/b><br> Unterstütze diesen kostenlosen Dienst per Flattr Button oder auch indem du deinen Freunden über die sozialen Netzwerke davon erzählst. <\/div>"
+            "<div class='headline'>Extra wifis.org-ID sichern!</div> <div class='text'>Du kannst ein weiteres WLAN erstellen, für jeden Nutzer, der sich bei wifis.org über <a href='{0}' target='_blank' title='Dies ist dein persönlicher Link um Freunde zu wifis.org einzuladen'>deinen persönlichen Einladungslink</a> anmeldet.</div>",
+            "<div class='headline'>Weitere Tipps</div> <div class='text'> <b>WLAN umbennen nicht vergessen</b><br> Nachdem du deinen wifis.org Namen registriert hast, vergiss nicht dein WLAN auch umzubennenen. Mehr in den <a href='/{__lang}/faq'>FAQs</a>. <br><br> <b>Ein wifis.org Name für viele Router</b><br> An deinen wifis.org Namen kannst du nach einem Schrägstich „/” beliebige Zeichen anhängen und ihn so für mehrere Router verwenden: {2}  <b>Groß/Kleinschreibung</b><br> WLAN Namen können Großbuchstaben enthalten. <a href='https://wifis.org/iphONE'>wifis.org/iphONE</a> führt zu <a href='https://wifis.org/iPhone'>wifis.org/iPhone</a> <br><br> <b>Unterstützer gesucht</b><br> Unterstütze diesen kostenlosen Dienst per Flattr Button oder auch indem du deinen Freunden über die sozialen Netzwerke davon erzählst. </div>"
         ]
     },
     "wifi": {
         "headlinePrefix": "Schreibe eine Email an:",
         "text": {
             "text": "Der Eigentümer dieses WLANs benutzt extra einen wifis.org Namen, damit DU ihm schreiben kannst. Er will dir so die Möglichkeit geben, einfach mal Hallo zu sagen oder gar nach der Mitbenutzung seines WLANs zu fragen.",
-            "notfound": "Ein WLAN mit diesem Namen ist nicht registriert. Überprüfe, ob die Web-Adresse korrekt geschrieben ist.<\/p> <p>Um mehr über www.wifis.org zu erfahren, klicke <a href=\"\/\">hier<\/a>.",
-            "mywifi": "<b>Du bist gerade angemeldet.<\/b> <br> Deswegen siehst du nur die Vorschau von deiner WLAN Kontaktseite."
+            "notfound": "Ein WLAN mit diesem Namen ist nicht registriert. Überprüfe, ob die Web-Adresse korrekt geschrieben ist.</p> <p>Um mehr über wifis.org zu erfahren, klicke <a href='/'>hier</a>.",
+            "mywifi": "<h4>Dies ist dein WIFI!</h4>Probiere das Kontaktformular gern aus.<br><br><b>TIP:</b> Nutze den WLAN Namen der dir am Besten gefällt:"
+        },
+        "urls": {
+            "short": "Kurz-Urls",
+            "subwifis": "Unter-WLANs",
+            "cases": "Groß/Kleinschreibung"
         },
         "form": {
-            "contact": "Deine Email \/ Telefonnummer <span style=\"font-weight: normal\">(Wie bist du zu erreichen?)<\/span>",
+            "contact": "Deine Email / Telefonnummer <span style='font-weight: normal'>(Wie bist du zu erreichen?)</span>",
             "message": "Deine Nachricht",
             "send": "Senden",
-            "mailsent": "Nachricht wurde <b>erfolgreich<\/b> versandt.",
-            "mailNotSent": "<b>Deine Nachricht konnte nicht versandt werden.<\/b><br> Bitte versuche es später noch einmal oder wende dich an den wifis.org Admin.",
+            "mailsent": "Nachricht wurde <b>erfolgreich</b> versandt.",
+            "mailNotSent": "<b>Deine Nachricht konnte nicht versandt werden.</b><br> Bitte versuche es später noch einmal oder wende dich an den wifis.org Admin.",
             "error": {
                 "textTooShort": "Mindestens 10 Zeichen Text sind nötig",
                 "textTooLong": "Dein Text ist zu lang. Maximal 500 Zeichen sind hier erlaubt",

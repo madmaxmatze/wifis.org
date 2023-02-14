@@ -1,45 +1,13 @@
-{{assign "title" (__ "wifis.headline")}}
-
-<h2>{{{__ "wifis.headline"}}}</h2>
-
-{{#if user}}
-<div class="tipsContainer" style="display: none">
-    {{!-- 
-    <div class="tip">
-        {{#replace "{0}" (INVITE_LINK)}}
-             {{{__ "wifis.tips.0"}}}
-        {{/replace}}
+<noscript>
+    <div class="alert alert-danger" role="alert">
+        JavaScript is disabled.<br>
+        <b>You cannot add or delete a Wifi.</b>
     </div>
-    --}}
+</noscript>
 
-    <div class="tip">
-        {{#replace "{1}" "<ul>
-                        <li><a target='_blank' href='https://wifis.org/example'>wifis.org/example</a></li>
-                        <li><a target='_blank' href='https://example.wifis.org'>example.wifis.org</a></li>
-                        <li><a target='_blank' href='https://wif.is/example'>wif.is/example</a></li>
-                    </ul>"}}
-        {{{__ "wifis.tips.1"}}}
-        {{/replace}}
-    </div>
-
-    <div class="tip">
-        {{#replace "{2}" "<ul>
-                    <li><a href='https://wifis.org/example/1'>wifis.org/example/1</a></li>
-                    <li><a href='https://wifis.org/example/2'>wifis.org/example/2</a></li>
-                    <li><a href='https://wifis.org/example/345/abc!'>wifis.org/example/345/abc!</a></li>
-                </ul>"}}
-        {{{__ "wifis.tips.2"}}}
-        {{/replace}}
-    </div>
-</div>
-
-<p>
+ <p class="no-js-hidden">
     {{{__ "wifis.text"}}}
     <b>(max {{user.maxWifis}})</b>
 </p>
 
 {{> wifiForm }}
-
-{{else}}
-Not autorized. Please login
-{{/if}}

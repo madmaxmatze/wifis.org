@@ -1,6 +1,3 @@
-export
-
-
 /**
  * Wifis Redirect Handler
  * 
@@ -11,7 +8,7 @@ export
  * and this class (handling path redirects).
  * Background: CloudRun doesn't allow wildcard domain matching with LoadBalancer
  */
-class WifisRedirect {
+export class WifisRedirect {
     // fetch language from url
     static getLang(lang, url) {
         var validLanguages = "de|en|es|fr|it|ms|nl|ru";
@@ -30,16 +27,19 @@ class WifisRedirect {
     }
 
     static getRedirect(options) {
-        if (options.pathname.match(/\./)) { // ignore files
-            return {};
+        if (!options.search) {
+            options.search = "";
         }
-
+        if (!options.hostname) {
+            options.hostname = "";
+        }
+        
         var redirect = {
             ...{
                 protocol: "https:",
-                hostname: options.hostname || "",
-                pathname: options.pathname || "",
-                search: options.search || "",
+                hostname: options.hostname,
+                pathname: options.pathname,
+                search: options.search,
                 initialProtocol: options.protocol || "https:",
                 initialHostname: options.hostname || "",
                 initialPathname: options.pathname || "",
@@ -54,17 +54,8 @@ class WifisRedirect {
             }
         };
 
-
-
         redirect.lang = options.lang || WifisRedirect.getLang("en", redirect.pathname);
    
-        // pages can force a redirect (needs to start with "/" to prevent fishing attacks by changing domain)
-        /*
-        if (redirect.url.match(/redirectUrl\=/) request.query.redirectUrl !== undefined && request.query.redirectUrl.toString().startsWith("/")) {
-            return this.redirect(request, response, "?redirectUrl=", 302, request.query.redirectUrl.toString());
-        }
-        */
-
         // handle subdomain
         if (redirect.hostname) {
             var [_redirectHostname, _subdomainWithDot, subdomain, mainDomain] = redirect.hostname.match(/((.*)\.)*(\w+\.\w+)/);
@@ -83,7 +74,9 @@ class WifisRedirect {
         // fix old subdomains and path structure
         redirect.pathname = redirect.pathname
             .replace(/^\/(s|m|static|w|ww|www)\//g, "/")      // old mobile subdomain (301 redirected via cloudflare )
-            .replace(/^\/p\/(about|faq|press|tos|languages|login|wifis)/g, "/" + redirect.lang + "/$1/");
+            .replace(/^\/p\/(about|faq|press|tos|languages|login|wifis)/g, "/" + redirect.lang + "/$1/")
+        //    .replace(/\/press/, "/about")
+        ;
 
         // fix old /p/blog url
         if (redirect.pathname.match(/\/p\/blog/)) {
@@ -136,12 +129,20 @@ class WifisRedirect {
             redirect.pathname = "/" + redirect.lang;
         }
 
+        // force naked homepage for all english homepage
+        if (redirect.initialPathname == "/en" && redirect.lang == "en") {   // can only come from cookie
+            redirect.type += " > /EN-Homepage";
+            redirect.status = 302;    // 302 because based on session specific language param
+            redirect.pathname = "/";
+        }
+
         // check for redirect loops
         if ((redirect.lastProtocol != redirect.protocol
                 || redirect.lastHostname != redirect.hostname 
                 || redirect.lastPathname != redirect.pathname 
                 || redirect.lastSearch != redirect.search
             ) && redirect.count <= 10) {
+            console.log (redirect);
             redirect.count++;
             redirect = WifisRedirect.getRedirect(redirect);
         }

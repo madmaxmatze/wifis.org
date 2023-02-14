@@ -1,0 +1,50 @@
+<title>
+    {{#if title}}
+        {{title}}
+    {{else}}
+        {{#with (lookup translations pageId)}}
+            {{#if headline}}
+                {{stripScripts headline}}
+            {{/if}}
+        {{/with}}
+    {{/if}}
+</title>
+
+{{#if wifiId}}
+    {{!-- only /contact + /example wifis should be indexed --}}
+    {{#if (or (equals wifiId "contact") (equals wifiId "example"))}}
+        <meta name="robots" content="index" />
+        <link rel=“canonical”
+            href=“https://wifis.org/{{wifiId}}{{#unless (equals getLocale defaultLang)}}?lang={{getLocale}}{{/unless}}” />
+        {{#each getLocales}}
+            {{#unless (equals this ../getLocale)}}
+                <link rel="alternate" hreflang="{{this}}" href="https://wifis.org/{{../wifiId}}?lang={{this}}" />
+            {{/unless}}
+        {{/each}}
+    {{else}}
+        <meta name="robots" content="noindex" />
+    {{/if}}
+{{else}}
+    {{!-- NON wifi pages --}}
+    {{#if error}}
+        <meta name="robots" content="noindex" />
+    {{else}}
+        <meta name="robots" content="index,follow" />
+        {{#if (equals pageId "languages")}}
+            <link rel=“canonical” href=“https://wifis.org/en/languages” />
+        {{else}}
+            <link rel=“canonical” href=“https://wifis.org{{urlWithoutQuery}}” />
+        {{/if}}
+        {{#each getLocales}}
+            {{#unless (or (equals this ../getLocale) (equals ../pageId "languages"))}}
+                {{#if (equals ../pageId "home")}}
+                    <link rel="alternate" hreflang="{{this}}"
+                        href="https://wifis.org{{#unless (equals this ../defaultLang)}}/{{this}}{{/unless}}" />
+                {{else}}
+                    <link rel="alternate" hreflang="{{this}}"
+                        href="https://wifis.org/{{this}}{{../urlWithoutLangAndQuery}}" />
+                {{/if}}
+            {{/unless}}
+        {{/each}}
+    {{/if}}
+{{/if}}
