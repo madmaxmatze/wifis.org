@@ -35,7 +35,7 @@
             </ul>
 
             <div class="d-sm-flex col-sm-4 justify-content-sm-end">
-                <div class="navbar-nav nav-pills dropdown text-end langNav">
+                <div class="navbar-nav nav-pills nav-item dropdown text-start langNav">
                     <a href="/{{getLocale}}/languages" class="dropdown-toggle text-white nav-link"
                         data-bs-toggle="dropdown">
                         <span class="sprite flag flag_{{getLocale}}">DE</span>
@@ -61,18 +61,17 @@
                         {{else}}
                             {{assign "logout_redirect" urlWithoutQuery}}
                         {{/if}}
-                       
-                        <a href="/auth/logout"
-                            class="dropdown-toggle text-white nav-link" data-bs-toggle="dropdown"
+
+                        <a href="/auth/logout" class="dropdown-toggle text-white nav-link" data-bs-toggle="dropdown"
                             aria-expanded="false">
                             {{#if user.name}}
                                 {{user.name}}
                             {{else}}
                                 {{user.email}}
-                            {{/if}}                            
-                       
+                            {{/if}}
+
                             <span class="sprite loginType icon icon-{{user.provider}}"></span>
-                       
+
                         </a>
                         <ul class="dropdown-menu text-small">
                             {{!--
@@ -85,12 +84,12 @@
 
                 {{else}}
                     <a class="nav-item btn btn-light" href="/{{getLocale}}/login">
-                        {{~__ "label.signin"~}}
-                        {{~#if (__ "label.signup")~}}
-                        {{~#unless (equals (__ "label.signin") (__ "label.signup"))~}}
-                        /{{__ "label.signup"}}
-                        {{~/unless~}}
-                        {{~/if~}}
+                        {{__ "label.signin"}}
+                        {{#if (__ "label.signup")}}
+                            {{#unless (equals (__ "label.signin") (__ "label.signup"))}}
+                                /{{__ "label.signup"}}
+                            {{/unless}}
+                        {{/if}}
                     </a>
                 {{/if}}
             </div>

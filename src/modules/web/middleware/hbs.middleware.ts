@@ -4,7 +4,7 @@ import { resolve } from 'path';
 import * as hbs from 'hbs';
 import * as crypto from 'crypto';
 import * as i18n from 'i18n';
-import { DEFAULT_LANG } from './i18n.middleware';
+import { I18nMiddleware } from './i18n.middleware';
 
 hbs.registerHelper('assign', function (varName, varValue, options) {
     if (!options.data.root) {
@@ -77,7 +77,7 @@ export class HbsMiddleware implements NestMiddleware {
     use(request: any, response: Response, next: NextFunction) {
         // pass some variables to templates
         response.locals.translations = i18n.getCatalog(response.locale);
-        response.locals.defaultLang = DEFAULT_LANG;
+        response.locals.defaultLang = I18nMiddleware.DEFAULT_LANG;
         response.locals.urlWithoutQuery = request.originalUrl.replace(/\?.*/, "").replace(/^\/$/, "");
         response.locals.urlWithoutLangAndQuery = response.locals.urlWithoutQuery.replace(/^\/\w{2}$/, "/").replace(/^\/\w{2}\//, "/").replace(/^\/$/, "");
         if (!response.locals.urlWithoutLangAndQuery || response.locals.urlWithoutQuery != response.locals.urlWithoutLangAndQuery) {
@@ -96,7 +96,8 @@ export class HbsMiddleware implements NestMiddleware {
         request.app
             .set('view engine', 'hbs')
             .set('views', resolve(__dirname, "../views"))
-            .set('view options', { layout: "layouts/main.hbs" });
+            // .set('view options', { layout: "layouts/main.hbs" })
+        ;
 
         next();
     }

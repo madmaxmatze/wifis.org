@@ -195,9 +195,6 @@
         },
         "tips": [
             "<div class='headline'>dapatkan ID WiFi yang lain</div> <div class='text'>Setiap dari sahabat kamu yang menyertai wifis.org melalui <a href='{0}' target='_blank' title='Ini adalah pautan peribadi anda untuk menyilakan sahabat-sahabat ke wifis.org'>pautan peribadi anda</a>, akan meningkatkan had penggunaan ID wifis.org dengan mendaftar satu ID.</div>",
-            
-            "<div class='headline'>pemendekkan url</div> <div class='text'>Pilih mana-mana yang anda gemar. Semuanya sama: {1} </div>",
-            
             "<div class='headline'>mau tips lagi?</div> <div class='text'> <b>Penamaan semula rangkaian WiFi anda</b><br> Jangan lupa untuk menamakan semula rangkaian Wi-Fi anda seusai anda mendaftar ID wifis.org anda. Jom ke <a href='/{__lang}/faq'>SKD</a>. <br><br> <b>Satu ID untuk banyak routers</b><br> Untuk menggunakan ID wifis.org untuk banyak router, kamu boleh menambah apa saja karakter yang anda suka selepas palang “/” dipangkal ID anda: {2} <b>Karakter sensitif</b><br> ID wifis.org tidak sensitif pada huruf kecil maupun besar. <a href='http://wifis.org/iphONE'>wifis.org/iphONE</a> akan membawa anda ke <a href='http://wifis.org/iPhone'>wifis.org/iPhone</a> <br><br> <b>Sebarkan berita ini!</b><br> Sila sokong khidmat percuma kami dengan klik pada ikon Flattr dikiri sana dan juga pada teman-teman anda. </div>"
         ]
     },
@@ -206,8 +203,11 @@
         "text": {
             "text": "Tuan milik rangkaian Wi-Fi telah mendaftar dengan wifis.org untuk membuka peluang kepada anda untuk berhubung dengan beliau.  Kamu mungkin sahaja boleh menanya untuk berkongsi akses internet atau hanya mengirim salam padanya. Ataupun sekadar beramah mesra. Jiran anda akan merasa kasihnya anda.",
             "notfound": "Url ini belum terdaftar lagi. Sila pastikan anda mempunyai url yang sebenar.</p> <p>Untuk mendaftar url ini, sila ke <a href='/p/login/'>sini</a>.",
-            "mywifi": "<h4>Anda sudahpun masuk sekaran.</h4> Jangan ragu untuk mencuba borang hubungan."
+            "mywifi": "<h4>Anda sudahpun masuk sekaran.</h4> Jangan ragu untuk mencuba borang hubungan.<br><br><b>Petunjuk:</b> Pilih mana-mana yang anda gemar. Semuanya sama:"
         },
+        "urls": {
+            "short": "Pemendekkan url"
+        },    
         "form": {
             "contact": "Sila nyatakan emel atau nombor untuk dihubungi <span style='font-weight: normal'>(apa-apa cara untuk menghubungi kamu)</span>",
             "message": "pesanan anda",

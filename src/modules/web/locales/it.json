@@ -196,9 +196,6 @@
         },
         "tips": [
             "<div class='headline'>ottieni un altro ID wifi.org</div> <div class='text'>Per ogni tuo amico che si iscrive a wifis.org tramite <a href='{0}' target='_blank' title='Questo è il tuo link personale per invitare gli amici a wifis.org'>l’ invito personale</a>, aumenterai di uno il numero di ID wifis.org che puoi creare. </div>",
-            
-            "<div class='headline'>format url del ID wifis.org</div> <div class='text'>Rinomina la rete wifi con il format url che preferisci. Vanno bene tutti: {1} </div>",
-            
             "<div class='headline'>qualche consiglio</div> <div class='text'> <b>Rinomina la tua rete wifi</b><br> Non dimenticare di rinominare la tua rete wifi dopo aver creato il tuo ID wifis.org. Leggi le <a href='/{__lang}/faq'>FAQ</a>. <br><br> <b>Una ID per più di un router</b><br> Per usare una ID wifis.org per più router wifi, puoi aggiungere tutti i caratteri che preferisci dopo uno slash “/” dopo il tuo ID: {2} <b>Case sensitivity</b><br> Gli ID wifis.org non sono case sensitive. <a href='http://wifis.org/iphONE'>wifis.org/iphONE</a> equivale a <a href='http://wifis.org/iPhone'>wifis.org/iPhone</a> <br><br> <b>Spargi la voce!</b><br> Supporta il nostro servizio gratuito cliccando sul bottone Flattr sulla sinistra e parlandone ai tuoi amici. </div>"
         ]
     },
@@ -207,7 +204,11 @@
         "text": {
             "text": "Il proprietario di questa rete wifi si è iscritto a wifis.org per darti la possibilità di contattarlo. Potresti chiederli di condividere l’accesso a internet o solo fare un saluto. In ogni caso, sii gentile per favore. Il tuo vicino di ringrazierà.",
             "notfound": "La url non è ancora registrata. Assicurati di avere inserito la url corretta.</p> <p>Per registrare questa url, vai <a href='/p/login/'>qui</a>.",
-            "mywifi": "<h4>Questo è il tuo Wi-Fi.</h4> Sentiti libero di provare il modulo di contatto."
+            "mywifi": "<h4>Questo è il tuo Wi-Fi.</h4> Sentiti libero di provare il modulo di contatto.<br><br><b>Suggerimento:</b> Rinomina la rete wifi con il format url che preferisci. Vanno bene tutti:"
+        },
+        "urls": {
+            "subdomains": "Sottodominio",
+            "short": "URL breve"
         },
         "form": {
             "contact": "fornisci una email o un numero di telefono <span style='font-weight: normal'>(qualsiasi modo per contattarti)</span>",

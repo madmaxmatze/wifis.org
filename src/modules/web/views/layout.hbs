@@ -1,25 +1,17 @@
 <!DOCTYPE html>
 <html lang="{{getLocale}}" class="no-js">
 <head>
-    <title>
-        {{!--
-        {{#if (__ (concat pageId ".headline"))}}
-            {{stripScripts (__ (concat pageId ".headline"))}}
-        {{else}}
-            {{title}}
-        {{/if}}
-        --}}
-    </title>
     <meta charset="utf-8">
     <meta name="description" content="{{__ "label.mainTeaser"}}" />
     <meta name="keywords" content="wifi, wifis, wlan, share, email, contact" />
     <meta name="author" content="wifis.org" />
     <meta name="viewport" content="width=device-width,initial-scale=1">
     {{> head_seo }}
-    {{> head_js }}
-    <link href="https://fonts.googleapis.com/css?family=Bevan" rel="stylesheet" type="text/css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.3/css/bootstrap.min.css" />
-    <link type="text/css" rel="stylesheet" href="/css/style.css" />
+    <link type="text/css" href="https://fonts.googleapis.com/css?family=Bevan" rel="stylesheet" />
+    <link type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.3/css/bootstrap.min.css"
+        rel="stylesheet" />
+    <link type="text/css" href="/css/style.css" rel="stylesheet" />
+    <script src="/js/script.js?{{version}}"></script>
 </head>
 <body class="{{pageId}}_page">
     {{> debug }}
@@ -34,7 +26,9 @@
                 {{#if headline}}
                     <h2>
                         {{headline}}
-                        {{#if subheadline}}<small>{{subheadline}}</small>{{/if}}
+                        {{#if subheadline}}
+                            <small>{{subheadline}}</small>
+                        {{/if}}
                     </h2>
                 {{/if}}
 
@@ -52,7 +46,7 @@
                     </section>
                 {{/each}}
             {{/with}}
-         
+
             {{{body}}}
         </div>
     </main>
@@ -63,7 +57,5 @@
     </footer>
 
     <script type='text/javascript' src='/js/translation/{{getLocale}}.js?{{version}}'></script>
-    <script type='text/javascript' src='/js/script.js?{{version}}'></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.3/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

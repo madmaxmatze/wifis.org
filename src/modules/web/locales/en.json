@@ -174,7 +174,8 @@
             {
                 "headline": "Anything else?",
                 "text": [
-                    "Just sign up and discover many more"
+                    "Just sign up and discover many more features like",
+                    "{__wifi.exampleHtml}"
                 ]
             },
             {
@@ -315,11 +316,20 @@
             "mywifi": "<h4>This is your WIFI</h4> Feel free to try out the contact form.<br><br><b>HINT:</b> You can choose your favorite Wifi name:"
         },
         "urls": {
-            "subdomains": "Subdomains",
-            "short": "Short-Urls",
+            "standard": "Standard",
+            "subdomains": "Sub-Domain",
+            "short": "Short-URL",
             "subwifis": "Sub-WiFis",
             "cases": "Lower/Uppercase"
         },
+        "exampleHtml": [
+            "<ul>",
+                "<li><b>{__wifi.urls.subdomains}:</b> <a href='https://example.wifis.org' rel='nofollow'>example.wifis.org</a></li>",
+                "<li><b>{__wifi.urls.short}:</b> <a href='https://wif.is/example' rel='nofollow'>wif.is/example</a></li>", 
+                "<li><b>{__wifi.urls.subwifis}:</b> <a href='https://wifis.org/example/unter/wlan!' rel='nofollow'>wifis.org/example/unter/wlan!</a></li>",
+                "<li><b>{__wifi.urls.cases}:</b> <a href='https://wifis.org/iPhOnE' rel='nofollow'>wifis.org/iPhOnE</a></li>",
+            "</ul>"
+        ],
         "form": {
             "contact": "please provide an email or phone number <span style='font-weight: normal'>(any way to get in touch with you)</span>",
             "message": "your message",

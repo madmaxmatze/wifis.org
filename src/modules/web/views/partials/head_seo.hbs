@@ -1,7 +1,19 @@
+<title>
+    {{#if title}}
+        {{title}}
+    {{else}}
+        {{#with (lookup translations pageId)}}
+            {{#if headline}}
+                {{stripScripts headline}}
+            {{/if}}
+        {{/with}}
+    {{/if}}
+</title>
+
 {{#if wifiId}}
     {{!-- only /contact + /example wifis should be indexed --}}
     {{#if (or (equals wifiId "contact") (equals wifiId "example"))}}
-        <meta name="robots" content="index">
+        <meta name="robots" content="index" />
         <link rel=“canonical”
             href=“https://wifis.org/{{wifiId}}{{#unless (equals getLocale defaultLang)}}?lang={{getLocale}}{{/unless}}” />
         {{#each getLocales}}
@@ -10,14 +22,14 @@
             {{/unless}}
         {{/each}}
     {{else}}
-        <meta name="robots" content="noindex">
+        <meta name="robots" content="noindex" />
     {{/if}}
 {{else}}
     {{!-- NON wifi pages --}}
     {{#if error}}
-        <meta name="robots" content="noindex">
+        <meta name="robots" content="noindex" />
     {{else}}
-        <meta name="robots" content="index,follow">
+        <meta name="robots" content="index,follow" />
         {{#if (equals pageId "languages")}}
             <link rel=“canonical” href=“https://wifis.org/en/languages” />
         {{else}}

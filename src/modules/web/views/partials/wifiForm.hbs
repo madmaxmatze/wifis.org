@@ -1,22 +1,23 @@
-<form id="addWifiForm" class="form-inline" method="post" autocomplete="off" data-currentvalidations=0>
+<div id="addWifiForm" class="form-inline no-js-hidden" data-currentvalidations=0>
     {{#each wifis}}
         <div data-wifiid="{{this.id}}">
-            <div class="input-group input-group-sm no-js-hidden mb-1">
+            <div class="input-group input-group-sm mb-1">
                 <span class="input-group-text text-muted text-end d-block">wifis.org/</span>
                 <span class="input-group-text wifiName" style="font-weight: bold; background: white;">
-                    <a target="_blank" href="/{{this.id}}" title=" - wifis.org/example \n - example.wifis.org">{{this.label}}</a>
+                    <a target="_blank" href="/{{this.id}}"
+                        title=" - wifis.org/example \n - example.wifis.org">{{this.label}}</a>
                 </span>
-                <span class="input-group-text deleteButton no-js-hidden border-0 bg-transparent"
+                <span class="input-group-text deleteButton border-0 bg-transparent"
                     title="{{../__ "wifis.deleteButton"}}"></span>
             </div>
         </div>
     {{/each}}
 
-    <div class="input-group {{#if (equals pageId "wifis")}}input-group-sm{{/if}} no-js-hidden mb-1">
+    <div class="input-group {{#if (equals pageId "wifis")}}input-group-sm{{/if}} mb-1">
         <span class="input-group-text text-end d-block pe-2">wifis.org/</span>
         <input pattern="^[\w\-]+$" minlength="3" maxlength="20" type="text" class="form-control" id="addWifiInput"
             name="wifiid" placeholder="{{__ "wifis.enternew"}}" title="{{__ "wifis.enternew"}}">
-        <button class="btn btn-primary disabled" value="add" type="submit" formaction="" id="addWifiSave">
+        <button class="btn btn-primary disabled" id="addWifiSave">
             <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
             <span
                 class="caption">{{#if (equals pageId "wifis")}}{{__ "wifis.save"}}{{else}}{{__ "wifis.test"}}{{/if}}</span>
@@ -25,4 +26,6 @@
             {{#if error}}{{!-- __ (concat "wifis.error." error) --}}{{/if}}
         </div>
     </div>
-</form>
+</div>
+
+<script type='text/javascript' src='/js/wifi.form.js?{{version}}'></script>

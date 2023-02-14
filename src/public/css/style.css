@@ -122,8 +122,11 @@ nav {
     left: 4px;
     position: relative;
 }
-
-
+.dropdown:hover .dropdown-menu {
+    display: block;
+    position: absolute;
+    top: 35px;
+}
 
 
 /* Icons, Sprites, Logos ********************************************************************************* */

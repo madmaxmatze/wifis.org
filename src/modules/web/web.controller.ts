@@ -6,33 +6,13 @@ import { CommsService } from '../comms/comms.service';
 import { Message } from '../data/message/message.model';
 import { Wifi } from '../data/wifi/wifi.model';
 import { AuthGuard } from '../auth/auth.guard';
-import { LANGUAGES_REGEX } from './middleware/i18n.middleware';
-import { HtmlInterceptor } from './interceptor/html.interceptor';
+import { I18nMiddleware } from './middleware/i18n.middleware';
 import { Recaptcha, RecaptchaResult, RecaptchaVerificationResult } from '@nestlab/google-recaptcha';
 import * as i18n from 'i18n';
 
-function postRenderProcessing(err: any, html: string, response: Response, next: NextFunction) {
-    if (err) {
-        return next(err);
-    }
-
-    var matches, preventLoop = 5;
-    while ((matches = [...html.matchAll(/\{\_\_\s*(.+?)\s*\}/gi)]) && preventLoop-- > 0) {
-        matches.forEach(match => {
-            console.log(match[1]);
-            var replacement = i18n.__(match[1]);
-            if (typeof replacement != "string") {
-                replacement = Array.from(replacement).join(" ");
-            }
-            html = html.replace(match[0], replacement);
-        });
-    }
-    response.send(html);
-}
-
-// @UseInterceptors(HtmlInterceptor)
 @Controller()
 export class WebController {
+    private static LANGUAGES_REGEX : string = I18nMiddleware.LANGUAGES.join("|");
     private static WIFI_URL: string = ":wifiId([a-zA-Z0-9\_\-]{3,20})/:wifiIdSuffix(*)?";
     private static HOMEPAGE_URL: string = "";
 
@@ -42,29 +22,23 @@ export class WebController {
         private readonly commsService: CommsService,
     ) { }
 
-    @Post([WebController.HOMEPAGE_URL, `:lang(${LANGUAGES_REGEX})`])
-    async postWifis(@Req() request: Request, @Res() response: Response, @Next() next: NextFunction, @Session() session: Record<string, any>) {
-        console.log(request.body)
-        next();
-    }
-
-    @All([WebController.HOMEPAGE_URL, `:lang(${LANGUAGES_REGEX})`, `:lang(${LANGUAGES_REGEX})/:pageId(about|contact|faq|tos|press|languages|login)`])
+    @All([WebController.HOMEPAGE_URL, `:lang(${WebController.LANGUAGES_REGEX})`, `:lang(${WebController.LANGUAGES_REGEX})/:pageId(about|contact|faq|tos|press|languages|login)`])
     getPages(@Res() response: Response, @Next() next: NextFunction, @Param('pageId') pageId: string = "home") {
         var viewname = ["about", "contact", "faq", "tos"].includes(pageId) ? "page" : pageId;
-        response.render(viewname, (err: Error, html: string) => postRenderProcessing(err, html, response, next));
+        response.render(viewname, (err: Error, html: string) => I18nMiddleware.tagsReplacement(err, html, next, response));
     }
 
-    @Get(`:lang(${LANGUAGES_REGEX})/wifis`)
+    @Get(`:lang(${WebController.LANGUAGES_REGEX})/wifis`)
     @UseGuards(AuthGuard)
     async getWifis(@Res() response: Response, @Next() next: NextFunction, @Session() session: Record<string, any>) {
         return response.render(
             "wifis",
             { "wifis": await this.wifiRepo.getAllByUserId(session.user.id) },
-            (err: Error, html: string) => postRenderProcessing(err, html, response, next)
+            (err: Error, html: string) => I18nMiddleware.tagsReplacement(err, html, next, response)
         );
     }
 
-    @Get(`js/translation/:lang(${LANGUAGES_REGEX}).js`)
+    @Get(`js/translation/:lang(${WebController.LANGUAGES_REGEX}).js`)
     async javascript1(@Res() response: Response, @Param('lang') lang: string) {
         var configJson = JSON.stringify({ lang: lang, translations: i18n.getCatalog(lang) });
         return response.contentType("application/javascript").send(`var config = ${configJson};`);
@@ -96,7 +70,7 @@ export class WebController {
 
     @Get(WebController.WIFI_URL)
     async getWifi(@Res() response: Response, @Next() next: NextFunction) {
-        response.render("wifi", (err: Error, html: string) => postRenderProcessing(err, html, response, next));
+        response.render("wifi", (err: Error, html: string) => I18nMiddleware.tagsReplacement(err, html, next, response));
     }
 
     @Post(WebController.WIFI_URL)
