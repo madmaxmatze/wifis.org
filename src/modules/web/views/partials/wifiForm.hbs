@@ -4,8 +4,7 @@
             <div class="input-group input-group-sm mb-1">
                 <span class="input-group-text text-muted text-end d-block">wifis.org/</span>
                 <span class="input-group-text wifiName" style="font-weight: bold; background: white;">
-                    <a target="_blank" href="/{{this.id}}"
-                        title=" - wifis.org/example \n - example.wifis.org">{{this.label}}</a>
+                    <a target="_blank" href="/{{this.id}}">{{this.label}}</a>
                 </span>
                 <span class="input-group-text deleteButton border-0 bg-transparent"
                     title="{{../__ "wifis.deleteButton"}}"></span>
@@ -13,18 +12,20 @@
         </div>
     {{/each}}
 
-    <div class="input-group {{#if (equals pageId "wifis")}}input-group-sm{{/if}} mb-1">
+    <div class="input-group input-group-{{#if (equals pageId "wifis")}}sm{{else}}lg{{/if}} mb-1">
         <span class="input-group-text text-end d-block pe-2">wifis.org/</span>
         <input pattern="^[\w\-]+$" minlength="3" maxlength="20" type="text" class="form-control" id="addWifiInput"
-            name="wifiid" placeholder="{{__ "wifis.enternew"}}" title="{{__ "wifis.enternew"}}">
+            name="wifiid" placeholder="{{__ "wifis.enternew"}}" title="{{__ "wifis.enternew"}}" required>
+        {{!--
         <button class="btn btn-primary disabled" id="addWifiSave">
             <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
             <span
                 class="caption">{{#if (equals pageId "wifis")}}{{__ "wifis.save"}}{{else}}{{__ "wifis.test"}}{{/if}}</span>
         </button>
-        <div class="invalid-feedback help-inline">
-            {{#if error}}{{!-- __ (concat "wifis.error." error) --}}{{/if}}
-        </div>
+        --}}
+        <br>
+        <div class="invalid-feedback"></div>
+        <div class="valid-feedback">{{__ "wifis.form.available"}}</div>
     </div>
 </div>
 

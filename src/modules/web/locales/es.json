@@ -43,7 +43,7 @@
             {
                 "headline": "Quiénes somos",
                 "text": [
-                    "<p><b>Equipo:</b> {__about.team}</p>",
+                    "<p><b>Fundador:</b> {__about.team}</p>",
                     "<p><b>Apoyo:</b> {__about.supporter}</p>"
                 ]
             }
@@ -126,7 +126,7 @@
         "wifichecker": "Elige tu propio nombre de wifi:"
     },
     "languages": {
-        "headline": "Choose your language",
+        "headline": "Idiomas",
         "subheadline": "(Elige tu idioma)",
         "linklabel": "Idiomas"
     },
@@ -182,18 +182,19 @@
         "enternew": "Introduce un nombre",
         "test": "Probar",
         "save": "Activar",
-        "error": {
-            "none": "Este nombre está disponible.",
-            "noWifiIdDefined": "Introduce un nombre por favor.",
-            "wifiNotFound": "nombre wifi no encontrado.",
-            "alreadyYourWifi": "Ya has activado este nombre de wifi.",
-            "otherUsersWifi": "Este nombre wifi ya está activado por otro usuario.",
-            "wifiIdTooShort": "El nombre wifi debe consistir de al menos 3 caracteres.",
-            "wifiIdTooLong": "El nombre no debe consistir de más de 20 carácteres.",
-            "wrongWifiIdChars": "Se permite solo letras, números y guión.",
-            "maxWifiCountReached": "Has alcanzado el límite máximo de wifis. Con el enlace 'invita a un amigo' a la derecha puedes aumentar el número de wifi",
-            "absoluteWifiLimitReached": "Invitando amigos, puedes alcanzar el límite absoluto de 10 wifis. Si de verdad necesitas más, ponte en contacto con nosotros o considera usar la función ‘namespace’ elaborada a la derecha.",
-            "whileWifiDelete": "Uf, Hubo un error en el proceso de cancelación. Te hemos enviado atrás en el tiempo para intentarlo de nuevo"
+        "form": {
+            "available": "Este nombre está disponible.",
+            "error": {
+                "valueMissing": "Introduce un nombre por favor.",
+                "alreadyYours": "Ya has activado este nombre de wifi.",
+                "otherUsersWifi": "Este nombre wifi ya está activado por otro usuario.",
+                "tooShort": "El nombre wifi debe consistir de al menos 3 caracteres.",
+                "tooLong": "El nombre no debe consistir de más de 20 carácteres.",
+                "patternMismatch": "Se permite solo letras, números y guión.",
+                "maxWifiCountReached": "Has alcanzado el límite máximo de wifis. Con el enlace 'invita a un amigo' a la derecha puedes aumentar el número de wifi",
+                "absoluteWifiLimitReached": "Invitando amigos, puedes alcanzar el límite absoluto de 10 wifis. Si de verdad necesitas más, ponte en contacto con nosotros o considera usar la función ‘namespace’ elaborada a la derecha.",
+                "whileWifiDelete": "Uf, Hubo un error en el proceso de cancelación. Te hemos enviado atrás en el tiempo para intentarlo de nuevo"
+            }
         },
         "tips": [
             "<div class='headline'>Consige otro nombre de WiFi</div> <div class='text'> Cada uno de tus amigos que se active a través de <a href='{0}' target='_blank' title='Este es tu enlace personal para invitar a tus amigos a wifis.org'>tu enlace invito personal</a>, incrementará tu límite de wifis por uno. </div>",
@@ -204,6 +205,7 @@
         ]
     },
     "wifi": {
+        "notFound": "nombre wifi no encontrado.",
         "headlinePrefix": "Escribir un mensaje a:",
         "text": {
             "text": "El dueño de esta red wifi se ha registrado en wifis.org para posibilitar que le contactes. Podrías simplemente saludar, o pedir acceso a la red.  Sé cortés, tu vecino te lo agradecerá.",

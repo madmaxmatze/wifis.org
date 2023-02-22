@@ -17,20 +17,20 @@ export class WifiRepo {
 
     private verifyWifiId(id: string) {
         if (!id) {
-            throw new Error(WifiError.noWifiIdDefined);
+            throw new Error(WifiError.valueMissing);
         }
         if (id.length < 3) {
-            throw new Error(WifiError.wifiIdTooShort);
+            throw new Error(WifiError.tooShort);
         }
         // TODO: Allow longer IDs ?
         if (id.length > 20) {
-            throw new Error(WifiError.wifiIdTooLong);
+            throw new Error(WifiError.tooLong);
         }
         if (["api", "www", "p", "mail", "app"].includes(id.toLocaleLowerCase())) {
             throw new Error(WifiError.wifiIdReserved);
         }
         if (!/^[\w\-]+$/.test(id)) {
-            throw new Error(WifiError.wrongWifiIdChars);
+            throw new Error(WifiError.patternMismatch);
         }
     }
 

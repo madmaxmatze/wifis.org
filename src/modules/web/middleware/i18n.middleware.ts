@@ -49,7 +49,6 @@ export class I18nMiddleware implements NestMiddleware {
         var lang = WifisRedirect.getLang(request?.cookies?.locale, request.originalUrl);
         if (lang && lang != response.getLocale()) {
             response.setLocale(lang);
-            // TODO: check if this is actually needed, after local has been set on response
             response.cookie(I18nMiddleware.LANG_COOKIE, lang);
         }
 

@@ -13,6 +13,10 @@ hbs.registerHelper('assign', function (varName, varValue, options) {
     options.data.root[varName] = varValue;
 });
 
+hbs.registerHelper('nospace', function (options) {
+    return options.fn(this).replace(/\s\s+/g, ' ').trim();
+});
+
 hbs.registerHelper('and', function (/* any, any, ..., options */) {
     return [...arguments].slice(0, -1).every(Boolean);
 });
@@ -90,14 +94,14 @@ export class HbsMiddleware implements NestMiddleware {
         }
         response.locals.env = process.env.NODE_ENV;
         response.locals.user = request.session.user;
-    
+
         hbs.registerPartials(resolve(__dirname, "../views/partials"));
 
         request.app
             .set('view engine', 'hbs')
             .set('views', resolve(__dirname, "../views"))
             // .set('view options', { layout: "layouts/main.hbs" })
-        ;
+            ;
 
         next();
     }

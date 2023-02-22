@@ -1,11 +1,10 @@
-{{!-- TODO: move to translations --}}
-{{assign "title" "Language missing"}}
-
 <ul>
     {{#each getLocales}}
         <li>
-            <a href="/{{this}}{{../urlWithoutLangAndQuery}}" class="sprite flag flag_{{this}}"></a>
-            <a href="/{{this}}{{../urlWithoutLangAndQuery}}">{{../__ (concat "label.lang." this)}}</a>
+            <a href="/{{this}}{{../urlWithoutLangAndQuery}}">
+            <span class="sprite flag flag_{{this}}"></span>
+            {{~../__ (concat "label.lang." this)~}}
+            </a>
         </li>
     {{/each}}
 </ul>

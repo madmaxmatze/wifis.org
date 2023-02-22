@@ -1,4 +1,4 @@
-import { Get, Post, All, Controller, Req, Res, Param, Session, HttpStatus, UseGuards, Body, Next, Render, UseInterceptors } from '@nestjs/common';
+import { Get, Post, All, Controller, Res, Param, Session, HttpStatus, UseGuards, Body, Next } from '@nestjs/common';
 import { Response, NextFunction } from 'express';
 import { ConfigService } from '../config/config.service';
 import { WifiRepo } from '../data/wifi/wifi.repo';
@@ -12,7 +12,7 @@ import * as i18n from 'i18n';
 
 @Controller()
 export class WebController {
-    private static LANGUAGES_REGEX : string = I18nMiddleware.LANGUAGES.join("|");
+    private static LANGUAGES_REGEX: string = I18nMiddleware.LANGUAGES.join("|");
     private static WIFI_URL: string = ":wifiId([a-zA-Z0-9\_\-]{3,20})/:wifiIdSuffix(*)?";
     private static HOMEPAGE_URL: string = "";
 
@@ -22,8 +22,13 @@ export class WebController {
         private readonly commsService: CommsService,
     ) { }
 
-    @All([WebController.HOMEPAGE_URL, `:lang(${WebController.LANGUAGES_REGEX})`, `:lang(${WebController.LANGUAGES_REGEX})/:pageId(about|contact|faq|tos|press|languages|login)`])
+    @All([
+        WebController.HOMEPAGE_URL,
+        `:lang(${WebController.LANGUAGES_REGEX})`,
+        `:lang(${WebController.LANGUAGES_REGEX})/:pageId(about|contact|faq|tos|press|languages|login)`
+    ])
     getPages(@Res() response: Response, @Next() next: NextFunction, @Param('pageId') pageId: string = "home") {
+        // TODO: move others to supporters on About page
         var viewname = ["about", "contact", "faq", "tos"].includes(pageId) ? "page" : pageId;
         response.render(viewname, (err: Error, html: string) => I18nMiddleware.tagsReplacement(err, html, next, response));
     }

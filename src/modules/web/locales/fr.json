@@ -43,7 +43,7 @@
             {
                 "headline": "Qui sommes nous",
                 "text": [
-                    "<p><b>Équipe:</b> {__about.team}</p>",
+                    "<p><b>Fondateur:</b> {__about.team}</p>",
                     "<p><b>Supporters:</b> {__about.supporter}</p>"
                 ]
             }
@@ -127,8 +127,8 @@
         "wifichecker": "Vérifiez la disponibilité d’un nom"
     },
     "languages": {
-        "headline": "Choose your language",
-        "subheadline": "(Choisissez votre langue)",
+        "headline": "Langues",
+        "subheadline": "(Choose your language)",
         "linklabel": "Langues"
     },
     "login": {
@@ -183,18 +183,19 @@
         "enternew": "Introduire nom wi-fi",
         "test": "Essayer",
         "save": "Enregistrer",
-        "error": {
-            "none": "Ce nom est disponible",
-            "noWifiIdDefined": "Pas de nom défini",
-            "wifiNotFound": "Réseau wi-fi non trouvé",
-            "alreadyYourWifi": "Vous avez déjà enregistré ce nom",
-            "otherUsersWifi": "Ce nom est déjà pris",
-            "wifiIdTooShort": "Des noms doivent consister de plus de 3 symboles",
-            "wifiIdTooLong": "Des noms ne doivent pas consister de plus de 20 symboles",
-            "wrongWifiIdChars": "On ne peut qu’utiliser des lettres, chiffres, des traits d’union et des tirets bas pour créer un nom",
-            "maxWifiCountReached": "Vous avez exigé le limite de réseaux wi-fi. Vous pouvez augmenter la limite en invitant vos amis avec le lien “Inviter des amis” à droite.",
-            "absoluteWifiLimitReached": "Même si vous invitez beaucoup d’amis, le maximum de réseaux wi-fi est 10. Sous “plus de conseils” à droite vous pouvez lire comment utiliser un nom de wifis.org pour plusieurs routers.",
-            "whileWifiDelete": "Erreur en effaçant le réseau wi-fi"
+        "form": {
+            "available": "Ce nom est disponible",
+            "error": {
+                "valueMissing": "Pas de nom défini",
+                "tooShort": "Des noms doivent consister de plus de 3 symboles",
+                "tooLong": "Des noms ne doivent pas consister de plus de 20 symboles",
+                "patternMismatch": "On ne peut qu’utiliser des lettres, chiffres, des traits d’union et des tirets bas pour créer un nom",
+                "alreadyYours": "Vous avez déjà enregistré ce nom",
+                "otherUsersWifi": "Ce nom est déjà pris",
+                "maxWifiCountReached": "Vous avez exigé le limite de réseaux wi-fi. Vous pouvez augmenter la limite en invitant vos amis avec le lien “Inviter des amis” à droite.",
+                "absoluteWifiLimitReached": "Même si vous invitez beaucoup d’amis, le maximum de réseaux wi-fi est 10. Sous “plus de conseils” à droite vous pouvez lire comment utiliser un nom de wifis.org pour plusieurs routers.",
+                "whileWifiDelete": "Erreur en effaçant le réseau wi-fi"
+            }
         },
         "tips": [
             "<div class='headline'>Inviter des amis</div> <div class='text'>Vous pouvez enregistrer encore un autre réseau wi-fi, pour chaque utilisateur qui entre à wifis.org par <a href='{0}' target='_blank' title='Voilà votre lien personnel pour inviter des amis à wifis.org'>votre lien d’invitation personnelle</a> </div> ",
@@ -202,6 +203,7 @@
         ]
     },
     "wifi": {
+        "notFound": "Réseau wi-fi non trouvé",
         "headlinePrefix": "Écrivez un Émail à:",
         "text": {
             "text": "Le propriétaire de ce wifi utilise un nom de wifs.org expressément, pour que VOUS puissiez lui écrire un message. Il veut vous donner la possibilité de pouvoir simplement lui dire bonjour ou de partager sa connexion d’internet.",

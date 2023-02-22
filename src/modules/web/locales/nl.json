@@ -42,7 +42,7 @@
             {
                 "headline": "Over ons",
                 "text": [
-                    "<p><b>Team:</b> {__about.team}</p>",
+                    "<p><b>Oprichter:</b> {__about.team}</p>",
                     "<p><b>Medewerkers:</b> {__about.supporter}</p>"
                 ]
             }
@@ -124,8 +124,8 @@
         "wifichecker": "Kies je persoonlijke wifis.org ID:"
     },
     "languages": {
-        "headline": "Choose your language",
-        "subheadline": "(Kies je taal)",
+        "headline": "Talen",
+        "subheadline": "(Choose your language)",
         "linklabel": "Talen"
     },
     "login": {
@@ -180,18 +180,19 @@
         "enternew": "Geef een Wi-fi naam in",
         "test": "Check",
         "save": "Registreer",
-        "error": {
-            "none": "Deze ID is beschikbaar.",
-            "noWifiIdDefined": "Geef hier een naam in.",
-            "wifiNotFound": "wifis.org ID niet gevonden.",
-            "alreadyYourWifi": "Je bent al geregistreerd met deze ID.",
-            "otherUsersWifi": "Deze wifis.org ID is al actief voor een andere gebruiker.",
-            "wifiIdTooShort": "Je ID moet tenminste 3 karakters bevatten.",
-            "wifiIdTooLong": "Wij ondersteunen geen ID´s die langer zijn dan 20 karakters.",
-            "wrongWifiIdChars": "De enige toegestane karakters zijn letters, cijfers, nummers en koppeltekens.",
-            "maxWifiCountReached": "Je hebt je huidige wifis.org ID limiet bereikt. Probeer de  <b>invite a friend</b> link rechts om je limiet te verhogen.",
-            "absoluteWifiLimitReached": "We staan momenteel 10 verschillende wifis.org ID´s toe. Als je werkelijk meer ID´s nodig hebt, contacteer ons dan.",
-            "whileWifiDelete": "Oeps. Er is een fout opgetreden tijdens het annuleringsproces."
+        "form": {
+            "available": "Deze ID is beschikbaar.",
+            "error": {
+                "valueMissing": "Geef hier een naam in.",
+                "tooShort": "Je ID moet tenminste 3 karakters bevatten.",
+                "tooLong": "Wij ondersteunen geen ID´s die langer zijn dan 20 karakters.",
+                "patternMismatch": "De enige toegestane karakters zijn letters, cijfers, nummers en koppeltekens.",
+                "alreadyYours": "Je bent al geregistreerd met deze ID.",
+                "otherUsersWifi": "Deze wifis.org ID is al actief voor een andere gebruiker.",
+                "maxWifiCountReached": "Je hebt je huidige wifis.org ID limiet bereikt. Probeer de  <b>invite a friend</b> link rechts om je limiet te verhogen.",
+                "absoluteWifiLimitReached": "We staan momenteel 10 verschillende wifis.org ID´s toe. Als je werkelijk meer ID´s nodig hebt, contacteer ons dan.",
+                "whileWifiDelete": "Oeps. Er is een fout opgetreden tijdens het annuleringsproces."
+            }
         },
         "tips": [
             "<div class='headline'>ontvang een ander WiFi ID</div> <div class='text'>Ieder van je vrienden die wifis.org die toetreedt via <a href='{0}' target='_blank' title=' Dit is je persoonlijke link om vrienden uit te nodigen op wifis.org'>je persoonlijke uitnodigingslink</a>, zal de limiet van je wifis.org ID´s die je kan registreren met 1 verhogen.</div>",
@@ -199,6 +200,7 @@
         ]
     },
     "wifi": {
+        "notFound": "wifis.org ID niet gevonden.",
         "headlinePrefix": "Stuur een e-mail naar:",
         "text": {
             "text": "De bezitter van dit Wi-fi netwerk registreerde zich bij wifis.org om je de kans te geven met hem in contact te komen. Je kan via deze weg shared internet toegang vragen of gewoon eens ´gedag´. In ieder geval, blijf steeds vriendelijk, je buur zal je dankbaar zijn.",

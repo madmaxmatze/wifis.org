@@ -58,22 +58,21 @@
             {
                 "headline": "About us",
                 "text": [
-                    "<p><b>Team:</b> {__about.team}</p>",
+                    "<p><b>Founder:</b> {__about.team}</p>",
                     "<p><b>Supporter:</b> {__about.supporter}</p>"
                 ]
             }
         ],
         "team": [
-            "<a href='https://mathiasnitzsche.de' target='_blank'>Mathias</a>",
-            "<span style='color: #BBB'>(Founder, Coder),</span>",
-            "<a href='https://www.linkedin.com/in/hoehne/' target='_blank'>Robert</a>",
-            "<span style='color: #BBB'>(Product),</span>",
-            "Malena <span style='color: #BBB'>(Marketing/User Support),</span>",
-            "<a href='https://vonverhille.tumblr.com/' target='_blank'>James</a>",
-            "<span style='color: #BBB'>(Design)</span>"
+            "<a href='https://mathiasnitzsche.de' target='_blank'>Mathias Nitzsche</a>",
+            "<span style='color: #BBB'>(a.k.a. Coder),</span>"
         ],
         "supporter": [
-            "Howard <span style='color: #BBB'>(ES-Translation),</span>",
+            "<a href='https://www.linkedin.com/in/hoehne/' target='_blank'>Robert</a>",
+            "<span style='color: #BBB'>(Product),</span>",
+            "Malena <span style='color: #BBB'>(ES-Translation),</span>",
+            "<a href='https://vonverhille.tumblr.com/' target='_blank'>James</a>",
+            "<span style='color: #BBB'>(Design)</span>",
             "<a href='https://www.facebook.com/karenkennes22' target='_blank'>Karen</a>",
             "<span style='color: #BBB'>(NL-Translation),</span>",
             "<a href='https://www.linkedin.com/in/lorenzotubertini' target='_blank'>Lorenzo</a>",
@@ -204,7 +203,8 @@
         ]
     },
     "languages": {
-        "headline": "Choose your language",
+        "headline": "Languages",
+        "subheadline": "Choose yours",
         "linklabel": "Languages"
     },
     "login": {
@@ -290,18 +290,19 @@
         "enternew": "Enter a Wi-Fi name",
         "test": "Check",
         "save": "Register",
-        "error": {
-            "none": "This ID is available.",
-            "noWifiIdDefined": "Please insert a name.",
-            "wifiNotFound": "wifis.org ID not found.",
-            "alreadyYourWifi": "You already registered this ID.",
-            "otherUsersWifi": "This wifis.org ID is already taken by another user.",
-            "wifiIdTooShort": "Your ID has to be at least 3 characters.",
-            "wifiIdTooLong": "We do not support IDs longer than 20 characters.",
-            "wrongWifiIdChars": "The only characters allowed are letters, numbers and hyphens.",
-            "maxWifiCountReached": "You have reached your current limit of wifis.org IDs. Try the <b>invite a friend</b> link on the right to increase your limit.",
-            "absoluteWifiLimitReached": "We only allow up to 10 different wifis.org IDs at this point. If you really need more IDs please contact us.",
-            "whileWifiDelete": "Oops. There was an error during the deletion process."
+        "form": {
+            "available": "This ID is available.",
+            "error": {
+                "valueMissing": "Please insert a name.",
+                "tooShort": "Your ID has to be at least 3 characters.",
+                "tooLong": "We do not support IDs longer than 20 characters.",
+                "patternMismatch": "The only characters allowed are letters, numbers and hyphens.",
+                "alreadyYours": "You already registered this ID.",
+                "otherUsersWifi": "This wifis.org ID is already taken by another user.",
+                "maxWifiCountReached": "You have reached your current limit of wifis.org IDs. Try the <b>invite a friend</b> link on the right to increase your limit.",
+                "absoluteWifiLimitReached": "We only allow up to 10 different wifis.org IDs at this point. If you really need more IDs please contact us.",
+                "whileWifiDelete": "Oops. There was an error during the deletion process."
+            }
         },
         "tips": [
             "<div class='headline'>get another WiFi ID</div> <div class='text'>Each of your friends who joins wifis.org through <a href='{0}' target='_blank' title='This is your personal link to invite friends to wifis.org'>your personal invite link</a>, will increase the limit of wifis.org IDs you can register by one.</div>",
@@ -309,6 +310,7 @@
         ]
     },
     "wifi": {
+        "notFound": "wifis.org ID not found.",
         "headlinePrefix": "Write an email to:",
         "text": {
             "text": "The owner of this Wi-Fi network signed up for wifis.org to give you the chance to get in touch with them.  You might want to ask for shared internet access or just say 'hello'. Either way, please be kind. Your neighbor will thank you.",

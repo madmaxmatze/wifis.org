@@ -42,7 +42,7 @@
             {
                 "headline": "Perihal Kami",
                 "text": [
-                    "<p><b>Pasukan:</b> {__about.team}</p>",
+                    "<p><b>Pengasas:</b> {__about.team}</p>",
                     "<p><b>Pendukung:</b> {__about.supporter}</p>"
                 ]
             }
@@ -124,8 +124,8 @@
         "wifichecker": "Pilih ID peribadi wifis.org anda:"
     },
     "languages": {
-        "headline": "Choose your language",
-        "subheadline": "(Pilih Bahasa anda)",
+        "headline": "Bahasa",
+        "subheadline": "(Choose your language)",
         "linklabel": "Bahasa"
     },
     "login": {
@@ -180,18 +180,19 @@
         "enternew": "Masukkan nama Wi-Fi",
         "test": "Periksa",
         "save": "Daftar",
-        "error": {
-            "none": "ID boleh digunapakai.",
-            "noWifiIdDefined": "Sila namakannya.",
-            "wifiNotFound": "ID wifis.org tidak ditemui.",
-            "alreadyYourWifi": "Kamu sudahpun mendaftar ID ini.",
-            "otherUsersWifi": "ID wifis.org ini telah diguna oleh orang lain.",
-            "wifiIdTooShort": "ID anda mesti mempunyai sekurang-kurangnya 3 huruf.",
-            "wifiIdTooLong": "Kami tidak membenarkan penamaan ID melebihi 20 huruf.",
-            "wrongWifiIdChars": "Huruf yang dibenarkan hanyalah abjad, nombor dan hypens.",
-            "maxWifiCountReached": "Kamu sudah melebihi had penggunaan ID. Cuba proses <b>jemput seorang kawan</b> pautan disebelah kanan untuk meningkatkan had penggunaan.",
-            "absoluteWifiLimitReached": "Kami hanya membenarkan 10 ID yang berbeza setakat ini. Sekiranya kamu memerlukan ID yang lebih banyak sila hubungi kami.",
-            "whileWifiDelete": "Alamak. Terdapat kesilapan teknikal semasa menghapuskannya."
+        "form": {
+            "available": "ID boleh digunapakai.",
+            "error": {
+                "valueMissing": "Sila namakannya.",
+                "tooShort": "ID anda mesti mempunyai sekurang-kurangnya 3 huruf.",
+                "tooLong": "Kami tidak membenarkan penamaan ID melebihi 20 huruf.",
+                "patternMismatch": "Huruf yang dibenarkan hanyalah abjad, nombor dan hypens.",
+                "alreadyYours": "Kamu sudahpun mendaftar ID ini.",
+                "otherUsersWifi": "ID wifis.org ini telah diguna oleh orang lain.",
+                "maxWifiCountReached": "Kamu sudah melebihi had penggunaan ID. Cuba proses <b>jemput seorang kawan</b> pautan disebelah kanan untuk meningkatkan had penggunaan.",
+                "absoluteWifiLimitReached": "Kami hanya membenarkan 10 ID yang berbeza setakat ini. Sekiranya kamu memerlukan ID yang lebih banyak sila hubungi kami.",
+                "whileWifiDelete": "Alamak. Terdapat kesilapan teknikal semasa menghapuskannya."
+            }
         },
         "tips": [
             "<div class='headline'>dapatkan ID WiFi yang lain</div> <div class='text'>Setiap dari sahabat kamu yang menyertai wifis.org melalui <a href='{0}' target='_blank' title='Ini adalah pautan peribadi anda untuk menyilakan sahabat-sahabat ke wifis.org'>pautan peribadi anda</a>, akan meningkatkan had penggunaan ID wifis.org dengan mendaftar satu ID.</div>",
@@ -199,6 +200,7 @@
         ]
     },
     "wifi": {
+        "notFound": "ID wifis.org tidak ditemui.",
         "headlinePrefix": "Hantarkan emel kepada:",
         "text": {
             "text": "Tuan milik rangkaian Wi-Fi telah mendaftar dengan wifis.org untuk membuka peluang kepada anda untuk berhubung dengan beliau.  Kamu mungkin sahaja boleh menanya untuk berkongsi akses internet atau hanya mengirim salam padanya. Ataupun sekadar beramah mesra. Jiran anda akan merasa kasihnya anda.",

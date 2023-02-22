@@ -1,14 +1,16 @@
 /* Basic Layout ********************************************************************************* */
 html {
-	overflow-y: scroll;
+    overflow-x: hidden;
 }
 html, body {
 	background: #f6f2e9;
 }
+/*
 body {
     font-size: 14px;
     line-height: 20px;
 }
+*/
 .container {
     max-width: 2000px;
     padding-right: 0;
@@ -19,17 +21,13 @@ body {
 .container-lg {
     max-width: 960px;
 }
-/*
-:root {
-    --bs-nav-pills-link-active-bg: red;
-} 
-*/
 main .container-lg {
 	margin: 10px auto;
     padding: 10px;
 	background: white;
 	position: relative;
 	padding: 20px;
+    width: 98%;
 	margin-bottom: 20px;
     border-radius: 15px;
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
@@ -37,12 +35,14 @@ main .container-lg {
 main .container-lg:nth-child(1) {
     min-height: 300px;
 }
-
 h1, h2 {
-	/* font-family: 'Yanone Kaffeesatz', sans-serif; */
-	font-family: 'Bevan', serif;
 	color: #00457c;	
+	font-family: 'Bevan', serif;
 	font-weight: normal;	
+}
+h1:lang(ru),
+h2:lang(ru) {
+    font-family: auto;
 }
 h2 {
 	clear: both;
@@ -66,6 +66,8 @@ h3 {
 h4 {
 	font-size: 14pt;
 }
+
+
 section {
     margin-left: 10px;
 }
@@ -119,7 +121,7 @@ nav {
 .langNav .dropdown-toggle .flag {
     text-indent: 10000px;
     vertical-align: text-top;
-    left: 4px;
+    left: 7px;
     position: relative;
 }
 .dropdown:hover .dropdown-menu {
@@ -189,6 +191,7 @@ a.logo {
    width: 18px;
    margin-top: 4px;
    border: 1px solid #111;
+   margin-right: 6px;
 }
 .flag:hover {
    border-color: #333;
@@ -305,21 +308,29 @@ a.logo {
 
 /* WifiForm ********************************************************************************* */
 #addWifiForm {
-    width: 400px;
+    width: 100%;
 }
+@media (min-width: 768px) { /* equals media-breakpoint-up(md) */
+    #addWifiForm {
+        width: 500px;
+    }
+}
+
 .home_page #addWifiForm {
     margin: 0 auto;
 }
-#addWifiInput {
-    max-width: 250px;
-    background: transparent;
+.home_page #addWifiForm button {
+    display: none;
 }
+
+/*
 #addWifiInput:invalid {
     border-color: #dc3545 !important;
 }
 .form-control:invalid:focus {
     box-shadow: 0 0 0 0.25rem rgb(220 53 69 / 25%);
 }
+*/
 .btn-primary {
     --bs-btn-bg: #49afcd;
     --bs-btn-hover-bg: #084f74;
@@ -327,16 +338,12 @@ a.logo {
     --bs-btn-disabled-color: dimgray;
     --bs-btn-disabled-border-color: darkgray;
 }
-#addWifiForm .spinner-border {
-    position: absolute;
-    left: -23px;
-    top: 10px;
-    display: none;
-    border-color: #084f74;
-    border-right-color: transparent;
-}
-#addWifiForm:not([data-currentvalidations='0']) .spinner-border {
-    display: inline-block;
+#addWifiForm:not([data-currentvalidations='0']) #addWifiInput {
+    background-repeat: no-repeat;
+    background-position: right calc(0.375em + 0.1875rem) center;
+    background-size: calc(0.75em + 0.375rem) calc(0.75em + 0.375rem);
+    background-image: url('/img/loader.webp') !important;
+    background-blend-mode: luminosity;
 }
 
 .deleteButton {
@@ -356,8 +363,9 @@ a.logo {
     overflow: hidden;
     transition: all 0.6s ease-in-out;
 }
-
-
+#addWifiInput:placeholder-shown {
+    color: gray;
+}
 
 
 
@@ -447,8 +455,10 @@ a.logo {
 	width: 30px;
 	height: 30px;
 	color: white;
-	font-size: 20px;
-	text-align: center;
+    font-size: 22px;
+    text-align: center;
+    vertical-align: middle;
+    line-height: 30px;
 }
 .home_page .card .text {
 	color: #3994bb;

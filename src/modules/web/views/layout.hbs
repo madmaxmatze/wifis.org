@@ -24,12 +24,14 @@
         <div class="container-lg clearfix">
             {{#with (lookup translations pageId)}}
                 {{#if headline}}
+                    {{~#nospace~}}
                     <h2>
                         {{headline}}
                         {{#if subheadline}}
                             <small>{{subheadline}}</small>
                         {{/if}}
                     </h2>
+                    {{~/nospace~}}
                 {{/if}}
 
                 {{#each content}}

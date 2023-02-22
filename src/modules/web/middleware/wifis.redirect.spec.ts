@@ -111,7 +111,7 @@ describe('Test Redirect Middleware', () => {
         {
             name: "many ///",
             request: { pathname: "/en/////press", search: "?" },
-            response: { url: "/en/about", status: 301 }
+            response: { url: "/en/press", status: 301 }
         },
         {
             name: "wifiPage + ?lang",
@@ -157,7 +157,7 @@ describe('Test Redirect Middleware', () => {
 
     const request = require("supertest");
     testCases.forEach((testCase: any) => {
-        var performLive = (testCase.request.lang == undefined);
+        var langUndefined = (testCase.request.lang == undefined);
 
         it(testCase.name, () => {
             Object.assign(testCase.request, {
@@ -171,7 +171,7 @@ describe('Test Redirect Middleware', () => {
             }
         });
 
-        if (false && performLive && testCase.response.url) {
+        if (false && langUndefined && testCase.response.url) {
             it("FETCH " + testCase.name, async () => {
                 request((testCase.request.protocol || "https:") + "//" + (testCase.request.hostname || "wifis.org"))
                     .get(testCase.request.pathname + (testCase.request.search || ""))

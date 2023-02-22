@@ -43,7 +43,7 @@
             {
                 "headline": "Scopri wifis.org",
                 "text": [
-                    "<p><b>Team:</b> {__about.team}</p>",
+                    "<p><b>Fondatore:</b> {__about.team}</p>",
                     "<p><b>Collaboratori:</b> {__about.supporter}</p>"
                 ]
             }
@@ -125,8 +125,8 @@
         "wifichecker": "Scegli il tuo ID wifis.org personale:"
     },
     "languages": {
-        "headline": "Choose your language",
-        "subheadline": "(Scegli la tua lingue)",
+        "headline": "Lingue",
+        "subheadline": "(Choose your language)",
         "linklabel": "lingue"
     },
     "login": {
@@ -181,18 +181,19 @@
         "enternew": "Inserisci il nome wifi",
         "test": "Controlla",
         "save": "Salva",
-        "error": {
-            "none": "Questo ID è disponibile.",
-            "noWifiIdDefined": "Prego inserisci un nome.",
-            "wifiNotFound": "ID wifis.org non trovato.",
-            "alreadyYourWifi": "Hai già registrato questo ID.",
-            "otherUsersWifi": "Questo ID wifis.org è già stato preso da un altro user.",
-            "wifiIdTooShort": "ID wifis.org deve essere di almeno 3 caratteri.",
-            "wifiIdTooLong": "Non supportiamo ID più lunghi di 20 caratteri.",
-            "wrongWifiIdChars": "Gli unici caratteri supportati sono lettere, numeri and trattini.",
-            "maxWifiCountReached": "Hai raggiunto il limite di ID wifis.org. Clicca sul link <b>invita un amico</b> sulla destra per aumentare il tuo limite.",
-            "absoluteWifiLimitReached": "Supportiamo fino a 10 ID wifis.org per il momento. Se realmente necessiti di ulteriori ID wifis.org contattaci.",
-            "whileWifiDelete": "Ops. C’è stato un errore nel processo di cancellazione."
+        "form": {
+            "available": "Questo ID è disponibile.",
+            "error": {
+                "valueMissing": "Prego inserisci un nome.",
+                "tooShort": "ID wifis.org deve essere di almeno 3 caratteri.",
+                "tooLong": "Non supportiamo ID più lunghi di 20 caratteri.",
+                "patternMismatch": "Gli unici caratteri supportati sono lettere, numeri and trattini.",
+                "alreadyYours": "Hai già registrato questo ID.",
+                "otherUsersWifi": "Questo ID wifis.org è già stato preso da un altro user.",
+                "maxWifiCountReached": "Hai raggiunto il limite di ID wifis.org. Clicca sul link <b>invita un amico</b> sulla destra per aumentare il tuo limite.",
+                "absoluteWifiLimitReached": "Supportiamo fino a 10 ID wifis.org per il momento. Se realmente necessiti di ulteriori ID wifis.org contattaci.",
+                "whileWifiDelete": "Ops. C’è stato un errore nel processo di cancellazione."
+            }
         },
         "tips": [
             "<div class='headline'>ottieni un altro ID wifi.org</div> <div class='text'>Per ogni tuo amico che si iscrive a wifis.org tramite <a href='{0}' target='_blank' title='Questo è il tuo link personale per invitare gli amici a wifis.org'>l’ invito personale</a>, aumenterai di uno il numero di ID wifis.org che puoi creare. </div>",
@@ -200,6 +201,7 @@
         ]
     },
     "wifi": {
+        "notFound": "ID wifis.org non trovato.",
         "headlinePrefix": "Scrivi una email a:",
         "text": {
             "text": "Il proprietario di questa rete wifi si è iscritto a wifis.org per darti la possibilità di contattarlo. Potresti chiederli di condividere l’accesso a internet o solo fare un saluto. In ogni caso, sii gentile per favore. Il tuo vicino di ringrazierà.",

@@ -130,11 +130,11 @@ export class WifisRedirect {
         }
 
         // force naked homepage for all english homepage
-        if (redirect.initialPathname == "/en" && redirect.lang == "en") {   // can only come from cookie
-            redirect.type += " > /EN-Homepage";
-            redirect.status = 302;    // 302 because based on session specific language param
-            redirect.pathname = "/";
-        }
+        // if (redirect.initialPathname == "/en" && redirect.lang == "en") {   // can only come from cookie
+        //    redirect.type += " > /EN-Homepage";
+        //    redirect.status = 302;    // 302 because based on session specific language param
+        //    redirect.pathname = "/";
+        // }
 
         // check for redirect loops
         if ((redirect.lastProtocol != redirect.protocol

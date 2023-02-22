@@ -32,7 +32,7 @@
     "about": {
         "headline": "Impressum",
         "linklabel": "Impressum",
-        "content" : [
+        "content": [
             {
                 "headline": "Wir verwandeln die WLAN-Netze der Welt in soziale Netze",
                 "text": [
@@ -43,7 +43,7 @@
             {
                 "headline": "Über uns",
                 "text": [
-                    "<p><b>Team:</b> {__about.team}</p>",
+                    "<p><b>Gründer:</b> {__about.team}</p>",
                     "<p><b>Unterstützer:</b> {__about.supporter}</p>"
                 ]
             },
@@ -99,13 +99,17 @@
     "contact": {
         "headline": "Kontakt",
         "linklabel": "Kontakt",
-        "content": [{
-            "text": ["{__contact.htmlTemplate}"]
-        }],
+        "content": [
+            {
+                "text": [
+                    "{__contact.htmlTemplate}"
+                ]
+            }
+        ],
         "introText": "Wir freuen uns über Feedback sowie weitere Unterstützung:",
         "mailText": "Schicke Emails an",
         "wifiText": "Schreibe direkt an unser WLAN",
-        "twitterText" : "Folge uns auf",
+        "twitterText": "Folge uns auf",
         "facebookText": "Like uns auf",
         "blogText": "Folge unserem"
     },
@@ -113,7 +117,7 @@
         "headline": "FAQ",
         "subheadline": "(Häufig gestellte Fragen)",
         "linklabel": "FAQ",
-        "content" : [
+        "content": [
             {
                 "headline": "Warum sollte ich mein WLAN mit einer wifis.org Adresse benennen?",
                 "text": [
@@ -125,17 +129,19 @@
             },
             {
                 "headline": "Wieviel kostet der Spaß?",
-                "text": ["wifis.org ist ein kostenloser Dienst. Dies wird auch immmer so bleiben!"]
+                "text": [
+                    "wifis.org ist ein kostenloser Dienst. Dies wird auch immmer so bleiben!"
+                ]
             },
             {
                 "headline": "Was muss ich tun?",
                 "text": [
                     "Folge einfach diesen Schritten:",
                     "<ol>",
-                        "<li>Melde dich <a href='/{__lang}/login'>hier</a> an.</li>",
-                        "<li>Sichere dir deinen eigenen wifis.org Namen.</li>",
-                        "<li>Öffne die Einstellungen deines WLAN Routers.</li>",
-                        "<li>Ändere den Namen deines WLANs (SSID) in deine neue wifis.org Adresse.</li>",
+                    "<li>Melde dich <a href='/{__lang}/login'>hier</a> an.</li>",
+                    "<li>Sichere dir deinen eigenen wifis.org Namen.</li>",
+                    "<li>Öffne die Einstellungen deines WLAN Routers.</li>",
+                    "<li>Ändere den Namen deines WLANs (SSID) in deine neue wifis.org Adresse.</li>",
                     "</ol>",
                     "Herzlichen Glückwunsch. Du bist nun über deine wifis.org Adresse per Mail erreichbar - bleibst selbst aber anonym.</p>"
                 ]
@@ -152,13 +158,13 @@
                 "text": [
                     "wifis.org ist 100% anonym und sicher!",
                     "<ul>",
-                        "<li>Du und dein WLAN können über diese Webseite nicht gesucht oder lokalisiert werden.</li>",
-                        "<li>Nur deine Emailadresse, deine wifis.org Namen und Nachrichten, die du erhälst, werden gespeichert, um unseren Dienst erbringen zu können. Diese Daten werden niemals an Dritte weitergegeben!</li>",
-                        "<li>Wir unterstützen ausschließlich die sichere Anmeldungen über",
-                            "Facebook (<a href='https://www.facebook.com/help/405977429438260' target='_blank' rel='nofollow' title='Hier erfährst du mehr über den Facebook Login für anderen Webseiten'>?</a>) und",
-                            "Google (<a href='https://www.google.com/support/accounts/bin/answer.py?answer=112802' rel='nofollow' target='_blank' title='Hier erfährst du mehr über den Google Login für anderen Webseiten'>?</a>),",
-                            "um zu garantieren, dass wir niemals Benutzerdaten/-passwörter kennen, speichern oder verlieren.",
-                        "</li>",
+                    "<li>Du und dein WLAN können über diese Webseite nicht gesucht oder lokalisiert werden.</li>",
+                    "<li>Nur deine Emailadresse, deine wifis.org Namen und Nachrichten, die du erhälst, werden gespeichert, um unseren Dienst erbringen zu können. Diese Daten werden niemals an Dritte weitergegeben!</li>",
+                    "<li>Wir unterstützen ausschließlich die sichere Anmeldungen über",
+                    "Facebook (<a href='https://www.facebook.com/help/405977429438260' target='_blank' rel='nofollow' title='Hier erfährst du mehr über den Facebook Login für anderen Webseiten'>?</a>) und",
+                    "Google (<a href='https://www.google.com/support/accounts/bin/answer.py?answer=112802' rel='nofollow' target='_blank' title='Hier erfährst du mehr über den Google Login für anderen Webseiten'>?</a>),",
+                    "um zu garantieren, dass wir niemals Benutzerdaten/-passwörter kennen, speichern oder verlieren.",
+                    "</li>",
                     "</ul>",
                     "Nähere Informationen findest du in den <a href='/{__lang}/tos'>Nutzungsbedingungen</a>."
                 ]
@@ -190,8 +196,8 @@
         ]
     },
     "languages": {
-        "headline": "Choose your language",
-        "subheadline": "(Wähle deine Sprache)",
+        "headline": "Sprachen",
+        "subheadline": "(Choose your language)",
         "linklabel": "Sprachen"
     },
     "login": {
@@ -199,9 +205,7 @@
         "linklabel": "Anmelden",
         "text": [
             "wifis.org ermöglicht nur das Einloggen mit deinem Google oder Facebook Account aus folgenden Gründen:",
-            
             "<b style='color: #333'>Komfort:</b> Ein langer Registrierungsprozess, der das Ausfüllen eines Formulares und die Bestätigung deiner Email Adresse erfordert, ist nicht nötig.",
-            
             "<b style='color: #333'>Sicherheit und Datenschutz:</b> Da wir kein Passwort oder andere persönliche Informationen von dir erfragen oder speichern, können wir zu 100% garantieren, dass wir deine Daten niemals verlieren oder an Dritte weiter geben!",
             "Weitere Informationen über diese sichere Art des Logins erfährst du direkt bei den Anbietern: "
         ],
@@ -222,15 +226,15 @@
     "press": {
         "headline": "Presse",
         "linklabel": "Presse",
-        "content" : [
-            {  
+        "content": [
+            {
                 "text": [
                     "Seitdem <b>wifis.org</b> Ende 2011 live gegangen ist, wird die Seite regelmäßig in Blogs und Nachrichten-Webseiten weltweit empfohlen.",
                     "<br> Für Anfragen sind wir jederzeit <a href='/{__lang}/contact'>erreichbar</a> und freuen uns über weitere Unterstützung.<br><br>",
                     "Frei verwendbares Bildmaterial ist <a href='https://picasaweb.google.com/110726804868278117649/WifisOrg' target='_blank'>hier</a> verfügbar."
                 ]
             }
-        ]  
+        ]
     },
     "stats": {
         "headline": "wifis.org stats",
@@ -239,7 +243,7 @@
     "tos": {
         "headline": "Nutzungsbedingungen",
         "linklabel": "Nutzungsbedingungen",
-        "content" : [
+        "content": [
             {
                 "text": [
                     "<div class='alert alert-danger'>Die Nutzerungsbedingungen sind derzeit <b>nur auf Englisch</b> verfügbar.</div>{__tos.termsOfService}"
@@ -255,18 +259,19 @@
         "enternew": "WLAN Namen eingeben",
         "test": "Testen",
         "save": "Registrieren",
-        "error": {
-            "none": "WLAN-Name ist verfügbar",
-            "noWifiIdDefined": "Kein WLAN-Name definiert",
-            "wifiNotFound": "WLAN nicht gefunden",
-            "alreadyYourWifi": "Bereits dein WLAN",
-            "otherUsersWifi": "WLAN-Name ist bereits vergeben",
-            "wifiIdTooShort": "WLAN-Namen müssen mind 3 Zeichen lang sein",
-            "wifiIdTooLong": "WLAN-Namen dürfen nicht länger als 20 Zeichen sein",
-            "wrongWifiIdChars": "In WLAN-Namen sind nur Buchstaben, Zahlen und Binde/Unterstriche erlaubt",
-            "maxWifiCountReached": "Deine Maximalanzahl von WLANs ist erreicht. Durch Einladen von Freunden mit dem Link rechts, kannst du dieses Limit erhöhen.",
-            "absoluteWifiLimitReached": "Selbst durch Einladen von sehr vielen Freunden ist das absolute WLAN Limit bei 10. Wenn du noch mehr brauchst, schreibe uns einfach oder versuche es mal mit der Namespace Funktion (beschrieben in der Tipps Box).",
-            "whileWifiDelete": "Fehler beim Löschen des WLANs"
+        "form": {
+            "available": "WLAN-Name ist verfügbar",
+            "error": {
+                "valueMissing": "Kein WLAN-Name definiert",
+                "tooShort": "WLAN-Namen müssen mind 3 Zeichen lang sein",
+                "tooLong": "WLAN-Namen dürfen nicht länger als 20 Zeichen sein",
+                "patternMismatch": "In WLAN-Namen sind nur Buchstaben, Zahlen und Binde/Unterstriche erlaubt",
+                "alreadyYours": "Bereits dein WLAN",
+                "otherUsersWifi": "WLAN-Name ist bereits vergeben",
+                "maxWifiCountReached": "Deine Maximalanzahl von WLANs ist erreicht. Durch Einladen von Freunden mit dem Link rechts, kannst du dieses Limit erhöhen.",
+                "absoluteWifiLimitReached": "Selbst durch Einladen von sehr vielen Freunden ist das absolute WLAN Limit bei 10. Wenn du noch mehr brauchst, schreibe uns einfach oder versuche es mal mit der Namespace Funktion (beschrieben in der Tipps Box).",
+                "whileWifiDelete": "Fehler beim Löschen des WLANs"
+            }
         },
         "tips": [
             "<div class='headline'>Extra wifis.org-ID sichern!</div> <div class='text'>Du kannst ein weiteres WLAN erstellen, für jeden Nutzer, der sich bei wifis.org über <a href='{0}' target='_blank' title='Dies ist dein persönlicher Link um Freunde zu wifis.org einzuladen'>deinen persönlichen Einladungslink</a> anmeldet.</div>",
@@ -274,6 +279,7 @@
         ]
     },
     "wifi": {
+        "notFound": "WLAN nicht gefunden",
         "headlinePrefix": "Schreibe eine Email an:",
         "text": {
             "text": "Der Eigentümer dieses WLANs benutzt extra einen wifis.org Namen, damit DU ihm schreiben kannst. Er will dir so die Möglichkeit geben, einfach mal Hallo zu sagen oder gar nach der Mitbenutzung seines WLANs zu fragen.",

@@ -1,10 +1,12 @@
 export enum WifiError {
     invalid = "invalid",
-    wifiIdTooLong = "wifiIdTooLong",
-    wifiIdTooShort = "wifiIdTooShort",
-    noWifiIdDefined = "noWifiIdDefined",
+
+    tooLong = "tooLong",
+    tooShort = "tooShort",
+    valueMissing = "valueMissing",
+    patternMismatch = "patternMismatch",
+
     wifiIdReserved = "wifiIdReserved",
-    wrongWifiIdChars = "wrongWifiIdChars",
     userIdMissing = "userIdMissing",
     otherUsersWifi = "otherUsersWifi",
     maxWifiCountReached = "maxWifiCountReached",
