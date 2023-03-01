@@ -53,7 +53,7 @@ class WifiForm {
             }
         }
 
-        var myWifi = this.wifiForm.querySelector(`*[data-wifiId='${wifiId}']`);
+        var myWifi = this.wifiForm.querySelector(`*[data-wifi-id='${wifiId}']`);
         if (myWifi) {
             return this.setErrorMessage("alreadyYours");
         }
@@ -64,7 +64,7 @@ class WifiForm {
         this.wifiInput.dataset.lastValidatedWifiId = wifiId;
 
         clearTimeout(this.timer);
-        this.wifiForm.dataset.currentvalidations++;
+        this.wifiForm.dataset.currentValidations++;
 
         this.timer = setTimeout(() => {
             this.timer = null;
@@ -77,7 +77,7 @@ class WifiForm {
                 }
             }).finally(() => {
                 if (!this.timer) {
-                    this.wifiForm.dataset.currentvalidations = 0;
+                    this.wifiForm.dataset.currentValidations = 0;
                     this.wifiForm.classList.add("was-validated");
                 }
             });
@@ -105,7 +105,7 @@ class WifiForm {
 
     insertNewWifi(wifiLabel) {
         var wifiId = wifiLabel.toLowerCase();
-        var newWifiHtml = `<div data-wifiId="${wifiId}" style='height: 0; opacity: 0; visibility: hidden;'>
+        var newWifiHtml = `<div data-wifi-id="${wifiId}" style='height: 0; opacity: 0; visibility: hidden;'>
                 <div class="input-group input-group-sm no-js-hidden mb-1">
                     <span class="input-group-text text-muted text-end d-block">wifis.org/</span>
                     <span class="input-group-text wifiName" style="font-weight: bold; background: white;">
@@ -117,7 +117,7 @@ class WifiForm {
 
         // find correct position to insert
         var smallerElement = null;
-        this.wifiForm.querySelectorAll("*[data-wifiId]").forEach(element =>
+        this.wifiForm.querySelectorAll("*[data-wifi-id]").forEach(element =>
             smallerElement = wifiId > element.dataset.wifiId ? element : smallerElement
         );
         if (smallerElement) {
@@ -126,7 +126,7 @@ class WifiForm {
             this.wifiForm.insertAdjacentHTML("afterbegin", newWifiHtml);
         }
 
-        var newWifi = document.querySelector(`*[data-wifiId='${wifiId}']`);
+        var newWifi = document.querySelector(`*[data-wifi-id='${wifiId}']`);
         setTimeout(() => { /* needed! https://stackoverflow.com/a/55951970/1066081 */
             newWifi.style.visibility = 'visible';
             newWifi.style.height = '35px';

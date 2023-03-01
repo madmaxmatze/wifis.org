@@ -28,7 +28,6 @@ export class WebController {
         `:lang(${WebController.LANGUAGES_REGEX})/:pageId(about|contact|faq|tos|press|languages|login)`
     ])
     getPages(@Res() response: Response, @Next() next: NextFunction, @Param('pageId') pageId: string = "home") {
-        // TODO: move others to supporters on About page
         var viewname = ["about", "contact", "faq", "tos"].includes(pageId) ? "page" : pageId;
         response.render(viewname, (err: Error, html: string) => I18nMiddleware.tagsReplacement(err, html, next, response));
     }

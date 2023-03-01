@@ -327,11 +327,11 @@ a.logo {
     border-radius: 0px 4px 4px 0px;
     border-color: transparent;
 }
-#addWifiForm:not([data-currentvalidations='0']) input {
+#addWifiForm:not([data-current-validations='0']) input {
     background-repeat: no-repeat;
     background-position: right calc(0.375em + 0.1875rem) center;
     background-size: calc(0.75em + 0.375rem) calc(0.75em + 0.375rem);
-    background-image: url('/img/loader.webp') !important;
+    background-image: url("/img/loader.webp") !important;
     background-blend-mode: luminosity;
 }
 
@@ -348,7 +348,7 @@ a.logo {
 #addWifiForm .input-group:hover .deleteButton {
     display: block;
 }
-#addWifiForm *[data-wifiId] {
+#addWifiForm *[data-wifi-id] {
     height: 35px;
     overflow: hidden;
     transition: all 0.6s ease-in-out;
@@ -366,7 +366,7 @@ a.logo {
 	font-size: 18pt;	
 }
 .home_page main > .container-lg:nth-of-type(1) {
-    background-image: url(/img/postbox.png);
+    background-image: url("/img/postbox.png");
     background-repeat: no-repeat;
     background-position: 30px bottom;
 }
@@ -474,13 +474,13 @@ a.logo {
 .home_page .card-body:hover {
     background-size: 110%;
 }
-.home_page .col:nth-child(1) .card-body:hover { background-image: url(/img/teaser1_active1.png);}
-.home_page .col:nth-child(2) .card-body:hover { background-image: url(/img/teaser2_dark_active.png);}
-.home_page .col:nth-child(3) .card-body:hover { background-image: url(/img/teaser3_dark_active.png);}
+.home_page .col:nth-child(1) .card-body:hover { background-image: url("/img/teaser1_active1.png");}
+.home_page .col:nth-child(2) .card-body:hover { background-image: url("/img/teaser2_dark_active.png");}
+.home_page .col:nth-child(3) .card-body:hover { background-image: url("/img/teaser3_dark_active.png");}
 
-.home_page .col:nth-child(1) .card-body { background-image: url(/img/teaser1_small.png);}
-.home_page .col:nth-child(2) .card-body { background-image: url(/img/teaser2_small.png);}
-.home_page .col:nth-child(3) .card-body { background-image: url(/img/teaser3_small.png);}
+.home_page .col:nth-child(1) .card-body { background-image: url("/img/teaser1_small.png");}
+.home_page .col:nth-child(2) .card-body { background-image: url("/img/teaser2_small.png");}
+.home_page .col:nth-child(3) .card-body { background-image: url("/img/teaser3_small.png");}
 
 
 
