@@ -1,6 +1,6 @@
-<div id="addWifiForm" class="form-inline no-js-hidden" data-currentvalidations=0>
+<form id="addWifiForm" class="form-inline no-js-hidden" data-currentvalidations=0>
     {{#each wifis}}
-        <div data-wifiid="{{this.id}}">
+        <div data-wifiId="{{this.id}}">
             <div class="input-group input-group-sm mb-1">
                 <span class="input-group-text text-muted text-end d-block">wifis.org/</span>
                 <span class="input-group-text wifiName" style="font-weight: bold; background: white;">
@@ -13,20 +13,20 @@
     {{/each}}
 
     <div class="input-group input-group-{{#if (equals pageId "wifis")}}sm{{else}}lg{{/if}} mb-1">
-        <span class="input-group-text text-end d-block pe-2">wifis.org/</span>
-        <input pattern="^[\w\-]+$" minlength="3" maxlength="20" type="text" class="form-control" id="addWifiInput"
-            name="wifiid" placeholder="{{__ "wifis.enternew"}}" title="{{__ "wifis.enternew"}}" required>
-        {{!--
-        <button class="btn btn-primary disabled" id="addWifiSave">
-            <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
-            <span
-                class="caption">{{#if (equals pageId "wifis")}}{{__ "wifis.save"}}{{else}}{{__ "wifis.test"}}{{/if}}</span>
-        </button>
-        --}}
+        <span class="input-group-text">wifis.org/</span>
+        <input pattern="^[\w\-]+$" minlength="3" maxlength="20" type="text" class="form-control" name="wifiid"
+            placeholder="{{__ "wifis.enternew"}}" title="{{__ "wifis.enternew"}}" required>
+        {{#if (equals pageId "wifis")}}
+            <div>
+                <button class="btn btn-primary disabled" type="submit" novalidate>
+                    <span class="caption">{{__ "wifis.save"}}</span>
+                </button>
+            </div>
+        {{/if}}
         <br>
         <div class="invalid-feedback"></div>
         <div class="valid-feedback">{{__ "wifis.form.available"}}</div>
     </div>
-</div>
+</form>
 
 <script type='text/javascript' src='/js/wifi.form.js?{{version}}'></script>

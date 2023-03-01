@@ -1,96 +1,14 @@
-// TODO: rework form js!
-
 class WifiForm {
-    constructor(wifiForm) {
-        if (wifiForm) {
-            this.wifiForm = wifiForm;
-            this.wifiInput = this.wifiForm.querySelector("#addWifiInput");
-            this.wifiInput.addEventListener('keyup', (event) => {
-                event.preventDefault();
-                this.validateWifiId(event.target.value);
-            });
-            this.wifiInput.addEventListener('focusout', (event) => {
-                if (!this.wifiInput.value) {
-                    this.setErrorMessage();
-                }
-            });
-            this.registerWifiDeleteHandler();
-            // this.wifiButton = this.wifiForm.querySelector("button");
+    constructor() {
+        this.wifiForm = document.querySelector("#addWifiForm");
+        if (this.wifiForm) {
+            this.wifiButton = this.wifiForm.querySelector("button");
+            this.wifiInput = this.wifiForm.querySelector("input");
+            this.wifiForm.addEventListener('submit', event => this.creationHandler.apply(this, [event]));
+            this.wifiForm.addEventListener('click', event => this.deletionHandler.apply(this, [event]));
+            this.wifiInput.addEventListener("input", event => this.validationHandler.apply(this, [event]));
+            this.wifiInput.addEventListener('focusout', () => { if (!this.wifiInput.value) this.setErrorMessage(); });
         }
-    }
-
-    registerWifiDeleteHandler() {
-        Array.from(this.wifiForm.querySelectorAll("*[data-wifiid] .deleteButton")).forEach(element => {
-            element.removeEventListener("click", this.deleteWifiHandler);
-            element.addEventListener('click', this.deleteWifiHandler);
-        });
-    }
-
-    deleteWifiHandler(event) {
-        event.preventDefault();
-        var wifiObj = event.target.parentElement.parentElement;
-        var wifiId = wifiObj.getAttribute("data-wifiid");
-        wifiObj.style.height = 0;
-        wifiObj.style.visibility = 'hidden';
-
-        this.wifiAction("delete", wifiId).then(json => {
-            if (json.success) {
-                setTimeout(() => { /* animation should first finish */
-                    wifiObj.remove();
-                }, 600);
-            } else {
-                wifiObj.style.height = "auto";
-                alert(`error removing wifi '${wifiId}'`);
-            }
-        });
-    }
-
-    setErrorMessage(message) {
-        this.wifiForm.classList.toggle("was-validated", !!message);
-      
-        if (config?.translations?.wifis?.form?.error[message]) {
-            message = config.translations.wifis.form.error[message];
-        }
-
-        this.wifiForm.querySelector(".invalid-feedback").innerHTML = message || "";
-    }
-
-    validateWifiId(wifiId) {
-        if (wifiId == this.wifiInput.dataset.lastValidatedWifiId) {
-            return
-        }
-
-        this.wifiInput.dataset.lastValidatedWifiId = wifiId;
-        this.setErrorMessage();
-        this.wifiInput.setCustomValidity("");
-      
-        var validity = this.wifiInput.validity;
-        for (var errorType in validity) {
-            if (errorType != "valid" && validity[errorType]) {
-                return this.setErrorMessage(errorType);
-            }
-        }
-
-        clearTimeout(this.timer);
-        this.wifiForm.dataset.currentvalidations++;
-
-        this.timer = setTimeout(() => {
-            this.timer = null;
-            this.wifiAction("exists", wifiId).then(json => {
-                if (json.success && !json.error) {
-                    json.error = "otherUsersWifi";
-                    this.wifiInput.setCustomValidity("json.error");
-                }
-                if (addWifiInput.value == wifiId) {
-                    this.setErrorMessage(json.error);
-                }
-            }).finally(() => {
-                if (!this.timer) {
-                    this.wifiForm.dataset.currentvalidations = 0;
-                    this.wifiForm.classList.add("was-validated");
-                }
-            });
-        }, 400); // only check 400ms after last key press
     }
 
     async wifiAction(action, wifiId) {
@@ -104,55 +22,136 @@ class WifiForm {
         }).then(response => response.json());
     }
 
-    createNewWifiHandler(event) {
-        event.preventDefault();
+    setErrorMessage(message) {
+        this.wifiForm.classList.toggle("was-validated", !!message);
+        if (this.wifiButton) {
+            this.wifiButton.classList.toggle("disabled", message == "" || !!message);
+        }
 
-        var wifiId = this.wifiInput.value;
+        var standardValidationErrors = ["valueMissing", "tooShort", "tooLong", "patternMismatch"];
+        if (message && !standardValidationErrors.includes(message)) {
+            this.wifiInput.setCustomValidity(message);
+        }
 
-        this.setErrorMessage();
-
-        this.wifiAction("add", wifiId).then(json => {
-            if (json.success) {
-                // find correct position
-                var smallerElement = Array.from(this.wifiForm.querySelectorAll("*[data-wifiid]")).reduce((smaller, element) => (
-                    wifiId > element.getAttribute("data-wifiid") ? element : smaller
-                ), null);
-
-                var html = this.getNewWifiHtml(wifiId.toLowerCase(), wifiId);
-                if (smallerElement) {
-                    smallerElement.insertAdjacentHTML("afterend", html);
-                } else {
-                    this.wifiForm.insertAdjacentHTML("afterbegin", html);
-                }
-
-                var newWifi = document.querySelector(`*[data-wifiid='${wifiId}']`)
-
-                setTimeout(() => { /* needed! https://stackoverflow.com/a/55951970/1066081 */
-                    newWifi.style.visibility = 'visible';
-                    newWifi.style.height = '35px';
-                    newWifi.style.opacity = 1;
-                }, 10);
-
-                this.setErrorMessage();
-                this.wifiInput.value = "";
-                this.registerWifiDeleteHandler();
-            }
-            this.setErrorMessage(json.error);
-        });
+        if (config?.translations?.wifis?.form?.error[message]) {
+            message = config.translations.wifis.form.error[message];
+        }
+        this.wifiForm.querySelector(".invalid-feedback").innerHTML = message;
     }
 
-    getNewWifiHtml(wifiId, label) {
-        return `
-            <div data-wifiid="${wifiId}" style='height: 0; opacity: 0; visibility: hidden;'>
+    validationHandler(event) {
+        event.preventDefault();
+
+        var wifiId = this.wifiInput.value.toLowerCase();
+        this.setErrorMessage();
+
+        this.wifiInput.setCustomValidity("");
+        var validity = this.wifiInput.validity;
+        for (var errorType in validity) {
+            if (errorType != "valid" && validity[errorType]) {
+                return this.setErrorMessage(errorType);
+            }
+        }
+
+        var myWifi = this.wifiForm.querySelector(`*[data-wifiId='${wifiId}']`);
+        if (myWifi) {
+            return this.setErrorMessage("alreadyYours");
+        }
+
+        if (wifiId == this.wifiInput.dataset.lastValidatedWifiId) {
+            return;
+        }
+        this.wifiInput.dataset.lastValidatedWifiId = wifiId;
+
+        clearTimeout(this.timer);
+        this.wifiForm.dataset.currentvalidations++;
+
+        this.timer = setTimeout(() => {
+            this.timer = null;
+            this.wifiAction("exists", wifiId).then(json => {
+                if (this.wifiInput.value == wifiId) {
+                    if (json.success && !json.error) {
+                        json.error = "otherUsersWifi";
+                    }
+                    this.setErrorMessage(json.error);
+                }
+            }).finally(() => {
+                if (!this.timer) {
+                    this.wifiForm.dataset.currentvalidations = 0;
+                    this.wifiForm.classList.add("was-validated");
+                }
+            });
+        }, 400); // only check 400ms after last key press
+    }
+
+    creationHandler(event) {
+        event.preventDefault();
+
+        var wifiLabel = this.wifiInput.value;
+        if (wifiLabel && document.querySelector(".wifis_page")) {
+            this.wifiAction("add", wifiLabel).then(json => {
+                if (json.success) {
+                    this.setErrorMessage();
+                    this.wifiInput.value = "";
+                    this.insertNewWifi(wifiLabel);
+                } else {
+                    alert(`Error adding '${wifiLabel}'`);
+                }
+            });
+        }
+
+        return false;
+    }
+
+    insertNewWifi(wifiLabel) {
+        var wifiId = wifiLabel.toLowerCase();
+        var newWifiHtml = `<div data-wifiId="${wifiId}" style='height: 0; opacity: 0; visibility: hidden;'>
                 <div class="input-group input-group-sm no-js-hidden mb-1">
                     <span class="input-group-text text-muted text-end d-block">wifis.org/</span>
                     <span class="input-group-text wifiName" style="font-weight: bold; background: white;">
-                        <a target="_blank" href="/${label}">${label}</a>
+                        <a target="_blank" href="/${wifiLabel}">${wifiLabel}</a>
                     </span>    
                     <span class="input-group-text deleteButton no-js-hidden border-0 bg-transparent" title="${config.translations.wifis.deleteButton}"></span>
                 </div>
             </div>`;
+
+        // find correct position to insert
+        var smallerElement = null;
+        this.wifiForm.querySelectorAll("*[data-wifiId]").forEach(element =>
+            smallerElement = wifiId > element.dataset.wifiId ? element : smallerElement
+        );
+        if (smallerElement) {
+            smallerElement.insertAdjacentHTML("afterend", newWifiHtml);
+        } else {
+            this.wifiForm.insertAdjacentHTML("afterbegin", newWifiHtml);
+        }
+
+        var newWifi = document.querySelector(`*[data-wifiId='${wifiId}']`);
+        setTimeout(() => { /* needed! https://stackoverflow.com/a/55951970/1066081 */
+            newWifi.style.visibility = 'visible';
+            newWifi.style.height = '35px';
+            newWifi.style.opacity = 1;
+        }, 10);
+    }
+
+    deletionHandler(event) {
+        if (event.target.classList.contains('deleteButton')) {
+            event.preventDefault();
+
+            var wifiObj = event.target.parentElement.parentElement;
+            var wifiId = wifiObj.dataset.wifiId;
+            wifiObj.style.height = "0px";
+
+            this.wifiAction("delete", wifiId).then(json => {
+                if (json.success) {
+                    setTimeout(() => { wifiObj.remove(); }, 600); // animation need to first finish
+                } else {
+                    wifiObj.style.height = "35px";
+                    alert(`error removing wifi '${wifiId}'`);
+                }
+            });
+        }
     }
 }
 
-new WifiForm(document.querySelector("#addWifiForm"));
+new WifiForm();
