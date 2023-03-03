@@ -13,8 +13,8 @@
 </title>
 
 {{#if wifiId}}
-    {{!-- only /contact + /example wifis should be indexed --}}
-    {{#if (or (equals wifiId "contact") (equals wifiId "example"))}}
+    {{!-- only /example wifi should be indexed --}}
+    {{#if (equals wifiId "example")}}
         <meta name="robots" content="index" />
         <link rel="canonical"
             href="https://wifis.org/{{wifiId}}{{#unless (equals getLocale defaultLang)}}?lang={{getLocale}}{{/unless}}" />

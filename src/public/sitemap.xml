@@ -62,19 +62,8 @@
     <xhtml:link rel="alternate" hreflang="ru" href="https://wifis.org/example?lang=ru" />
   </url>
   <url>
-    <loc>https://wifis.org/contact</loc>
-    <priority>0.5</priority>
-    <xhtml:link rel="alternate" hreflang="de" href="https://wifis.org/contact?lang=de" />
-    <xhtml:link rel="alternate" hreflang="es" href="https://wifis.org/contact?lang=es" />
-    <xhtml:link rel="alternate" hreflang="fr" href="https://wifis.org/contact?lang=fr" />
-    <xhtml:link rel="alternate" hreflang="it" href="https://wifis.org/contact?lang=it" />
-    <xhtml:link rel="alternate" hreflang="ms" href="https://wifis.org/contact?lang=ms" />
-    <xhtml:link rel="alternate" hreflang="nl" href="https://wifis.org/contact?lang=nl" />
-    <xhtml:link rel="alternate" hreflang="ru" href="https://wifis.org/contact?lang=ru" />
-  </url>
-  <url>
     <loc>https://wifis.org/en/tos</loc>
-    <priority>0.5</priority>
+    <priority>0.2</priority>
     <xhtml:link rel="alternate" hreflang="de" href="https://wifis.org/de/tos" />
     <xhtml:link rel="alternate" hreflang="es" href="https://wifis.org/es/tos" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://wifis.org/fr/tos" />

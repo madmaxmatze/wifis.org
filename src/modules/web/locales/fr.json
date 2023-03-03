@@ -158,7 +158,14 @@
     "press": {
         "headline": "Presse",
         "linklabel": "Presse",
-        "text": "Depuis que <b>wifis.org</b> a été lancé fin 2011 le site est régulièrement mentionné et recommandé dans des blogs et des sites de journaux dans le monde entier. On est toujours disponibles à vos demandes. N'hésitez pas à nous <a href='/p/about'>contacter</a>"
+        "content": [
+            {
+                "text": [
+                    "Depuis que <b>wifis.org</b> a été lancé fin 2011 le site est régulièrement mentionné et recommandé dans des blogs et des sites de journaux dans le monde entier. On est toujours disponibles à vos demandes.",
+                    "N'hésitez pas à nous <a href='/{__lang}/contact'>contacter</a>"
+                ]
+            }
+        ]
     },
     "stats": {
         "headline": "wifis.org stats",

@@ -232,7 +232,16 @@
     "press": {
         "headline": "Press",
         "linklabel": "press",
-        "text": "Bellow you find a collection of the recent press coverage we received. Feel free to use screenshots of the website or <a href='https://picasaweb.google.com/110726804868278117649/WifisOrg' target='_blank'>these image resources</a> for you article. For inquiries please <a href='/{__lang}/about'>contact us</a> and thanks a lot for your support!"
+        "content": [
+            {
+                "text": [
+                    "Bellow you find a collection of the recent press coverage we received.",
+                    "Feel free to use screenshots of the website or <a href='{__press.kitUrl}' target='_blank'>these image resources</a> for you article.",
+                    "For inquiries please <a href='/{__lang}/contact'>contact us</a> and thanks a lot for your support!"
+                ]
+            }
+        ],
+        "kitUrl" : "https://www.pinterest.de/wifisorg/about-wifis-org/"
     },
     "stats": {
         "headline": "wifis.org stats",

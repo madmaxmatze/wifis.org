@@ -24,9 +24,10 @@
                     <a href='https://wif.is/{{wifiId}}' rel='nofollow'>wif.is/{{wifiId}}</a>
                 </li>
                 <li>
-                    <b>{__wifi.urls.subwifis}:</b> 
-                    <a href='https://wifis.org/{{wifiId}}/whatever/sub/wifi_$!@' rel='nofollow'>wifis.org/{{wifiId}}/whatever/sub/wifi_$!@</a>
-                </li>        
+                    <b>{__wifi.urls.subwifis}:</b>
+                    <a href='https://wifis.org/{{wifiId}}/whatever/sub/wifi_$!@'
+                        rel='nofollow'>wifis.org/{{wifiId}}/whatever/sub/wifi_$!@</a>
+                </li>
             </ul>
         </div>
     {{/if}}
@@ -58,41 +59,20 @@
 
         <form method="POST" id='contactform' class="contactform form-stacked">
             <div class="mb-3 form-floating">
-                <input name="contact" class="form-control" value="{{form_field_contact}}" placeholder="{{{__ "wifi.form.contact"}}}" />
+                <input name="contact" class="form-control" value="{{form_field_contact}}"
+                    placeholder="{{{__ "wifi.form.contact"}}}" />
                 <label class="form-label">{{{__ "wifi.form.contact"}}}</label>
-                {{!-- <c:if test="${fn:startsWith(error, 'email')==true}">
-                    <span class="help-block">
-                        <spring:message code="wifi.form.error.${error}" /></span>
-                </c:if>
-                --}}
             </div>
-            <div class="mb-3 form-floating">
-                <textarea name="text" class="form-control" placeholder="{{{__ "wifi.form.message"}}}">{{form_field_text}}</textarea>
-                <label class="form-label">{{{__ "wifi.form.message"}}}</label>
-                    {{!--
-                    <c:if test="${fn:startsWith(error, 'text')==true}">
-                        <span class="help-block">
-                            <spring:message code="wifi.form.error.${error}" /></span>
-                    </c:if>
-                    --}}
-            </div>
-            
-            
-            {{!--
-            <div class="input">
-                {{#if (equals error "recaptcha")}}
-                <span class="help-block">{{{__ "wifi.form.error.recaptcha"}}}</span>
-                {{/if}}
-            </div>
-            --}}
 
+            <div class="mb-3 form-floating">
+                <textarea name="text" class="form-control"
+                    placeholder="{{{__ "wifi.form.message"}}}">{{form_field_text}}</textarea>
+                <label class="form-label">{{{__ "wifi.form.message"}}}</label>
+            </div>
 
             <div class="form-actions">
-                <button 
-                class="btn btn-primary submitButton g-recaptcha" 
-                data-sitekey="{{RECAPTCHA_SITE_KEY}}" 
-                data-callback='onSubmit' 
-                data-action='submit'
+                <button class="btn btn-primary submitButton g-recaptcha" data-sitekey="{{RECAPTCHA_SITE_KEY}}"
+                    data-callback='onSubmit' data-action='submit'
                     style="margin-left:38px">{{__ "wifi.form.send"}}</button>
             </div>
 

@@ -2,8 +2,8 @@
     {{#each getLocales}}
         <li>
             <a href="/{{this}}{{../urlWithoutLangAndQuery}}">
-            <span class="sprite flag flag_{{this}}"></span>
-            {{~../__ (concat "label.lang." this)~}}
+                <span class="sprite flag flag_{{this}}"></span>
+                {{~../__ (concat "label.lang." this)~}}
             </a>
         </li>
     {{/each}}

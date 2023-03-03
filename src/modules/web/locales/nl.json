@@ -155,7 +155,15 @@
     "press": {
         "headline": "Pers",
         "linklabel": "Pers",
-        "text": "Hieronder vind je een verzameling van de persaandacht die we tot nu toe kregen. Aarzel niet om screenshots van de website te gebruiken of <a href='https://picasaweb.google.com/110726804868278117649/WifisOrg' target='_blank'>deze beelden </a> voor je artikel. Voor aanvragen <a href='/{__lang}/contact'>contacteer ons</a> en hartelijk dank voor je support!"
+        "content": [
+            {
+                "text": [
+                    "Hieronder vind je een verzameling van de persaandacht die we tot nu toe kregen.",
+                    "Aarzel niet om screenshots van de website te gebruiken of <a href='{__press.kitUrl}' target='_blank'>deze beelden </a> voor je artikel.",
+                    "Voor aanvragen <a href='/{__lang}/contact'>contacteer ons</a> en hartelijk dank voor je support!"
+                ]
+            }
+        ]
     },
     "stats": {
         "headline": "wifis.org statistieken",

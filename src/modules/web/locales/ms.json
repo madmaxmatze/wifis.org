@@ -155,7 +155,15 @@
     "press": {
         "headline": "Akhbar",
         "linklabel": "Akhbar",
-        "text": "Disini anda boleh mendapati koleksi liputan akhbar yang terkini mengenai kami. Anda dibenarkan untuk menggunakan skrin-skrin laman web atau <a href='https://picasaweb.google.com/110726804868278117649/WifisOrg' target='_blank'>pustaka imej-imej ini</a> untuk artikel anda. Sebarang pertanyaan boleh diajukan <a href='/{__lang}/about'>pada kami</a> dan kami dahului dengan ribuan terima kasih untuk sokongan anda!"
+        "content": [
+            {
+                "text": [
+                    "Disini anda boleh mendapati koleksi liputan akhbar yang terkini mengenai kami.",
+                    "Anda dibenarkan untuk menggunakan skrin-skrin laman web atau <a href='{__press.kitUrl}' target='_blank'>pustaka imej-imej ini</a> untuk artikel anda.",
+                    "Sebarang pertanyaan boleh diajukan <a href='/{__lang}/contact'>pada kami</a> dan kami dahului dengan ribuan terima kasih untuk sokongan anda!"
+                ]
+            }
+        ]
     },
     "stats": {
         "headline": "wifis.org stats",

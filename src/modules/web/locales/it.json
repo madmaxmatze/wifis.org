@@ -156,7 +156,15 @@
     "press": {
         "headline": "Area stampa",
         "linklabel": "area stampa",
-        "text": "Sotto puoi trovare una raccolta di articoli che hanno parlato di noi recentemente. Per gli articoli, screenshot del sito <a href='https://picasaweb.google.com/110726804868278117649/WifisOrg' target='_blank'>queste immagini</a> possono essere usate liberamente. Per richieste d’informazioni, <a href='/{__lang}/about'>contattateci</a> e grazie mille per il supporto!"
+        "content": [
+            {
+                "text": [
+                    "Sotto puoi trovare una raccolta di articoli che hanno parlato di noi recentemente.",
+                    "Per gli articoli, screenshot del sito <a href='{__press.kitUrl}' target='_blank'>queste immagini</a> possono essere usate liberamente.",
+                    "Per richieste d’informazioni, <a href='/{__lang}/contact'>contattateci</a> e grazie mille per il supporto!"
+                ]
+            }
+        ]
     },
     "stats": {
         "headline": "wifis.org stats",

@@ -157,7 +157,13 @@
     "press": {
         "headline": "Prensa",
         "linklabel": "Prensa",
-        "text": "En la prensa:"
+        "content": [
+            {
+                "text": [
+                    "En la prensa:"
+                ]
+            }
+        ]
     },
     "stats": {
         "headline": "wifis.org stats",

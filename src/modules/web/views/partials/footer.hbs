@@ -62,20 +62,10 @@
                 {{#if (equals getLocale "de")}}
                     <a href="/{{getLocale}}/press" class="logo logo-golem"
                         title="{{label.footer.featured.hint}} golem.de"></a>
-                    <a href="/{{getLocale}}/press" class="logo logo-netzwertig"
-                        title="{{label.footer.featured.hint}} www.netzwertig.com"></a>
                     <a href="/{{getLocale}}/press" class="logo logo-jetzt"
                         title="{{label.footer.featured.hint}} jetzt.sueddeutsche.de"></a>
-                    <a href="/{{getLocale}}/press" class="logo logo-fritz"
-                        title="{{label.footer.featured.hint}} Fritz.de (Berlin)"></a>
                     <a href="/{{getLocale}}/press" class="logo logo-basicthinking"
                         title="{{label.footer.featured.hint}} www.basicthinking.de"></a>
-                    <a href="/{{getLocale}}/press" class="logo logo-wdr"
-                        title="{{label.footer.featured.hint}} wdr.de"></a>
-                    <a href="/{{getLocale}}/press" class="logo logo-pcpraxis"
-                        title="{{label.footer.featured.hint}} PCPraxis.de"></a>
-                    <a href="/{{getLocale}}/press" class="logo logo-nzz"
-                        title="{{label.footer.featured.hint}} Blog.NZZ.ch (Neue Züricher Zeitung)"></a>
                 {{/if}}
 
                 {{#if (equals getLocale "en")}}
@@ -98,20 +88,6 @@
                         title="{{label.footer.featured.hint}} www.muyinternet.com"></a>
                     <a href="/{{getLocale}}/press" class="logo logo-bandaancha"
                         title="{{label.footer.featured.hint}} bandaancha.eu"></a>
-                    <a href="/{{getLocale}}/press" class="logo logo-theinquirer"
-                        title="{{label.footer.featured.hint}} www.theinquirer.es"></a>
-                {{/if}}
-
-                {{#if (equals getLocale "fr")}}
-                    <a href="/{{getLocale}}/press" class="logo logo-techcrunch_fr"
-                        title="{{label.footer.featured.hint}} fr.TechCrunch.com"></a>
-                    <a href="/{{getLocale}}/press" class="logo logo-lc1"
-                        title="{{label.footer.featured.hint}} www.wat.tv"></a>
-                {{/if}}
-
-                {{#if (equals getLocale "it")}}
-                    <a href="/{{getLocale}}/press" class="logo logo-downloadblogit"
-                        title="{{label.footer.featured.hint}} downloadblog.it"></a>
                 {{/if}}
 
                 {{#if (equals getLocale "ru")}}
@@ -119,7 +95,7 @@
                         title="{{label.footer.featured.hint}} LifeHacker.ru"></a>
                 {{/if}}
 
-                {{#if (equals getLocale "ms")}}
+                {{#if (or (equals getLocale "fr") (equals getLocale "it") (equals getLocale "nl") (equals getLocale "ms"))}}
                     <a href="/{{getLocale}}/press" class="nav-link p-0 text-muted">
                         {{~__ "press.linklabel"~}}
                     </a>
@@ -128,8 +104,7 @@
         </div>
     </div>
 
-
-    <div class="d-flex flex-column flex-sm-row justify-content-between py-3 border-top">
+    <div class="d-flex flex-column flex-sm-row justify-content-between py-3 border-top text-muted">
         <p>{{{__ "label.footer.text"}}}</p>
         <ul class="list-unstyled d-flex w-30">
             <li class="ms-3">

@@ -229,9 +229,13 @@
         "content": [
             {
                 "text": [
-                    "Seitdem <b>wifis.org</b> Ende 2011 live gegangen ist, wird die Seite regelmäßig in Blogs und Nachrichten-Webseiten weltweit empfohlen.",
-                    "<br> Für Anfragen sind wir jederzeit <a href='/{__lang}/contact'>erreichbar</a> und freuen uns über weitere Unterstützung.<br><br>",
-                    "Frei verwendbares Bildmaterial ist <a href='https://picasaweb.google.com/110726804868278117649/WifisOrg' target='_blank'>hier</a> verfügbar."
+                    "Seitdem <b>wifis.org</b> Ende 2011 live gegangen ist, wird die Seite regelmäßig in Blogs und Nachrichten-Webseiten weltweit empfohlen."
+                ]
+            },
+            {
+                "text": [
+                    "Für Anfragen sind wir jederzeit <a href='/{__lang}/contact'>erreichbar</a> und freuen uns über weitere Unterstützung.",
+                    "Frei verwendbares Bildmaterial ist <a href='{__press.kitUrl}' target='_blank'>hier</a> verfügbar."
                 ]
             }
         ]

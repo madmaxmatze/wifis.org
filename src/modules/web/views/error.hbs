@@ -9,7 +9,7 @@
         <div class="alert alert-error">
             {{{error.message}}}
         </div>
-        
+
         {{#if error.status}}
             <h3>Status</h3>
             <pre>{{error.status}}</pre>
@@ -18,7 +18,7 @@
         {{#if error.stack}}
             <h3>Stack</h3>
             <pre>{{{error.stack}}}</pre>
-        {{/if}}   
+        {{/if}}
 
         {{#if error.cause}}
             <h3>Cause</h3>
@@ -32,7 +32,7 @@
     {{/if}}
 
 {{else}}
-    
+
     {{assign "title" (__ "404.headline")}}
 
     <h2>
